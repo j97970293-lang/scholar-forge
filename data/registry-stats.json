@@ -1,0 +1,43 @@
+{
+  "generated_utc": "2026-10-27T20:27:18+00:00",
+  "total_entries": 5434,
+  "by_source": {
+    "O0000-listed": 223,
+    "O0000-backlog": 749,
+    "cosen1024": 43,
+    "kael-odin": 114,
+    "kalaris-catalog": 281,
+    "ranbot-ai": 1129,
+    "miketepUR": 51,
+    "SKILL.md": 3244
+  },
+  "by_kind": {
+    "suite": 929,
+    "skill": 4473,
+    "skill-suite": 7,
+    "plugin": 11,
+    "list": 4,
+    "mcp-server": 1,
+    "link": 9
+  },
+  "by_stage": {
+    "suite": 582,
+    "discovery": 1779,
+    "writing": 267,
+    "citation": 285,
+    "figures": 127,
+    "autonomous": 18,
+    "reading": 464,
+    "peer-review": 226,
+    "meta": 956,
+    "publishing": 100,
+    "analysis": 488,
+    "writing-quality": 110,
+    "discipline": 26,
+    "ocr": 6
+  },
+  "academic_entries": 1028,
+  "verified_entries": 265,
+  "backlog_entries": 749,
+  "github_repos": 1121
+}

@@ -1,0 +1,27 @@
+{
+  "schema": "scholarforge-reporting-v1",
+  "source": "EQUATOR Network / venue checklists (verify current version on equator-network.org before submission)",
+  "guidelines": {
+    "RCT": {"name": "CONSORT 2010 + 2025 updates", "use_for": "randomised controlled trials", "extras": ["registration", "CONSORT flow diagram", "allocation concealment"]},
+    "observational": {"name": "STROBE", "use_for": "cohort, case-control, cross-sectional", "extras": ["confounder handling", "missing data", "sensitivity analyses"]},
+    "systematic-review": {"name": "PRISMA 2020", "use_for": "systematic reviews and meta-analyses", "extras": ["protocol registration (PROSPERO)", "full search strings", "risk-of-bias tool", "flow diagram"]},
+    "diagnostic-accuracy": {"name": "STARD 2015", "use_for": "diagnostic/prognostic accuracy", "extras": ["2x2 table", "threshold pre-specification"]},
+    "prediction-model": {"name": "TRIPOD+AI", "use_for": "prediction models incl. ML", "extras": ["calibration", "external validation", "data leakage checks"]},
+    "qualitative": {"name": "COREQ / SRQR", "use_for": "interviews, focus groups", "extras": ["researcher reflexivity", "quotation traceability"]},
+    "animal": {"name": "ARRIVE 2.0", "use_for": "animal research", "extras": ["randomisation", "blinding", "sample-size rationale"]},
+    "protocol": {"name": "SPIRIT", "use_for": "trial protocols", "extras": ["schedule of enrolment", "interventions and assessments"]},
+    "case-report": {"name": "CARE", "use_for": "case reports", "extras": ["timeline", "patient perspective", "consent"]},
+    "ml-paper": {"name": "NeurIPS/ICLR/ACL reproducibility checklist", "use_for": "ML conference papers", "extras": ["compute budget", "seeds and variance", "license of assets", "data documentation"]},
+    "qualitative-synthesis": {"name": "ENTREQ", "use_for": "qualitative evidence synthesis", "extras": ["search and screening transparency"]},
+    "economic-evaluation": {"name": "CHEERS 2022", "use_for": "health economic evaluations", "extras": ["discount rate", "perspective", "uncertainty"]}
+  },
+  "risk_of_bias_tools": {
+    "RCT": "RoB 2", "non-randomised": "ROBINS-I", "diagnostic": "QUADAS-2",
+    "observational": "Newcastle-Ottawa Scale (use with caution)", "reviews": "AMSTAR 2"
+  },
+  "evidence_grading": {
+    "GRADE": ["high", "moderate", "low", "very low"],
+    "downgrade_for": ["risk of bias", "inconsistency", "indirectness", "imprecision", "publication bias"],
+    "upgrade_for": ["large effect", "dose-response", "plausible confounding reduces effect"]
+  }
+}

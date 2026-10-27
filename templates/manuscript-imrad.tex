@@ -1,0 +1,27 @@
+%% ScholarForge IMRaD scaffold -- compile with pdflatex + biber (or adapt to your venue class)
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,booktabs,graphicx,hyperref,microtype}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{references.bib}
+\title{{{TITLE}}}
+\author{{{AUTHOR}}}
+\date{{{DATE}}}
+\begin{document}
+\maketitle
+\begin{abstract}
+% 150--300 words. Context, gap, objective, methods, main numerical result, interpretation.
+\end{abstract}
+\section{Introduction}\label{sec:intro}
+\section{Related Work}\label{sec:related}
+\section{Methods}\label{sec:methods}
+\subsection{Data and design}
+\subsection{Analysis}
+\section{Results}\label{sec:results}
+\section{Discussion}\label{sec:discussion}
+\section{Conclusion}\label{sec:conclusion}
+\section*{Data and code availability}
+\section*{Acknowledgements}
+\printbibliography
+\end{document}

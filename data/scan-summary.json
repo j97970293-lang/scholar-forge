@@ -1,0 +1,999 @@
+{
+  "generated_utc": "2026-10-27T20:27:17+00:00",
+  "source_root": "/home/user/_scan",
+  "repositories": 8,
+  "total_files": 15254,
+  "total_bytes": 143347278,
+  "total_lines": 2387424,
+  "skill_md_files": 3244,
+  "python_cli_scripts": 748,
+  "distinct_extensions": 40,
+  "distinct_hosts": 1713,
+  "distinct_github_links": 1712,
+  "per_repo": {
+    "O0000-code_awesome-academic-skills": {
+      "files": 268,
+      "bytes": 1540878,
+      "human_bytes": "1.5 MB",
+      "lines": 21755,
+      "python": 9,
+      "shell": 0,
+      "markdown": 11,
+      "yaml": 227,
+      "json": 2,
+      "top_extensions": [
+        [
+          ".yml",
+          226
+        ],
+        [
+          ".md",
+          11
+        ],
+        [
+          ".py",
+          9
+        ],
+        [
+          ".png",
+          5
+        ],
+        [
+          ".svg",
+          5
+        ],
+        [
+          "(none)",
+          3
+        ],
+        [
+          ".j2",
+          3
+        ],
+        [
+          ".json",
+          2
+        ]
+      ],
+      "url": "https://github.com/O0000-code/awesome-academic-skills",
+      "license": "CC0-1.0",
+      "role": "meta-list: 223 curated skill records + ASDF trust framework + schema"
+    },
+    "cosen1024_awesome-academic-skills": {
+      "files": 14,
+      "bytes": 142256,
+      "human_bytes": "138.9 KB",
+      "lines": 1986,
+      "python": 3,
+      "shell": 0,
+      "markdown": 7,
+      "yaml": 1,
+      "json": 0,
+      "top_extensions": [
+        [
+          ".md",
+          7
+        ],
+        [
+          ".py",
+          3
+        ],
+        [
+          "(none)",
+          2
+        ],
+        [
+          ".txt",
+          1
+        ],
+        [
+          ".yaml",
+          1
+        ]
+      ],
+      "url": "https://github.com/cosen1024/awesome-academic-skills",
+      "license": "MIT",
+      "role": "meta-list: verified bilingual catalog with pinned source_ref commits"
+    },
+    "kael-odin_awesome-academic-research-skills": {
+      "files": 92,
+      "bytes": 8833632,
+      "human_bytes": "8.4 MB",
+      "lines": 306405,
+      "python": 4,
+      "shell": 0,
+      "markdown": 5,
+      "yaml": 0,
+      "json": 63,
+      "top_extensions": [
+        [
+          ".json",
+          63
+        ],
+        [
+          ".html",
+          7
+        ],
+        [
+          ".md",
+          5
+        ],
+        [
+          ".py",
+          4
+        ],
+        [
+          ".js",
+          3
+        ],
+        [
+          ".xml",
+          2
+        ],
+        [
+          "(none)",
+          2
+        ],
+        [
+          ".svg",
+          2
+        ]
+      ],
+      "url": "https://github.com/kael-odin/awesome-academic-research-skills",
+      "license": "MIT",
+      "role": "meta-list: live star/trend rankings + 60-day history"
+    },
+    "miketepUR_awesome-claude-skills": {
+      "files": 4,
+      "bytes": 36591,
+      "human_bytes": "35.7 KB",
+      "lines": 894,
+      "python": 0,
+      "shell": 0,
+      "markdown": 2,
+      "yaml": 0,
+      "json": 0,
+      "top_extensions": [
+        [
+          ".md",
+          2
+        ],
+        [
+          "(none)",
+          2
+        ]
+      ],
+      "url": "https://github.com/miketepUR/awesome-claude-skills",
+      "license": "MIT",
+      "role": "meta-list: general agent-skill ecosystem + contribution/validation workflows"
+    },
+    "Imbad0202_academic-research-skills": {
+      "files": 2840,
+      "bytes": 40183103,
+      "human_bytes": "38.3 MB",
+      "lines": 579331,
+      "python": 478,
+      "shell": 9,
+      "markdown": 1146,
+      "yaml": 201,
+      "json": 605,
+      "top_extensions": [
+        [
+          ".md",
+          1146
+        ],
+        [
+          ".json",
+          590
+        ],
+        [
+          ".py",
+          478
+        ],
+        [
+          ".log",
+          302
+        ],
+        [
+          ".yaml",
+          201
+        ],
+        [
+          ".txt",
+          36
+        ],
+        [
+          ".pdf",
+          16
+        ],
+        [
+          ".jsonl",
+          15
+        ]
+      ],
+      "url": "https://github.com/Imbad0202/academic-research-skills",
+      "license": "CC-BY-NC-4.0",
+      "role": "suite: 5 deep skills (pipeline, research, paper, reviewer, screening) + 478 scripts + JSON contracts"
+    },
+    "KalarisLabs_research-agent-skills": {
+      "files": 3169,
+      "bytes": 37318480,
+      "human_bytes": "35.6 MB",
+      "lines": 918802,
+      "python": 549,
+      "shell": 4,
+      "markdown": 2023,
+      "yaml": 14,
+      "json": 391,
+      "top_extensions": [
+        [
+          ".md",
+          2023
+        ],
+        [
+          ".py",
+          549
+        ],
+        [
+          ".json",
+          391
+        ],
+        [
+          ".txt",
+          39
+        ],
+        [
+          ".tex",
+          31
+        ],
+        [
+          ".csv",
+          19
+        ],
+        [
+          ".sty",
+          16
+        ],
+        [
+          ".yaml",
+          13
+        ]
+      ],
+      "url": "https://github.com/KalarisLabs/research-agent-skills",
+      "license": "MIT",
+      "role": "suite: 200+ narrow skills, tested stdlib CLIs, benchmarks, catalog graph"
+    },
+    "saintgo7_agents-skills": {
+      "files": 82,
+      "bytes": 564087,
+      "human_bytes": "550.9 KB",
+      "lines": 4871,
+      "python": 3,
+      "shell": 1,
+      "markdown": 53,
+      "yaml": 0,
+      "json": 0,
+      "top_extensions": [
+        [
+          ".md",
+          53
+        ],
+        [
+          ".csv",
+          24
+        ],
+        [
+          ".py",
+          3
+        ],
+        [
+          ".sh",
+          1
+        ],
+        [
+          ".txt",
+          1
+        ]
+      ],
+      "url": "https://github.com/saintgo7/agents-skills",
+      "license": "unlicensed (snapshot retained, attribution kept)",
+      "role": "suite: 50 lightweight Korean/English skill stubs + IEEE Access venue guide"
+    },
+    "ranbot-ai_awesome-skills": {
+      "files": 8785,
+      "bytes": 54728251,
+      "human_bytes": "52.2 MB",
+      "lines": 553380,
+      "python": 0,
+      "shell": 4,
+      "markdown": 2910,
+      "yaml": 0,
+      "json": 5827,
+      "top_extensions": [
+        [
+          ".json",
+          5827
+        ],
+        [
+          ".md",
+          2910
+        ],
+        [
+          ".ts",
+          15
+        ],
+        [
+          ".tsx",
+          14
+        ],
+        [
+          ".svg",
+          9
+        ],
+        [
+          ".sh",
+          4
+        ],
+        [
+          "(none)",
+          2
+        ],
+        [
+          ".mjs",
+          2
+        ]
+      ],
+      "url": "https://github.com/ranbot-ai/awesome-skills",
+      "license": "unlicensed (snapshot retained, attribution kept)",
+      "role": "general skill aggregator: 2908 skill records incl. content-research-writer"
+    }
+  },
+  "extensions": [
+    [
+      ".json",
+      6873
+    ],
+    [
+      ".md",
+      6157
+    ],
+    [
+      ".py",
+      1046
+    ],
+    [
+      ".log",
+      302
+    ],
+    [
+      ".yml",
+      227
+    ],
+    [
+      ".yaml",
+      216
+    ],
+    [
+      ".txt",
+      78
+    ],
+    [
+      ".csv",
+      44
+    ],
+    [
+      ".tex",
+      34
+    ],
+    [
+      "(none)",
+      32
+    ],
+    [
+      ".svg",
+      28
+    ],
+    [
+      ".ts",
+      21
+    ],
+    [
+      ".sh",
+      18
+    ],
+    [
+      ".bib",
+      18
+    ],
+    [
+      ".html",
+      17
+    ],
+    [
+      ".pdf",
+      17
+    ],
+    [
+      ".sty",
+      16
+    ],
+    [
+      ".jsonl",
+      15
+    ],
+    [
+      ".tsx",
+      14
+    ],
+    [
+      ".png",
+      11
+    ],
+    [
+      ".patch",
+      11
+    ],
+    [
+      ".js",
+      8
+    ],
+    [
+      ".bst",
+      8
+    ],
+    [
+      ".mjs",
+      7
+    ],
+    [
+      ".toml",
+      6
+    ],
+    [
+      ".jq",
+      5
+    ],
+    [
+      ".xml",
+      4
+    ],
+    [
+      ".j2",
+      3
+    ],
+    [
+      ".mplstyle",
+      3
+    ],
+    [
+      ".woff2",
+      2
+    ]
+  ],
+  "api_hosts": [
+    [
+      "api.example.com",
+      55
+    ],
+    [
+      "www.ncbi.nlm.nih.gov",
+      28
+    ],
+    [
+      "api.crossref.org",
+      23
+    ],
+    [
+      "eutils.ncbi.nlm.nih.gov",
+      20
+    ],
+    [
+      "www.ebi.ac.uk",
+      20
+    ],
+    [
+      "api.openai.com",
+      15
+    ],
+    [
+      "api.libreoffice.org",
+      15
+    ],
+    [
+      "export.arxiv.org",
+      14
+    ],
+    [
+      "api.openalex.org",
+      13
+    ],
+    [
+      "api.github.com",
+      12
+    ],
+    [
+      "api.fiscaldata.treasury.gov",
+      10
+    ],
+    [
+      "api.semanticscholar.org",
+      9
+    ],
+    [
+      "api.anthropic.com",
+      8
+    ],
+    [
+      "api.labarchives.com",
+      6
+    ],
+    [
+      "api.cloudflare.com",
+      6
+    ],
+    [
+      "api.expo.dev",
+      6
+    ],
+    [
+      "api.stripe.com",
+      6
+    ],
+    [
+      "api.bedbase.org",
+      4
+    ],
+    [
+      "api.datacite.org",
+      4
+    ],
+    [
+      "api.imaging.datacommons.cancer.gov",
+      4
+    ],
+    [
+      "api.deepseek.com",
+      3
+    ],
+    [
+      "api.genomicintelligence.ai",
+      3
+    ],
+    [
+      "api.materialsproject.org",
+      3
+    ],
+    [
+      "api.biorxiv.org",
+      3
+    ],
+    [
+      "api.hasdata.com",
+      3
+    ],
+    [
+      "api.agentphone.ai",
+      3
+    ],
+    [
+      "api.telegram.org",
+      3
+    ],
+    [
+      "api.mercury.build",
+      3
+    ],
+    [
+      "api.equibles.com",
+      3
+    ],
+    [
+      "api.covalenthq.com",
+      3
+    ],
+    [
+      "api.getchord.xyz",
+      3
+    ],
+    [
+      "api.agenthustle.ai",
+      3
+    ],
+    [
+      "api.loganalytics.azure.cn",
+      3
+    ],
+    [
+      "api.cognitive.microsofttranslator.com",
+      3
+    ],
+    [
+      "api.calendly.com",
+      3
+    ],
+    [
+      "api.provider.com",
+      3
+    ],
+    [
+      "api.company.com",
+      3
+    ],
+    [
+      "api.atlascloud.ai",
+      3
+    ],
+    [
+      "api.myapp.com",
+      3
+    ],
+    [
+      "api.botframework.com",
+      3
+    ]
+  ],
+  "top_hosts": [
+    [
+      "github.com",
+      10048
+    ],
+    [
+      "rube.app",
+      2628
+    ],
+    [
+      "composio.dev",
+      2418
+    ],
+    [
+      "doi.org",
+      271
+    ],
+    [
+      "arxiv.org",
+      206
+    ],
+    [
+      "json-schema.org",
+      179
+    ],
+    [
+      "localhost",
+      157
+    ],
+    [
+      "example.com",
+      142
+    ],
+    [
+      "huggingface.co",
+      108
+    ],
+    [
+      "raw.githubusercontent.com",
+      68
+    ],
+    [
+      "pypi.org",
+      66
+    ],
+    [
+      "psantanna.com",
+      63
+    ],
+    [
+      "hughyau.com",
+      63
+    ],
+    [
+      "openecon.ai",
+      63
+    ],
+    [
+      "buymeacoffee.com",
+      62
+    ],
+    [
+      "orchestra-research.com",
+      62
+    ],
+    [
+      "mathmodel.top",
+      62
+    ],
+    [
+      "copaper.ai",
+      62
+    ],
+    [
+      "aipoch.com",
+      62
+    ],
+    [
+      "starterkit.getdesign.md",
+      62
+    ],
+    [
+      "www.copaper.ai",
+      62
+    ],
+    [
+      "crates.io",
+      60
+    ],
+    [
+      "www.w3.org",
+      57
+    ],
+    [
+      "mms.weseeworld.cn",
+      55
+    ],
+    [
+      "api.example.com",
+      55
+    ],
+    [
+      "learn.microsoft.com",
+      43
+    ],
+    [
+      "www.nature.com",
+      36
+    ],
+    [
+      "pi.dev",
+      36
+    ],
+    [
+      "chenliu-1996.github.io",
+      33
+    ],
+    [
+      "yilewang.github.io",
+      33
+    ],
+    [
+      "morphmind.ai",
+      33
+    ],
+    [
+      "claudeprism.delibae.dev",
+      33
+    ],
+    [
+      "www.paperdebugger.com",
+      33
+    ],
+    [
+      "spark-to-paper-skills.github.io",
+      33
+    ],
+    [
+      "openlair.github.io",
+      33
+    ],
+    [
+      "texocr.netlify.app",
+      33
+    ],
+    [
+      "xiaobeiai.top",
+      33
+    ],
+    [
+      "mimir.smartlarkai.com",
+      33
+    ],
+    [
+      "img.shields.io",
+      31
+    ],
+    [
+      "...",
+      30
+    ]
+  ],
+  "top_github_links": [
+    [
+      "sickn33/antigravity-awesome-skills",
+      10189
+    ],
+    [
+      "composiohq/awesome-claude-skills",
+      4133
+    ],
+    [
+      "kalarislabs/research-agent-skills",
+      520
+    ],
+    [
+      "imbad0202/academic-research-skills",
+      450
+    ],
+    [
+      "anthropics/skills",
+      133
+    ],
+    [
+      "prat011/awesome-llm-skills",
+      131
+    ],
+    [
+      "openhands/openhands",
+      119
+    ],
+    [
+      "obra/superpowers",
+      106
+    ],
+    [
+      "k-dense-ai/scientific-agent-skills",
+      101
+    ],
+    [
+      "yuan1z0825/nature-skills",
+      98
+    ],
+    [
+      "orchestra-research/ai-research-skills",
+      87
+    ],
+    [
+      "imbad0202/academic-research-skills-codex",
+      82
+    ],
+    [
+      "sponsors/ljharb",
+      81
+    ],
+    [
+      "master-cai/research-paper-writing-skills",
+      73
+    ],
+    [
+      "norman-bury/research-writing-skill",
+      71
+    ],
+    [
+      "huangwb8/chineseresearchlatex",
+      69
+    ],
+    [
+      "199-biotechnologies/claude-deep-research-skill",
+      66
+    ],
+    [
+      "weizhena/deep-research-skills",
+      66
+    ],
+    [
+      "ganzhi-black/humanities-thesis-skill",
+      65
+    ],
+    [
+      "lishix520/academic-paper-skills",
+      65
+    ],
+    [
+      "pedrohcgs/claude-code-my-workflow",
+      65
+    ],
+    [
+      "hughyau/academicforge",
+      65
+    ],
+    [
+      "wanshuiyin/auto-claude-code-research-in-sleep",
+      65
+    ],
+    [
+      "aipoch/medical-research-skills",
+      65
+    ],
+    [
+      "light0305/light-skills",
+      65
+    ],
+    [
+      "ar9av/paperorchestra",
+      64
+    ],
+    [
+      "yanlin-cheng/skill-thesis-writer",
+      64
+    ],
+    [
+      "hanlulong/econ-writing-skill",
+      64
+    ],
+    [
+      "alfonso0512/research-writing-skill",
+      64
+    ],
+    [
+      "claesbackman/ai-research-feedback",
+      64
+    ],
+    [
+      "shzhao27208/aut_sci_write",
+      64
+    ],
+    [
+      "yipng05-max/-skills",
+      64
+    ],
+    [
+      "fcakyon/phd-skills",
+      64
+    ],
+    [
+      "wenyuchiou/ai-research-skills",
+      64
+    ],
+    [
+      "zlanqing/codex-claude-academic-skills",
+      63
+    ],
+    [
+      "hkustdial/supervisor-skills",
+      63
+    ],
+    [
+      "ligphidonk/oh-my--paper",
+      63
+    ],
+    [
+      "lupynow/math-modeling-skills",
+      62
+    ],
+    [
+      "stephenlzc/ai-powered-literature-review-skills",
+      62
+    ],
+    [
+      "jihe520/mathmodelagent",
+      62
+    ],
+    [
+      "brycewang-stanford/auto-empirical-research-skills",
+      62
+    ],
+    [
+      "ligphidonk/academic-figure-generator",
+      62
+    ],
+    [
+      "voltagent/awesome-ai-agent-papers",
+      62
+    ],
+    [
+      "brycewang-stanford/awesome-journal-skills",
+      62
+    ],
+    [
+      "opennswm-lab/faros",
+      61
+    ],
+    [
+      "jimmc414/kosmos",
+      61
+    ],
+    [
+      "hkcanan/katmer-code",
+      61
+    ],
+    [
+      "modelscope/awesome-vibe-research",
+      61
+    ],
+    [
+      "fakerqwq/social-science-paper-writing-skill",
+      61
+    ],
+    [
+      "limhyungtae/awesome-claudecode-paper-proofreading",
+      61
+    ]
+  ]
+}

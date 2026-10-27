@@ -1,0 +1,25 @@
+{
+  "schema": "scholarforge-styles-v1",
+  "description": "Citation style profiles. The bundled formatter is best-effort: for camera-ready output use the official CSL style with Pandoc/Zotero or biblatex.",
+  "styles": {
+    "apa": {"name": "APA 7th edition", "in_text": "(Author, Year)", "list_order": "alphabetical",
+            "doi": "https://doi.org/...", "notes": ["bias-free language", "hanging indent", "sentence-case article titles"]},
+    "ieee": {"name": "IEEE", "in_text": "[1]", "list_order": "order of appearance",
+             "doi": "doi: 10....", "notes": ["square brackets", "reference numbers reused, not repeated"]},
+    "vancouver": {"name": "Vancouver / ICMJE", "in_text": "(1) or superscript", "list_order": "order of appearance",
+                  "doi": "doi:...", "notes": ["abbreviated journal titles", "up to 6 authors then et al."]},
+    "chicago": {"name": "Chicago notes-bibliography", "in_text": "footnote", "list_order": "alphabetical",
+                "doi": "https://doi.org/...", "notes": ["full note first citation", "short note thereafter"]},
+    "nature": {"name": "Nature", "in_text": "superscript number", "list_order": "order of appearance",
+               "doi": "URL", "notes": ["no article titles in some journal styles — verify"]}
+  },
+  "interoperability": {
+    "canonical_storage": "BibTeX with DOI field for every entry",
+    "conversion": ["pandoc --citeproc with a CSL file", "biblatex + biber", "Zotero/RIS for reference managers"],
+    "required_fields": ["author", "title", "year", "doi or url", "container title or publisher"],
+    "locale_rules": ["never transliterate author names automatically",
+                     "preserve CJK author order as published",
+                     "keep diacritics; do not ASCII-fold names",
+                     "mark machine-translated titles explicitly"]
+  }
+}

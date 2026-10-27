@@ -1,0 +1,4 @@
+evidence_id,source_id,locator,quote,design,stance,notes
+E001,smith2020,p. 52 Table 2,"Fewer unverifiable references with retrieval support",rct,supports,Synthetic example
+E002,lee2021,§4,"Error rates vary strongly across corpora",secondary-analysis,mixed,Synthetic example
+E003,smith2020,p. 60,"Effect attenuated in low-resource languages",rct,contradicts,Synthetic example

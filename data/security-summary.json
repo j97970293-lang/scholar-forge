@@ -1,0 +1,66 @@
+{
+  "generated_utc": "2026-10-27T20:26:38+00:00",
+  "files_scanned": 14860,
+  "repositories": 8,
+  "total_matches": 2399,
+  "by_rule": {
+    "bare-public-ip": 1305,
+    "auto-update-latest": 193,
+    "prompt-injection": 193,
+    "dangerous-eval-exec": 167,
+    "hidden-unicode": 142,
+    "suspicious-url": 73,
+    "miner-or-rat": 65,
+    "pipe-to-shell": 63,
+    "credential-path-read": 58,
+    "destructive-command": 29,
+    "dynamic-import-or-unpickle": 28,
+    "reverse-shell": 16,
+    "fake-system-tag": 14,
+    "exfil-webhook": 12,
+    "telemetry-endpoint": 12,
+    "insecure-ssl": 9,
+    "dangerous-powershell": 7,
+    "hardcoded-secret": 6,
+    "long-base64-blob": 5,
+    "decode-then-exec": 2
+  },
+  "by_repo": {
+    "O0000-code_awesome-academic-skills": {
+      "info": 94,
+      "critical": 65,
+      "high": 42,
+      "medium": 1
+    },
+    "cosen1024_awesome-academic-skills": {},
+    "kael-odin_awesome-academic-research-skills": {
+      "medium": 2,
+      "info": 56
+    },
+    "miketepUR_awesome-claude-skills": {},
+    "Imbad0202_academic-research-skills": {
+      "high": 226,
+      "info": 92,
+      "medium": 4,
+      "critical": 2
+    },
+    "KalarisLabs_research-agent-skills": {
+      "info": 199,
+      "medium": 37,
+      "high": 282,
+      "critical": 19
+    },
+    "saintgo7_agents-skills": {
+      "info": 1,
+      "critical": 1,
+      "medium": 8
+    },
+    "ranbot-ai_awesome-skills": {
+      "info": 762,
+      "medium": 6,
+      "high": 392,
+      "critical": 108
+    }
+  },
+  "note": "Documentation/test context downgrades medium+low matches to info. Matches are static indicators, not proof of malicious behaviour."
+}

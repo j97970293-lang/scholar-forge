@@ -1,0 +1,5 @@
+id,source,stage,title,r1,r2,adjudicated,exclusion_code,notes
+R001,OpenAlex,ta,Study A on citation checking,include,include,,,Seed study
+R002,PubMed,ta,Study B on scholarly documents,include,include,,,
+R003,arXiv,ta,A poster about unrelated graphics,exclude,exclude,,E5-wrong-outcome,
+R004,Crossref,ft,Study C full text,include,exclude,include,,Adjudicated by third reviewer

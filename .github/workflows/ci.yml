@@ -1,0 +1,38 @@
+name: ScholarForge CI
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Compile all Python
+        run: python -m compileall -q scripts tools tests
+      - name: Validate JSON config data
+        run: |
+          python - <<'PY'
+          import glob, json
+          for f in glob.glob('config/*.json') + glob.glob('data/*.json') + ['upstream/manifest.json']:
+              json.load(open(f, encoding='utf-8'))
+              print('valid:', f)
+          PY
+      - name: Doctor
+        run: python3 scripts/scholarforge.py doctor
+      - name: Unit tests
+        run: python3 scripts/scholarforge.py selftest
+      - name: End-to-end demo (expected FAIL)
+        run: bash examples/end-to-end/run-demo.sh | tail -25
+      - name: End-to-end demo (clean variant)
+        run: "bash examples/end-to-end/run-demo.sh --fixed | grep -E 'Verdict: PASS|Ran 30 tests'"
+      - name: Secret scan
+        run: python3 tools/check_secrets.py

@@ -1,0 +1,63 @@
+{
+  "schema": "scholarforge-venues-v1",
+  "currency_rule": "Venue rules change. ALWAYS re-read the official author guidelines on the day of submission. Treat the values below as a starting checklist, never as authoritative.",
+  "profiles": {
+    "ieee-access": {
+      "name": "IEEE Access", "type": "journal", "template": "ieeeaccess.cls (LaTeX) / IEEE Word template",
+      "citation_style": "IEEE numbered", "anonymity": "no (open peer review not standard)",
+      "page_limit": "no hard limit; 15-25 pages typical", "open_access": true,
+      "guidelines_url": "https://ieeeaccess.ieee.org/guide-for-authors/",
+      "must_check": ["APC and funding", "ORCID for corresponding author", "figure resolution",
+                     "reference numbering order", "English editing", "data availability"],
+      "inherited_from": "saintgo7/agents-skills/ieee-access/SKILL.md"
+    },
+    "nature-portfolio": {
+      "name": "Nature Portfolio journals", "type": "journal", "template": "Nature LaTeX/Word template",
+      "citation_style": "Nature numbered", "anonymity": "no", "page_limit": "article-type dependent",
+      "guidelines_url": "https://www.nature.com/nature-portfolio/editorial-policies/formatting-guide",
+      "must_check": ["Reporting Summary", "data availability", "code availability", "author contributions",
+                     "competing interests", "figure source data"]
+    },
+    "springer-lncs": {
+      "name": "Springer LNCS", "type": "conference", "template": "llncs.cls",
+      "citation_style": "LNCS numeric", "anonymity": "depends on conference",
+      "page_limit": "strict page budget incl. references",
+      "guidelines_url": "https://www.springer.com/gp/computer-science/lncs/conference-proceedings-guidelines",
+      "must_check": ["page budget", "CRediT or the conference's own policy", "DOI for references"]
+    },
+    "apa7": {
+      "name": "APA Style 7th edition", "type": "style", "template": "apa7 LaTeX class / Word template",
+      "citation_style": "APA 7 author-date", "anonymity": "yes for masked review",
+      "page_limit": "set by institution/venue",
+      "guidelines_url": "https://apastyle.apa.org/",
+      "must_check": ["title page student vs professional", "running head", "bias-free language",
+                     "table/figure numbering", "DOI as URL", "hanging indent"]
+    },
+    "neurips": {
+      "name": "NeurIPS", "type": "conference", "template": "neurips style file",
+      "citation_style": "natbib/plain numeric", "anonymity": "double blind",
+      "page_limit": "9 pages + references + appendices (verify current year)",
+      "guidelines_url": "https://neurips.cc/Conferences/2026/CallForPapers",
+      "must_check": ["paper checklist", "broader impact", "reproducibility", "anonymisation", "supplement size"]
+    },
+    "iclr": {
+      "name": "ICLR", "type": "conference", "template": "iclr style file",
+      "citation_style": "natbib", "anonymity": "double blind initially",
+      "page_limit": "verify current year", "guidelines_url": "https://iclr.cc/Conferences/2026/CallForPapers",
+      "must_check": ["rebuttal length limit", "OpenReview profile", "code/appendix policy", "LLM disclosure"]
+    },
+    "acm-sigconf": {
+      "name": "ACM SIGCONF", "type": "conference", "template": "acmart.cls",
+      "citation_style": "ACM numeric", "anonymity": "depends on conference",
+      "guidelines_url": "https://www.acm.org/publications/proceedings-template",
+      "must_check": ["CCS concepts", "keywords", "ACM Reference Format", "rights management", "artifact badge"]
+    },
+    "arxiv": {
+      "name": "arXiv preprint", "type": "preprint", "template": "arXiv LaTeX submission",
+      "citation_style": "author's choice", "anonymity": "no",
+      "guidelines_url": "https://info.arxiv.org/help/submit/index.html",
+      "must_check": ["license selection", "compiled PDF and source", "category cross-lists",
+                     "no overfull boxes", "journal reference if published"]
+    }
+  }
+}

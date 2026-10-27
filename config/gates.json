@@ -1,0 +1,24 @@
+{
+  "schema": "scholarforge-gates-v1",
+  "description": "Deterministic exit gates for the ten-stage pipeline. A FAIL blocks advancement unless the human explicitly records a --force override.",
+  "gates": {
+    "G0-scope": {"stage": "S0", "blocking": true, "check": "RQ, venue, language, constraints and data-access level recorded"},
+    "G1-falsifiability": {"stage": "S1", "blocking": true, "check": "Rival hypotheses + discriminating predictions frozen before analysis"},
+    "G2-reproducible-search": {"stage": "S2", "blocking": true, "check": "Every query logged with database, string, filters, date and hit count"},
+    "G3-screening": {"stage": "S3", "blocking": true, "check": "Dual decisions, adjudication, ordered exclusion codes, kappa, PRISMA counts"},
+    "G4-claims": {"stage": "S4", "blocking": true, "check": "Every claim bound to at least one evidence row; no dangling ids; no overclaims"},
+    "G5-draft": {"stage": "S5", "blocking": true, "check": "IMRaD complete, no placeholders, every figure/table referenced"},
+    "G6-integrity-1": {"stage": "S6", "blocking": true, "check": "References resolve or are explicitly unverified; style score >= 70; no placeholders"},
+    "G7-review": {"stage": "S7", "blocking": true, "check": "Methodological, statistical and adversarial critiques recorded with location anchors"},
+    "G8-revision": {"stage": "S8", "blocking": true, "check": "Every reviewer comment has a response, action and manuscript location"},
+    "G9-final": {"stage": "S9", "blocking": true, "check": "All gates pass; venue rules re-verified; disclosures, data/code availability, CRediT, AI-use statements complete"}
+  },
+  "audit_limits": [
+    "Gates examine the manuscript and its reported process, not the physical world.",
+    "A consistently reported fabrication can pass these checks.",
+    "Human accountability for data authenticity always rests with the authors."
+  ],
+  "style_score_threshold": 70,
+  "max_unresolved_claims": 0,
+  "max_placeholder_count": 0
+}

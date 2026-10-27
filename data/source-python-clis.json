@@ -1,0 +1,3742 @@
+[
+  {
+    "repo": "O0000-code_awesome-academic-skills",
+    "path": "scripts/check_public.py",
+    "doc": "Hard gate: every listed repo must be PUBLICLY reachable."
+  },
+  {
+    "repo": "O0000-code_awesome-academic-skills",
+    "path": "scripts/check_unmaintained.py",
+    "doc": "Flag entries whose repos look unmaintained (RF §4 check #7, selfhosted's"
+  },
+  {
+    "repo": "O0000-code_awesome-academic-skills",
+    "path": "scripts/generate_readme.py",
+    "doc": "Generate README.md and README.zh-CN.md from data/skills/*.yml + config.yaml."
+  },
+  {
+    "repo": "O0000-code_awesome-academic-skills",
+    "path": "scripts/update_metadata.py",
+    "doc": "Fill the CI-maintained fields of each data/skills/*.yml from the GitHub API."
+  },
+  {
+    "repo": "O0000-code_awesome-academic-skills",
+    "path": "scripts/schema_check.py",
+    "doc": "Validate every data/skills/*.yml against schema/skill.schema.json, then apply"
+  },
+  {
+    "repo": "O0000-code_awesome-academic-skills",
+    "path": "framework/scanner/security_scan.py",
+    "doc": "ASDF Stage-1 deterministic static security scanner."
+  },
+  {
+    "repo": "cosen1024_awesome-academic-skills",
+    "path": "scripts/render_readmes.py",
+    "doc": "Render the catalog tables in README.md and README_EN.md from YAML."
+  },
+  {
+    "repo": "cosen1024_awesome-academic-skills",
+    "path": "scripts/validate_data.py",
+    "doc": "Validate the structure and curation invariants of data/skills.yaml."
+  },
+  {
+    "repo": "cosen1024_awesome-academic-skills",
+    "path": "scripts/check_links.py",
+    "doc": "Check repository, pinned source, and install-entry links in the catalog."
+  },
+  {
+    "repo": "kael-odin_awesome-academic-research-skills",
+    "path": "scripts/update_rankings.py",
+    "doc": "Update the academic research skills ranking."
+  },
+  {
+    "repo": "kael-odin_awesome-academic-research-skills",
+    "path": "tests/test_ranking.py",
+    "doc": ""
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_role_scoped_contract.py",
+    "doc": "Pin Schema 13.2 role-scoped reviewer delivery surfaces."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_persuasion_invariance_fixtures.py",
+    "doc": "Mutation tests for check_persuasion_invariance_fixtures.py (#576 Spec B §14 v0.1)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_9_0_triangulation.py",
+    "doc": "Cross-version contamination-suffix lint: finalizer suffix table contract +"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_392_citation_verification_intake.py",
+    "doc": "Unit tests for check_392_citation_verification_intake.py (#392 lint)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_review_form_note_sync.py",
+    "doc": "Review-form note sync lint (#921)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_agents_mirror_sync.py",
+    "doc": "Lint: plugin-root agents/ mirrors stay byte-identical REAL files (#413)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_command_skill_dispatch.py",
+    "doc": "Check plugin command entry points and rooted skill references (#857)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/verify_submission_package.py",
+    "doc": "verify_submission_package CLI — deterministic submission-package verifier"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/dispatch_calibration_panel.py",
+    "doc": "Isolated dispatch of ONE reviewer-calibration panel (#653)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_task_type.py",
+    "doc": "Lint: every top-level SKILL.md must declare metadata.task_type."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/revision_roadmap.py",
+    "doc": "Validate and replay the #670 revision-authority contract."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_task_type.py",
+    "doc": "Unit tests for check_task_type.py lint script."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_cross_document_consistency_advisory_integration.py",
+    "doc": "Check the hermetic #672 cross-document advisory integration boundary."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_stage_capability_matrix.py",
+    "doc": "Mutation tests for scripts/check_stage_capability_matrix.py (#745)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/_eval_threshold_gate.py",
+    "doc": "Absolute-threshold verdict for the eval harness (#184 Delta 3 / Fix 1)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_6_8_pattern_protection.py",
+    "doc": "ARS v3.7.1 byte-equivalence SHA gate + Step 3a Two-Layer Citation Emission invariants."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_6_8_audit_scope_block.py",
+    "doc": "ARS v3.7.1 Step 2 — D2 audit Scope Report block lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_degradation_registry.py",
+    "doc": "Degradation-registry lint (#511 Part A)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/claim_standing_stance_scorer.py",
+    "doc": "Mechanical stance scorer for the #655 claim-standing seed set."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/_skill_lint.py",
+    "doc": "Shared helpers for SKILL.md frontmatter linting + cross-lint H2-section"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_9_2_phase_boundary.py",
+    "doc": "Static lint for ARS v3.9.2 phase boundary coverage (#133 hot-fix)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_reviewer_data_fences.py",
+    "doc": "Mutation test for check_reviewer_data_fences.py (#574 A6 / PR #578 fence pin)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_claim_audit_calibration.py",
+    "doc": "Calibration-mode test for v3.8 claim_ref_alignment_audit_agent (T-C1..T-C3)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/build_submission_packet_manifest.py",
+    "doc": "Build a deterministic, pointer-only human-subjects packet manifest."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_policy_anchor_table.py",
+    "doc": "#108 policy_anchor_table.md static lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_prisma_trAIce_freshness.py",
+    "doc": "Warn when shared/prisma_trAIce_protocol.md is older than 180 days."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_repro_lock_validation_drift.py",
+    "doc": "Drift guard: the nested repro_lock sub-shape in"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/sync_adapter_docs.py",
+    "doc": "sync_adapter_docs: keep academic-pipeline/references/adapters/overview.md"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_439_format_profile.py",
+    "doc": "#439 format_profile contract lint (spec docs/design/2026-06-15-439-format-profile-design.md)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_contamination_signals.py",
+    "doc": "#105 v3.7.3 contamination_signals resolver tests."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_preprint_venues_consistency.py",
+    "doc": "#105 lint — PREPRINT_VENUES 10-server list must agree across files."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/build_claim_standing_candidate_ledger.py",
+    "doc": "Build or replay-validate the offline #655 Track A candidate ledger."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_215_field_norm.py",
+    "doc": "Unit tests for check_215_field_norm.py (#215)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_output_language_pair.py",
+    "doc": "Unit tests for the #862 Phase-1 output-language-pair contract helpers."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/render_claim_standing_view.py",
+    "doc": "Deterministic presentation of a #655 claim-standing probe (design §5.3/§5.4)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/ars_anchorize_draft.py",
+    "doc": "Anchorize a draft: stamp block markers + emit the block manifest."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/research_workflow_profile.py",
+    "doc": "Validate and apply the research-workflow-profile/1.0 contract (#742)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_10_134_write_scope.py",
+    "doc": "Static lint for the ARS #134 Slice 1 write-scope guard — three-way name cross-check."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_392_citation_verification_intake.py",
+    "doc": "#392 lint — citation-verification intake question stays wired and byte-equivalent."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_claim_audit_finalizer.py",
+    "doc": "Finalizer integration tests for v3.8 claim_ref_alignment_audit_agent (T-F1a..h + T-F2..T-F5)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_persuasion_invariance_fixtures.py",
+    "doc": "Integrity lint for evals/heldout/re_review_persuasion_invariance/ (#576 Spec B §14)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_experiment_provenance.py",
+    "doc": "Validate a Material Passport YAML's `experiment_provenance[]` entry SHAPE (#260)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_setup_cross_model_parity.py",
+    "doc": "SETUP cross-model example parity lint (#491 fold-in)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_e4_promotion.py",
+    "doc": "Verify that an E4 record and raw bundle were promoted byte-for-byte."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_stage_capability_matrix.py",
+    "doc": "Stage capability/evidence matrix lint + renderer (#745)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_bibliographic_integrity_signals.py",
+    "doc": "Drift guard for the #678 bibliographic-integrity signal contract."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_acronyms.py",
+    "doc": "Deterministic acronym check for a manuscript (#849)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_version_consistency.py",
+    "doc": "Unit tests for check_version_consistency.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_reviewer_finding_contract.py",
+    "doc": "Reviewer finding-contract lint (#574 behavior batch: A1/A2/A3/B1)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_revision_roadmap.py",
+    "doc": "Hermetic mutation tests for the #670 non-ranking revision contract."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_v3_8_annotation_literal_sync.py",
+    "doc": "Unit tests for v3.8 annotation-literal sync lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_human_subjects_output_contract.py",
+    "doc": "Lint the #665 human-subjects readiness/authorization output boundary."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_model_tiering.py",
+    "doc": "Model-tiering classification drift guard (#517)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_v3_9_2_phase_boundary.py",
+    "doc": "Unit tests for check_v3_9_2_phase_boundary.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_promotion_bakeoff_preregistration.py",
+    "doc": "Create and verify sealed Promotion Bakeoff preregistrations (#789)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_sprint_contract.py",
+    "doc": "Validate an ARS sprint contract against sprint_contract.schema.json."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/run_ledger.py",
+    "doc": "ARS pipeline run ledger (#887): write and check the handoff record."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/run_indirect_prompt_injection_no_call.py",
+    "doc": "Offline-only Phase-2 envelope for #675."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/verify_panel_recommendations.py",
+    "doc": "Check the references a review panel suggests (#1001)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_instruction_data_boundary.py",
+    "doc": "Mutation test for check_instruction_data_boundary.py (#272 guidance layer)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/dispatch_e4_panel.py",
+    "doc": "Dispatch one E4 seeded-defect panel with the evidence contract enforced."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/pdf_read_preflight.py",
+    "doc": "PDF read-integrity preflight (#512)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_instruction_data_boundary.py",
+    "doc": "Instruction-vs-data boundary lint (#272 guidance layer)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_data_flows.py",
+    "doc": "Defrift lint for docs/DATA_FLOWS.md (#758)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_run_guard_launcher.py",
+    "doc": "Launch-layer tests for hooks/run_guard.sh (#454 Windows Python hook portability)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/render_eval_comment.py",
+    "doc": "Render a ``run_evals`` report as the eval-harness PR comment markdown."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_spec_consistency.py",
+    "doc": "Unit tests for check_spec_consistency.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_version_consistency.py",
+    "doc": "Lint: version labels stay aligned across .claude/CLAUDE.md, SKILL.md frontmatter, and CHANGELOG.md."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_reviewer_scoring_honesty.py",
+    "doc": "Guard criterion-bound reviewer judgement and calibration honesty."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_6_7_pattern_protection.py",
+    "doc": "Static audit for ARS v3.6.7 downstream-agent pattern protection."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_committee_correspondence.py",
+    "doc": "Validate a #668 committee-correspondence bundle."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/recompute_receipts.py",
+    "doc": "#610 step-5 deterministic arithmetic-receipt calculator."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/score_calibration_run.py",
+    "doc": "Deterministic scoring for the reviewer-calibration full-tier run (#653)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_data_access_level.py",
+    "doc": "Lint: every top-level SKILL.md declares the PINNED data_access_level."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_684_review_criteria_binding.py",
+    "doc": "Static integration guard for #684 review-criteria consumer binding."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_heldout_measurement_report.py",
+    "doc": "Validate ARS held-out measurement reports against the #654/#664 contract."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_268_nested_commitment_ledger.py",
+    "doc": "#268 nested-object Commitment Ledger lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_9_4_temporal_verification.py",
+    "doc": "v3.9.4 spec lint — temporal verification sidecar conformance."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_re_review_synthesis.py",
+    "doc": "Recompute the #576 Spec B three-gate re-review contract from its artifacts."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_216_surface_form.py",
+    "doc": "Mutation tests for check_216_surface_form.py (#216)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_migrate_literature_corpus_to_v3_10.py",
+    "doc": "Tests for the #127 v3.10 terminal-policy-layer seed migration tool."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_pipeline_boundary_semantics.py",
+    "doc": "Defrift lock for the four #528 pipeline-boundary resolutions."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/parse_audit_verdict.py",
+    "doc": "parse_audit_verdict.py — ARS v3.6.7 Step 6 Phase 6.1"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_title_fuzzy_false_positive.py",
+    "doc": "Resolver-boundary pin for #250 / #430 / #431 — distinct-work rejection."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/cross_model_codex_transport.py",
+    "doc": "Contained ChatGPT-subscription transport for one citation verification (#630)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_field_norm_severity.py",
+    "doc": "Unit tests for check_field_norm_severity.py (#215)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_6_8_mark_read_commands.py",
+    "doc": "CI lint for the /ars-mark-read + /ars-unmark-read plugin commands."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/score_review_criteria_constructive_value.py",
+    "doc": "Reduce a completed #684 paired expert-adjudication record."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_431_exact_or_bust.py",
+    "doc": "#431 — exact-title-or-bust acceptance regression tests."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/validate_claim_standing_stance_assets.py",
+    "doc": "Offline validator for the #655 claim-standing stance seed set."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/temporal_integrity_audit.py",
+    "doc": "v3.9.4 Phase 4 → 5 boundary temporal integrity verifier."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/validate_ideation_diversity_assets.py",
+    "doc": "Offline validator for the #659 Phase-1 design and synthetic role seed."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/migrate_literature_corpus_to_v3_7_3.py",
+    "doc": "#105 v3.7.3 contamination_signals backfill migration tool."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_venue_disclosure_policies.py",
+    "doc": "Structural guard for the 15-entry venue disclosure policy database."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_skill_inventory_parity.py",
+    "doc": "Lint: the skill inventory is identical on every surface that lists it (#809)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_setup_cross_model_parity.py",
+    "doc": "Unit tests for check_setup_cross_model_parity.py (#491 fold-in)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_text_similarity.py",
+    "doc": "Tests for `scripts/_text_similarity.py` — shared title-similarity helpers"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_policy_anchor_protocol.py",
+    "doc": "#108 policy_anchor_disclosure_protocol.md static lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_human_subjects_reference_migration.py",
+    "doc": "Lint the bounded #680 human-subjects reference migration."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_collaboration_depth_rubric.py",
+    "doc": "Validate the Collaboration Depth Observer artifacts (ARS v3.5)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_panel_synthesis.py",
+    "doc": "Validate Schema 13.2 reviewer cards and recompute panel synthesis."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_run_review_criteria_constructive_value.py",
+    "doc": "Hermetic runner, blinding, and human-label tests for #684."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_benchmark_report.py",
+    "doc": "Validate an ARS benchmark report against benchmark_report.schema.json."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_audit_artifact_consistency.py",
+    "doc": "check_audit_artifact_consistency.py — ARS v3.6.7 Step 6 Phase 6.3 lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_cross_model_handoff_contract.py",
+    "doc": "Mutation tests for check_cross_model_handoff_contract.py (#527)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/validate_compliance_fixtures.py",
+    "doc": "Validate all compliance_report YAML fixtures against Schema 12."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/run_ci_pytest_manifest.py",
+    "doc": "Unified runner for the pytest invocations CI exercises (issue #156)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/run_ideation_diversity_no_call.py",
+    "doc": "Offline-only execution envelope for #659."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_pdf_read_preflight.py",
+    "doc": "Tests for scripts/pdf_read_preflight.py (#512 PDF read-integrity preflight)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_receipt_enum_sync.py",
+    "doc": "Defrift lint for the #610 arithmetic-receipt closed enums."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_judge_prompt_version.py",
+    "doc": "Tests for check_judge_prompt_version (#361 drift guard)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/run_role_topology_utility_dry_run.py",
+    "doc": "Validate and materialize the offline #582 role-topology seed."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/ideation_diversity_assignment_gate.py",
+    "doc": "Closed first-round assignment-ledger gate for the #659 blind bundle."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/run_evals.py",
+    "doc": "ARS multi-task eval harness (#184 Delta 2, Phase 1b)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/fetch_calibration_corpus.py",
+    "doc": "Authenticated OpenReview fetch for the #653 reviewer-calibration corpus."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_revision_token_conservation.py",
+    "doc": "Mutation tests for check_revision_token_conservation.py (#570)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_cross_model_verification_sync.py",
+    "doc": "Doc-sync lint for the cross-model grounding guards (#346 / #349)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_submission_packet_manifest_integration.py",
+    "doc": "Check the static #667 submission-packet contract and consumer wiring."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_630_codex_subscription_transport.py",
+    "doc": "Static integration guard for the contained #630 citation transport."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/extract_panel_claims.py",
+    "doc": "Extract the claims a review panel makes, for the factuality audit (#1002)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_block_parser.py",
+    "doc": "Tests for the shared block parser (#89 Item 7 Slice A, spec §8.1)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_migrate_literature_corpus_to_v3_9_0.py",
+    "doc": "#102 v3.9.0 cross-index triangulation backfill migration tool tests."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/dispatch_panel_claim_audit.py",
+    "doc": "Dispatch and score the panel-claim factuality audit (#1002)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_policy_anchor_table.py",
+    "doc": "Mutation tests for scripts/check_policy_anchor_table.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_revision_claim_drift_suite_v2.py",
+    "doc": "Hermetic contract guard for revision_claim_drift suite v2 (#679)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_judge_prompt_version.py",
+    "doc": "Judge-prompt-version drift guard (#361)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_passport_reset_contract.py",
+    "doc": "Unit tests for check_passport_reset_contract.py (ARS v3.6.3 lint)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/bibliographic_integrity_signals.py",
+    "doc": "Canonical #678 bibliographic-integrity signal helpers and migration CLI."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_changelog_covers_merges.py",
+    "doc": "Pre-tag lint: every release-worthy commit since the previous release tag"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_reading_probe_lint.py",
+    "doc": "Lint tests for the v3.5.1 opt-in Socratic reading-check probe."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_v3_6_7_pattern_protection.py",
+    "doc": "Unit tests for check_v3_6_7_pattern_protection.py (ARS v3.6.7 lint)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/claim_standing_stance_runner.py",
+    "doc": "Stance runner for the #655 claim-standing probe (Track B execution)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_evals_gold_set.py",
+    "doc": "Validator for evals/gold/<task>/ gold subsets."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_compliance_report.py",
+    "doc": "Unit tests for check_compliance_report.py (Schema 12 validator)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_tools_allowlist.py",
+    "doc": "Lint: pin the #514 tools-allowlist CONTENT on the three plugin agents (#524)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_field_norm_severity.py",
+    "doc": "Integrity + provenance validator for the #215 field-norm severity gold set."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/assemble_calibration_corpus.py",
+    "doc": "Gold-corpus manifest assembly for the reviewer-calibration suite (#653)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/inquiry_branch_ledger.py",
+    "doc": "Validate, replay, and durably publish inquiry-branch-ledger/1.0 (#743)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/build_calibration_measurement_row.py",
+    "doc": "Build the `heldout-measurement/1.1` row for a reviewer-calibration run (#653)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_calibration_tiers.py",
+    "doc": "Mutation tests for the bounded reviewer calibration contract."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_semantic_scholar_client.py",
+    "doc": "Tests for the minimal Semantic Scholar client backing #105 CLI."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/claim_strength_drift_disposition.py",
+    "doc": "Build and validate explicit author dispositions for detected E6 drift."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_claim_audit_schema.py",
+    "doc": "Schema-validation tests for v3.8 claim_ref_alignment_audit_agent (T-S1..T-S8)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_passport_yaml.py",
+    "doc": "Tests for `scripts/_passport_yaml.py` — shared ruamel.yaml round-trip"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_rubric_weight_consistency.py",
+    "doc": "Compatibility entrypoint for the retired rubric-weight lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_cross_model_handoff_contract.py",
+    "doc": "Defrift lock for the #527 cross-model handoff contract."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/run_indirect_prompt_injection_probe.py",
+    "doc": "Validate, materialize, and mechanically inspect the #675 seed set."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_v3_6_8_mark_read_commands.py",
+    "doc": "Unit tests for check_v3_6_8_mark_read_commands.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_spec_consistency.py",
+    "doc": ""
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_619_disclosure_closeout.py",
+    "doc": "Fail-closed focused guard for issue #619 disclosure closeout surfaces."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/retraction_status.py",
+    "doc": "Deterministic #651 retraction-status resolver and policy helper."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/migrate_literature_corpus_to_v3_10.py",
+    "doc": "#127 v3.10 terminal-policy-layer seed migration tool."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_ars_mark_read.py",
+    "doc": "Unit tests for scripts/ars_mark_read.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/_next_verified_at_ms.py",
+    "doc": "Strict-monotonic verified_at helper for ARS v3.6.7 Step 6 (spec §5.4)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/verify_passport.py",
+    "doc": "verify_passport CLI — ad-hoc citation existence verification (Delta 5)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_model_tiering.py",
+    "doc": "Mutation tests for check_model_tiering.py (#517 classification drift guard)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_decision_contract.py",
+    "doc": "Pin the four-value decision enum and its per-mode authority."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/build_cross_document_consistency_advisory.py",
+    "doc": "Build, replay-validate, and render the hermetic #672 advisory."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/claim_standing_discovery.py",
+    "doc": "Live discovery adapters for the #655 claim-standing probe (Track A head)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_distribution_surface_claims.py",
+    "doc": "Distribution-surface claim discipline lint (#753)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_content_coverage_advisory_integration.py",
+    "doc": "Check the static #681 advisory boundary and cross-file wiring."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_domain_evidence_profile.py",
+    "doc": "Lint domain evidence profile documentation surface (#259)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_phase_conformance.py",
+    "doc": "Fail-closed Phase 1 -> Phase 2 conformance checker for reviewer Schema 13.2."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_tortured_phrase_screening_integration.py",
+    "doc": "Check the hermetic #660 tortured-phrase screening integration boundary."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_repro_lock.py",
+    "doc": "Validate a Material Passport YAML's `repro_lock` sub-block."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_v3_10_134_write_scope.py",
+    "doc": "Mutation tests for check_v3_10_134_write_scope.py (the fail-open guard lint)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_216_surface_form.py",
+    "doc": "Static lint for the #216 Surface-Form Parity self-check on the Devil's Advocate surface."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_cross_model_handoff.py",
+    "doc": "Deterministic owner → dispatcher → owner fixtures for the #527 envelope."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_670_revision_roadmap_integration.py",
+    "doc": "Static integration guard for the #670 non-ranking revision contract."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_claim_verification_coverage_contract.py",
+    "doc": "Static regression contract for #737 coverage-bounded claims language."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_pipeline_integrity.py",
+    "doc": "Unit tests for check_pipeline_integrity.py (v3.9.2 advisory verifier)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_reviewer_role_label.py",
+    "doc": "Pin #611's public Journal-Fit Reviewer name and frozen eic/EIC tokens."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/bootstrap_timeline_yaml.py",
+    "doc": "v3.9.4 opt-in bootstrap script — populate timeline.yaml from literature_corpus[]."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/ars_write_scope_guard.py",
+    "doc": "ARS write-scope guard — PreToolUse hook (#134 Slice 1, the MVP)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_seeded_defect_fixtures.py",
+    "doc": "Integrity lint for evals/heldout/reviewer_seeded_defects/ (#574/#610 v0.2)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_7_3_three_layer_citation.py",
+    "doc": "v3.7.3 Three-Layer Citation lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_indirect_prompt_injection_no_call.py",
+    "doc": "AST guard for the #675 offline-only Phase-2 envelope."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_surface_form_parity.py",
+    "doc": "Integrity + provenance validator for the #216 surface-form parity gold set."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_10_policy.py",
+    "doc": "v3.10 policy-layer lint (#127 PR-B)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_migrate_literature_corpus_to_v3_7_3.py",
+    "doc": "#105 v3.7.3 contamination_signals backfill migration tool tests."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/resolve_review_target_context.py",
+    "doc": "Resolve an author-confirmed review target against a versioned criteria registry."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/build_claim_standing_query_plan.py",
+    "doc": "Consent-surface builder for the #655 claim-standing probe (design §3.1/§3.2)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_reviewer_sprint_prompt_sync.py",
+    "doc": "Exact sync lint for the #611 reviewer sprint-prompt canonical source."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_risk_register.py",
+    "doc": "Defrift lint for docs/RISK_REGISTER.md (#759)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_workflow_classification.py",
+    "doc": "Defrift lint for the CI workflow classification table (#755)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_command_frontmatter_name.py",
+    "doc": "CI lint: every commands/*.md declares an explicit frontmatter `name`"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_policy_anchor_protocol.py",
+    "doc": "Mutation tests for scripts/check_policy_anchor_protocol.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_seeded_defect_fixtures.py",
+    "doc": "Mutation tests for check_seeded_defect_fixtures.py (#574/#610 v0.2)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_ideation_diversity_assignment_gate.py",
+    "doc": ""
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/ars_apply_revision_patch.py",
+    "doc": "Apply a revision patch to an anchored draft — two-phase, fail-closed."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test__next_verified_at_ms.py",
+    "doc": "Unit tests for scripts/_next_verified_at_ms.py (ARS v3.6.7 Step 6 Phase 6.4)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_673_adjudication_activity.py",
+    "doc": "Deterministic static integration guard for #673 adjudication activity."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_review_pathway_output.py",
+    "doc": "Lint only explicitly named #669 generated output surfaces."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_compliance_report.py",
+    "doc": "Validate an ARS compliance report against compliance_report.schema.json."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/migrate_literature_corpus_to_v3_9_0.py",
+    "doc": "#102 v3.9.0 cross-index triangulation backfill migration tool."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_reviewer_scoring_honesty.py",
+    "doc": "Mutation tests for check_reviewer_scoring_honesty.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_skill_description_length.py",
+    "doc": "Enforce the Agent Skills description limit on parsed Unicode text (#864)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_passport_reset_contract.py",
+    "doc": "Enforce the ARS v3.6.3 passport-reset-boundary co-location contract."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_repro_lock.py",
+    "doc": "Unit tests for check_repro_lock.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/ars_cache_invalidate.py",
+    "doc": "/ars-cache-invalidate CLI — drop cached verification entries for a citation."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/resolve_human_subjects_authority.py",
+    "doc": "Resolve explicit human-subjects authority profiles without inferring jurisdiction."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_dispatch_e4_panel.py",
+    "doc": "Hermetic tests for the E4 dispatch harness (#608)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_routing_core_sync.py",
+    "doc": "Routing-core sync lint (#892)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_reviewer_data_fences.py",
+    "doc": "Reviewer data-fence lint (#574 A6 / PR #578 follow-up, shipped with the behavior batch)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_pipeline_boundary_semantics.py",
+    "doc": "Mutation tests for check_pipeline_boundary_semantics.py (#528 defrift lock)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_collaboration_depth_rubric.py",
+    "doc": "Unit tests for check_collaboration_depth_rubric.py (ARS v3.5)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_reviewer_finding_contract.py",
+    "doc": "Mutation test for check_reviewer_finding_contract.py (#574 behavior batch)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/build_review_pathway_rule_trace.py",
+    "doc": "Build, replay-validate, and render a deterministic #669 pathway rule trace."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/resume_e4_record.py",
+    "doc": "Re-emit an E4 record from a preserved post-dispatch evidence bundle."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_literature_corpus_schema.py",
+    "doc": "Validate literature_corpus_entry.schema.json and rejection_log.schema.json"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_v3_6_7_phase_6_6.py",
+    "doc": "Static checks for ARS v3.6.7 Step 6 Phase 6.6 — orchestrator prompt §3.5"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_validate_compliance_fixtures.py",
+    "doc": "Unit tests for validate_compliance_fixtures.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_ranking_lift.py",
+    "doc": "Ranking-method lift gate (#184 Delta 4 / E-V4)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_394_submission_policy.py",
+    "doc": "#394 slice-4 submission-package terminality lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_audit_schemas.py",
+    "doc": "Phase 6.2 acceptance tests for the four v3.6.7 Step 6 audit schemas."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/render_harness_retirement_issue.py",
+    "doc": "Render the monthly harness-retirement tracking issue (#617)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/evidence_rows.py",
+    "doc": "Build, validate, page, and inertly render ARS shared evidence rows."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_rq_framing_patterns.py",
+    "doc": "Calibration checker for the #257 Socratic wording-pattern advisory."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_method_weaknesses_sync.py",
+    "doc": "Per-source method-weaknesses sync lint (#916)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_6_6_ab_manifest.py",
+    "doc": "Enforce the v3.6.6 A/B evidence fixture manifest contract per §6.2 schema +"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_ars_apply_revision_patch.py",
+    "doc": "Tests for ars_apply_revision_patch.py (#89 Item 7 Slice A, spec §8.2 + §8.3)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_calibration_tiers.py",
+    "doc": "Static contract for bounded reviewer calibration tiers."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_firm_rules_sync.py",
+    "doc": "Mutation tests for check_firm_rules_sync.py (v3.10 PR-A)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/review_criteria_binding.py",
+    "doc": "Build and validate #684 review-criteria consumer bindings."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/pdf_content_classifier_worker.py",
+    "doc": "Isolated optional PDF content-classifier worker."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/human_read_attestation_resolver.py",
+    "doc": "Deterministically resolve USER_ATTESTED_READ coverage for one citation."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_claim_standing_freshness.py",
+    "doc": "§7 freshness checker for the #655 claim-standing probe (gate 13)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_claim_standing_candidate_ledger_integration.py",
+    "doc": "Static, hermetic integration guard for #655 Track A."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_390_revision_patch_discipline.py",
+    "doc": "#390 Slice B revision-mode patch-adoption lint (#424)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/adjudication_activity.py",
+    "doc": "Deterministic, advisory-only cross-run adjudication activity recorder."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/build_content_coverage_advisory.py",
+    "doc": "Finalize, replay-validate, and render the bounded #681 LLM advisory."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_669_review_pathway_rule_trace.py",
+    "doc": "Check the static #669 schemas, runtime, lint surface, and consumer wiring."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_8_annotation_literal_sync.py",
+    "doc": "ARS v3.8 §3.6 + §5 — annotation literal sync lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_215_field_norm.py",
+    "doc": "Static lint for #215 field-norm severity coverage across the three reviewer surfaces."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/tortured_phrase_screening.py",
+    "doc": "Hermetic tortured-phrase risk-marker screening for issue #660."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_run_indirect_prompt_injection_no_call.py",
+    "doc": ""
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_adjacent_framing_probe_lint.py",
+    "doc": "Lint tests for the opt-in Socratic adjacent-framing probe."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_268_nested_commitment_ledger.py",
+    "doc": "Mutation tests for check_268_nested_commitment_ledger."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_benchmark_report.py",
+    "doc": "Unit tests for check_benchmark_report.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_ci_pytest_manifest.py",
+    "doc": "Drift guard for the unified pytest invocation manifest (issue #156)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_6_8_frontmatter_trust_schema.py",
+    "doc": "ARS v3.7.1 trust-chain frontmatter lint (spec § 3.1 firm rules)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_firm_rules_sync.py",
+    "doc": "Firm-rules sync + collision lint (v3.10 PR-A)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_command_frontmatter_name.py",
+    "doc": "Mutation tests for check_command_frontmatter_name.py (#633)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/ars_mark_read.py",
+    "doc": "ARS /ars-mark-read + /ars-unmark-read CLI implementation."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_claim_intent_manifest.py",
+    "doc": "Manifest tests for v3.8 claim_ref_alignment_audit_agent (T-M1, T-M2, T-M3)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_e2e_claim_audit.py",
+    "doc": "End-to-end claim-faithfulness audit test (spec §7.6 + §13 step 9)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_v3_6_8_cite_provenance_pipeline.py",
+    "doc": "ARS v3.7.1 Step 3b — Cite-Time Provenance Finalizer (academic-pipeline mode)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/claim_registry_coverage.py",
+    "doc": "Build and replay-validate a bounded E1 Claim Registry coverage report."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_experiment_provenance.py",
+    "doc": "Tests for #260 Experiment Provenance Intake + claim->experiment alignment."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_uncited_assertion.py",
+    "doc": "D4-c uncited-assertion token-detector tests (T-U1..T-U5)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_run_ledger.py",
+    "doc": "Tests for scripts/run_ledger.py (#887)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/run_review_criteria_constructive_value.py",
+    "doc": "Contained subscription-CLI runner for the #684 paired measurement."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_ars_write_scope_guard.py",
+    "doc": "TDD test suite for the ARS write-scope guard PreToolUse hook (#134 Slice 1)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_pipeline_integrity.py",
+    "doc": "Advisory verifier for ARS pipeline phase scope (v3.9.2)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_run_ideation_diversity_no_call.py",
+    "doc": ""
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_policy_anchor_disclosure.py",
+    "doc": "#108 policy-anchor disclosure renderer conformance tests."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_human_read_attestation_resolver.py",
+    "doc": "Regression tests for #738 USER_ATTESTED_READ resolution."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_pattern_eval_manifest.py",
+    "doc": "Validate ARS v3.6.7 Step 8 pattern-eval fixture manifests."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_revision_token_conservation.py",
+    "doc": "Deterministic token-conservation audit between revision rounds (#570)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_claim_audit_consistency.py",
+    "doc": "check_claim_audit_consistency.py — ARS v3.8 claim-faithfulness audit lint."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_claim_audit_pipeline.py",
+    "doc": "Audit-pipeline unit tests for v3.8 claim_ref_alignment_audit_agent (T-P1..T-P11)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_prisma_trAIce_freshness.py",
+    "doc": "Unit tests for check_prisma_trAIce_freshness.py."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/audit_panel_claims.py",
+    "doc": "Check the panel's findings against the manuscript (#1002, part 2)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_ars_anchorize_draft.py",
+    "doc": "Tests for ars_anchorize_draft.py (#89 Item 7 Slice A, spec §8.1)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_surface_form_parity.py",
+    "doc": "Tests for check_surface_form_parity.py (#216)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_check_rubric_weight_consistency.py",
+    "doc": "Compatibility tests for the retired rubric-weight checker filename."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/test_slr_lineage_emission.py",
+    "doc": "#111 slr_lineage emission conformance tests."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_control_availability.py",
+    "doc": "Defrift lint for docs/CONTROL_AVAILABILITY.md (#757)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_evidence_row_integration.py",
+    "doc": "Static integration guard for the #656 shared evidence-row contract."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/review_panel_provenance.py",
+    "doc": "Build and replay-validate typed reviewer_full panel provenance."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_corpus_consumer_protocol.py",
+    "doc": "Lint corpus consumer protocol per spec §5.2 (v3.6.5)."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/audit_snapshot.py",
+    "doc": "audit_snapshot.py — ARS v3.6.7 Step 6 Phase 6.1 byte-exact snapshot helper."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/check_claim_standing_transmissions.py",
+    "doc": "Transmission-ledger builder/validator for the #655 claim-standing probe."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/cross_model_verification/normalize_compat_verdict.py",
+    "doc": "Normalize an OpenAI-compatible provider's citation-verification response to ONE status."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/adapters/folder_scan.py",
+    "doc": "folder_scan: produce a literature_corpus passport from a directory of"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/adapters/obsidian.py",
+    "doc": "obsidian: produce a literature_corpus passport from an Obsidian vault."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/adapters/zotero.py",
+    "doc": "zotero: produce a literature_corpus passport from a Better BibTeX"
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/legacy/check_re_review_synthesis_v1_0.py",
+    "doc": "Recompute the #576 Spec B three-gate re-review contract from its artifacts."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "scripts/legacy/ars_apply_revision_patch_v1_0.py",
+    "doc": "Apply a revision patch to an anchored draft — two-phase, fail-closed."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "sr-screener/scripts/build_outputs.py",
+    "doc": "Phase 6 (Reporter): build the screening deliverables from merged decisions."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "sr-screener/scripts/prepare_fulltext.py",
+    "doc": "Full-text stage, step 1: match the PDFs of advanced records."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "sr-screener/scripts/merge_decisions.py",
+    "doc": "Merge reviewer decisions into final screening decisions and list what is still pending."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "sr-screener/scripts/build_workflow.py",
+    "doc": "Generate a ready-to-run Workflow script (or plain prompt files) for a screening run."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "sr-screener/scripts/prepare_records.py",
+    "doc": "Phase 1 (Records Librarian): parse exports, remove duplicates, write screening batches."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "tools/release-discipline/scripts/check_command_invariants.py",
+    "doc": "Validate command-list invariants per a per-repo manifest TOML."
+  },
+  {
+    "repo": "Imbad0202_academic-research-skills",
+    "path": "tools/release-discipline/scripts/check_release_doc_alignment.py",
+    "doc": "Validate release-doc alignment per a per-repo manifest TOML."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tests/test_generate_and_import.py",
+    "doc": "Tests for tools/generate_skill_data.py (model-assisted data, validated mechanically) and"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tests/script_inventory.py",
+    "doc": "Inventory of skill scripts for smoke tests: which compile, and which can run `--help` offline."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-reports/scripts/generate_report_template.py",
+    "doc": "Copy a fail-closed structured clinical-report template to a local path."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-reports/scripts/provenance_validator.py",
+    "doc": "Validate source-fact-to-claim traceability without opening source records."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-reports/scripts/consistency_checker.py",
+    "doc": "Check structured dates, units, denominators, percentages, and totals."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-reports/scripts/terminology_validator.py",
+    "doc": "Check terminology-manifest schema and optional caller-supplied local dictionary."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-reports/scripts/validate_case_report.py",
+    "doc": "Validate a structured CARE coverage manifest without reading patient narrative."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-reports/scripts/format_adverse_events.py",
+    "doc": "Format bounded aggregate adverse-event counts into a review-only Markdown table."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-reports/scripts/check_deidentification.py",
+    "doc": "Validate de-identification process documentation without scanning patient text."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-reports/scripts/validate_trial_report.py",
+    "doc": "Validate structured ICH E3, CONSORT 2025, or SPIRIT 2025 coverage."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/13c-metabolic-flux/scripts/mfa.py",
+    "doc": "Check, simulate, fit, and profile steady-state 13C metabolic flux models."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/arxiv-submission/scripts/arxiv_preflight.py",
+    "doc": "Preflight a LaTeX project before uploading the source to arXiv."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/reference-manager-interop/scripts/convert_refs.py",
+    "doc": "Convert references between BibTeX, RIS and CSL-JSON."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/medchem/scripts/filter_molecules.py",
+    "doc": "Batch molecular filtering using the medchem library."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matplotlib/scripts/plot_template.py",
+    "doc": "Matplotlib Plot Template"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matplotlib/scripts/style_configurator.py",
+    "doc": "Matplotlib Style Configurator"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-schematics/scripts/generate_schematic_ai.py",
+    "doc": "AI-powered scientific schematic generation using Nano Banana 2."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-schematics/scripts/generate_schematic.py",
+    "doc": "Scientific schematic generation using Nano Banana 2."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-visualization/scripts/figure_export.py",
+    "doc": "Safe Matplotlib export helpers with explicit, auditable settings."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-visualization/scripts/export_plan.py",
+    "doc": "Build and screen against dated publication-export planning snapshots."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-visualization/scripts/palette_audit.py",
+    "doc": "Audit palette contrast and heuristic grayscale distinguishability."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-visualization/scripts/image_metadata.py",
+    "doc": "Inspect figure/image metadata and screen it against explicit constraints."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-visualization/scripts/style_presets.py",
+    "doc": "Scoped Matplotlib style presets for scientific figures."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-visualization/scripts/style_preview.py",
+    "doc": "Generate a deterministic preview for a bundled scientific figure style."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-visualization/assets/color_palettes.py",
+    "doc": "Curated sRGB palettes for scientific figures."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/autoskill/scripts/doctor.py",
+    "doc": ""
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/autoskill/scripts/autoskill.py",
+    "doc": "Unified CLI for the autoskill skill."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/autoskill/scripts/run.py",
+    "doc": ""
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/autoskill/scripts/promote.py",
+    "doc": ""
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/rdkit/scripts/similarity_search.py",
+    "doc": "Molecular Similarity Search"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/rdkit/scripts/substructure_filter.py",
+    "doc": "Substructure Filter"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/rdkit/scripts/molecular_properties.py",
+    "doc": "Molecular Properties Calculator"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-brainstorming/scripts/session_scaffold.py",
+    "doc": "Generate a deterministic JSON scaffold for a brainstorming session."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-brainstorming/scripts/_common.py",
+    "doc": "Shared standard-library safety helpers for brainstorming CLIs."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-brainstorming/scripts/validate_register.py",
+    "doc": "Validate brainstorming idea and assumption registers structurally."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-brainstorming/scripts/evaluate_matrix.py",
+    "doc": "Calculate a transparent weighted idea matrix with sensitivity analysis."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/liteparse/scripts/batch_parse_dir.py",
+    "doc": "Batch-parse documents in a directory with LiteParse (local only, no network)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/onekgpd/scripts/onekgpd_meta.py",
+    "doc": "OneKGPd — sample & population metadata (offline) over the 1000 Genomes Project."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/onekgpd/scripts/onekgpd_api.py",
+    "doc": "OneKGPd — individual-level queries over the 1000 Genomes Project."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exa-search/scripts/exa_search.py",
+    "doc": "Run an Exa web search and write results to JSON."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exa-search/scripts/exa_extract.py",
+    "doc": "Fetch and extract content from URLs using Exa's /contents endpoint."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/dnanexus-integration/scripts/validate_dxapp.py",
+    "doc": "Offline validation and safety linting for a DNAnexus dxapp.json file."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/dnanexus-integration/scripts/inspect_dxpy.py",
+    "doc": "Inspect local dxpy symbols and signatures without authentication or network."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/protocolsio-integration/scripts/pagination_helper.py",
+    "doc": "Validate protocols.io pagination pointers without making requests."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/protocolsio-integration/scripts/plan_write_request.py",
+    "doc": "Create redacted protocols.io mutation plans; never execute them."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/protocolsio-integration/scripts/validate_protocol_json.py",
+    "doc": "Validate and summarize a saved protocols.io protocol response offline."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/protocolsio-integration/scripts/validate_auth_config.py",
+    "doc": "Validate named protocols.io credential/configuration variables locally."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/protocolsio-integration/scripts/protocols_read.py",
+    "doc": "Bounded, read-only protocols.io REST client with an explicit execute gate."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/shap/scripts/tabular_report.py",
+    "doc": "Generate a validated SHAP 0.52 tabular report from a built-in dataset."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/flowio/scripts/inspect_fcs.py",
+    "doc": "Inspect local FCS files with FlowIO without network or environment access."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/peer-review/scripts/audit_statistics_reproducibility.py",
+    "doc": "Audit a structured statistics and reproducibility checklist locally."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/peer-review/scripts/audit_citations.py",
+    "doc": "Audit Markdown citation keys against a local reference CSV without network use."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/peer-review/scripts/validate_claim_evidence.py",
+    "doc": "Validate a bounded claim-evidence alignment matrix without echoing prose."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/peer-review/scripts/lint_review.py",
+    "doc": "Lint a structured review for channel separation, tone, and actionability."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/peer-review/scripts/select_reporting_guidelines.py",
+    "doc": "Select bundled reporting guidance and audit checklist coverage locally."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/peer-review/scripts/generate_review_scaffold.py",
+    "doc": "Generate a local structured peer-review draft scaffold from validated intake."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/peer-review/scripts/validate_review_intake.py",
+    "doc": "Validate peer-review scope, authorization, conflicts, and handling controls."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-writing/scripts/audit_claims.py",
+    "doc": "Audit claim-to-evidence mappings and local citation markers."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-writing/scripts/check_references.py",
+    "doc": "Check local reference identifiers and duplicates without resolving them."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-writing/scripts/scaffold_manuscript.py",
+    "doc": "Generate a local, explicitly incomplete manuscript workspace."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-writing/scripts/lint_manuscript.py",
+    "doc": "Lint manuscript Markdown for placeholders, language risks, and sensitive content."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-writing/scripts/check_consistency.py",
+    "doc": "Check numeric and methods-results consistency in a bounded JSON registry."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-writing/scripts/_common.py",
+    "doc": "Shared, dependency-free safety helpers for scientific-writing CLIs."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-writing/scripts/validate_authorship.py",
+    "doc": "Validate human authorship, CRediT roles, accountability, and AI disclosure."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-writing/scripts/validate_manifest.py",
+    "doc": "Validate bounded manuscript and source manifests without network access."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-writing/scripts/select_reporting_guidelines.py",
+    "doc": "Select reporting guidance and check non-scoring coverage metadata."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/ncats-arax/scripts/arax_client.py",
+    "doc": "Bounded, provenance-preserving client for the NCATS Translator ARAX API."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scholar-evaluation/scripts/weight_sensitivity.py",
+    "doc": "Stress-test rubric weights and report scholarly-work order instability."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scholar-evaluation/scripts/validate_rubric.py",
+    "doc": "Validate a bounded scholar-evaluation rubric JSON file."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scholar-evaluation/scripts/check_traceability.py",
+    "doc": "Check criterion-to-evidence traceability without copying source content."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scholar-evaluation/scripts/summarize_agreement.py",
+    "doc": "Summarize inter-rater agreement from pseudonymous local CSV ratings."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scholar-evaluation/scripts/calculate_scores.py",
+    "doc": "Calculate transparent bounded rubric math for one scholarly work."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scholar-evaluation/scripts/check_process.py",
+    "doc": "Check low-stakes assessment governance and bias-process controls."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scholar-evaluation/scripts/generate_report_scaffold.py",
+    "doc": "Generate a minimized local JSON scaffold for qualified human review."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathml/scripts/plan_inference.py",
+    "doc": "Plan bounded inference batches from numbers or a JSON model card only."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathml/scripts/plan_pipeline.py",
+    "doc": "Plan bounded PathML tiling and pipeline work without opening a slide."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathml/scripts/validate_spatial_schema.py",
+    "doc": "Validate bounded graph JSON and multiplex cell-table CSV schemas."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathml/scripts/image_qc.py",
+    "doc": "Compute bounded synthetic/local image QC and a coarse tissue-like mask."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathml/scripts/slide_manifest.py",
+    "doc": "Validate local slide manifests and inspect allowlisted technical metadata."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/literature-review/scripts/generate_schematic_ai.py",
+    "doc": "AI-powered scientific schematic generation using Nano Banana 2."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/literature-review/scripts/verify_citations.py",
+    "doc": "Citation Verification Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/literature-review/scripts/generate_pdf.py",
+    "doc": "PDF Generation Script for Literature Reviews"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/literature-review/scripts/generate_schematic.py",
+    "doc": "Scientific schematic generation using Nano Banana 2."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/literature-review/scripts/search_databases.py",
+    "doc": "Literature Database Search Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/treatment-plans/scripts/check_completeness.py",
+    "doc": "Check documentation gates without assessing clinical adequacy."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/treatment-plans/scripts/validate_traceability.py",
+    "doc": "Validate source-fact traceability without interpreting source content."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/treatment-plans/scripts/generate_template.py",
+    "doc": "Generate a fail-closed local JSON documentation package."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/treatment-plans/scripts/privacy_process_check.py",
+    "doc": "Check documented privacy process without determining compliance."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/treatment-plans/scripts/timeline_generator.py",
+    "doc": "Create a schedule from explicitly supplied dates only."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/treatment-plans/scripts/check_consistency.py",
+    "doc": "Check cross-record consistency without clinical interpretation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/treatment-plans/scripts/validate_treatment_plan.py",
+    "doc": "Validate strict JSON structure without evaluating clinical content."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathogen-variant-surveillance/scripts/reporting_lag.py",
+    "doc": "Measure how long sequences take to appear, and how far back to trust the data."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathogen-variant-surveillance/scripts/mutation_profile.py",
+    "doc": "Mutations carried by a lineage, or the difference between two lineages."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathogen-variant-surveillance/scripts/resolve_lineage.py",
+    "doc": "Resolve a lineage name against the live nomenclature before trusting it."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathogen-variant-surveillance/scripts/lineage_prevalence.py",
+    "doc": "Weekly prevalence of one or more lineages, with intervals and a coverage flag."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/generate-image/scripts/generate_image.py",
+    "doc": "Generate and edit images through the OpenRouter Image API (POST /api/v1/images)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/timesfm-forecasting/scripts/check_system.py",
+    "doc": "TimesFM System Requirements Preflight Checker."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/timesfm-forecasting/scripts/forecast_csv.py",
+    "doc": "End-to-end CSV forecasting with TimesFM."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/timesfm-forecasting/examples/anomaly-detection/detect_anomalies.py",
+    "doc": "TimesFM Anomaly Detection Example — Two-Phase Method"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/timesfm-forecasting/examples/covariates-forecasting/demo_covariates.py",
+    "doc": "TimesFM Covariates (XReg) Example"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/timesfm-forecasting/examples/global-temperature/generate_html.py",
+    "doc": "Generate a self-contained HTML file with embedded animation data."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/timesfm-forecasting/examples/global-temperature/visualize_forecast.py",
+    "doc": "Visualize TimesFM forecast results for global temperature anomaly."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/timesfm-forecasting/examples/global-temperature/generate_gif.py",
+    "doc": "Generate animated GIF showing forecast evolution."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/timesfm-forecasting/examples/global-temperature/generate_animation_data.py",
+    "doc": "Generate animation data for interactive forecast visualization."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymc/scripts/model_comparison.py",
+    "doc": "PyMC Model Comparison Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymc/scripts/model_diagnostics.py",
+    "doc": "PyMC Model Diagnostics Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pufferlib/scripts/repro_plan.py",
+    "doc": "Generate a bounded reproducibility and held-out evaluation plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pufferlib/scripts/env_template.py",
+    "doc": "Dependency-free synthetic Gymnasium-style environment template."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pufferlib/scripts/benchmark_vectorization.py",
+    "doc": "Bounded synthetic vectorization benchmark with no PufferLib import."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pufferlib/scripts/inspect_checkpoint.py",
+    "doc": "Inspect checkpoint file metadata without deserializing checkpoint contents."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pufferlib/scripts/env_contract_validator.py",
+    "doc": "Validate a built-in synthetic environment without importing plug-ins."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pufferlib/scripts/train_template.py",
+    "doc": "Safe PufferLib training-plan template."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pufferlib/scripts/validate_plan.py",
+    "doc": "Strict, dependency-free validator for PufferLib training plans."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pylabrobot/scripts/generate_simulation_plan.py",
+    "doc": "Generate a non-executable, hardware-blocked simulation plan as JSON."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pylabrobot/scripts/plan_transfers.py",
+    "doc": "Plan a deterministic volume ledger and one-use tip allocation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pylabrobot/scripts/inspect_backends.py",
+    "doc": "Inspect a pinned PyLabRobot API surface without constructing a backend."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pylabrobot/scripts/validate_manifest.py",
+    "doc": "Validate a strict offline PyLabRobot protocol manifest."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pylabrobot/scripts/check_deck_geometry.py",
+    "doc": "Check bounded static deck geometry without importing PyLabRobot."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pytdc/scripts/load_and_split_data.py",
+    "doc": "Plan or explicitly execute one bounded PyTDC dataset split."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pytdc/scripts/molecular_generation.py",
+    "doc": "Safely plan PyTDC molecule data access or bounded oracle scoring."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pytdc/scripts/discover_metadata.py",
+    "doc": "Discover PyTDC registries without constructing loaders or downloading data."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pytdc/scripts/cache_audit.py",
+    "doc": "Create a bounded, read-only manifest of a local PyTDC data directory."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pytdc/scripts/benchmark_evaluation.py",
+    "doc": "Plan or explicitly evaluate user-supplied TDC benchmark predictions."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/experimental-design/scripts/randomization.py",
+    "doc": "Reproducible randomization / allocation schedules for experiments and trials."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/experimental-design/scripts/doe_designs.py",
+    "doc": "Design-of-experiments (DOE) matrices as labeled, decoded pandas DataFrames."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/markitdown/scripts/convert_literature.py",
+    "doc": "Convert a trusted local PDF collection into provenance-rich Markdown."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/markitdown/scripts/batch_convert.py",
+    "doc": "Batch-convert trusted local files with Microsoft MarkItDown 0.1.6."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/markitdown/scripts/inspect_installation.py",
+    "doc": "Inspect a MarkItDown installation without loading plugins or using network."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/statistical-analysis/scripts/assumption_checks.py",
+    "doc": "Comprehensive statistical assumption checking utilities."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypogenic/scripts/validate_config.py",
+    "doc": "Validate HypoGeniC task configs and the skill's plan-only run policy."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypogenic/scripts/audit_dataset.py",
+    "doc": "Audit pinned HypoGeniC dataset files, schemas, splits, and duplicates."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypogenic/scripts/inspect_outputs.py",
+    "doc": "Inspect local HypoGeniC hypothesis/result JSON without echoing raw content."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypogenic/scripts/evaluate_local.py",
+    "doc": "Create an evaluation plan or score saved predictions without model calls."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypogenic/scripts/plan_run.py",
+    "doc": "Create a deterministic token/cost preflight without calling any model."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scikit-survival/scripts/validate_survival_csv.py",
+    "doc": "Validate a local survival CSV and optionally write a structured NumPy array."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scikit-survival/scripts/evaluate_survival_metrics.py",
+    "doc": "Evaluate censoring-aware survival metrics with strict input contracts."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scikit-survival/scripts/competing_risk_cif.py",
+    "doc": "Estimate nonparametric competing-risk cumulative incidence from local data."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scikit-survival/scripts/train_survival_model.py",
+    "doc": "Train a leakage-safe Cox or ensemble example on explicit local schema."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scikit-survival/scripts/model_report.py",
+    "doc": "Render a bounded Markdown model card from local aggregate JSON summaries."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/qiskit/scripts/check_environment.py",
+    "doc": "Inspect a Qiskit environment without network or credential access."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/qiskit/scripts/run_local_primitives.py",
+    "doc": "Run a parameterized circuit with Qiskit V2 local primitives."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/qiskit/scripts/inspect_runtime.py",
+    "doc": "Inspect one IBM Runtime backend without submitting a quantum job."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/deeptools/scripts/workflow_generator.py",
+    "doc": "deepTools Workflow Generator"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/deeptools/scripts/validate_files.py",
+    "doc": "deepTools File Validation Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-slides/scripts/generate_schematic_ai.py",
+    "doc": "AI-powered scientific schematic generation using Nano Banana 2."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-slides/scripts/generate_slide_image_ai.py",
+    "doc": "AI-powered slide image generation using Nano Banana Pro."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-slides/scripts/generate_slide_image.py",
+    "doc": "Slide image generation using Nano Banana Pro."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-slides/scripts/generate_schematic.py",
+    "doc": "Scientific schematic generation using Nano Banana 2."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-slides/scripts/validate_presentation.py",
+    "doc": "Presentation Validation Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-slides/scripts/slides_to_pdf.py",
+    "doc": "Combine slide images into a single PDF presentation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scientific-slides/scripts/pdf_to_images.py",
+    "doc": "PDF to Images Converter for Presentations"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/waypoint-bio/scripts/profiler_to_waypoint.py",
+    "doc": "Convert microbiome profiler output into waypoint format."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/waypoint-bio/scripts/vocab_coverage.py",
+    "doc": "Report how much of a dataset a Waypoint tokenizer can actually see."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/deepchem/scripts/predict_solubility.py",
+    "doc": "Molecular Solubility Prediction Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/deepchem/scripts/transfer_learning.py",
+    "doc": "Transfer Learning Script for DeepChem"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/deepchem/scripts/graph_neural_network.py",
+    "doc": "Graph Neural Network Training Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gtars/scripts/tokenizer_manifest.py",
+    "doc": "Check a local Gtars tokenizer manifest against its exact universe."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gtars/scripts/refget_digest_plan.py",
+    "doc": "Validate local refget metadata and FASTA sequence digests without networking."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gtars/scripts/execution_plan.py",
+    "doc": "Build a bounded local Gtars overlap/coverage execution plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gtars/scripts/coverage_preflight.py",
+    "doc": "Preflight local Gtars uniwig coverage and bigWig generation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gtars/scripts/bed_validator.py",
+    "doc": "Validate a local BED file without rewriting or uploading it."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gtars/scripts/_common.py",
+    "doc": "Shared dependency-free safety helpers for local Gtars skill CLIs."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gtars/scripts/artifact_inspector.py",
+    "doc": "Hash and classify local Gtars artifacts without loading or executing them."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/bibtex-hygiene/scripts/bib_lint.py",
+    "doc": "Lint a BibTeX file for problems that break builds or embarrass authors."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hugging-science/scripts/fetch_catalog.py",
+    "doc": "Fetch and parse content from the Hugging Science catalog (huggingscience.co)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/labarchive-integration/scripts/notebook_operations.py",
+    "doc": "Safely inspect a local LabArchives LA container ZIP without extracting it."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/labarchive-integration/scripts/entry_operations.py",
+    "doc": "Offline LabArchives request-signing helpers and redacted request plans."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/labarchive-integration/scripts/setup_config.py",
+    "doc": "Validate LabArchives regional endpoints and named environment variables."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/arboreto/scripts/basic_grn_inference.py",
+    "doc": "Basic GRN inference example using Arboreto."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/analytical-method-validation/scripts/compare_methods.py",
+    "doc": "Compare two analytical procedures for a transfer, bridging, or bias study."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/analytical-method-validation/scripts/check_response.py",
+    "doc": "Evaluate a calibration response (linearity) the way ICH Q2(R2) 3.2.2 asks."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/analytical-method-validation/scripts/check_bioanalytical_run.py",
+    "doc": "Apply ICH M10 acceptance criteria to a bioanalytical run or an ISR dataset."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/analytical-method-validation/scripts/_common.py",
+    "doc": "Shared statistics and I/O for analytical method validation checks."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/analytical-method-validation/scripts/check_accuracy_precision.py",
+    "doc": "Evaluate accuracy and precision per ICH Q2(R2) 3.3."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/analytical-method-validation/scripts/check_detection_limits.py",
+    "doc": "Estimate DL and QL by every approach ICH Q2(R2) 3.2.3 allows, and compare them."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/analytical-method-validation/scripts/plan_validation.py",
+    "doc": "Design a validation study: which framework, which tests, what study layout."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/ontology-term-resolution/scripts/validate_terms.py",
+    "doc": "Validate ontology CURIEs against EBI OLS4 before they leave the machine."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/ontology-term-resolution/scripts/map_terms.py",
+    "doc": "Map lab shorthand to ontology terms via EBI ZOOMA."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/ontology-term-resolution/scripts/resolve_terms.py",
+    "doc": "Resolve free-text labels to ontology terms via EBI OLS4."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/ontology-term-resolution/scripts/lookup_prefix.py",
+    "doc": "Look up ontology prefixes and check CURIEs against Bioregistry."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/citation-verification/scripts/verify_citations.py",
+    "doc": "Verify that references exist and match their metadata (Crossref + OpenAlex)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/arbor/scripts/tree.py",
+    "doc": "tree.py — persistent hypothesis-tree state manager for Arbor-style"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/process_identifications.py",
+    "doc": "Process Peptide/Protein Identifications"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/export_gnps_sirius.py",
+    "doc": "Export for GNPS (FBMN) and SIRIUS"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/extract_chromatograms.py",
+    "doc": "Extract Ion Chromatograms (XIC/EIC) and TIC/BPC"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/theoretical_spectrum.py",
+    "doc": "Theoretical Fragment Spectrum Generator"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/mass_calculator.py",
+    "doc": "Mass & Chemistry Calculator"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/align_link_quantify.py",
+    "doc": "Multi-Sample Align, Link, and Quantify"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/detect_features_centroided.py",
+    "doc": "Peptide/Centroided Feature Detection"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/process_spectra.py",
+    "doc": "Signal Processing for Spectra"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/detect_features_metabo.py",
+    "doc": "Untargeted Metabolomics Feature Detection"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/inspect_ms_data.py",
+    "doc": "Inspect Mass Spectrometry Data"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/accurate_mass_search.py",
+    "doc": "Accurate Mass Search (Metabolite Annotation)"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/digest_protein.py",
+    "doc": "In-Silico Protein Digestion"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/convert_format.py",
+    "doc": "Convert Between MS File Formats"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/detect_adducts.py",
+    "doc": "Adduct Detection / Feature Decharging"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/consensus_to_matrix.py",
+    "doc": "Consensus Map to Quantification Matrix"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pyopenms/scripts/plot_ms_data.py",
+    "doc": "Visualize MS Data"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/unslop-academic-writing/scripts/slop_check.py",
+    "doc": "Find \"AI slop\" in academic prose: stock phrasing, empty emphasis, formulaic rhythm."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/annotate.py",
+    "doc": "Annotate clusters with cell-type labels from a mapping file."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/reduce_dimensions.py",
+    "doc": "PCA, neighborhood graph, and UMAP / t-SNE embeddings."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/convert.py",
+    "doc": "Load any supported single-cell format and write it as .h5ad."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/cluster.py",
+    "doc": "Leiden clustering on a precomputed neighborhood graph."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/inspect_data.py",
+    "doc": "Inspect an AnnData / single-cell file and print a structured summary."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/pseudobulk.py",
+    "doc": "Aggregate single cells into pseudobulk profiles for rigorous DE."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/run_pipeline.py",
+    "doc": "End-to-end standard scRNA-seq pipeline in one command."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/subset.py",
+    "doc": "Subset an AnnData object by cell metadata or genes."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/batch_correct.py",
+    "doc": "Batch correction / integration across samples."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/plot.py",
+    "doc": "Generate common single-cell plots from a processed AnnData object."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/preprocess.py",
+    "doc": "Normalize, log-transform, select highly variable genes, and optionally scale."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/qc_analysis.py",
+    "doc": "Quality control and filtering for single-cell RNA-seq data."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/find_markers.py",
+    "doc": "Rank marker genes per group and export tables + plots."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scanpy/scripts/score_genes.py",
+    "doc": "Score cells for one or more gene signatures."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/grpo-rl-training/templates/basic_grpo_training.py",
+    "doc": "Basic GRPO Training Template"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pysam/scripts/variant_summary.py",
+    "doc": "Stream a local VCF/BCF and emit variant/genotype summary counts as JSON."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pysam/scripts/alignment_qc.py",
+    "doc": "Stream a local SAM/BAM/CRAM file and write aggregate QC counts as JSON."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pysam/scripts/filter_alignments.py",
+    "doc": "Filter a local SAM/BAM/CRAM into a new alignment file."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pysam/scripts/inspect_hts.py",
+    "doc": "Inspect a local HTS/sequence file and emit a bounded JSON summary."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/fictiv/scripts/check_cad_file.py",
+    "doc": "Pre-flight check for CAD files before uploading them to Fictiv."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/open-notebook/scripts/notebook_management.py",
+    "doc": "Open Notebook - Notebook Management Example"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/open-notebook/scripts/source_ingestion.py",
+    "doc": "Open Notebook - Source Ingestion Example"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/open-notebook/scripts/chat_interaction.py",
+    "doc": "Open Notebook - Chat Interaction Example"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/qutip/scripts/steady_state_spectrum_planner.py",
+    "doc": "Plan bounded steady-state and spectrum calculations for QuTiP 5."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/qutip/scripts/qobj_model_validator.py",
+    "doc": "Validate a bounded numeric QuTiP model described by strict JSON."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/qutip/scripts/convergence_sweep.py",
+    "doc": "Run bounded deterministic or trajectory convergence sweeps."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/qutip/scripts/solver_config_planner.py",
+    "doc": "Create a bounded QuTiP 5 solver and validation plan without simulation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/qutip/scripts/two_level_simulation.py",
+    "doc": "Run a bounded synthetic two-level open-system simulation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/qutip/scripts/result_audit.py",
+    "doc": "Audit portable QuTiP skill JSON without loading Python objects."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/stable-baselines3/scripts/train_rl_agent.py",
+    "doc": "Template script for training RL agents with Stable Baselines3."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/stable-baselines3/scripts/custom_env_template.py",
+    "doc": "Template for creating custom Gymnasium environments compatible with Stable Baselines3."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/stable-baselines3/scripts/evaluate_agent.py",
+    "doc": "Template script for evaluating trained RL agents with Stable Baselines3."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/statistical-power/scripts/simulate_power.py",
+    "doc": "Monte Carlo power for designs with no closed-form formula."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/statistical-power/scripts/power.py",
+    "doc": "Unified closed-form power / sample-size interface over statsmodels and scipy."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypothesis-generation/scripts/check_falsification_controls.py",
+    "doc": "Audit falsifiers, discriminating tests, nulls, and controls without scoring."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypothesis-generation/scripts/validate_hypothesis_schema.py",
+    "doc": "Validate a structured hypothesis record without judging scientific merit."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypothesis-generation/scripts/generate_preregistration_scaffold.py",
+    "doc": "Generate a deterministic local Markdown preregistration scaffold."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypothesis-generation/scripts/check_operationalization.py",
+    "doc": "Audit a local operationalization and measurement checklist without scoring."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypothesis-generation/scripts/lint_causal_claims.py",
+    "doc": "Lexically lint causal versus associational claims in bounded Markdown."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypothesis-generation/scripts/validate_prediction_matrix.py",
+    "doc": "Validate a prediction/rival-hypothesis CSV without ranking candidates."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/hypothesis-generation/scripts/audit_evidence_ledger.py",
+    "doc": "Audit a local evidence ledger and dated search boundary without networking."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geniml/scripts/model_artifact_inspector.py",
+    "doc": "Inspect local model artifacts and checksums without deserialization."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geniml/scripts/consensus_plan.py",
+    "doc": "Create a bounded, local-only Geniml consensus-universe execution plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geniml/scripts/embedding_plan.py",
+    "doc": "Plan a bounded local Geniml embedding run without importing ML packages."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geniml/scripts/bed_validator.py",
+    "doc": "Validate one local BED file and emit a non-mutating normalization plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geniml/scripts/corpus_auditor.py",
+    "doc": "Audit a local interval manifest without exposing sample metadata values."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geniml/scripts/tokenizer_compatibility.py",
+    "doc": "Plan local tokenizer/universe/model compatibility checks without imports."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/simpy/scripts/bounded_queue_scenario.py",
+    "doc": "Run a bounded finite-horizon queue scenario from allowlisted JSON."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/simpy/scripts/replication_runner.py",
+    "doc": "Run independent bounded replications and compute Student-t intervals."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/simpy/scripts/event_trace_summary.py",
+    "doc": "Summarize bounded event-trace JSONL or ResourceMonitor CSV artifacts."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/simpy/scripts/resource_monitor.py",
+    "doc": "Bounded resource monitoring and deterministic event tracing for SimPy."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/simpy/scripts/validate_simulation_config.py",
+    "doc": "Validate bounded queue or replication JSON without running a simulation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/simpy/scripts/basic_simulation_template.py",
+    "doc": "Bounded, reproducible SimPy queue template with independent random streams."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pydicom/scripts/deidentification_audit.py",
+    "doc": "Audit DICOM metadata for bounded de-identification review signals."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pydicom/scripts/anonymize_dicom.py",
+    "doc": "Create a bounded, pseudonymized DICOM derivative without compliance claims."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pydicom/scripts/extract_metadata.py",
+    "doc": "Emit a redacted, allowlisted technical DICOM metadata inventory."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pydicom/scripts/dicom_to_image.py",
+    "doc": "Render one bounded DICOM frame for non-diagnostic review."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pydicom/scripts/uid_mapping_validator.py",
+    "doc": "Validate bounded DICOM UID mapping consistency without printing UIDs."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pydicom/scripts/pixel_frame_planner.py",
+    "doc": "Plan bounded DICOM frame decoding from metadata without loading pixels."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pydicom/scripts/transfer_syntax_inspector.py",
+    "doc": "Inspect installed pydicom transfer-syntax decoder/encoder capabilities."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pydicom/scripts/dicom_inventory.py",
+    "doc": "Bounded metadata-only DICOM technical inventory and structural checks."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/bulk-rnaseq/scripts/build_counts_matrix.py",
+    "doc": "Assemble a gene-level counts matrix from RNA-seq quantification output."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/bulk-rnaseq/scripts/validate_samplesheet.py",
+    "doc": "Validate a bulk RNA-seq samplesheet (and optional design metadata)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-decision-support/scripts/evidence_profile_check.py",
+    "doc": "Check a human-authored GRADE evidence profile without assigning grades."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-decision-support/scripts/validate_cds_artifact.py",
+    "doc": "Validate intended use and governance fields for research-only CDS artifacts."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-decision-support/scripts/survival_plan_validator.py",
+    "doc": "Validate an estimand-led survival-analysis plan without reading subject rows."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-decision-support/scripts/model_biomarker_evaluation.py",
+    "doc": "Create a bounded report from aggregate model/biomarker validation counts."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-decision-support/scripts/deidentification_checklist.py",
+    "doc": "Check documentation of a de-identification process without reading health data."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-decision-support/scripts/decision_logic_traceability.py",
+    "doc": "Validate and export research/governance decision-logic traceability."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/clinical-decision-support/scripts/cohort_table_generator.py",
+    "doc": "Generate disclosure-controlled tables from bounded aggregate cohort summaries."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/omero-integration/scripts/validate_config.py",
+    "doc": "Validate named OMERO endpoint/auth variables without contacting OMERO."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/omero-integration/scripts/omero_common.py",
+    "doc": "Shared safety utilities for the bundled OMERO client helpers."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/omero-integration/scripts/export_image_metadata.py",
+    "doc": "Export bounded annotations and ROI geometry for explicit image IDs."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/omero-integration/scripts/inventory.py",
+    "doc": "Produce a bounded, read-only OMERO object inventory."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/omero-integration/scripts/plan_transfer.py",
+    "doc": "Build a local-only, bounded OMERO import or export plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/openpiv/scripts/run_example.py",
+    "doc": "End-to-end smoke test of the OpenPIV pipeline on OpenPIV's own bundled data."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/openpiv/scripts/runner.py",
+    "doc": "CLI for OpenPIV processing of a single image pair."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neuropixels-analysis/scripts/compute_metrics.py",
+    "doc": "Compute quality metrics and curate units."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neuropixels-analysis/scripts/preprocess_recording.py",
+    "doc": "Preprocess Neuropixels recording."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neuropixels-analysis/scripts/run_sorting.py",
+    "doc": "Run spike sorting on preprocessed recording."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neuropixels-analysis/scripts/neuropixels_pipeline.py",
+    "doc": "Neuropixels Data Analysis Pipeline (Best Practices Version)"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neuropixels-analysis/scripts/explore_recording.py",
+    "doc": "Quick exploration of Neuropixels recording."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neuropixels-analysis/scripts/export_to_phy.py",
+    "doc": "Export sorting results to Phy for manual curation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neuropixels-analysis/assets/analysis_template.py",
+    "doc": "Neuropixels Analysis Template"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/imaging-data-commons/scripts/check_version.py",
+    "doc": "Check the idc-index package and this skill for required/available updates."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/diffdock/scripts/setup_check.py",
+    "doc": "DiffDock Environment Setup Checker"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/diffdock/scripts/prepare_batch_csv.py",
+    "doc": "DiffDock Batch CSV Preparation and Validation Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/diffdock/scripts/analyze_results.py",
+    "doc": "DiffDock Results Analysis Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/latchbio-integration/scripts/inspect_latch_sdk.py",
+    "doc": "Inspect the installed Latch SDK without authentication or network access."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pydeseq2/scripts/run_deseq2_analysis.py",
+    "doc": "PyDESeq2 Analysis Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/iso-standards-readiness/scripts/audit_document_records.py",
+    "doc": "Audit local document/record register metadata without opening evidence files."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/iso-standards-readiness/scripts/check_supplier_controls.py",
+    "doc": "Check supplier and outsourced-process control evidence."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/iso-standards-readiness/scripts/validate_evidence_manifest.py",
+    "doc": "Validate a bounded audit/readiness evidence manifest and optional local files."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/iso-standards-readiness/scripts/check_traceability.py",
+    "doc": "Check risk/design/production/postmarket traceability references."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/iso-standards-readiness/scripts/check_qmsr_transition.py",
+    "doc": "Check documented evidence for the post-effective-date FDA QMSR transition."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/iso-standards-readiness/scripts/gap_analyzer.py",
+    "doc": "Create a fail-closed QMS evidence gap report from a local manifest."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/iso-standards-readiness/scripts/validate_scope_intake.py",
+    "doc": "Validate a declared applicability and scope intake for one standard profile."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/iso-standards-readiness/scripts/_common.py",
+    "doc": "Shared, bounded helpers for local standards-readiness evidence checks."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/iso-standards-readiness/scripts/check_capa.py",
+    "doc": "Check CAPA record structure, evidence, and effectiveness gates."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geopandas/scripts/crs_reprojection_plan.py",
+    "doc": "Plan CRS and datum transformation semantics without transforming coordinates."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geopandas/scripts/sensitive_coordinates_checklist.py",
+    "doc": "Produce a deterministic privacy/generalization checklist without reading data."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geopandas/scripts/export_plan.py",
+    "doc": "Create a non-executing, redacted vector export and GeoParquet plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geopandas/scripts/geometry_validity_report.py",
+    "doc": "Audit and simulate repair of bounded local geometries with optional new output."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geopandas/scripts/spatial_join_audit.py",
+    "doc": "Run a bounded local spatial join and emit only aggregate cardinality."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/geopandas/scripts/vector_inventory.py",
+    "doc": "Create a redacted, metadata-only inventory of one local vector dataset."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/fluidsim/scripts/restart_compatibility.py",
+    "doc": "Check FluidSim restart metadata against a validated target configuration."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/fluidsim/scripts/grid_resource_estimator.py",
+    "doc": "Estimate bounded FluidSim grid memory and output storage envelopes."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/fluidsim/scripts/simulation_dry_run.py",
+    "doc": "Generate a reviewable, opt-in FluidSim launch script without running it."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/fluidsim/scripts/solver_config_validator.py",
+    "doc": "Validate a bounded FluidSim 0.9 JSON simulation plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/fluidsim/scripts/output_inventory.py",
+    "doc": "Inventory bounded FluidSim output and HDF5/netCDF4 metadata lazily."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/fluidsim/scripts/budget_summary.py",
+    "doc": "Summarize bounded FluidSim scalar and spectral diagnostics."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/relsa-severity-assessment/scripts/relsa_score.py",
+    "doc": "RELSA (RELative Severity Assessment) score — a faithful Python port."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/relsa-severity-assessment/scripts/forecast_relsa.py",
+    "doc": "foRcast — ARIMA forecasting of RELSA severity trajectories."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/relsa-severity-assessment/scripts/kde_thresholds.py",
+    "doc": "Kernel-density thresholds on the RELSA scale (severity zones)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/bids/scripts/update_schema.py",
+    "doc": "Update BIDS schema JSON and BEPs list from upstream sources."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/uncertainty-and-units/scripts/audit_units.py",
+    "doc": "Scan Python source for the unit and uncertainty defects that stay silent."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/uncertainty-and-units/scripts/format_result.py",
+    "doc": "Round and render a measurement result the way JCGM 100:2008 7.2 requires."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/uncertainty-and-units/scripts/convert_units.py",
+    "doc": "Convert a quantity between units, including the conversions that need a context."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/uncertainty-and-units/scripts/uncertainty_budget.py",
+    "doc": "Turn a list of uncertainty components into a GUM uncertainty budget."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/uncertainty-and-units/scripts/check_plausibility.py",
+    "doc": "Test a set of quantities against dimensionless groups and known physical scales."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/uncertainty-and-units/scripts/propagate_uncertainty.py",
+    "doc": "Propagate uncertainty through a measurement model two ways and compare them."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/etetoolkit/scripts/tree_operations.py",
+    "doc": "Validated command-line tree operations for ETE 4."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/etetoolkit/scripts/quick_visualize.py",
+    "doc": "Interactive or static ETE 4 tree visualization."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matchms/scripts/library_search.py",
+    "doc": "Search query MS/MS spectra against a reference library with matchms."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/research-knowledge-graph/scripts/build_graph.py",
+    "doc": "Build a research knowledge graph (papers, authors, venues, topics, citations)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymatgen/scripts/io_conversion_plan.py",
+    "doc": "Create a dependency-free, non-executing structure conversion plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymatgen/scripts/symmetry_sensitivity_report.py",
+    "doc": "Report space-group sensitivity across explicit symmetry tolerances."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymatgen/scripts/phase_diagram_generator.py",
+    "doc": "Build a local phase diagram from a strict, provenance-bearing JSON dataset."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymatgen/scripts/mp_query.py",
+    "doc": "Plan or explicitly execute one bounded Materials Project summary query."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymatgen/scripts/structure_analyzer.py",
+    "doc": "Produce a bounded JSON analysis of one local periodic structure."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymatgen/scripts/composition_structure_validator.py",
+    "doc": "Validate a composition or local periodic structure without modifying it."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymatgen/scripts/structure_converter.py",
+    "doc": "Convert one local periodic structure with explicit loss acknowledgement."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymatgen/scripts/artifact_manifest.py",
+    "doc": "Create a bounded checksum and provenance manifest for explicit local files."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exploratory-data-analysis/scripts/image_inspector.py",
+    "doc": "Metadata-only PNG/JPEG/TIFF inspector; pixel arrays are never decoded."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exploratory-data-analysis/scripts/missingness_leakage_audit.py",
+    "doc": "Bounded missingness, group structure, and split leakage audit for CSV/TSV."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exploratory-data-analysis/scripts/distribution_sensitivity.py",
+    "doc": "Bounded distribution, transformation, and outlier sensitivity CLI."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exploratory-data-analysis/scripts/eda_analyzer.py",
+    "doc": "Closed, bounded exploratory analyzer for explicitly supported local formats."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exploratory-data-analysis/scripts/tabular_profile.py",
+    "doc": "Bounded aggregate schema/profile CLI for local CSV and TSV files."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exploratory-data-analysis/scripts/report_scaffold.py",
+    "doc": "Generate a rigorous, redacted EDA Markdown report scaffold."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exploratory-data-analysis/scripts/sequence_inspector.py",
+    "doc": "Bounded FASTA/FASTQ aggregate inspector with no identifier or sequence output."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/exploratory-data-analysis/scripts/capability_manifest.py",
+    "doc": "Emit the closed capability matrix or a redacted local-file manifest."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/infographics/scripts/generate_infographic.py",
+    "doc": "Generate professional infographics using Nano Banana Pro."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/infographics/scripts/generate_infographic_ai.py",
+    "doc": "AI-powered infographic generation using Nano Banana Pro."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/citation-management/scripts/extract_metadata.py",
+    "doc": "Metadata Extraction Tool"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/citation-management/scripts/validate_citations.py",
+    "doc": "Citation Validation Tool"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/citation-management/scripts/format_bibtex.py",
+    "doc": "BibTeX Formatter and Cleaner"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/citation-management/scripts/doi_to_bibtex.py",
+    "doc": "DOI to BibTeX Converter"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/citation-management/scripts/search_google_scholar.py",
+    "doc": "Google Scholar Search Tool"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/citation-management/scripts/search_openalex.py",
+    "doc": "OpenAlex Search Tool"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/citation-management/scripts/search_pubmed.py",
+    "doc": "PubMed Search Tool"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pathway-enrichment/scripts/run_enrichment.py",
+    "doc": "Run over-representation (ORA) or preranked GSEA with gseapy."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/systematic-review-prisma/scripts/dedupe_records.py",
+    "doc": "Deduplicate search exports from several databases before screening."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/systematic-review-prisma/scripts/prisma_flow.py",
+    "doc": "Render a PRISMA 2020 flow diagram from screening counts."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/market-research-reports/scripts/validate_competitor_matrix.py",
+    "doc": "Validate a complete, evidence-linked competitor-feature matrix CSV."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/market-research-reports/scripts/check_unit_consistency.py",
+    "doc": "Check units, currency, base year, taxonomy, and denominator consistency."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/market-research-reports/scripts/audit_claim_citations.py",
+    "doc": "Audit claim-to-source mappings in local CSV ledgers."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/market-research-reports/scripts/calculate_market_sizing.py",
+    "doc": "Calculate bounded TAM/SAM/SOM scenarios and reconcile two sizing methods."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/market-research-reports/scripts/forecast_sensitivity.py",
+    "doc": "Generate deterministic scenario forecasts and one-way growth sensitivity."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/market-research-reports/scripts/validate_evidence_ledger.py",
+    "doc": "Validate a local market-research source/evidence ledger."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/market-research-reports/scripts/generate_report_scaffold.py",
+    "doc": "Generate a bounded local evidence-first market-report workspace."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pytorch-lightning/scripts/template_datamodule.py",
+    "doc": "Template for creating a PyTorch Lightning DataModule."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pytorch-lightning/scripts/quick_trainer_setup.py",
+    "doc": "Quick Trainer Setup Examples for PyTorch Lightning."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pytorch-lightning/scripts/template_lightning_module.py",
+    "doc": "Template for creating a PyTorch Lightning Module."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/bioservices/scripts/batch_id_converter.py",
+    "doc": "Batch Identifier Converter"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/bioservices/scripts/protein_analysis_workflow.py",
+    "doc": "Complete Protein Analysis Workflow"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/bioservices/scripts/pathway_analysis.py",
+    "doc": "KEGG Pathway Network Analysis"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/bioservices/scripts/compound_cross_reference.py",
+    "doc": "Compound Cross-Database Search"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neurokit2/scripts/inspect_signal.py",
+    "doc": "Inspect bounded local biosignal CSV structure without exposing row values."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neurokit2/scripts/validate_multimodal.py",
+    "doc": "Validate bounded multimodal stream schemas and temporal alignment."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neurokit2/scripts/ecg_hrv_pipeline.py",
+    "doc": "Run a bounded ECG processing and duration-aware HRV workflow."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neurokit2/scripts/eda_pipeline.py",
+    "doc": "Run an explicit, bounded EDA cleaning/decomposition/SCR workflow."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neurokit2/scripts/generate_synthetic.py",
+    "doc": "Generate deterministic, dependency-free synthetic biosignal CSV fixtures."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/neurokit2/scripts/plan_epochs.py",
+    "doc": "Plan sample-exact event epochs without loading NeuroKit2."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/lab-hardware-cad/scripts/snapshot.py",
+    "doc": "Render a part to a multi-view PNG for mandatory visual review."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/lab-hardware-cad/scripts/gen.py",
+    "doc": "Generate fabrication artifacts from a parametric build123d model."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/lab-hardware-cad/scripts/check.py",
+    "doc": "Deterministic checks on lab-hardware geometry."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scikit-learn/scripts/clustering_analysis.py",
+    "doc": "Clustering analysis example with multiple algorithms, evaluation, and visualization."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scikit-learn/scripts/classification_pipeline.py",
+    "doc": "Complete classification pipeline example with preprocessing, model training,"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/paper-lookup/scripts/jats_to_text.py",
+    "doc": "Turn PMC / Europe PMC JATS XML into sectioned text, refusing metadata-only XML."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/paper-lookup/scripts/paginate.py",
+    "doc": "Bounded, rate-limited, count-reconciling pagination for this skill's APIs."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/paper-lookup/scripts/arxiv_atom.py",
+    "doc": "Parse arXiv Atom XML into JSON records, catching arXiv's HTTP-200 failures."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/paper-lookup/scripts/openalex_abstract.py",
+    "doc": "Reconstruct OpenAlex abstracts from `abstract_inverted_index`."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matlab/scripts/validate_project_manifest.py",
+    "doc": "Validate a bounded MATLAB/Octave project and product manifest."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matlab/scripts/plan_batch_command.py",
+    "doc": "Create a bounded MATLAB or Octave command plan without executing it."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matlab/scripts/plan_python_compatibility.py",
+    "doc": "Plan MATLAB R2026a Python compatibility without importing or starting Engine."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matlab/scripts/scan_m_code.py",
+    "doc": "Bounded static risk triage for MATLAB source and opaque artifacts."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matlab/scripts/reproducibility_report.py",
+    "doc": "Create a deterministic named-file reproducibility report."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matlab/scripts/inventory_mat_file.py",
+    "doc": "Inventory bounded MAT/HDF5 metadata without deserializing object values."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/matlab/scripts/generate_function_scaffold.py",
+    "doc": "Dry-run or write deterministic MATLAB function and unit-test scaffolds."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/research-skill-creator/scripts/new_skill.py",
+    "doc": "Scaffold a new research skill that passes the Research Agent Skills validators."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/nca.py",
+    "doc": "Non-compartmental analysis of concentration-time data."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/simulate_regimen.py",
+    "doc": "Simulate dosing regimens, with or without between-subject variability."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/allometry_and_fih.py",
+    "doc": "Allometric scaling, maturation, and first-in-human starting dose."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/tdm_bayes.py",
+    "doc": "Maximum a posteriori Bayesian forecasting for therapeutic drug monitoring."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/exposure_response.py",
+    "doc": "Exposure-response analysis: Emax, logistic, concentration-QTc, and exposure quartiles."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/fit_compartmental.py",
+    "doc": "Fit compartmental PK models to concentration-time data, with identifiability diagnostics."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/_common.py",
+    "doc": "Shared I/O, formatting, and reporting helpers for the pkpd-modeling scripts."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/bioequivalence.py",
+    "doc": "Bioequivalence assessment: average BE, reference-scaled BE, and sample size."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/check_popk_dataset.py",
+    "doc": "Validate a NONMEM/nlmixr2-ready population PK dataset before it costs you a run."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pkpd-modeling/scripts/ddi_static.py",
+    "doc": "Drug-drug interaction prediction: ICH M12 basic models and the mechanistic static model."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/latex-posters/scripts/generate_schematic_ai.py",
+    "doc": "AI-powered scientific schematic generation using Nano Banana 2."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/latex-posters/scripts/generate_schematic.py",
+    "doc": "Scientific schematic generation using Nano Banana 2."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/get-available-resources/scripts/plan_workload.py",
+    "doc": "Build a conservative worker and memory plan from a validated snapshot."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/get-available-resources/scripts/accelerator_diagnostics.py",
+    "doc": "Generate, but never execute, a read-only accelerator diagnostic plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/get-available-resources/scripts/_common.py",
+    "doc": "Shared, dependency-free safety and JSON helpers."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/get-available-resources/scripts/snapshot_tools.py",
+    "doc": "Validate or deterministically diff resource snapshots."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/get-available-resources/scripts/detect_resources.py",
+    "doc": "Collect a conservative, privacy-preserving resource snapshot."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/paper-corpus-rag/scripts/paper_index.py",
+    "doc": "Local, citable full-text search over a folder of papers (SQLite FTS5, BM25)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pptx-posters/scripts/inspect_pptx.py",
+    "doc": "Inspect a PPTX ZIP/XML package without opening or executing it."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pptx-posters/scripts/check_palette.py",
+    "doc": "Report declared WCAG contrast and heuristic palette separation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pptx-posters/scripts/inventory_images.py",
+    "doc": "Build a hashed local-image inventory with final effective DPI."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pptx-posters/scripts/generate_poster.py",
+    "doc": "Generate one macro-free PPTX poster from approved, strictly local JSON."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pptx-posters/scripts/plan_export.py",
+    "doc": "Create a requirement-bound PowerPoint export and print plan."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pptx-posters/scripts/validate_manifest.py",
+    "doc": "Validate a fail-closed, author-approved local poster manifest."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pptx-posters/scripts/check_layout.py",
+    "doc": "Check PPTX shape bounds, overlap, reading order, and final font size."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/alphagenome/scripts/atlas_link.py",
+    "doc": "Build deep links into the AlphaGenome Atlas website. Standard library only."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/alphagenome/scripts/atlas_query.py",
+    "doc": "Query the AlphaGenome Atlas: precomputed variant effects for every hg38 SNV."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/alphagenome/scripts/score_variants.py",
+    "doc": "Score variants on demand with the AlphaGenome model API (human or mouse)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymoo/scripts/many_objective_example.py",
+    "doc": "Many-objective optimization example using pymoo."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymoo/scripts/multi_objective_example.py",
+    "doc": "Multi-objective optimization example using pymoo."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymoo/scripts/decision_making_example.py",
+    "doc": "Multi-criteria decision making example using pymoo."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymoo/scripts/custom_problem_example.py",
+    "doc": "Custom problem definition example using pymoo."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pymoo/scripts/single_objective_example.py",
+    "doc": "Single-objective optimization example using pymoo."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/scvelo/scripts/rna_velocity_workflow.py",
+    "doc": "RNA Velocity Analysis Workflow using scVelo"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gget/scripts/batch_sequence_analysis.py",
+    "doc": "Batch Sequence Analysis Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gget/scripts/enrichment_pipeline.py",
+    "doc": "Enrichment Analysis Pipeline"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/gget/scripts/gene_analysis.py",
+    "doc": "Gene Analysis Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/genomic-coordinates/scripts/check_contigs.py",
+    "doc": "Identify the assembly behind a file, and check that two files can be joined."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/genomic-coordinates/scripts/audit_intervals.py",
+    "doc": "Check an interval or variant file against its own format's conventions."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/genomic-coordinates/scripts/convert_coords.py",
+    "doc": "Convert intervals between genomic coordinate conventions."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/genomic-coordinates/scripts/normalize_variant.py",
+    "doc": "Normalise VCF-style variants: check REF, trim, and left-align."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/research-lookup/scripts/research_lookup.py",
+    "doc": "Parallel-first research retrieval for manuscript evidence compilation."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/venue-templates/scripts/customize_template.py",
+    "doc": "Customize Template Script"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/venue-templates/scripts/query_template.py",
+    "doc": "List and query the templates actually bundled with venue-templates."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/venue-templates/scripts/validate_format.py",
+    "doc": "Inspect a submission PDF using a verified limit or an explicit source."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "skills/pacsomatic/scripts/run_pacsomatic.py",
+    "doc": "Prepare, validate, and optionally launch nf-core/pacsomatic across platforms."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/validate.py",
+    "doc": "Validate skills against the Agent Skills spec and repository policy."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/lint_injection.py",
+    "doc": "Security lint for agent skills: prompt injection, hidden content, dangerous code."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/snyk_agent_scan_gate.py",
+    "doc": "Gate Snyk Agent Scan's JSON report on complete coverage and high risks."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/skill_scanner_gate.py",
+    "doc": "Gate CI on Cisco AI Defense skill-scanner results."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/build_catalog.py",
+    "doc": "Generate every derived artifact from skills/ and third_party/."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/import_upstream.py",
+    "doc": "Import MIT-licensed upstream skills into skills/ at pinned revisions."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/skill_quality.py",
+    "doc": "Score how strongly each skill is written (static rubric, 0-100) and find overlapping skills."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/brand_guard.py",
+    "doc": "Fail if upstream product names appear outside the provenance files."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/generate_skill_data.py",
+    "doc": "Generate review-ready skill data with Claude: trigger-rich descriptions and eval suites."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "tools/trigger_bench.py",
+    "doc": "Trigger-routing benchmark: does the right skill get picked for a request?"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "benchmarks/charts.py",
+    "doc": "Render the committed benchmark results as SVG charts for the README and docs."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "benchmarks/task_evals/run.py",
+    "doc": "Task-outcome benchmark: do answers get better with the skill in context?"
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "benchmarks/citation_verification/run.py",
+    "doc": "Benchmark skills/citation-verification against a labeled reference set (network required)."
+  },
+  {
+    "repo": "KalarisLabs_research-agent-skills",
+    "path": "benchmarks/slop/run.py",
+    "doc": "Slop benchmark for skills/unslop-academic-writing."
+  },
+  {
+    "repo": "saintgo7_agents-skills",
+    "path": "ui-ux-pro-max/scripts/design_system.py",
+    "doc": "Design System Generator - Aggregates search results and applies reasoning"
+  },
+  {
+    "repo": "saintgo7_agents-skills",
+    "path": "ui-ux-pro-max/scripts/search.py",
+    "doc": "UI/UX Pro Max Search - BM25 search engine for UI/UX style guides"
+  }
+]

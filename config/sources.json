@@ -1,0 +1,80 @@
+{
+  "schema": "scholarforge-sources-v1",
+  "rule": "Never invent a citation. Every retrieved record must carry source, request URL and retrieval timestamp. Respect rate limits and each provider's terms of use.",
+  "polite_identification": "Set a real contact e-mail in OPENALEX_MAILTO / CROSSREF_MAILTO when running large batches.",
+  "sources": {
+    "openalex": {
+      "endpoint": "https://api.openalex.org/works",
+      "docs": "https://docs.openalex.org/",
+      "key_env": "OPENALEX_API_KEY",
+      "auth": "optional key or mailto query parameter",
+      "rate_limit": "10 req/s, 100k req/day (polite pool with mailto)",
+      "strength": "broad multidisciplinary coverage, citation graph, concepts",
+      "weakness": "metadata inherited from repositories; verify journal/DOI against Crossref"
+    },
+    "crossref": {
+      "endpoint": "https://api.crossref.org/works",
+      "docs": "https://api.crossref.org/",
+      "key_env": "",
+      "auth": "none; optional mailto",
+      "rate_limit": "polite pool ~50 req/s",
+      "strength": "DOI registry of record, publisher-deposited metadata",
+      "weakness": "no abstracts for many records; does not guarantee content"
+    },
+    "arxiv": {
+      "endpoint": "https://export.arxiv.org/api/query",
+      "docs": "https://info.arxiv.org/help/api/",
+      "key_env": "",
+      "auth": "none",
+      "rate_limit": "1 request every 3 seconds",
+      "strength": "preprints with full text, version history",
+      "weakness": "not peer reviewed; overlapping published versions"
+    },
+    "semanticscholar": {
+      "endpoint": "https://api.semanticscholar.org/graph/v1/paper/search",
+      "docs": "https://api.semanticscholar.org/api-docs/",
+      "key_env": "S2_API_KEY",
+      "auth": "optional API key",
+      "rate_limit": "unauthenticated pool is shared and aggressively throttled",
+      "strength": "citation graph, TLDRs, open-access PDF links",
+      "weakness": "coverage gaps outside CS/biomedicine"
+    },
+    "pubmed": {
+      "endpoint": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils",
+      "docs": "https://www.ncbi.nlm.nih.gov/books/NBK25501/",
+      "key_env": "NCBI_API_KEY",
+      "auth": "optional key raises 3 -> 10 req/s",
+      "rate_limit": "3 req/s without key",
+      "strength": "biomedical authoritative indexing, MeSH",
+      "weakness": "no full text; limited to life sciences"
+    },
+    "europepmc": {
+      "endpoint": "https://www.ebi.ac.uk/europepmc/webservices/rest/search",
+      "docs": "https://europepmc.org/RestfulWebService",
+      "key_env": "",
+      "auth": "none",
+      "rate_limit": "be reasonable; cache results",
+      "strength": "life-science preprints, abstracts, full-text links",
+      "weakness": "biomedical scope"
+    },
+    "unpaywall": {
+      "endpoint": "https://api.unpaywall.org/v2/{doi}",
+      "docs": "https://unpaywall.org/products/api",
+      "key_env": "UNPAYWALL_EMAIL",
+      "auth": "email required",
+      "rate_limit": "100k req/day",
+      "strength": "legal open-access locations",
+      "weakness": "does not resolve paywalled content; never bypass access controls"
+    }
+  },
+  "search_log_required_fields": [
+    "database", "platform", "query_string", "filters", "date_run", "hits",
+    "deduplicated_hits", "operator_notes"
+  ],
+  "forbidden_practices": [
+    "Using Sci-Hub or other copyright-infringing full-text fallbacks",
+    "Presenting a preprint as a peer-reviewed article",
+    "Citing a paper whose abstract/full text was never read",
+    "Silently substituting metadata from a different edition/version"
+  ]
+}

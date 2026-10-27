@@ -1,0 +1,3 @@
+claim_id,claim_text,section,evidence_ids,strength,source_refs,status
+C001,"Retrieval augmentation may reduce unverifiable references in this sample.",Results,E001;E002,suggestive,smith2020;lee2021,checked
+C002,"The reduction may not generalise beyond this sample.",Discussion,E003,suggestive,smith2020,checked

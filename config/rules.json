@@ -1,0 +1,39 @@
+{
+  "schema": "scholarforge-rules-v1",
+  "description": "Editable rule data for the deterministic manuscript linter. Add your discipline's cliches here; no code change needed.",
+  "pass_threshold": 70,
+  "slop_phrases": [
+    "delve into", "tapestry", "pivotal role", "underscores the importance",
+    "in today's fast-paced", "it is important to note that", "it is worth noting that",
+    "a testament to", "navigate the complexities", "game-changer", "paradigm shift",
+    "cutting-edge", "state-of-the-art", "shed light on", "embark on a journey",
+    "at the end of the day", "in conclusion, it is clear", "significantly significant",
+    "a wide array of", "a myriad of", "ever-evolving landscape", "plays a crucial role",
+    "plays a vital role", "serves as a beacon", "unlock the potential", "harness the power",
+    "seamless integration", "robust and comprehensive", "in the realm of", "stands as a",
+    " multifaceted ", "holistic approach", "rich tapestry", "navigate the landscape",
+    "a deeper understanding", "paves the way", "cornerstone of", "at the forefront"
+  ],
+  "hedge_terms": [
+    "may", "might", "could", "possibly", "perhaps", "potentially", "suggest", "appears",
+    "seems", "arguably", "likely", "unlikely", "generally", "often", "presumably"
+  ],
+  "absolute_terms": [
+    "always", "never", "proves", "proven", "definitively", "conclusively", "undoubtedly",
+    "certainly", "all studies", "no doubt", "guarantees"
+  ],
+  "placeholders": [
+    "TODO", "TBD", "FIXME", "XXX", "[citation needed]", "[REF]", "[INSERT", "Lorem ipsum",
+    "example.com", "placeholder", "<your", "à compléter", "[add reference]", "??"
+  ],
+  "penalties": {
+    "slop-phrase": 4,
+    "placeholder": 10,
+    "hedge-stack": 3,
+    "not-only-but-also": 2,
+    "em-dash-density": 5,
+    "hidden-unicode": 10,
+    "long-sentence": 0.5,
+    "passive-voice": 0.25
+  }
+}

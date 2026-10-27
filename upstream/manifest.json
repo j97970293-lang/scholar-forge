@@ -1,0 +1,112 @@
+{
+  "generated_utc": "2026-10-27T20:26:40+00:00",
+  "policy": "Full lossless snapshot of every file in each clone, excluding VCS internals and generated caches. Archives are inert data; nothing inside is executed.",
+  "repositories": {
+    "O0000-code_awesome-academic-skills": {
+      "url": "https://github.com/O0000-code/awesome-academic-skills",
+      "license": "CC0-1.0",
+      "role": "meta-list: 223 curated skill records + ASDF trust framework + schema",
+      "commit": "9142287eb7d27bdd389d066161c4ecc14bde7673",
+      "archive": "O0000-code_awesome-academic-skills.zip",
+      "files": 278,
+      "uncompressed_bytes": 1579742,
+      "uncompressed_human": "1.5 MB",
+      "archive_bytes": 854129,
+      "archive_human": "834.1 KB",
+      "sha256": "38b28fbcb1b293e2f63da83975f4d701a4f24778af11ae426bb0f65ea152a27c"
+    },
+    "cosen1024_awesome-academic-skills": {
+      "url": "https://github.com/cosen1024/awesome-academic-skills",
+      "license": "MIT",
+      "role": "meta-list: verified bilingual catalog with pinned source_ref commits",
+      "commit": "9ab46707485729721ae33d4910536829acfe93b8",
+      "archive": "cosen1024_awesome-academic-skills.zip",
+      "files": 15,
+      "uncompressed_bytes": 143104,
+      "uncompressed_human": "139.8 KB",
+      "archive_bytes": 50541,
+      "archive_human": "49.4 KB",
+      "sha256": "282f6f5eadb74719037755914c00fcb2a2fa87068970a8c4c15dd485b4fec931"
+    },
+    "kael-odin_awesome-academic-research-skills": {
+      "url": "https://github.com/kael-odin/awesome-academic-research-skills",
+      "license": "MIT",
+      "role": "meta-list: live star/trend rankings + 60-day history",
+      "commit": "42f28a068d7241ba3751f046bea9d9996076db89",
+      "archive": "kael-odin_awesome-academic-research-skills.zip",
+      "files": 99,
+      "uncompressed_bytes": 8844244,
+      "uncompressed_human": "8.4 MB",
+      "archive_bytes": 1557601,
+      "archive_human": "1.5 MB",
+      "sha256": "c73987f677125a6118d26c3ac350d8611f6abbfd9c6b9c0fad3f03f78b4360a2"
+    },
+    "miketepUR_awesome-claude-skills": {
+      "url": "https://github.com/miketepUR/awesome-claude-skills",
+      "license": "MIT",
+      "role": "meta-list: general agent-skill ecosystem + contribution/validation workflows",
+      "commit": "18f038311f1041c92158357692bf8ddfa8c5da4d",
+      "archive": "miketepUR_awesome-claude-skills.zip",
+      "files": 12,
+      "uncompressed_bytes": 48168,
+      "uncompressed_human": "47.0 KB",
+      "archive_bytes": 20416,
+      "archive_human": "19.9 KB",
+      "sha256": "c703b96bd707eebc7cecbb90a1ea6ea76eae3a1896f37cbe7ef9e4c5907fa8ef"
+    },
+    "Imbad0202_academic-research-skills": {
+      "url": "https://github.com/Imbad0202/academic-research-skills",
+      "license": "CC-BY-NC-4.0",
+      "role": "suite: 5 deep skills (pipeline, research, paper, reviewer, screening) + 478 scripts + JSON contracts",
+      "commit": "b34c63f828b3535f403079a4f42bc7955da2f64b",
+      "archive": "Imbad0202_academic-research-skills.zip",
+      "files": 2857,
+      "uncompressed_bytes": 40278119,
+      "uncompressed_human": "38.4 MB",
+      "archive_bytes": 15102749,
+      "archive_human": "14.4 MB",
+      "sha256": "2a8434007ab1b56cc52deb62b64f16bc859f89767196c8a13cd952859a436410"
+    },
+    "KalarisLabs_research-agent-skills": {
+      "url": "https://github.com/KalarisLabs/research-agent-skills",
+      "license": "MIT",
+      "role": "suite: 200+ narrow skills, tested stdlib CLIs, benchmarks, catalog graph",
+      "commit": "b0ee35abfd7e26428846fbd84f282114560a5fbd",
+      "archive": "KalarisLabs_research-agent-skills.zip",
+      "files": 3186,
+      "uncompressed_bytes": 37357634,
+      "uncompressed_human": "35.6 MB",
+      "archive_bytes": 15285635,
+      "archive_human": "14.6 MB",
+      "sha256": "5ccf78554e94648889157497f4f2b57086e29c4ab0271e11aa8955a17ac01cdd"
+    },
+    "saintgo7_agents-skills": {
+      "url": "https://github.com/saintgo7/agents-skills",
+      "license": "unlicensed (snapshot retained, attribution kept)",
+      "role": "suite: 50 lightweight Korean/English skill stubs + IEEE Access venue guide",
+      "commit": "b4c5a1b36bc4f28648e9910f681786c54a93de01",
+      "archive": "saintgo7_agents-skills.zip",
+      "files": 82,
+      "uncompressed_bytes": 564087,
+      "uncompressed_human": "550.9 KB",
+      "archive_bytes": 211610,
+      "archive_human": "206.7 KB",
+      "sha256": "a7dc839187d2cf5f4201d9961c71503afb43aa25182ff3eaa9fcd53823f62fb9"
+    },
+    "ranbot-ai_awesome-skills": {
+      "url": "https://github.com/ranbot-ai/awesome-skills",
+      "license": "unlicensed (snapshot retained, attribution kept)",
+      "role": "general skill aggregator: 2908 skill records incl. content-research-writer",
+      "commit": "4ba1fb20f119e44c46b74836923915f8b06eb041",
+      "archive": "ranbot-ai_awesome-skills.zip",
+      "files": 8785,
+      "uncompressed_bytes": 54731782,
+      "uncompressed_human": "52.2 MB",
+      "archive_bytes": 22801782,
+      "archive_human": "21.7 MB",
+      "sha256": "f9d69c8ff6d114edb1d349fe8319f48e4cc646d97645afc0c0ab2656b85a1dd1"
+    }
+  },
+  "total_files": 15314,
+  "total_archive_bytes": 55884463
+}

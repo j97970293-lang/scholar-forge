@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this compilation, cite it and the eight upstream works listed in NOTICE.md."
+title: "ScholarForge — Unified Academic Research & Writing Skill"
+version: 1.0.0
+date-released: 2026-10-27
+type: software
+license: MIT
+license-note: "Compilation restricted to non-commercial use; see LICENSE and NOTICE.md."
+authors:
+  - name: "ScholarForge compilation"
+keywords:
+  - agent skills
+  - academic research
+  - scientific writing
+  - systematic review
+  - citation verification
+  - PRISMA
+  - reproducibility
+repository-code: "https://github.com/j97970293-lang/scholar-forge"
+abstract: >-
+  A single installable agent skill merging eight upstream academic-skills repositories,
+  with a 22-part progressive-disclosure reference library, a dependency-free Python CLI,
+  a 5,434-entry unified registry, ten quality gates, and lossless SHA-256-verified
+  archives of all source code.
