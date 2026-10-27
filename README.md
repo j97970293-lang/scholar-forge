@@ -47,8 +47,11 @@ bash install.sh --target ~/.claude/skills/scholar-forge
 
 Aucune dépendance, aucune clé API, aucun build. `python3 scripts/scholarforge.py doctor`.
 
-> **Dépôt privé.** Ce dépôt est publié en privé sur votre compte GitHub et une copie est
-> déposée dans votre Google Drive.
+> **Dépôt privé.** Publié le 2026-10-27 sur
+> [github.com/j97970293-lang/scholar-forge](https://github.com/j97970293-lang/scholar-forge)
+> (`private: true`, branche `main`, 120 fichiers). Copie complète dans le dossier Drive
+> [ScholarForge](https://drive.google.com/drive/folders/1Rx4AZEyIdm_3EGegllAhNm4nJ1tmQdRt)
+> (14 fichiers, archive ZIP de 55 Mo + `SKILL.md` + rapports + registre).
 
 ## Démarrage rapide
 
