@@ -1,17 +1,22 @@
 # ScholarForge — raccourcis reproductibles
 SF := python3 scripts/scholarforge.py
 SOURCES ?= ../_scan
+SOURCES_V2 ?= ../_scan2
 
-.PHONY: help doctor test demo demo-fixed scan package compile clean lint
+.PHONY: help doctor test validate demo demo-fixed scan v2 package compile clean
 
 help:
-	@echo "doctor | test | demo | demo-fixed | scan | package | compile | clean"
+	@echo "doctor | test | validate | demo | demo-fixed | scan | v2 | package | compile | clean"
 
 doctor:
 	$(SF) doctor
 
 test:
 	$(SF) selftest
+
+validate:
+	python3 tools/validate_skill.py
+	$(SF) validate
 
 compile:
 	python3 -m compileall -q scripts tools tests
@@ -26,6 +31,9 @@ scan:
 	SF_SOURCES=$(SOURCES) python3 tools/scan_sources.py
 	SF_SOURCES=$(SOURCES) python3 tools/security_scan.py
 	python3 tools/merge_registry.py
+
+v2:
+	python3 tools/v2_pipeline.py --sources $(SOURCES_V2)
 
 package:
 	SF_SOURCES=$(SOURCES) python3 tools/package_upstream.py

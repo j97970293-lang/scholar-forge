@@ -1,0 +1,87 @@
+{
+  "generated_utc": "2026-10-27T21:54:07+00:00",
+  "policy": "CURATED snapshot (NOT lossless): VCS internals, test suites, caches, binary assets and files >2 MiB are excluded. Exclusions are counted per repo. Archives are inert data; nothing inside is executed.",
+  "note": "The eight v1 archives in ../ remain full snapshots. Do not confuse the two tiers.",
+  "repositories": {
+    "agentskills_agentskills": {
+      "url": "https://github.com/agentskills/agentskills",
+      "license": "Apache-2.0",
+      "role": "official Agent Skills open specification + skills-ref validation library",
+      "commit": "69ef37e9424c0a7ea9dd2293b559e43ec8176379",
+      "archive": "agentskills_agentskills.zip",
+      "files_included": 127,
+      "files_excluded": 11,
+      "all_files": 138,
+      "uncompressed_bytes": 1146012,
+      "archive_bytes": 436393,
+      "sha256": "1d11048c54fd79b3a78d0910407fd11778241964bb277896f4b5f4c70768e703"
+    },
+    "anthropics_skills": {
+      "url": "https://github.com/anthropics/skills",
+      "license": "unlicensed (THIRD_PARTY_NOTICES.md retained)",
+      "role": "official skill library: 20 SKILL.md examples of progressive disclosure",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "archive": "anthropics_skills.zip",
+      "files_included": 389,
+      "files_excluded": 56,
+      "all_files": 445,
+      "uncompressed_bytes": 6336085,
+      "archive_bytes": 1557675,
+      "sha256": "3168d552ee90670feea84135f2179b693b79b4a9e9051844a78b438b32d86541"
+    },
+    "chrisyangsong_citegate": {
+      "url": "https://github.com/chrisyangsong/citegate",
+      "license": "MIT",
+      "role": "citation-integrity CI gate: Crossref/OpenAlex verification + retraction verdicts",
+      "commit": "94cc0a02a63a11154664c88b25923cbd0dc7c028",
+      "archive": "chrisyangsong_citegate.zip",
+      "files_included": 15,
+      "files_excluded": 4,
+      "all_files": 19,
+      "uncompressed_bytes": 49557,
+      "archive_bytes": 20909,
+      "sha256": "a10465341f58abc2a94c20cc64509e2f27a2da1c728317b6ae5bfd240f0cf920"
+    },
+    "asreview_asreview": {
+      "url": "https://github.com/asreview/asreview",
+      "license": "Apache-2.0",
+      "role": "active learning for systematic-review screening; dual-screening workflow patterns",
+      "commit": "79d568212b2b0a78f9fd7be3c5117dfb890489f9",
+      "archive": "asreview_asreview.zip",
+      "files_included": 337,
+      "files_excluded": 142,
+      "all_files": 479,
+      "uncompressed_bytes": 3675176,
+      "archive_bytes": 1466723,
+      "sha256": "41bfb3cee1bc14296e1580f08d6f5e2e79c2a47a4a7ed8d471f851f96b3f716b"
+    },
+    "manubot_manubot": {
+      "url": "https://github.com/manubot/manubot",
+      "license": "BSD-2-Clause-Patent",
+      "role": "open automated manuscripts; citation-by-identifier and reproducible reference handling",
+      "commit": "859dd15850d7e89184e75c3a63e9d9e3f9ab9873",
+      "archive": "manubot_manubot.zip",
+      "files_included": 72,
+      "files_excluded": 103,
+      "all_files": 175,
+      "uncompressed_bytes": 1168761,
+      "archive_bytes": 214268,
+      "sha256": "56bd11969ae44ac274b8e97c291f2c97efe535dc37b1e39efe6ef07027a6be68"
+    },
+    "Future-House_paper-qa": {
+      "url": "https://github.com/Future-House/paper-qa",
+      "license": "Apache-2.0",
+      "role": "evidence-grounded question answering over scientific documents with citations",
+      "commit": "c692d0dfeac4a0296599f7fe21a253a58b7ac12a",
+      "archive": "Future-House_paper-qa.zip",
+      "files_included": 94,
+      "files_excluded": 90,
+      "all_files": 184,
+      "uncompressed_bytes": 4369947,
+      "archive_bytes": 1156521,
+      "sha256": "de59efa67a3ef8bb7df8dbb2b4dc425098d6458cd2690f10834f2f279df54b98"
+    }
+  },
+  "total_included": 1034,
+  "total_archive_bytes": 4852489
+}

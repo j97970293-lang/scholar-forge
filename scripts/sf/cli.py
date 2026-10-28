@@ -9,11 +9,12 @@ import unittest
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from . import audit, bib, claims, lint, pipeline, prisma, registry, review, scaffold, sources, verify
+from . import (audit, bib, claims, disclosure, guidelines, integrity, lint, pipeline,
+               prisma, registry, review, scaffold, searchlog, sources, spec, verify)
 from .util import (ROOT, find_project, out, read_csv, read_json, read_text, table,
                    write_csv, write_json, write_text)
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 
 
 def _p(parser: argparse.ArgumentParser) -> None:
@@ -40,6 +41,15 @@ def build_parser() -> argparse.ArgumentParser:
     q.add_argument("query"); q.add_argument("--sources", default="openalex,crossref,arxiv,semanticscholar")
     q.add_argument("--limit", type=int, default=8); q.add_argument("--timeout", type=int, default=12)
     q.add_argument("--out", default=""); q.add_argument("--bib", default="", help="also write results as BibTeX")
+    q.add_argument("--csv", default="", help="also write merged hits as CSV")
+    q.add_argument("--ris", default="", help="also write merged hits as RIS")
+    q.add_argument("--from-year", type=int, default=0, help="earliest publication year")
+    q.add_argument("--to-year", type=int, default=0, help="latest publication year")
+    q.add_argument("--min-citations", type=int, default=0, help="minimum citation count where known")
+    q.add_argument("--oa-only", action="store_true", help="open-access only where the source exposes it")
+    q.add_argument("--type", dest="work_type", default="", help="work type filter (e.g. article, preprint)")
+    q.add_argument("--log-path", default="", help="project root whose sources/search-log.md receives this query")
+    q.add_argument("--no-log", action="store_true", help="disable the automatic PRISMA-S search log")
     _p(q)
 
     q = sub.add_parser("dedupe", help="de-duplicate a BibTeX/RIS/JSON bibliography")
@@ -97,6 +107,34 @@ def build_parser() -> argparse.ArgumentParser:
     q = sub.add_parser("audit", help="aggregate all gates into output/AUDIT.md")
     q.add_argument("--path", default=""); q.add_argument("--online", action="store_true"); _p(q)
 
+    q = sub.add_parser("integrity", help="screen references for retractions/corrections (offline + online signals)")
+    q.add_argument("file", nargs="?", default="")
+    q.add_argument("--online", action="store_true", help="also query OpenAlex and Crossref notices")
+    q.add_argument("--timeout", type=int, default=10)
+    q.add_argument("--out", default=""); q.add_argument("--path", default=""); _p(q)
+
+    q = sub.add_parser("guideline", help="reporting-guideline router and working checklist")
+    q.add_argument("--list", action="store_true"); q.add_argument("--key", default="")
+    q.add_argument("--recommend", default="", help="free-text study description")
+    q.add_argument("--title", default=""); q.add_argument("--venue", default="")
+    q.add_argument("--out", default=""); _p(q)
+
+    q = sub.add_parser("disclosure", help="generate or lint a structured AI-use disclosure")
+    q.add_argument("--tool", default=""); q.add_argument("--tool-version", default="")
+    q.add_argument("--purpose", default="", help="comma-separated delegation categories")
+    q.add_argument("--oversight", default=""); q.add_argument("--verification", default="")
+    q.add_argument("--prompts", default=""); q.add_argument("--title", default="")
+    q.add_argument("--venue", default=""); q.add_argument("--authors", default="")
+    q.add_argument("--policy-date", default=""); q.add_argument("--check", default="",
+                                                                help="lint an existing disclosure file")
+    q.add_argument("--out", default="submission/ai-disclosure.md"); _p(q)
+
+    q = sub.add_parser("searchlog", help="show the PRISMA-S search log for a project")
+    q.add_argument("--path", default=""); q.add_argument("--out", default=""); _p(q)
+
+    q = sub.add_parser("validate", help="check SKILL.md against the Agent Skills open specification")
+    _p(q)
+
     q = sub.add_parser("selftest", help="run the bundled offline unit tests"); _p(q)
     return p
 
@@ -120,6 +158,10 @@ def cmd_doctor(a: argparse.Namespace) -> int:
         "config_files": len(list((ROOT / "config").glob("*.json"))),
         "upstream_archives": len(list((ROOT / "upstream").glob("*.zip"))),
         "tests": (ROOT / "tests/test_scholarforge.py").is_file(),
+        "references_v2": len(list((ROOT / "references").glob("2[3-8]-*.md"))),
+        "reporting_guidelines": len((read_json(ROOT / "config/reporting-guidelines.json", {}) or {}).get("guidelines", {})),
+        "delegation_categories": len((read_json(ROOT / "config/ai-disclosure.json", {}) or {}).get("delegation_categories", [])),
+        "upstream_v2_archives": len(list((ROOT / "upstream/v2").glob("*.zip"))),
     }
     ok = checks["SKILL.md"] and checks["references"] >= 15 and checks["templates"] >= 10 and checks["registry_entries"] > 1000
     if a.json:
@@ -136,7 +178,10 @@ def cmd_doctor(a: argparse.Namespace) -> int:
 
 def cmd_search(a: argparse.Namespace) -> int:
     srcs = [s.strip() for s in a.sources.split(",") if s.strip()]
-    rep = sources.search_all(a.query, srcs, a.limit, a.timeout)
+    filters = {"from_year": a.from_year or None, "to_year": a.to_year or None,
+               "min_citations": a.min_citations or None, "oa_only": a.oa_only,
+               "type": a.work_type}
+    rep = sources.search_all(a.query, srcs, a.limit, a.timeout, filters)
     if a.out:
         write_json(a.out, rep)
         print(f"[ok] wrote {a.out} ({rep['unique_hits']} unique hits)")
@@ -148,6 +193,29 @@ def cmd_search(a: argparse.Namespace) -> int:
             lines.append(bib.to_bibtex(rec))
         write_text(a.bib, "\n\n".join(lines) + "\n")
         print(f"[ok] wrote {a.bib}")
+    if a.csv:
+        write_csv(a.csv, rep["merged"])
+        print(f"[ok] wrote {a.csv}")
+    if a.ris:
+        ris = []
+        ris_fields = (("TI", "title"), ("AU", "author"), ("PY", "year"), ("JO", "journal"),
+                      ("DO", "doi"), ("UR", "url"), ("AB", "abstract"))
+        for r in rep["merged"]:
+            lines = ["TY  - JOUR"]
+            for tag, key in ris_fields:
+                if r.get(key):
+                    lines.append(f"{tag}  - {str(r[key]).replace(chr(10), ' ')}")
+            lines.append("ER  - ")
+            ris.append("\n".join(lines) + "\n\n")
+        write_text(a.ris, "".join(ris))
+        print(f"[ok] wrote {a.ris}")
+    if not a.no_log:
+        project = find_project(a.log_path or None)
+        try:
+            log = searchlog.append(project, rep, rep.get("filters"), __version__)
+            print(f"[ok] search log +{log['rows_added']} rows -> {log['markdown']}")
+        except (OSError, ValueError) as exc:
+            print(f"[warn] search log not written: {exc}", file=sys.stderr)
     if a.json or not a.out:
         if a.json:
             out(rep, True)
@@ -309,11 +377,126 @@ def cmd_selftest(a: argparse.Namespace) -> int:
     return 0 if result.wasSuccessful() else 1
 
 
+def _resolve_integrity_file(a: argparse.Namespace) -> str:
+    if a.file:
+        return a.file
+    project = find_project(a.path or None)
+    for name in ("references.bib", "draft/references.bib", "refs.bib"):
+        if (project / name).is_file():
+            return str(project / name)
+    raise FileNotFoundError("no references.bib found; pass a BibTeX/RIS/JSON file explicitly")
+
+
+def cmd_integrity(a: argparse.Namespace) -> int:
+    recs = bib.parse_any(read_text(_resolve_integrity_file(a)), "auto")
+    rep = integrity.check(recs, online=a.online, timeout=a.timeout)
+    project = find_project(a.path or None)
+    (project / "output").mkdir(exist_ok=True)
+    write_json(project / "output/integrity.json", rep)
+    write_text(project / "output/integrity.md", integrity.to_markdown(rep))
+    if a.out:
+        write_text(a.out, integrity.to_markdown(rep))
+        print(f"[ok] wrote {a.out}")
+    if a.json:
+        out(rep, True)
+    else:
+        s = rep["summary"]
+        print(f"Integrity: {'PASS' if s['pass'] else 'FAIL'} — {s['records']} references, "
+              f"{s['blocking']} blocking, online={s['online']}")
+        for r in rep["results"]:
+            if r["verdict"] != "no-signal" and r["verdict"] != "not-checked":
+                print(f"  {r['verdict']:<22} {(r['title'] or r['id'])[:60]}")
+    return 0 if rep["summary"]["pass"] else 1
+
+
+def cmd_guideline(a: argparse.Namespace) -> int:
+    if a.list or (not a.key and not a.recommend):
+        rows = guidelines.catalogue()
+        if a.json:
+            out({"guidelines": rows}, True)
+        else:
+            print(table([[r["key"], r["name"][:40], r["year"], r["items"],
+                         "AI" if r["ai_specific"] else "", r["use_for"][:52]] for r in rows],
+                        ["key", "guideline", "year", "items", "AI", "use for"]))
+            print("\nRun: scholarforge guideline --key <key> --out submission/checklist.md")
+        return 0
+    if a.recommend:
+        rec = guidelines.recommend(a.recommend)
+        if a.json:
+            out({"recommendations": rec}, True)
+        else:
+            print("Suggested guidelines (verify against the official statement):")
+            for r in rec:
+                print(f"  {r['key']:<24} {r['name'][:38]:<38} score {r['score']}  {r['url']}")
+        return 0
+    c = guidelines.checklist(a.key, a.title, a.venue)
+    text = guidelines.to_markdown(c)
+    if a.out:
+        write_text(a.out, text)
+        print(f"[ok] wrote {a.out} ({len(c['items'])} items)")
+    if a.json:
+        out(c, True)
+    elif not a.out:
+        print(text)
+    return 0
+
+
+def cmd_disclosure(a: argparse.Namespace) -> int:
+    if a.check:
+        rep = disclosure.lint(read_text(a.check))
+        if a.json:
+            out(rep, True)
+        else:
+            print(f"Disclosure: {'PASS' if rep['summary']['pass'] else 'FAIL'} "
+                  f"({rep['summary']['missing']} missing fields)")
+            for f in rep["findings"]:
+                print(f"  {f['severity']:<8} {f['issue']}")
+        return 0 if rep["summary"]["pass"] else 1
+    purposes = [x.strip() for x in a.purpose.split(",") if x.strip()]
+    d = disclosure.generate(tool=a.tool, version=a.tool_version, purposes=purposes,
+                            oversight=a.oversight, verification=a.verification, prompts=a.prompts,
+                            title=a.title, venue=a.venue, policy_date=a.policy_date, authors=a.authors)
+    text = disclosure.to_markdown(d)
+    write_text(a.out, text)
+    if a.json:
+        out(d, True)
+    else:
+        print(f"[ok] wrote {a.out} ({len(d['categories'])} delegation categories)")
+        print("Categories:", ", ".join(sorted(c["key"] for c in disclosure.categories())))
+    return 0
+
+
+def cmd_searchlog(a: argparse.Namespace) -> int:
+    project = find_project(a.path or None)
+    s = searchlog.summary(project)
+    if a.json:
+        out({"summary": s, "entries": searchlog.read(project)}, True)
+    else:
+        text = searchlog.to_markdown(project)
+        if a.out:
+            write_text(a.out, text)
+            print(f"[ok] wrote {a.out}")
+        else:
+            print(text)
+    return 0
+
+
+def cmd_validate(a: argparse.Namespace) -> int:
+    rep = spec.validate()
+    if a.json:
+        out(rep, True)
+    else:
+        print(spec.to_markdown(rep))
+    return 0 if rep["ok"] else 1
+
+
 HANDLERS = {
     "doctor": cmd_doctor, "init": None, "search": cmd_search, "dedupe": cmd_dedupe,
     "verify": cmd_verify, "bib": cmd_bib, "prisma": cmd_prisma, "claims": cmd_claims,
     "lint": cmd_lint, "new": None, "review": cmd_review, "rebuttal": cmd_rebuttal,
     "registry": cmd_registry, "pipeline": cmd_pipeline, "audit": None, "selftest": cmd_selftest,
+    "integrity": cmd_integrity, "guideline": cmd_guideline, "disclosure": cmd_disclosure,
+    "searchlog": cmd_searchlog, "validate": cmd_validate,
 }
 
 

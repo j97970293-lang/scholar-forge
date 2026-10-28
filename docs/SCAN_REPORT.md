@@ -237,3 +237,12 @@ SF_SOURCES=/chemin/vers/les/clones python3 tools/scan_sources.py
 
 Les archives sources complètes (sans les `.git`) sont dans `upstream/` ; leurs empreintes sont dans `upstream/manifest.json`.
 
+---
+
+## Deuxième vague (2026-10-28)
+
+Six dépôts supplémentaires ont été scannés séparément : 1 440 fichiers, 64,1 Mio,
+325 337 lignes, 342 scripts Python analysés par AST, 20 `SKILL.md` officiels.
+Voir `docs/SCAN_REPORT_V2.md`, `data/scan-v2-summary.json` et
+`data/scan-v2-inventory.json`. Le total combiné est de **16 694 fichiers**.
+Les présents chiffres v1 restent inchangés et reproductibles via `make scan`.

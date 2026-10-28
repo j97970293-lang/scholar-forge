@@ -1,0 +1,144 @@
+{
+  "generated_utc": "2026-10-27T21:54:07+00:00",
+  "policy": "Curated scan of six v2 repositories (VCS internals excluded). Read-only; no upstream code was executed.",
+  "repositories": 6,
+  "files": 1440,
+  "bytes": 67232898,
+  "lines": 325337,
+  "python_files": 342,
+  "skill_files": 20,
+  "distinct_http_hosts": 1734,
+  "referenced_github_repos": 188,
+  "per_repo": {
+    "agentskills_agentskills": {
+      "files": 138,
+      "bytes": 1670575,
+      "human": "1.6 Mio",
+      "lines": 3487,
+      "skills": 0,
+      "python_files": 11,
+      "commit": "69ef37e9424c0a7ea9dd2293b559e43ec8176379",
+      "top_ext": {
+        ".svg": 91,
+        ".py": 11,
+        ".mdx": 9,
+        ".png": 7,
+        "(none)": 5,
+        ".md": 5,
+        ".json": 3,
+        ".jsx": 3
+      }
+    },
+    "anthropics_skills": {
+      "files": 445,
+      "bytes": 11892466,
+      "human": "11.3 Mio",
+      "lines": 57406,
+      "skills": 20,
+      "python_files": 72,
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "top_ext": {
+        ".md": 137,
+        ".xsd": 117,
+        ".py": 72,
+        ".ttf": 54,
+        ".txt": 47,
+        ".xml": 6,
+        ".html": 3,
+        ".mjs": 2
+      }
+    },
+    "chrisyangsong_citegate": {
+      "files": 19,
+      "bytes": 66602,
+      "human": "65.0 Kio",
+      "lines": 1880,
+      "skills": 0,
+      "python_files": 8,
+      "commit": "94cc0a02a63a11154664c88b25923cbd0dc7c028",
+      "top_ext": {
+        ".py": 8,
+        ".yml": 4,
+        "(none)": 2,
+        ".bib": 2,
+        ".yaml": 1,
+        ".md": 1,
+        ".toml": 1
+      }
+    },
+    "asreview_asreview": {
+      "files": 479,
+      "bytes": 13291772,
+      "human": "12.7 Mio",
+      "lines": 84564,
+      "skills": 0,
+      "python_files": 122,
+      "commit": "79d568212b2b0a78f9fd7be3c5117dfb890489f9",
+      "top_ext": {
+        ".js": 154,
+        ".py": 122,
+        ".rst": 31,
+        ".svg": 29,
+        ".png": 24,
+        ".ris": 17,
+        ".toml": 14,
+        ".csv": 14
+      }
+    },
+    "manubot_manubot": {
+      "files": 175,
+      "bytes": 2588043,
+      "human": "2.5 Mio",
+      "lines": 43361,
+      "skills": 0,
+      "python_files": 70,
+      "commit": "859dd15850d7e89184e75c3a63e9d9e3f9ab9873",
+      "top_ext": {
+        ".py": 70,
+        ".md": 33,
+        ".json": 31,
+        ".html": 8,
+        ".xml": 6,
+        ".txt": 6,
+        ".yml": 4,
+        "(none)": 3
+      }
+    },
+    "Future-House_paper-qa": {
+      "files": 184,
+      "bytes": 37723440,
+      "human": "36.0 Mio",
+      "lines": 134639,
+      "skills": 0,
+      "python_files": 59,
+      "commit": "c692d0dfeac4a0296599f7fe21a253a58b7ac12a",
+      "top_ext": {
+        ".py": 59,
+        ".yaml": 54,
+        ".json": 13,
+        ".md": 12,
+        "(none)": 10,
+        ".typed": 6,
+        ".toml": 5,
+        ".csv": 4
+      }
+    }
+  },
+  "top_hosts": {
+    "registry.npmjs.org": 1750,
+    "github.com": 775,
+    "doi.org": 520,
+    "web.archive.org": 451,
+    "purl.obolibrary.org": 264,
+    "arxiv.org": 243,
+    "www.w3.org": 191,
+    "www.ncbi.nlm.nih.gov": 167,
+    "manubot.org": 134,
+    "api.openai.com": 126,
+    "platform.claude.com": 125,
+    "schemas.microsoft.com": 123,
+    "opencollective.com": 115,
+    "schemas.openxmlformats.org": 101,
+    "api.crossref.org": 95
+  }
+}

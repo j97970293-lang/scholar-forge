@@ -67,3 +67,7 @@ reproducibility checklists. Fill the checklist, don't just cite it.
 ## Integrity boundary
 A reported p-value can be internally consistent and still be fabricated. Local checks cannot
 verify that an experiment was run, that raw data are authentic, or that results reproduce.
+
+**Complément 1.1.0** : `config/reporting-guidelines.json` contient désormais
+18 directives datées (TRIPOD+AI, STARD-AI, CONSORT-AI, PRISMA-S…). Utilisez
+`guideline --recommend` puis vérifiez l'énoncé officiel ; voir le playbook 25.

@@ -32,6 +32,15 @@ echo "== 7. claims =="; $SF claims --claims "$P/evidence/claims.csv" --evidence 
 echo "== 8. prisma =="; $SF prisma "$P/screening/screening.csv" --out "$P/screening/PRISMA.md" || true
 echo "== 9. rebuttal =="; $SF rebuttal "$P/review/reviews.md" --out-csv "$P/review/rebuttal-matrix.csv" \
      --out-md "$P/review/rebuttal-matrix.md"
+echo "== 9b. integrity (offline) =="; $SF integrity "$P/references.bib" --path "$P" || true
+echo "== 9c. guideline =="; $SF guideline --recommend "diagnostic accuracy of an AI test" | head -5
+$SF guideline --key prediction-model --title "Demo study" --venue "BMJ" --out "$P/submission/checklist.md"
+echo "== 9d. disclosure =="; $SF disclosure --tool "Claude Sonnet" --tool-version "2026-10-28" \
+     --purpose search,writing,editing --oversight "Named author verified every claim" \
+     --verification "Crossref + claim ledger" --title "Demo study" --out "$P/output/ai-disclosure-draft.md"
+$SF disclosure --check "$P/output/ai-disclosure-draft.md" || true
+echo "== 9e. searchlog =="; $SF searchlog --path "$P" | head -8
+echo "== 9f. spec validation =="; $SF validate | head -6
 echo "== 10. pipeline =="; $SF pipeline status --path "$P" | head -6
 [ "$FIXED" = "1" ] && sed -i 's/| open |/| resolved |/g' "$P/review/rebuttal-matrix.md" 2>/dev/null || true
 echo "== 11. audit =="; $SF audit --path "$P" || true

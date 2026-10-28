@@ -1,6 +1,10 @@
 # ScholarForge — registre unifié
 
-Généré par `tools/merge_registry.py` le `2026-10-27T20:27:18+00:00`. **5,434** entrées dédupliquées issues des 8 catalogues amont. Champs complets dans `data/registry.json`, export plat dans `data/registry.csv`.
+**5,460 entrées** au total en 1.1.0. Le noyau v1 (`tools/merge_registry.py`,
+`2026-10-27T20:27:18+00:00`) fournit **5 434** entrées dédupliquées issues des 8 catalogues
+amont ; la vague v2 (`tools/v2_pipeline.py`, 2026-10-28) ajoute **26** entrées (20 `SKILL.md`
+officiels + 6 outils vérifiés), détaillées en fin de document. Les entrées v1 sont conservées
+à l'identique. Champs complets dans `data/registry.json`, export plat dans `data/registry.csv`.
 
 ## Couverture
 
@@ -14,10 +18,12 @@ Généré par `tools/merge_registry.py` le `2026-10-27T20:27:18+00:00`. **5,434*
 | `kael-odin` | 114 |
 | `miketepUR` | 51 |
 | `cosen1024` | 43 |
+| `v2-sources` (2026-10-28) | 26 |
 
-| Total dédupliqué | **5,434** |
-| Entrées à pertinence académique ≥ 0,4 | 1,028 |
-| Entrées vérifiées | 265 |
+| Total dédupliqué v1 | **5,434** |
+| Total 1.1.0 | **5,460** |
+| Entrées à pertinence académique ≥ 0,4 | 1,054 |
+| Entrées vérifiées | 291 |
 | Dépôts GitHub distincts | 1,121 |
 
 ## Répartition par étape du cycle de recherche
@@ -91,3 +97,19 @@ python3 scripts/scholarforge.py registry search --query "citation verification" 
 python3 scripts/scholarforge.py registry stats
 ```
 
+
+
+## v2 — 2026-10-28 : six sources supplémentaires
+
+**26** entrées ajoutées (officielles + outils vérifiés), pour un total de **5,460** entrées. Les 5 434 entrées v1 sont conservées à l'identique.
+
+| Dépôt | Licence | Étoiles | Rôle |
+|---|---|---:|---|
+| `https://github.com/agentskills/agentskills` | Apache-2.0 | 26,703 | official Agent Skills open specification + skills-ref validation library |
+| `https://github.com/anthropics/skills` | unlicensed (THIRD_PARTY_NOTICES.md | 184,227 | official skill library: 20 SKILL.md examples of progressive disclosure |
+| `https://github.com/chrisyangsong/citegate` | MIT | 102 | citation-integrity CI gate: Crossref/OpenAlex verification + retraction verdicts |
+| `https://github.com/asreview/asreview` | Apache-2.0 | 1,053 | active learning for systematic-review screening; dual-screening workflow patterns |
+| `https://github.com/manubot/manubot` | BSD-2-Clause-Patent | 477 | open automated manuscripts; citation-by-identifier and reproducible reference handling |
+| `https://github.com/Future-House/paper-qa` | Apache-2.0 | 9,477 | evidence-grounded question answering over scientific documents with citations |
+
+Sources : `data/scan-v2-skills.json`, `upstream/v2/manifest.json`, `docs/SCAN_REPORT_V2.md`.

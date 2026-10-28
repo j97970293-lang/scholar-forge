@@ -1,8 +1,8 @@
 cff-version: 1.2.0
-message: "If you use this compilation, cite it and the eight upstream works listed in NOTICE.md."
+message: "If you use this compilation, cite it and the fourteen upstream works listed in NOTICE.md."
 title: "ScholarForge — Unified Academic Research & Writing Skill"
-version: 1.0.0
-date-released: 2026-10-27
+version: 1.1.0
+date-released: 2026-10-28
 type: software
 license: MIT
 license-note: "Compilation restricted to non-commercial use; see LICENSE and NOTICE.md."
@@ -16,9 +16,15 @@ keywords:
   - citation verification
   - PRISMA
   - reproducibility
+  - research integrity
+  - AI disclosure
+  - reporting guidelines
+  - PRISMA-S
 repository-code: "https://github.com/j97970293-lang/scholar-forge"
 abstract: >-
-  A single installable agent skill merging eight upstream academic-skills repositories,
-  with a 22-part progressive-disclosure reference library, a dependency-free Python CLI,
-  a 5,434-entry unified registry, ten quality gates, and lossless SHA-256-verified
-  archives of all source code.
+  A single installable agent skill merging fourteen upstream academic-skills repositories,
+  with a 28-part progressive-disclosure reference library, a dependency-free Python CLI
+  exposing 21 commands, a 5,460-entry unified registry, eight audit gates including
+  multi-signal retraction screening, PRISMA-S search logging, 2026 reporting-guideline
+  routing and structured AI-use disclosure. Eight lossless and six curated SHA-256-verified
+  archives preserve the source code. Validated against the Agent Skills open specification.

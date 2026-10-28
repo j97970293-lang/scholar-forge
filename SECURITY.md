@@ -3,8 +3,9 @@
 ## Surface d'attaque
 - `scripts/` : Python stdlib, aucune élévation, aucun shell, aucune désérialisation, aucune
   écriture hors du projet (sauf `--out` explicite).
-- `search` / `verify --online` : requêtes HTTPS GET vers les six hôtes listés dans
-  `config/sources.json`. Aucune clé n'est requise ; les clés optionnelles sont lues dans
+- `search` / `verify --online` / `integrity --online` : requêtes HTTPS GET vers les hôtes
+  listés dans `config/sources.json` (six API savantes + deux endpoints d'intégrité).
+  `integrity` n'envoie que des DOI ; aucun manuscrit ni donnée privée n'est transmis. Aucune clé n'est requise ; les clés optionnelles sont lues dans
   l'environnement, jamais écrites sur disque.
 - `upstream/*.zip` : **données inertes**. Aucun fichier de ces archives n'est importé,
   exécuté ou évalué par le moteur.

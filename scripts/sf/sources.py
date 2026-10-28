@@ -18,7 +18,7 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from .util import norm_doi, slug
 
-UA = "ScholarForge/1.0 (academic research skill; stdlib urllib)"
+UA = "ScholarForge/1.1 (academic research skill; stdlib urllib)"
 DEFAULT_TIMEOUT = 12
 
 SOURCES: Dict[str, Dict[str, str]] = {
@@ -72,9 +72,137 @@ def _stamp(source: str, url: str, rec: Dict[str, Any]) -> Dict[str, Any]:
     return rec
 
 
-def _openalex(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any]], str]:
-    url = "https://api.openalex.org/works?" + urllib.parse.urlencode(
-        {"search": q, "per-page": min(limit, 50), "mailto": "scholarforge@localhost"})
+FILTER_KEYS = ("from_year", "to_year", "min_citations", "oa_only", "type")
+
+
+def normalise_filters(filters: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """Validate and coerce search filters; unknown keys are dropped."""
+    f = {k: v for k, v in (filters or {}).items() if k in FILTER_KEYS and v not in (None, "", False)}
+    for k in ("from_year", "to_year", "min_citations"):
+        if k in f:
+            try:
+                f[k] = int(f[k])
+            except (TypeError, ValueError):
+                raise ValueError(f"filter {k} must be an integer, got {f[k]!r}")
+    if "from_year" in f and "to_year" in f and f["from_year"] > f["to_year"]:
+        raise ValueError("from_year cannot exceed to_year")
+    f["oa_only"] = bool(f.get("oa_only"))
+    f["type"] = str(f.get("type") or "").strip().lower()
+    if not f["type"]:
+        f.pop("type", None)
+    return f
+
+
+def _year(value: Any) -> Optional[int]:
+    try:
+        return int(str(value)[:4])
+    except (TypeError, ValueError):
+        return None
+
+
+def apply_filters(results: List[Dict[str, Any]], filters: Dict[str, Any]) -> Tuple[List[Dict[str, Any]], List[str]]:
+    """Client-side post-filter, applied to EVERY source for consistency.
+
+    Server-side filters widen the candidate window where supported; this pass
+    guarantees the returned set obeys the same rules everywhere. Fields that a
+    source simply does not expose are left untouched (and reported).
+    """
+    if not filters:
+        return results, []
+    applied, kept = [], []
+    lo, hi = filters.get("from_year"), filters.get("to_year")
+    minc, wanted = filters.get("min_citations"), filters.get("type")
+    for r in results:
+        y = _year(r.get("year"))
+        if lo is not None and y is not None and y < lo:
+            continue
+        if hi is not None and y is not None and y > hi:
+            continue
+        if minc is not None and r.get("cited_by") not in (None, ""):
+            try:
+                if int(r["cited_by"]) < minc:
+                    continue
+            except (TypeError, ValueError):
+                pass
+        if filters.get("oa_only") and r.get("is_oa") is False:
+            continue
+        if wanted and r.get("type") and wanted not in str(r["type"]).lower():
+            continue
+        kept.append(r)
+    for k in FILTER_KEYS:
+        if k in filters and filters[k] not in (None, "", False):
+            applied.append(str(k) + "=" + str(filters[k]))
+    return kept, applied
+
+
+def server_filters(source: str, f: Dict[str, Any]) -> Tuple[Dict[str, str], List[str]]:
+    """Build API-native filter parameters where the endpoint supports them."""
+    extra: Dict[str, str] = {}
+    applied: List[str] = []
+    if source == "openalex":
+        bits = []
+        if f.get("from_year"):
+            bits.append(f"from_publication_date:{f['from_year']}-01-01")
+            applied.append(f"from_year={f['from_year']} (native)")
+        if f.get("to_year"):
+            bits.append(f"to_publication_date:{f['to_year']}-12-31")
+            applied.append(f"to_year={f['to_year']} (native)")
+        if f.get("min_citations"):
+            bits.append(f"cited_by_count:>{int(f['min_citations'])-1}")
+            applied.append(f"min_citations={f['min_citations']} (native)")
+        if f.get("oa_only"):
+            bits.append("is_oa:true")
+            applied.append("oa_only=true (native)")
+        if f.get("type"):
+            bits.append("type:" + f["type"])
+            applied.append(f"type={f['type']} (native)")
+        if bits:
+            extra["filter"] = ",".join(bits)
+    elif source == "crossref":
+        bits = []
+        if f.get("from_year"):
+            bits.append(f"from-pub-date:{f['from_year']}-01-01")
+            applied.append(f"from_year={f['from_year']} (native)")
+        if f.get("to_year"):
+            bits.append(f"until-pub-date:{f['to_year']}-12-31")
+            applied.append(f"to_year={f['to_year']} (native)")
+        if bits:
+            extra["filter"] = ",".join(bits)
+    elif source == "semanticscholar":
+        if f.get("from_year") or f.get("to_year"):
+            lo = f.get("from_year") or ""
+            hi = f.get("to_year") or ""
+            extra["year"] = f"{lo}-{hi}" if lo or hi else ""
+            if extra["year"]:
+                applied.append(f"year={extra['year']} (native)")
+        if f.get("min_citations"):
+            extra["minCitationCount"] = str(f["min_citations"])
+            applied.append(f"min_citations={f['min_citations']} (native)")
+    elif source == "pubmed":
+        if f.get("from_year"):
+            extra["mindate"] = str(f["from_year"])
+            extra["datetype"] = "pdat"
+            applied.append(f"from_year={f['from_year']} (native)")
+        if f.get("to_year"):
+            extra["maxdate"] = str(f["to_year"])
+            extra["datetype"] = "pdat"
+            applied.append(f"to_year={f['to_year']} (native)")
+    elif source == "europepmc":
+        if f.get("from_year") or f.get("to_year"):
+            lo = f"{f.get('from_year', 1900)}-01-01"
+            hi = f"{f.get('to_year', 2100)}-12-31"
+            extra["_date_range"] = f" AND (FIRST_PDATE:[{lo} TO {hi}])"
+            applied.append(f"date_range={lo}..{hi} (native)")
+    return extra, applied
+
+
+def _openalex(q: str, limit: int, timeout: int,
+              filters: Optional[Dict[str, Any]] = None) -> Tuple[str, List[Dict[str, Any]], str]:
+    f = normalise_filters(filters)
+    params = {"search": q, "per-page": min(limit, 50), "mailto": "scholarforge@localhost"}
+    ex, _ = server_filters("openalex", f)
+    params.update(ex)
+    url = "https://api.openalex.org/works?" + urllib.parse.urlencode(params)
     ok, body = _get(url, timeout)
     if not ok:
         return url, [], body
@@ -98,15 +226,19 @@ def _openalex(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any
             "doi": norm_doi((w.get("doi") or "").replace("https://doi.org/", "")),
             "url": w.get("primary_location", {}).get("landing_page_url") if isinstance(w.get("primary_location"), dict) else ids.get("doi", ""),
             "abstract": abstract, "cited_by": w.get("cited_by_count", 0),
-            "type": w.get("type", ""),
+            "type": w.get("type", ""), "is_oa": bool(((w.get("open_access") or {}).get("is_oa"))),
         }))
     return url, out, ""
 
 
-def _crossref(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any]], str]:
-    url = "https://api.crossref.org/works?" + urllib.parse.urlencode({
-        "query.bibliographic": q, "rows": min(limit, 50),
-        "select": "DOI,title,author,issued,container-title,volume,issue,page,publisher,URL,type,abstract,subject"})
+def _crossref(q: str, limit: int, timeout: int,
+              filters: Optional[Dict[str, Any]] = None) -> Tuple[str, List[Dict[str, Any]], str]:
+    f = normalise_filters(filters)
+    params = {"query.bibliographic": q, "rows": min(limit, 50),
+              "select": "DOI,title,author,issued,container-title,volume,issue,page,publisher,URL,type,abstract,subject"}
+    ex, _ = server_filters("crossref", f)
+    params.update(ex)
+    url = "https://api.crossref.org/works?" + urllib.parse.urlencode(params)
     ok, body = _get(url, timeout)
     if not ok:
         return url, [], body
@@ -133,7 +265,8 @@ def _crossref(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any
     return url, out, ""
 
 
-def _arxiv(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any]], str]:
+def _arxiv(q: str, limit: int, timeout: int,
+           filters: Optional[Dict[str, Any]] = None) -> Tuple[str, List[Dict[str, Any]], str]:
     url = "https://export.arxiv.org/api/query?" + urllib.parse.urlencode(
         {"search_query": "all:" + q, "start": 0, "max_results": min(limit, 50), "sortBy": "relevance"})
     ok, body = _get(url, timeout, accept="application/atom+xml")
@@ -159,10 +292,14 @@ def _arxiv(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any]],
     return url, out, ""
 
 
-def _semanticscholar(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any]], str]:
-    url = "https://api.semanticscholar.org/graph/v1/paper/search?" + urllib.parse.urlencode({
-        "query": q, "limit": min(limit, 50),
-        "fields": "title,authors,year,venue,externalIds,url,abstract,citationCount"})
+def _semanticscholar(q: str, limit: int, timeout: int,
+                     filters: Optional[Dict[str, Any]] = None) -> Tuple[str, List[Dict[str, Any]], str]:
+    f = normalise_filters(filters)
+    params = {"query": q, "limit": min(limit, 50),
+              "fields": "title,authors,year,venue,externalIds,url,abstract,citationCount"}
+    ex, _ = server_filters("semanticscholar", f)
+    params.update({k: v for k, v in ex.items() if v != ""})
+    url = "https://api.semanticscholar.org/graph/v1/paper/search?" + urllib.parse.urlencode(params)
     ok, body = _get(url, timeout)
     if not ok:
         return url, [], body
@@ -183,9 +320,13 @@ def _semanticscholar(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[s
     return url, out, ""
 
 
-def _pubmed(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any]], str]:
-    s_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?" + urllib.parse.urlencode(
-        {"db": "pubmed", "term": q, "retmax": min(limit, 50), "retmode": "json"})
+def _pubmed(q: str, limit: int, timeout: int,
+            filters: Optional[Dict[str, Any]] = None) -> Tuple[str, List[Dict[str, Any]], str]:
+    f = normalise_filters(filters)
+    params = {"db": "pubmed", "term": q, "retmax": min(limit, 50), "retmode": "json"}
+    ex, _ = server_filters("pubmed", f)
+    params.update(ex)
+    s_url = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?" + urllib.parse.urlencode(params)
     ok, body = _get(s_url, timeout)
     if not ok:
         return s_url, [], body
@@ -221,9 +362,13 @@ def _pubmed(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any]]
     return url, out, ""
 
 
-def _europepmc(q: str, limit: int, timeout: int) -> Tuple[str, List[Dict[str, Any]], str]:
+def _europepmc(q: str, limit: int, timeout: int,
+               filters: Optional[Dict[str, Any]] = None) -> Tuple[str, List[Dict[str, Any]], str]:
+    f = normalise_filters(filters)
+    ex, _ = server_filters("europepmc", f)
+    query = q + (ex.get("_date_range") or "")
     url = "https://www.ebi.ac.uk/europepmc/webservices/rest/search?" + urllib.parse.urlencode(
-        {"query": q, "format": "json", "pageSize": min(limit, 50), "resultType": "core"})
+        {"query": query, "format": "json", "pageSize": min(limit, 50), "resultType": "core"})
     ok, body = _get(url, timeout)
     if not ok:
         return url, [], body
@@ -250,21 +395,31 @@ _CLIENT = {
 }
 
 
-def search(source: str, query: str, limit: int = 10, timeout: int = DEFAULT_TIMEOUT) -> Dict[str, Any]:
+def search(source: str, query: str, limit: int = 10, timeout: int = DEFAULT_TIMEOUT,
+           filters: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    f = normalise_filters(filters)
     if source not in _CLIENT:
         return {"source": source, "ok": False, "count": 0, "results": [],
                 "error": "unknown source; choose from " + ", ".join(SOURCES),
-                "url": "", "query": query}
-    url, results, error = _CLIENT[source](query, limit, timeout)
+                "url": "", "query": query, "filters": f,
+                "filters_applied": {"applied": [], "ignored": [], "native": []}}
+    url, results, error = _CLIENT[source](query, limit, timeout, f)
+    results, applied = apply_filters(results, f)
+    _, native = server_filters(source, f)
+    unsupported = [k for k in f if k not in ("from_year", "to_year", "min_citations", "oa_only", "type")]
     return {"source": source, "ok": not error, "error": error, "url": url,
-            "query": query, "count": len(results), "results": results,
+            "query": query, "count": len(results), "results": results, "filters": f,
+            "filters_applied": {"applied": applied, "native": native,
+                                "ignored": ["server-side unsupported for this source"] if not native and f else unsupported},
             "retrieved_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
 
 def search_all(query: str, sources: Optional[List[str]] = None, limit: int = 10,
-               timeout: int = DEFAULT_TIMEOUT) -> Dict[str, Any]:
+               timeout: int = DEFAULT_TIMEOUT,
+               filters: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
     sources = sources or ["openalex", "crossref", "arxiv", "semanticscholar"]
-    reports = {s: search(s, query, limit, timeout) for s in sources}
+    f = normalise_filters(filters)
+    reports = {s: search(s, query, limit, timeout, f) for s in sources}
     merged: Dict[str, Dict[str, Any]] = {}
     for s, rep in reports.items():
         for rec in rep["results"]:
@@ -273,14 +428,15 @@ def search_all(query: str, sources: Optional[List[str]] = None, limit: int = 10,
                 continue
             if key in merged:
                 merged[key].setdefault("also_in", []).append(s)
-                for f in ("doi", "pmid", "abstract", "url"):
-                    if not merged[key].get(f) and rec.get(f):
-                        merged[key][f] = rec[f]
+                for field in ("doi", "pmid", "abstract", "url"):
+                    if not merged[key].get(field) and rec.get(field):
+                        merged[key][field] = rec[field]
             else:
                 merged[key] = dict(rec, also_in=[s])
     return {"query": query, "sources": reports, "merged": list(merged.values()),
             "total_hits": sum(r.get("count", 0) for r in reports.values()),
-            "unique_hits": len(merged),
+            "unique_hits": len(merged), "filters": f,
+            "filters_applied": {s: r.get("filters_applied", {}) for s, r in reports.items()},
             "retrieved_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
 

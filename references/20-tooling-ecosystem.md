@@ -1,8 +1,9 @@
 # 20 — Tooling ecosystem and the merged registry
 
 ## What the registry is
-`data/registry.json` merges every catalogue found in the eight source repositories into
-5,434 de-duplicated entries (223 curated records + 749 backlog entries from O0000-code, 43
+`data/registry.json` merges every catalogue found in the eight v1 source repositories into
+5,434 de-duplicated entries, plus 26 official/tool entries from the six v2 sources
+(**5,460 in 1.1.0**). The v1 breakdown is 223 curated records + 749 backlog entries from O0000-code, 43
 pinned verified records from cosen1024, 114 ranked repos from kael-odin, 281 KalarisLabs
 skills, 1,129 aggregated skills, 51 ecosystem links, and 3,244 upstream `SKILL.md` files).
 Each entry carries `sources[]`, licence, category, lifecycle stage, stars/trend, verification

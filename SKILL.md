@@ -1,28 +1,33 @@
 ---
 name: scholar-forge
-description: "One unified academic research and writing skill covering the entire lifecycle: research question, hypothesis and preregistration, multi-database literature search, PRISMA screening, evidence and claim ledgers, citation verification, statistics and figures, IMRaD drafting, AI-slop removal, bibliography styles, simulated peer review, rebuttal, venue submission, reproducibility statements, ethics, grants and a gated 10-stage pipeline. Use for any scholarly task: literature review, systematic review, paper or thesis writing, reference checking, manuscript audit, reviewer response, grant proposal, or end-to-end research-to-submission. Triggers on: academic, research, paper, manuscript, thesis, dissertation, literature review, systematic review, PRISMA, meta-analysis, citation, bibliography, references, DOI, peer review, reviewer, rebuttal, LaTeX, APA 7, IEEE, Vancouver, submission, preprint, grant, recherche, article scientifique, revue de littérature, bibliographie, mémoire, thèse, 论文, 文献综述, 引用, investigación, artículo, revisión."
+description: "One unified academic research and writing skill for the whole lifecycle: question, preregistration, multi-database search with PRISMA-S logging, PRISMA screening, evidence/claim ledgers, citation and retraction verification, reporting guidelines (TRIPOD+AI, STARD-AI, CONSORT-AI), IMRaD drafting, anti-slop linting, structured AI-use disclosure, bibliography styles, simulated peer review, rebuttal, submission and a gated 10-stage pipeline with a PASS/FAIL audit. Use for literature reviews, systematic reviews, papers, theses, reference checking, manuscript audits, reviewer responses, grants, or end-to-end research-to-submission. Triggers: academic, research, paper, manuscript, thesis, PRISMA, meta-analysis, citation, bibliography, DOI, retraction, peer review, rebuttal, LaTeX, APA 7, IEEE, Vancouver, submission, preprint, grant, recherche, these, bibliographie, 论文, investigación."
 license: "See LICENSE and NOTICE.md — original code MIT; compilation restricted to non-commercial use because one upstream component is CC BY-NC 4.0."
 compatibility: "Python 3.9+ standard library; no install, no API keys required. Optional network access for live scholarly APIs."
 allowed-tools: Read Write Edit Bash
 metadata:
-  version: "1.0.0"
-  last_updated: "2026-10-27"
+  version: "1.1.0"
+  last_updated: "2026-10-28"
   category: academic-research
   task_type: open-ended
   data_access_level: raw
-  merged_from: 8 repositories
-  upstream_files_scanned: 15254
-  registry_entries: 5434
+  merged_from: "14 repositories"
+  upstream_files_scanned: "16694"
+  registry_entries: "5460"
+  references: "28"
+  cli_commands: "21"
 ---
 
 # ScholarForge — une seule skill pour tout le cycle de recherche
 
 You are a careful research collaborator, not an author and not an oracle. ScholarForge merges
-eight upstream projects (three meta-lists, two full research suites, one 50-skill pack, one
-general writing skill and one general skills aggregator) into **one installable skill**. All
+**fourteen** upstream projects — the original eight (three meta-lists, two full research suites,
+one 50-skill pack, one writing skill, one aggregator) plus six v2 sources (the official Agent
+Skills spec, the official skills library, a citation-integrity gate, a screening tool, a
+manuscript tool and an evidence-grounded QA system) — into **one installable skill**. All
 specialised knowledge lives in `references/` and is loaded on demand; all deterministic work
-lives in `scripts/`; all reusable artefacts live in `templates/`; the complete original sources
-are preserved in `upstream/*.zip`.
+lives in `scripts/`; all reusable artefacts live in `templates/`. The eight originals are
+preserved in full in `upstream/*.zip`; the six v2 sources are preserved as *curated* snapshots
+in `upstream/v2/*.zip` (exclusions documented in each manifest).
 
 **Operating principle:** do the smallest useful thing well, name your uncertainty, and never
 fabricate. A short honest answer beats a long confident one.
@@ -60,6 +65,22 @@ fabricate. A short honest answer beats a long confident one.
 12. **Respect the author's voice.** Style rules serve the argument; never convert specific,
     evidence-backed prose into generic fluent filler.
 
+### 1.1 Obligations added in v1.1 (2026 research)
+
+- **Screen for retractions, not just existence.** A resolved DOI can belong to a retracted
+  paper. Run `integrity --online` before the final audit; treat a single signal as
+  `suspected`, never as a verdict. See `24-research-integrity-retractions.md`.
+- **Log every search.** Query string, database, interface, date, filters, endpoint and hit
+  count are appended to `sources/search-log.md` (PRISMA-S, gate G2). See
+  `27-search-reproducibility.md`.
+- **Disclose AI use structurally.** Name tool, version, delegated tasks and human
+  verification. AI is never an author. See `26-ai-disclosure-taxonomy.md`.
+- **Pick the current reporting guideline.** TRIPOD+AI supersedes TRIPOD 2015; STARD-AI was
+  corrected in July 2026. Checklists here are working aids, not official items. See
+  `25-ai-reporting-guidelines.md` and `config/reporting-guidelines.json`.
+- **Stay spec-compliant.** Run `validate`: `description` ≤ 1024 chars, `metadata` values are
+  strings, body < 500 lines, references one level deep. See `23-agent-skills-spec.md`.
+
 ---
 
 ## 2. Routing — pick the mode, then load only what you need
@@ -78,6 +99,12 @@ fabricate. A short honest answer beats a long confident one.
 | "Plan an experiment / statistics" | `design` | `09-design-statistics.md` | `new prereg …` |
 | "Write a grant" | `grant` | `17-grants-funding.md` | `new brief …` |
 | "Which skill/tool should I use?" | `discover` | `20-tooling-ecosystem.md` | `registry search "…"` |
+| "Are any of my references retracted?" | `verify` | `24-research-integrity-retractions.md` | `integrity refs.bib --online` |
+| "Which reporting guideline applies?" | `design` | `25-ai-reporting-guidelines.md` | `guideline --recommend "…"` |
+| "Write/check my AI disclosure" | `submit` | `26-ai-disclosure-taxonomy.md` | `disclosure …`, `disclosure --check …` |
+| "Prove my search is reproducible" | `discover` | `27-search-reproducibility.md` | `search --log-path …`, `searchlog` |
+| "Is this skill spec-compliant / portable?" | `check` | `23-agent-skills-spec.md` | `validate` |
+| "Which external tool should I consider?" | `discover` | `28-open-science-tools.md` | `registry search "…"` |
 | "Is this skill working?" | `check` | `21-scripting-guide.md` | `doctor`, `selftest` |
 
 **Direct mode.** If the user's message starts with the literal token `[direct-mode]`, strip it,
@@ -133,7 +160,9 @@ English.
 python3 scripts/scholarforge.py doctor                    # sanity check
 python3 scripts/scholarforge.py selftest                 # offline unit tests
 python3 scripts/scholarforge.py init --path . --name "X"
-python3 scripts/scholarforge.py search "CRISPR off-target" --sources openalex,crossref,arxiv --limit 10 --out hits.json --bib hits.bib
+python3 scripts/scholarforge.py search "CRISPR off-target" --sources openalex,crossref,arxiv --limit 30 \
+    --from-year 2020 --to-year 2026 --oa-only --out hits.json --bib hits.bib --csv hits.csv --ris hits.ris
+python3 scripts/scholarforge.py searchlog --path .                 # PRISMA-S log / gate G2
 python3 scripts/scholarforge.py dedupe refs.bib --out clean.bib
 python3 scripts/scholarforge.py verify refs.bib --online
 python3 scripts/scholarforge.py bib refs.bib --style apa
@@ -142,9 +171,15 @@ python3 scripts/scholarforge.py claims --claims evidence/claims.csv --evidence e
 python3 scripts/scholarforge.py lint draft/manuscript.md
 python3 scripts/scholarforge.py review review/draft.md
 python3 scripts/scholarforge.py rebuttal review/reviews.md
+python3 scripts/scholarforge.py integrity refs.bib --online     # retractions / corrections
+python3 scripts/scholarforge.py guideline --recommend "diagnostic accuracy of an AI test"
+python3 scripts/scholarforge.py guideline --key prediction-model --out submission/checklist.md
+python3 scripts/scholarforge.py disclosure --tool "…" --tool-version "…" --purpose search,writing
+python3 scripts/scholarforge.py disclosure --check submission/ai-disclosure.md
 python3 scripts/scholarforge.py registry search "citation verification" --limit 8
 python3 scripts/scholarforge.py pipeline status | advance S5 | stages
-python3 scripts/scholarforge.py audit --online
+python3 scripts/scholarforge.py validate                       # Agent Skills spec
+python3 scripts/scholarforge.py audit                          # (uses cached integrity report)
 ```
 
 Every command accepts `--json` for machine consumption. Network commands fail soft per source:
@@ -155,9 +190,11 @@ one unreachable API never destroys the results from the others, and every record
 
 ## 6. Quality gates and the audit
 
-`audit` aggregates: style/placeholder lint, reference verification, claim–evidence binding,
-PRISMA screening (when required), reviewer-response closure, disclosure statements and pipeline
-stage. It writes `output/AUDIT.md` with a **PASS/FAIL** verdict. A FAIL names the gate and the
+`audit` aggregates **eight** gates: style/placeholder lint (`G-style`), reference verification
+(`G-references`), retraction/correction screening (`G-integrity`, from the cached report written
+by `integrity --online`), claim–evidence binding (`G-claims`), PRISMA screening (`G-prisma`),
+disclosure statements (`G-disclosures`), reviewer-response closure (`G-rebuttal`) and pipeline
+stage (`G-pipeline`, advisory/non-blocking). It writes `output/AUDIT.md` with a **PASS/FAIL** verdict. A FAIL names the gate and the
 missing artefact. Thresholds live in `config/gates.json` and `config/rules.json` — editable
 without touching code.
 
@@ -208,11 +245,17 @@ Load these only when the task needs them; keep the main context small.
 | `20-tooling-ecosystem.md` | Registry, external skill selection, security vetting |
 | `21-scripting-guide.md` | Full CLI reference and worked pipelines |
 | `22-evals-benchmarks.md` | Self-eval cases, honest benchmark reporting |
+| `23-agent-skills-spec.md` | SKILL.md spec, progressive disclosure, portability, `validate` |
+| `24-research-integrity-retractions.md` | Retraction/correction signals, register disagreement |
+| `25-ai-reporting-guidelines.md` | TRIPOD+AI, STARD-AI, CONSORT-AI, PRISMA-S selection table |
+| `26-ai-disclosure-taxonomy.md` | GAIDeT-style delegation, COPE/ICMJE disclosure rules |
+| `27-search-reproducibility.md` | PRISMA-S search log, filters, saturation, limits |
+| `28-open-science-tools.md` | Six v2 external tools, what was/was not integrated |
 
 `config/` holds machine-readable rules; `data/` holds the merged registry, scan inventory,
 security findings and rankings; `docs/` holds the scan/source/security reports;
-`upstream/` holds lossless ZIP snapshots of all eight source repositories with a SHA-256
-manifest.
+`upstream/` holds 8 lossless ZIP snapshots + 6 curated v2 snapshots, each with a SHA-256
+manifest. `docs/RESEARCH_NOTES.md` records the 2026 literature and primary sources.
 
 ---
 
@@ -231,10 +274,11 @@ manifest.
 
 ## 10. Provenance and licence
 
-ScholarForge was built by exhaustively scanning 15,254 files / 2.39M lines across eight
-repositories (`docs/SCAN_REPORT.md`), statically vetting them (`docs/SECURITY_SCAN.md`), merging
-their catalogues into a 5,434-entry registry (`docs/REGISTRY.md`), and rewriting their methods
-into a single coherent skill. Full attribution and per-component licences are in `NOTICE.md`
+ScholarForge 1.1.0 was built by exhaustively scanning **16,694 files / 2.71M lines across
+fourteen repositories** — 15,254 files in v1 (`docs/SCAN_REPORT.md`) plus 1,440 in v2
+(`docs/SCAN_REPORT_V2.md`) — statically vetting v1 (`docs/SECURITY_SCAN.md`), merging their
+catalogues into a **5,460-entry registry** (`docs/REGISTRY.md`), and rewriting their methods
+into a single coherent skill, grounded in the 2026 research log (`docs/RESEARCH_NOTES.md`). Full attribution and per-component licences are in `NOTICE.md`
 and `upstream/LICENSES.md`. One upstream component is **CC BY-NC 4.0**, so this compilation is
 for **non-commercial** use; the original ScholarForge code is MIT.
 

@@ -11,6 +11,17 @@
 | saintgo7/agents-skills | aucun fichier de licence | — | Conservé pour traçabilité privée uniquement, non relicencié |
 | ranbot-ai/awesome-skills | aucun fichier de licence | — | Conservé pour traçabilité privée uniquement, non relicencié |
 
+### Sources v2 (archives curées dans `v2/`)
+
+| Dépôt | Licence | Fichier dans l'archive | Remarque |
+|---|---|---|---|
+| agentskills/agentskills | Apache-2.0 | `LICENSE` | Attribution requise |
+| anthropics/skills | **aucune** | `THIRD_PARTY_NOTICES.md` | Aucun code copié ; principes de structuration seulement |
+| chrisyangsong/citegate | MIT | `LICENSE` | Copyright 2026 Yang Song |
+| asreview/asreview | Apache-2.0 | `LICENSE` | Copyright The ASReview Authors |
+| manubot/manubot | BSD-2-Clause Plus Patent | `LICENSE.md` | Copyright Greene Lab / contributeurs |
+| Future-House/paper-qa | Apache-2.0 | `LICENSE` | Attribution requise |
+
 Les textes complets des licences se trouvent à la racine de chaque ZIP. En cas de conflit
 entre ce résumé et le texte de licence dans l'archive, **le texte de l'archive prévaut**.
 

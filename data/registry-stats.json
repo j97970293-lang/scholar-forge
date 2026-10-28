@@ -1,6 +1,6 @@
 {
-  "generated_utc": "2026-10-27T20:27:18+00:00",
-  "total_entries": 5434,
+  "generated_utc": "2026-10-27T21:54:08+00:00",
+  "total_entries": 5460,
   "by_source": {
     "O0000-listed": 223,
     "O0000-backlog": 749,
@@ -9,35 +9,55 @@
     "kalaris-catalog": 281,
     "ranbot-ai": 1129,
     "miketepUR": 51,
-    "SKILL.md": 3244
+    "SKILL.md": 3244,
+    "v2-sources": 26
   },
   "by_kind": {
     "suite": 929,
-    "skill": 4473,
+    "skill": 4493,
     "skill-suite": 7,
     "plugin": 11,
     "list": 4,
     "mcp-server": 1,
-    "link": 9
+    "link": 9,
+    "tool": 6
   },
   "by_stage": {
     "suite": 582,
-    "discovery": 1779,
-    "writing": 267,
-    "citation": 285,
-    "figures": 127,
+    "discovery": 1781,
+    "writing": 269,
+    "citation": 287,
+    "figures": 128,
     "autonomous": 18,
-    "reading": 464,
+    "reading": 473,
     "peer-review": 226,
-    "meta": 956,
+    "meta": 961,
     "publishing": 100,
-    "analysis": 488,
-    "writing-quality": 110,
+    "analysis": 491,
+    "writing-quality": 112,
     "discipline": 26,
     "ocr": 6
   },
-  "academic_entries": 1028,
-  "verified_entries": 265,
-  "backlog_entries": 749,
-  "github_repos": 1121
+  "by_source_list": {
+    "O0000-code/awesome-academic-skills": 223,
+    "kael-odin/awesome-academic-research-skills": 114,
+    "O0000-code/awesome-academic-skills (backlog)": 749,
+    "Imbad0202_academic-research-skills (SKILL.md)": 5,
+    "cosen1024/awesome-academic-skills": 43,
+    "KalarisLabs/research-agent-skills (catalog)": 281,
+    "KalarisLabs_research-agent-skills (SKILL.md)": 281,
+    "ranbot-ai_awesome-skills (SKILL.md)": 2874,
+    "saintgo7_agents-skills (SKILL.md)": 50,
+    "ranbot-ai/awesome-skills": 1129,
+    "miketepUR/awesome-claude-skills": 18,
+    "v2/anthropics_skills": 21,
+    "v2/agentskills_agentskills": 1,
+    "v2/chrisyangsong_citegate": 1,
+    "v2/asreview_asreview": 1,
+    "v2/manubot_manubot": 1,
+    "v2/Future-House_paper-qa": 1
+  },
+  "academic_entries": 1054,
+  "verified_entries": 291,
+  "v2_entries_added": 26
 }

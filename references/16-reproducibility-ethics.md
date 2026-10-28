@@ -49,3 +49,7 @@ the content.
 ScholarForge checks reported process and internal consistency. It cannot verify that
 procedures were performed, that raw data are authentic, or that results reproduce. A
 consistently reported fabrication can pass every local gate.
+
+**Complément 1.1.0** : `disclosure` génère une déclaration d'usage de l'IA
+structurée par catégorie de délégation, et `disclosure --check` en vérifie les champs
+obligatoires. Voir le playbook 26 pour les positions COPE/ICMJE.

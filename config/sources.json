@@ -1,5 +1,5 @@
 {
-  "schema": "scholarforge-sources-v1",
+  "schema": "scholarforge-sources-v2",
   "rule": "Never invent a citation. Every retrieved record must carry source, request URL and retrieval timestamp. Respect rate limits and each provider's terms of use.",
   "polite_identification": "Set a real contact e-mail in OPENALEX_MAILTO / CROSSREF_MAILTO when running large batches.",
   "sources": {
@@ -68,13 +68,34 @@
     }
   },
   "search_log_required_fields": [
-    "database", "platform", "query_string", "filters", "date_run", "hits",
-    "deduplicated_hits", "operator_notes"
+    "database",
+    "platform",
+    "query_string",
+    "filters",
+    "date_run",
+    "hits",
+    "deduplicated_hits",
+    "operator_notes"
   ],
   "forbidden_practices": [
     "Using Sci-Hub or other copyright-infringing full-text fallbacks",
     "Presenting a preprint as a peer-reviewed article",
     "Citing a paper whose abstract/full text was never read",
     "Silently substituting metadata from a different edition/version"
-  ]
+  ],
+  "integrity_endpoints": {
+    "openalex_work_by_doi": {
+      "endpoint": "https://api.openalex.org/works/https://doi.org/{doi}",
+      "signal": "is_retracted",
+      "docs": "https://docs.openalex.org/api-entities/works/work-object",
+      "caveat": "Boolean derived from Retraction Watch; has produced false positives and can lag."
+    },
+    "crossref_work_by_doi": {
+      "endpoint": "https://api.crossref.org/works/{doi}",
+      "signal": "updated-by[].type / update-to / relation",
+      "docs": "https://api.crossref.org/",
+      "caveat": "Notices come from Retraction Watch since 2023 acquisition; type values are heterogeneous."
+    }
+  },
+  "integrity_policy": "Never treat a single registry flag as a retraction verdict. Require >=2 converging signals for a blocking result; label a single signal \"suspected\"; report lookup failures; always tell the human to confirm on the publisher page."
 }

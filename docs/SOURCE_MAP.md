@@ -1,4 +1,4 @@
-# Carte de fusion — de 8 dépôts à 1 skill
+# Carte de fusion — de 14 dépôts à 1 skill
 
 Ce document montre, composant par composant, **ce qui a été lu** dans chaque dépôt et **où cela
 a atterri** dans ScholarForge. C'est la trace de l'instruction « scanne tous les codes pour les
@@ -40,14 +40,16 @@ fusionner ».
 
 ## 5. Améliorations apportées pendant la fusion
 
-1. **Un routeur unique** au lieu de 3 244 `SKILL.md` concurrents : 12 intentions → 22 références.
-2. **Un moteur testé** : 30 tests unitaires, aucune dépendance, aucune clé API, dégradation
+1. **Un routeur unique** au lieu de 3 244 `SKILL.md` concurrents : 18 intentions → 28 références,
+   frontmatter conforme à la spec Agent Skills (description ≤ 1024 caractères).
+2. **Un moteur testé** : 70 tests unitaires et 18 cas d'évaluation, aucune dépendance, aucune clé API, dégradation
    hors ligne par source (là où les suites amont supposaient un hôte Claude/Codex spécifique).
 3. **Portes explicites** : G0–G9 machine à états + `AUDIT.md`, au lieu de règles dispersées
    dans des fichiers Markdown de 50–100 Ko.
-4. **Traçabilité totale** : inventaire SHA-256 de 15 254 fichiers, manifeste des 8 archives,
+4. **Traçabilité totale** : inventaire SHA-256 de 16 694 fichiers, manifestes des 14 archives
+   (8 intégrales + 6 curées),
    rapports de scan et de sécurité reproductibles via `tools/`.
-5. **Registre unifié** : 5 434 entrées dédupliquées avec stade, licence, vérification,
+5. **Registre unifié** : 5 460 entrées dédupliquées avec stade, licence, vérification,
    étoiles et pertinence académique, interrogeable hors ligne.
 6. **Honnêteté par défaut** : statuts `UNVERIFIED`/`unverified-offline`, intégrité en trois
    couches (existence ≠ soutien ≠ vérité) et limites affichées dans chaque rapport.
@@ -55,3 +57,33 @@ fusionner ».
    pas d'`eval`, pas de désérialisation non sûre, pas de téléchargement de code.
 8. **Internationalisation** : consignes FR/EN, règles CJK, préservation des diacritiques,
    doubles résumés.
+9. **Recherche documentaire datée** : 4 ajouts fondés sur des sources primaires 2025–2026
+   (rétractations multi-signaux, PRISMA-S, directives IA, disclosure structurée), journalisés
+   dans `docs/RESEARCH_NOTES.md` avec leurs limites.
+
+---
+
+## 5. Sources v2 — recherche 2026-10-28
+
+Ces six dépôts ont été ajoutés après une passe de recherche documentaire et une exploration
+de l'API GitHub. Consulter `docs/RESEARCH_NOTES.md` pour les sources primaires et
+`docs/SCAN_REPORT_V2.md` pour les métriques du scan (1 440 fichiers, 325 337 lignes).
+
+| Source | Fichiers lus | Éléments extraits | Destination |
+|---|---:|---|---|
+| agentskills/agentskills (Apache-2.0) | 138 | Spec ouverte : `name`, `description` ≤1024, `metadata` chaînes, corps <500 lignes, références à un niveau ; bibliothèque `skills-ref` | `scripts/sf/spec.py`, `tools/validate_skill.py`, commande `validate`, frontmatter corrigé, playbook 23 |
+| anthropics/skills (aucune licence) | 445 (20 `SKILL.md`) | Motifs officiels de divulgation progressive et de structuration | 20 entrées de registre, playbooks 23 et 28 — **aucun code copié** |
+| chrisyangsong/citegate (MIT) | 19 | CI de vérification de citations, verdict `retracted` | Conception multi-signaux de `scripts/sf/integrity.py`, porte `G-integrity`, playbook 24 |
+| asreview/asreview (Apache-2.0) | 479 | Apprentissage actif, double criblage, priorisation des références | Notes dans playbooks 05 et 28, entrée de registre |
+| manubot/manubot (BSD-2-Clause-Patent) | 175 | Citation par identifiant, manuscrits reproductibles | Notes dans playbooks 07 et 28, entrée de registre |
+| Future-House/paper-qa (Apache-2.0) | 184 | QA ancrée sur documents avec citations, vérification des extraits | Rappel de l'ancrage des preuves dans playbooks 06 et 28, entrée de registre |
+
+### Ce qui a été ajouté sans dépôt amont
+
+| Besoin identifié | Implémentation originale |
+|---|---|
+| Conformité à la spec (description 1 041 > 1 024 caractères en v1) | `sf/spec.py` + `tools/validate_skill.py` + `SKILL.md` réécrit |
+| Journal de recherche promis par G2 mais jamais écrit | `sf/searchlog.py`, `sources/search-log.{md,json}`, filtres serveur/local, exports CSV/RIS |
+| Directives de rapport 2024–2026 manquantes | `config/reporting-guidelines.json` v2 (18 directives), `sf/guidelines.py`, commande `guideline` |
+| Déclaration IA structurée (GAIDeT / COPE / ICMJE) | `config/ai-disclosure.json` (9 catégories), `sf/disclosure.py`, commande `disclosure` |
+| Rétractations non détectées | `sf/integrity.py` (3 familles de signaux), porte `G-integrity`, playbook 24 |

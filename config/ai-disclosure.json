@@ -1,0 +1,41 @@
+{
+  "schema": "scholarforge-ai-disclosure-v1",
+  "last_researched": "2026-10-28",
+  "basis": "Structured delegation taxonomy inspired by GAIDeT (Generative AI Delegation Taxonomy, 2025) and the settled COPE/ICMJE disclosure principles. This config is a working template, not a copy of any publisher policy.",
+  "sources": [
+    {"name": "COPE position statement — Authorship and AI tools", "url": "https://publicationethics.org/guidance/cope-position/authorship-and-ai-tools"},
+    {"name": "ICMJE Recommendations (updated Jan 2026) — AI-assisted technology", "url": "https://www.icmje.org/icmje-recommendations.pdf"},
+    {"name": "Nature — AI policy / LLM authorship", "url": "https://www.nature.com/nature-portfolio/editorial-policies/ai-policy"},
+    {"name": "GAIDeT — Generative AI Delegation Taxonomy (DOI 10.1080/08989621.2025.2544331)", "url": "https://doi.org/10.1080/08989621.2025.2544331"},
+    {"name": "COPE forum coverage: from detection to disclosure (2025)", "url": "https://scholarlykitchen.sspnet.org/2025/08/25/from-detection-to-disclosure-key-takeaways-on-ai-ethics-from-copes-forum/"},
+    {"name": "Wolters Kluwer generative AI policy for authors", "url": "https://www.wolterskluwer.com/en/solutions/lippincott-journals/lippincott-journals-ethical-best-practices-in-scholarly-publishing"},
+    {"name": "CASRAI — Can AI be listed as an author?", "url": "https://casrai.org/guides/can-ai-be-listed-as-an-author"}
+  ],
+  "settled_rules": [
+    "An AI tool cannot be an author: it cannot take responsibility, hold copyright, declare conflicts of interest or approve the final manuscript.",
+    "All substantive AI use must be disclosed, naming the tool and version and describing what it was used for, usually in Methods and/or Acknowledgements and in the cover letter.",
+    "Human authors remain fully responsible for every factual claim, citation, figure and the decision to submit.",
+    "Spelling/grammar-only assistance is often exempt from disclosure, but policies differ: check the target venue.",
+    "Editors and reviewers must not upload confidential manuscripts into AI systems that train on inputs.",
+    "Policies change: re-read the official author guidelines on submission day."
+  ],
+  "delegation_categories": [
+    {"key": "ideation", "label": "Research question, hypotheses, study design", "typical_tasks": "brainstorming questions, rival explanations, falsification tests", "human_check": "A named author decides the final question and design; AI suggestions are not evidence."},
+    {"key": "search", "label": "Literature search and query building", "typical_tasks": "synonym expansion, query translation across databases", "human_check": "Log every final query with date, database, filters and hits (PRISMA-S)."},
+    {"key": "screening", "label": "Title/abstract and full-text screening", "typical_tasks": "prioritisation, active-learning ranking, duplicate detection", "human_check": "Dual human decisions and adjudication remain mandatory; report kappa."},
+    {"key": "extraction", "label": "Data extraction and coding", "typical_tasks": "drafting extraction tables, suggesting codes", "human_check": "Verify every extracted value against the source text and keep a quote/locator."},
+    {"key": "analysis", "label": "Statistical analysis and code", "typical_tasks": "generating analysis scripts, debugging, explaining output", "human_check": "Re-run the analysis from raw data; archive code, environment and seeds."},
+    {"key": "writing", "label": "Drafting manuscript text", "typical_tasks": "first drafts of sections, restructuring arguments", "human_check": "Rewrite in the authors' voice and verify each assertion against the evidence ledger."},
+    {"key": "editing", "label": "Language editing and formatting", "typical_tasks": "copy-editing, reference formatting, style conversion", "human_check": "Confirm no meaning changed; many venues exempt grammar-only help."},
+    {"key": "translation", "label": "Translation", "typical_tasks": "translating abstracts or instruments", "human_check": "Back-translation or bilingual review; disclose if required by the venue."},
+    {"key": "figures", "label": "Figures, tables and graphical abstracts", "typical_tasks": "plot code, layout suggestions", "human_check": "Never generate or alter original research images; check every number against the data."}
+  ],
+  "credit_roles_for_humans": ["Conceptualization", "Methodology", "Software", "Validation", "Formal analysis", "Investigation", "Data curation", "Writing – original draft", "Writing – review & editing", "Supervision"],
+  "required_fields": ["tool", "version_or_date", "categories", "specific_purpose", "human_oversight", "verification_steps", "prompts_or_code_availability", "venue_policy_checked_on"],
+  "prohibited_claims": [
+    "AI-assisted writing guarantees acceptance",
+    "AI-generated citations are verified",
+    "AI can be listed as a co-author",
+    "A grammar checker proves the manuscript is original"
+  ]
+}

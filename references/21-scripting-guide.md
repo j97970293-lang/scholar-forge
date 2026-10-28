@@ -79,3 +79,7 @@ Values are lowercase; `evidence_ids` is `;`-separated; every id must exist.
 - Add a template in `templates/` and a mapping in `sf/scaffold.py`.
 - Add a self-eval case in `evals/cases.jsonl`.
 Then run `sf selftest` and `sf doctor`.
+
+**Complément 1.1.0** : cinq commandes supplémentaires — `integrity`, `guideline`,
+`disclosure`, `searchlog`, `validate` — et des filtres sur `search`. `validate` contrôle
+la conformité à la spec Agent Skills (playbook 23). Voir le playbook 27 pour PRISMA-S.

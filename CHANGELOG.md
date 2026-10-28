@@ -1,5 +1,34 @@
 # Changelog
 
+## 1.1.0 — 2026-10-28
+
+Recherche documentaire 2026, six dépôts complémentaires et mise en conformité.
+
+- **Conformité Agent Skills** : `description` ramenée à 889 caractères (limite 1024),
+  `metadata` en chaînes, `validate` + `tools/validate_skill.py`, playbook 23,
+  références maintenues à un seul niveau, `install.sh` produisant un dossier allégé.
+- **Intégrité des références** : `sf/integrity.py` croise OpenAlex `is_retracted`, les
+  notices `updated-by` de Crossref et les marqueurs de titre ; consensus à 2 signaux,
+  verdicts non définitifs, porte `G-integrity` (audit passe à 8 portes), playbook 24.
+  Vérifié en ligne sur un DOI réellement rétracté (3 signaux convergents).
+- **Recherche reproductible** : filtres `--from-year/--to-year/--min-citations/--oa-only/--type`
+  (natif quand l'API le permet + réapplication locale), exports CSV/RIS, journal
+  `sources/search-log.{md,json}` conforme PRISMA-S, commande `searchlog`, playbook 27.
+- **Directives de rapport** : `config/reporting-guidelines.json` v2 (18 directives) avec
+  TRIPOD+AI 2024, STARD-AI 2025 corrigé 2026, TRIPOD-LLM, CONSORT-AI, SPIRIT-AI,
+  DECIDE-AI, CLAIM, PRISMA-S ; commande `guideline` (list/recommend/checklist), playbook 25.
+- **Déclaration IA** : `config/ai-disclosure.json` (9 catégories de délégation inspirées de
+  GAIDeT), `sf/disclosure.py`, `disclosure --check` (5 champs structurels), playbook 26.
+- **Six dépôts v2** : agentskills (spec), anthropics/skills, citegate, ASReview, Manubot,
+  PaperQA2 — 1 440 fichiers / 325 337 lignes scannés, 6 archives **curées** (4,6 Mio),
+  +26 entrées de registre (5 460 au total), playbook 28, `docs/SCAN_REPORT_V2.md`.
+- **Recherche consignée** : `docs/RESEARCH_NOTES.md` — sources primaires datées, décisions
+  d'implémentation, une affirmation non confirmée explicitement écartée.
+- **Qualité** : 28 playbooks, 21 commandes, 7 fichiers de config JSON, 70 tests unitaires,
+  18 cas d'évaluation, CI à 11 étapes (dont validation de spec et smoke test des nouveaux
+  modules), démonstration FAIL→PASS avec les 8 portes.
+- **Publication** : dépôt GitHub privé mis à jour, dossier Drive synchronisé.
+
 ## 1.0.0 — 2026-10-27
 
 Création du dépôt unifié à partir de huit dépôts sources.

@@ -22,17 +22,33 @@ jobs:
         run: |
           python - <<'PY'
           import glob, json
-          for f in glob.glob('config/*.json') + glob.glob('data/*.json') + ['upstream/manifest.json']:
-              json.load(open(f, encoding='utf-8'))
+          files = (glob.glob('config/*.json') + glob.glob('data/*.json')
+                   + ['upstream/manifest.json', 'upstream/v2/manifest.json',
+                      'evals/cases.jsonl'])
+          for f in files:
+              if f.endswith('.jsonl'):
+                  for line in open(f, encoding='utf-8'):
+                      if line.strip(): json.loads(line)
+              else:
+                  json.load(open(f, encoding='utf-8'))
               print('valid:', f)
           PY
+      - name: Agent Skills spec validation
+        run: python3 tools/validate_skill.py
       - name: Doctor
         run: python3 scripts/scholarforge.py doctor
       - name: Unit tests
         run: python3 scripts/scholarforge.py selftest
+      - name: New 1.1 commands (offline smoke test)
+        run: |
+          python3 scripts/scholarforge.py guideline --list | head -8
+          python3 scripts/scholarforge.py guideline --recommend "diagnostic accuracy of an AI test"
+          python3 scripts/scholarforge.py integrity templates/references.bib
+          python3 scripts/scholarforge.py validate --json | head -8
+          python3 scripts/scholarforge.py disclosure --check templates/ai-disclosure.md
       - name: End-to-end demo (expected FAIL)
         run: bash examples/end-to-end/run-demo.sh | tail -25
       - name: End-to-end demo (clean variant)
-        run: "bash examples/end-to-end/run-demo.sh --fixed | grep -E 'Verdict: PASS|Ran 30 tests'"
+        run: "bash examples/end-to-end/run-demo.sh --fixed | grep -E 'Verdict: PASS|Ran [0-9]+ tests'"
       - name: Secret scan
         run: python3 tools/check_secrets.py

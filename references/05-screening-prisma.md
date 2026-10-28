@@ -56,3 +56,7 @@ assessment where ≥10 studies are available.
 - Excluding by "not relevant" with no ordered code.
 - Reporting n included but not n excluded by reason.
 - Reusing a PRISMA diagram from a previous review.
+
+**Complément 1.1.0** : pour de grands corpus, un outil d'apprentissage actif
+peut prioriser les références, mais il ne remplace pas le double criblage humain ni le
+calcul de κ. Voir les playbooks 27 (journal de recherche) et 28 (outils externes).

@@ -1,0 +1,3808 @@
+{
+  "skills-ref/src/skills_ref/__init__.py": {
+    "imports": [
+      "errors",
+      "models",
+      "parser",
+      "prompt",
+      "validator"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "skills-ref/src/skills_ref/cli.py": {
+    "imports": [
+      "click",
+      "errors",
+      "json",
+      "parser",
+      "pathlib",
+      "prompt",
+      "sys",
+      "validator"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "skills-ref/src/skills_ref/errors.py": {
+    "imports": [],
+    "functions": 1,
+    "classes": 3
+  },
+  "skills-ref/src/skills_ref/models.py": {
+    "imports": [
+      "dataclasses",
+      "typing"
+    ],
+    "functions": 1,
+    "classes": 1
+  },
+  "skills-ref/src/skills_ref/parser.py": {
+    "imports": [
+      "errors",
+      "models",
+      "pathlib",
+      "strictyaml",
+      "typing"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "skills-ref/src/skills_ref/prompt.py": {
+    "imports": [
+      "html",
+      "parser",
+      "pathlib"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "skills-ref/src/skills_ref/validator.py": {
+    "imports": [
+      "errors",
+      "parser",
+      "pathlib",
+      "typing",
+      "unicodedata"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "skills-ref/tests/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "skills-ref/tests/test_parser.py": {
+    "imports": [
+      "pytest",
+      "skills_ref"
+    ],
+    "functions": 15,
+    "classes": 0
+  },
+  "skills-ref/tests/test_prompt.py": {
+    "imports": [
+      "skills_ref"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "skills-ref/tests/test_validator.py": {
+    "imports": [
+      "skills_ref"
+    ],
+    "functions": 21,
+    "classes": 0
+  },
+  "skills/docx/scripts/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "skills/docx/scripts/accept_changes.py": {
+    "imports": [
+      "argparse",
+      "logging",
+      "office",
+      "pathlib",
+      "shutil",
+      "subprocess"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "skills/docx/scripts/comment.py": {
+    "imports": [
+      "argparse",
+      "datetime",
+      "defusedxml",
+      "office",
+      "pathlib",
+      "random",
+      "shutil",
+      "sys",
+      "tempfile",
+      "xml",
+      "zipfile"
+    ],
+    "functions": 12,
+    "classes": 0
+  },
+  "skills/docx/scripts/merge_runs.py": {
+    "imports": [
+      "argparse",
+      "defusedxml",
+      "office",
+      "pathlib",
+      "sys",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 25,
+    "classes": 0
+  },
+  "skills/docx/scripts/office/soffice.py": {
+    "imports": [
+      "collections",
+      "contextlib",
+      "os",
+      "pathlib",
+      "socket",
+      "subprocess",
+      "sys",
+      "tempfile"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "skills/docx/scripts/office/validate.py": {
+    "imports": [
+      "argparse",
+      "defusedxml",
+      "helpers",
+      "pathlib",
+      "sys",
+      "tempfile",
+      "validators",
+      "zipfile"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "skills/docx/scripts/office/helpers/__init__.py": {
+    "imports": [
+      "os",
+      "pathlib",
+      "posixpath",
+      "re",
+      "stat",
+      "tempfile",
+      "urllib",
+      "zipfile"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "skills/docx/scripts/office/helpers/pptx_chart.py": {
+    "imports": [
+      "__future__",
+      "re",
+      "typing"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "skills/docx/scripts/office/helpers/pptx_slide.py": {
+    "imports": [
+      "__future__",
+      "re"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "skills/docx/scripts/office/helpers/pptx_theme.py": {
+    "imports": [
+      "__future__",
+      "posixpath",
+      "re",
+      "typing"
+    ],
+    "functions": 10,
+    "classes": 0
+  },
+  "skills/docx/scripts/office/validators/__init__.py": {
+    "imports": [
+      "base",
+      "docx",
+      "pptx",
+      "redlining"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "skills/docx/scripts/office/validators/base.py": {
+    "imports": [
+      "defusedxml",
+      "functools",
+      "helpers",
+      "lxml",
+      "pathlib",
+      "re",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 23,
+    "classes": 1
+  },
+  "skills/docx/scripts/office/validators/docx.py": {
+    "imports": [
+      "base",
+      "defusedxml",
+      "helpers",
+      "lxml",
+      "pathlib",
+      "random",
+      "re",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 12,
+    "classes": 1
+  },
+  "skills/docx/scripts/office/validators/pptx.py": {
+    "imports": [
+      "base",
+      "helpers",
+      "lxml",
+      "pathlib",
+      "re",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 13,
+    "classes": 1
+  },
+  "skills/docx/scripts/office/validators/redlining.py": {
+    "imports": [
+      "defusedxml",
+      "helpers",
+      "pathlib",
+      "subprocess",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 14,
+    "classes": 1
+  },
+  "skills/xlsx/scripts/recalc.py": {
+    "imports": [
+      "contextlib",
+      "json",
+      "office",
+      "openpyxl",
+      "os",
+      "pathlib",
+      "platform",
+      "re",
+      "shutil",
+      "subprocess",
+      "sys",
+      "tempfile",
+      "time",
+      "zipfile"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "skills/xlsx/scripts/office/soffice.py": {
+    "imports": [
+      "collections",
+      "contextlib",
+      "os",
+      "pathlib",
+      "socket",
+      "subprocess",
+      "sys",
+      "tempfile"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "skills/xlsx/scripts/office/validate.py": {
+    "imports": [
+      "argparse",
+      "defusedxml",
+      "helpers",
+      "pathlib",
+      "sys",
+      "tempfile",
+      "validators",
+      "zipfile"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "skills/xlsx/scripts/office/helpers/__init__.py": {
+    "imports": [
+      "os",
+      "pathlib",
+      "posixpath",
+      "re",
+      "stat",
+      "tempfile",
+      "urllib",
+      "zipfile"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "skills/xlsx/scripts/office/helpers/pptx_chart.py": {
+    "imports": [
+      "__future__",
+      "re",
+      "typing"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "skills/xlsx/scripts/office/helpers/pptx_slide.py": {
+    "imports": [
+      "__future__",
+      "re"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "skills/xlsx/scripts/office/helpers/pptx_theme.py": {
+    "imports": [
+      "__future__",
+      "posixpath",
+      "re",
+      "typing"
+    ],
+    "functions": 10,
+    "classes": 0
+  },
+  "skills/xlsx/scripts/office/validators/__init__.py": {
+    "imports": [
+      "base",
+      "docx",
+      "pptx",
+      "redlining"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "skills/xlsx/scripts/office/validators/base.py": {
+    "imports": [
+      "defusedxml",
+      "functools",
+      "helpers",
+      "lxml",
+      "pathlib",
+      "re",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 23,
+    "classes": 1
+  },
+  "skills/xlsx/scripts/office/validators/docx.py": {
+    "imports": [
+      "base",
+      "defusedxml",
+      "helpers",
+      "lxml",
+      "pathlib",
+      "random",
+      "re",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 12,
+    "classes": 1
+  },
+  "skills/xlsx/scripts/office/validators/pptx.py": {
+    "imports": [
+      "base",
+      "helpers",
+      "lxml",
+      "pathlib",
+      "re",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 13,
+    "classes": 1
+  },
+  "skills/xlsx/scripts/office/validators/redlining.py": {
+    "imports": [
+      "defusedxml",
+      "helpers",
+      "pathlib",
+      "subprocess",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 14,
+    "classes": 1
+  },
+  "skills/claude-api/shared/preserved-thinking-migration/drop_block_probe.py": {
+    "imports": [
+      "argparse",
+      "glob",
+      "hashlib",
+      "http",
+      "json",
+      "os",
+      "prefix_diff",
+      "re",
+      "socket",
+      "sys",
+      "time",
+      "urllib"
+    ],
+    "functions": 25,
+    "classes": 0
+  },
+  "skills/claude-api/shared/preserved-thinking-migration/prefix_diff.py": {
+    "imports": [
+      "argparse",
+      "difflib",
+      "glob",
+      "json",
+      "os",
+      "re",
+      "sys"
+    ],
+    "functions": 47,
+    "classes": 0
+  },
+  "skills/slack-gif-creator/core/easing.py": {
+    "imports": [
+      "math"
+    ],
+    "functions": 20,
+    "classes": 0
+  },
+  "skills/slack-gif-creator/core/frame_composer.py": {
+    "imports": [
+      "PIL",
+      "math",
+      "numpy",
+      "typing"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "skills/slack-gif-creator/core/gif_builder.py": {
+    "imports": [
+      "PIL",
+      "imageio",
+      "numpy",
+      "pathlib",
+      "typing"
+    ],
+    "functions": 7,
+    "classes": 1
+  },
+  "skills/slack-gif-creator/core/validators.py": {
+    "imports": [
+      "PIL",
+      "pathlib"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "skills/skill-creator/scripts/aggregate_benchmark.py": {
+    "imports": [
+      "argparse",
+      "datetime",
+      "json",
+      "math",
+      "pathlib",
+      "sys"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "skills/skill-creator/scripts/generate_report.py": {
+    "imports": [
+      "argparse",
+      "html",
+      "json",
+      "pathlib",
+      "sys"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "skills/skill-creator/scripts/improve_description.py": {
+    "imports": [
+      "argparse",
+      "json",
+      "os",
+      "pathlib",
+      "re",
+      "scripts",
+      "subprocess",
+      "sys"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "skills/skill-creator/scripts/package_skill.py": {
+    "imports": [
+      "fnmatch",
+      "pathlib",
+      "scripts",
+      "sys",
+      "zipfile"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "skills/skill-creator/scripts/quick_validate.py": {
+    "imports": [
+      "os",
+      "pathlib",
+      "re",
+      "sys",
+      "yaml"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "skills/skill-creator/scripts/run_eval.py": {
+    "imports": [
+      "argparse",
+      "concurrent",
+      "json",
+      "os",
+      "pathlib",
+      "scripts",
+      "select",
+      "subprocess",
+      "sys",
+      "time",
+      "uuid"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "skills/skill-creator/scripts/run_loop.py": {
+    "imports": [
+      "argparse",
+      "json",
+      "pathlib",
+      "random",
+      "scripts",
+      "sys",
+      "tempfile",
+      "time",
+      "webbrowser"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "skills/skill-creator/scripts/utils.py": {
+    "imports": [
+      "pathlib"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "skills/skill-creator/eval-viewer/generate_review.py": {
+    "imports": [
+      "argparse",
+      "base64",
+      "functools",
+      "http",
+      "json",
+      "mimetypes",
+      "os",
+      "pathlib",
+      "re",
+      "signal",
+      "subprocess",
+      "sys",
+      "time",
+      "webbrowser"
+    ],
+    "functions": 13,
+    "classes": 1
+  },
+  "skills/pptx/scripts/add_slide.py": {
+    "imports": [
+      "argparse",
+      "office",
+      "pathlib",
+      "re",
+      "shutil",
+      "sys",
+      "tempfile",
+      "typing",
+      "zipfile"
+    ],
+    "functions": 16,
+    "classes": 0
+  },
+  "skills/pptx/scripts/clean.py": {
+    "imports": [
+      "defusedxml",
+      "office",
+      "pathlib",
+      "posixpath",
+      "re",
+      "sys"
+    ],
+    "functions": 10,
+    "classes": 1
+  },
+  "skills/pptx/scripts/thumbnail.py": {
+    "imports": [
+      "PIL",
+      "argparse",
+      "defusedxml",
+      "office",
+      "pathlib",
+      "posixpath",
+      "subprocess",
+      "sys",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "skills/pptx/scripts/office/soffice.py": {
+    "imports": [
+      "collections",
+      "contextlib",
+      "os",
+      "pathlib",
+      "socket",
+      "subprocess",
+      "sys",
+      "tempfile"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "skills/pptx/scripts/office/validate.py": {
+    "imports": [
+      "argparse",
+      "defusedxml",
+      "helpers",
+      "pathlib",
+      "sys",
+      "tempfile",
+      "validators",
+      "zipfile"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "skills/pptx/scripts/office/helpers/__init__.py": {
+    "imports": [
+      "os",
+      "pathlib",
+      "posixpath",
+      "re",
+      "stat",
+      "tempfile",
+      "urllib",
+      "zipfile"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "skills/pptx/scripts/office/helpers/pptx_chart.py": {
+    "imports": [
+      "__future__",
+      "re",
+      "typing"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "skills/pptx/scripts/office/helpers/pptx_slide.py": {
+    "imports": [
+      "__future__",
+      "re"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "skills/pptx/scripts/office/helpers/pptx_theme.py": {
+    "imports": [
+      "__future__",
+      "posixpath",
+      "re",
+      "typing"
+    ],
+    "functions": 10,
+    "classes": 0
+  },
+  "skills/pptx/scripts/office/validators/__init__.py": {
+    "imports": [
+      "base",
+      "docx",
+      "pptx",
+      "redlining"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "skills/pptx/scripts/office/validators/base.py": {
+    "imports": [
+      "defusedxml",
+      "functools",
+      "helpers",
+      "lxml",
+      "pathlib",
+      "re",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 23,
+    "classes": 1
+  },
+  "skills/pptx/scripts/office/validators/docx.py": {
+    "imports": [
+      "base",
+      "defusedxml",
+      "helpers",
+      "lxml",
+      "pathlib",
+      "random",
+      "re",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 12,
+    "classes": 1
+  },
+  "skills/pptx/scripts/office/validators/pptx.py": {
+    "imports": [
+      "base",
+      "helpers",
+      "lxml",
+      "pathlib",
+      "re",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 13,
+    "classes": 1
+  },
+  "skills/pptx/scripts/office/validators/redlining.py": {
+    "imports": [
+      "defusedxml",
+      "helpers",
+      "pathlib",
+      "subprocess",
+      "tempfile",
+      "zipfile"
+    ],
+    "functions": 14,
+    "classes": 1
+  },
+  "skills/mcp-builder/scripts/connections.py": {
+    "imports": [
+      "abc",
+      "contextlib",
+      "mcp",
+      "typing"
+    ],
+    "functions": 13,
+    "classes": 4
+  },
+  "skills/mcp-builder/scripts/evaluation.py": {
+    "imports": [
+      "anthropic",
+      "argparse",
+      "asyncio",
+      "connections",
+      "json",
+      "pathlib",
+      "re",
+      "sys",
+      "time",
+      "traceback",
+      "typing",
+      "xml"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "skills/webapp-testing/scripts/with_server.py": {
+    "imports": [
+      "argparse",
+      "socket",
+      "subprocess",
+      "sys",
+      "time"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "skills/webapp-testing/examples/console_logging.py": {
+    "imports": [
+      "playwright"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "skills/webapp-testing/examples/element_discovery.py": {
+    "imports": [
+      "playwright"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "skills/webapp-testing/examples/static_html_automation.py": {
+    "imports": [
+      "os",
+      "playwright"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "skills/pdf/scripts/check_bounding_boxes.py": {
+    "imports": [
+      "dataclasses",
+      "json",
+      "sys"
+    ],
+    "functions": 2,
+    "classes": 1
+  },
+  "skills/pdf/scripts/check_fillable_fields.py": {
+    "imports": [
+      "pypdf",
+      "sys"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "skills/pdf/scripts/convert_pdf_to_images.py": {
+    "imports": [
+      "os",
+      "pdf2image",
+      "sys"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "skills/pdf/scripts/create_validation_image.py": {
+    "imports": [
+      "PIL",
+      "json",
+      "sys"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "skills/pdf/scripts/extract_form_field_info.py": {
+    "imports": [
+      "json",
+      "pypdf",
+      "sys"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "skills/pdf/scripts/extract_form_structure.py": {
+    "imports": [
+      "json",
+      "pdfplumber",
+      "sys"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "skills/pdf/scripts/fill_fillable_fields.py": {
+    "imports": [
+      "extract_form_field_info",
+      "json",
+      "pypdf",
+      "sys"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "skills/pdf/scripts/fill_pdf_form_with_annotations.py": {
+    "imports": [
+      "json",
+      "pypdf",
+      "sys"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "src/citegate/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "src/citegate/cli.py": {
+    "imports": [
+      "__future__",
+      "argparse",
+      "core",
+      "glob",
+      "os",
+      "pathlib",
+      "report",
+      "sources",
+      "sys",
+      "typing"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "src/citegate/core.py": {
+    "imports": [
+      "__future__",
+      "bibtexparser",
+      "concurrent",
+      "dataclasses",
+      "difflib",
+      "enum",
+      "hashlib",
+      "json",
+      "pathlib",
+      "re",
+      "sources",
+      "threading",
+      "time",
+      "typing",
+      "unicodedata"
+    ],
+    "functions": 22,
+    "classes": 4
+  },
+  "src/citegate/report.py": {
+    "imports": [
+      "__future__",
+      "collections",
+      "core",
+      "json",
+      "os",
+      "sys",
+      "typing"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "src/citegate/sources.py": {
+    "imports": [
+      "__future__",
+      "dataclasses",
+      "html",
+      "re",
+      "requests",
+      "time",
+      "typing",
+      "urllib"
+    ],
+    "functions": 18,
+    "classes": 6
+  },
+  "tests/test_core.py": {
+    "imports": [
+      "citegate",
+      "pathlib",
+      "pytest",
+      "typing"
+    ],
+    "functions": 44,
+    "classes": 6
+  },
+  "tests/test_live.py": {
+    "imports": [
+      "citegate",
+      "os",
+      "pathlib",
+      "pytest"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "tests/test_sources.py": {
+    "imports": [
+      "citegate",
+      "pytest"
+    ],
+    "functions": 7,
+    "classes": 2
+  },
+  "setup.py": {
+    "imports": [
+      "setuptools"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/__init__.py": {
+    "imports": [
+      "asreview",
+      "sqlalchemy",
+      "sqlite3"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "asreview/__main__.py": {
+    "imports": [
+      "argparse",
+      "asreview",
+      "importlib",
+      "inspect",
+      "itertools",
+      "sys"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "asreview/_deprecated.py": {
+    "imports": [
+      "argparse",
+      "functools",
+      "logging",
+      "warnings"
+    ],
+    "functions": 8,
+    "classes": 1
+  },
+  "asreview/datasets.py": {
+    "imports": [
+      "abc",
+      "asreview",
+      "json",
+      "pathlib",
+      "socket",
+      "synergy_dataset",
+      "tempfile",
+      "urllib"
+    ],
+    "functions": 21,
+    "classes": 5
+  },
+  "asreview/extensions.py": {
+    "imports": [
+      "importlib"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "asreview/learner.py": {
+    "imports": [
+      "asreview",
+      "dataclasses",
+      "json",
+      "typing"
+    ],
+    "functions": 12,
+    "classes": 2
+  },
+  "asreview/metrics.py": {
+    "imports": [
+      "numpy"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "asreview/utils.py": {
+    "imports": [
+      "json",
+      "numpy",
+      "pathlib",
+      "tomli",
+      "tomllib",
+      "urllib"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "asreview/state/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/simulation/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/simulation/cli.py": {
+    "imports": [
+      "argparse",
+      "asreview",
+      "contextlib",
+      "logging",
+      "numpy",
+      "pathlib",
+      "re",
+      "shutil",
+      "sklearn"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "asreview/simulation/simulate.py": {
+    "imports": [
+      "asreview",
+      "collections",
+      "numpy",
+      "pandas",
+      "time",
+      "tqdm"
+    ],
+    "functions": 11,
+    "classes": 1
+  },
+  "asreview/data/__init__.py": {
+    "imports": [
+      "asreview"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/data/base.py": {
+    "imports": [
+      "abc",
+      "asreview",
+      "collections",
+      "numpy",
+      "pandas",
+      "typing"
+    ],
+    "functions": 5,
+    "classes": 1
+  },
+  "asreview/data/loader.py": {
+    "imports": [
+      "asreview",
+      "io",
+      "pathlib"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "asreview/data/record.py": {
+    "imports": [
+      "asreview",
+      "pandas",
+      "sqlalchemy"
+    ],
+    "functions": 9,
+    "classes": 2
+  },
+  "asreview/data/ris.py": {
+    "imports": [
+      "asreview",
+      "copy",
+      "io",
+      "json",
+      "pandas",
+      "re",
+      "rispy",
+      "typing",
+      "urllib"
+    ],
+    "functions": 9,
+    "classes": 2
+  },
+  "asreview/data/search.py": {
+    "imports": [
+      "asreview",
+      "difflib",
+      "numpy",
+      "re"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "asreview/data/tabular.py": {
+    "imports": [
+      "asreview",
+      "pandas",
+      "typing"
+    ],
+    "functions": 5,
+    "classes": 5
+  },
+  "asreview/data/utils.py": {
+    "imports": [
+      "numpy",
+      "pandas",
+      "re",
+      "rispy",
+      "unicodedata"
+    ],
+    "functions": 9,
+    "classes": 0
+  },
+  "asreview/models/__init__.py": {
+    "imports": [
+      "asreview"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/models/_metadata.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/models/balancers.py": {
+    "imports": [
+      "sklearn"
+    ],
+    "functions": 2,
+    "classes": 1
+  },
+  "asreview/models/classifiers.py": {
+    "imports": [
+      "sklearn"
+    ],
+    "functions": 0,
+    "classes": 4
+  },
+  "asreview/models/cli.py": {
+    "imports": [
+      "asreview"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "asreview/models/feature_extractors.py": {
+    "imports": [
+      "sklearn"
+    ],
+    "functions": 5,
+    "classes": 3
+  },
+  "asreview/models/mixin.py": {
+    "imports": [],
+    "functions": 1,
+    "classes": 1
+  },
+  "asreview/models/models.py": {
+    "imports": [
+      "asreview"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "asreview/models/queriers.py": {
+    "imports": [
+      "asreview",
+      "numpy",
+      "sklearn"
+    ],
+    "functions": 12,
+    "classes": 6
+  },
+  "asreview/models/stoppers.py": {
+    "imports": [
+      "pandas",
+      "sklearn"
+    ],
+    "functions": 12,
+    "classes": 5
+  },
+  "asreview/project/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/project/api.py": {
+    "imports": [
+      "asreview",
+      "dataclasses",
+      "filelock",
+      "functools",
+      "json",
+      "jsonschema",
+      "numpy",
+      "pathlib",
+      "scipy",
+      "shutil",
+      "tempfile",
+      "time",
+      "traceback",
+      "urllib",
+      "uuid",
+      "warnings",
+      "zipfile"
+    ],
+    "functions": 28,
+    "classes": 1
+  },
+  "asreview/project/exceptions.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 2
+  },
+  "asreview/project/schema.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/project/migration/__init__.py": {
+    "imports": [
+      "asreview"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/project/migration/migrate.py": {
+    "imports": [
+      "asreview",
+      "json",
+      "logging",
+      "pathlib",
+      "shutil",
+      "tempfile"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "asreview/project/migration/v1v2.py": {
+    "imports": [
+      "asreview",
+      "dataclasses",
+      "json",
+      "os",
+      "pandas",
+      "pathlib",
+      "sqlite3",
+      "uuid"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "asreview/project/migration/v2v3.py": {
+    "imports": [
+      "asreview",
+      "json",
+      "jsonschema",
+      "pathlib",
+      "shutil",
+      "sqlalchemy",
+      "sqlite3"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "asreview/project/migration/legacy_v2/record.py": {
+    "imports": [
+      "pandas",
+      "sqlalchemy"
+    ],
+    "functions": 7,
+    "classes": 2
+  },
+  "asreview/project/migration/legacy_v2/sqlstate.py": {
+    "imports": [
+      "json",
+      "pandas",
+      "sqlite3",
+      "time"
+    ],
+    "functions": 22,
+    "classes": 1
+  },
+  "asreview/project/migration/legacy_v2/store.py": {
+    "imports": [
+      "asreview",
+      "numpy",
+      "pandas",
+      "sqlalchemy"
+    ],
+    "functions": 12,
+    "classes": 1
+  },
+  "asreview/webapp/__init__.py": {
+    "imports": [
+      "asreview",
+      "flask_sqlalchemy"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/_tasks.py": {
+    "imports": [
+      "asreview",
+      "sqlite3"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "asreview/webapp/app.py": {
+    "imports": [
+      "asreview",
+      "flask",
+      "flask_cors",
+      "flask_login",
+      "json",
+      "logging",
+      "os",
+      "pathlib",
+      "tomli",
+      "tomllib",
+      "werkzeug"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "asreview/webapp/utils.py": {
+    "imports": [
+      "asreview",
+      "os",
+      "pathlib"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "asreview/webapp/_entry_points/auth_tool.py": {
+    "imports": [
+      "argparse",
+      "asreview",
+      "json",
+      "os",
+      "sqlalchemy",
+      "sys",
+      "uuid"
+    ],
+    "functions": 19,
+    "classes": 1
+  },
+  "asreview/webapp/_entry_points/lab.py": {
+    "imports": [
+      "argparse",
+      "asreview",
+      "logging",
+      "multiprocessing",
+      "os",
+      "pathlib",
+      "requests",
+      "rich",
+      "signal",
+      "socket",
+      "threading",
+      "time",
+      "waitress",
+      "webbrowser"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "asreview/webapp/_entry_points/migrate.py": {
+    "imports": [
+      "argparse",
+      "asreview",
+      "datetime",
+      "os",
+      "pathlib",
+      "sqlalchemy"
+    ],
+    "functions": 10,
+    "classes": 2
+  },
+  "asreview/webapp/_entry_points/task_manager.py": {
+    "imports": [
+      "argparse",
+      "asreview",
+      "os",
+      "textwrap"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "asreview/webapp/_task_manager/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/_task_manager/models.py": {
+    "imports": [
+      "datetime",
+      "sqlalchemy"
+    ],
+    "functions": 0,
+    "classes": 1
+  },
+  "asreview/webapp/_task_manager/task_manager.py": {
+    "imports": [
+      "asreview",
+      "collections",
+      "errno",
+      "json",
+      "logging",
+      "multiprocessing",
+      "signal",
+      "socket",
+      "sqlalchemy",
+      "threading"
+    ],
+    "functions": 26,
+    "classes": 2
+  },
+  "asreview/webapp/_authentication/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/_authentication/decorators.py": {
+    "imports": [
+      "asreview",
+      "flask",
+      "flask_login",
+      "functools",
+      "sqlalchemy",
+      "werkzeug"
+    ],
+    "functions": 10,
+    "classes": 0
+  },
+  "asreview/webapp/_authentication/models.py": {
+    "imports": [
+      "asreview",
+      "datetime",
+      "flask_login",
+      "pathlib",
+      "random",
+      "re",
+      "sqlalchemy",
+      "werkzeug"
+    ],
+    "functions": 25,
+    "classes": 3
+  },
+  "asreview/webapp/_authentication/oauth_handler.py": {
+    "imports": [
+      "requests"
+    ],
+    "functions": 7,
+    "classes": 1
+  },
+  "asreview/webapp/_authentication/remote_user_handler.py": {
+    "imports": [
+      "typing",
+      "werkzeug"
+    ],
+    "functions": 2,
+    "classes": 2
+  },
+  "asreview/webapp/_authentication/utils.py": {
+    "imports": [
+      "datetime",
+      "flask",
+      "flask_login",
+      "flask_mail",
+      "pathlib"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "asreview/webapp/tests/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/tests/conftest.py": {
+    "imports": [
+      "asreview",
+      "os",
+      "pathlib",
+      "pytest",
+      "sqlalchemy"
+    ],
+    "functions": 20,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_utils.py": {
+    "imports": [
+      "asreview"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "asreview/webapp/tests/data/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_database_and_models/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_database_and_models/conftest.py": {
+    "imports": [
+      "asreview",
+      "pytest"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_database_and_models/test_collaboration_models.py": {
+    "imports": [
+      "asreview",
+      "pytest",
+      "sqlalchemy"
+    ],
+    "functions": 4,
+    "classes": 1
+  },
+  "asreview/webapp/tests/test_database_and_models/test_database_creation.py": {
+    "imports": [
+      "asreview",
+      "pytest",
+      "sqlalchemy"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_database_and_models/test_project_model.py": {
+    "imports": [
+      "asreview",
+      "pathlib",
+      "pytest",
+      "sqlalchemy"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_database_and_models/test_user_model.py": {
+    "imports": [
+      "asreview",
+      "datetime",
+      "pytest",
+      "sqlalchemy"
+    ],
+    "functions": 26,
+    "classes": 0
+  },
+  "asreview/webapp/tests/utils/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/tests/utils/api_utils.py": {
+    "imports": [
+      "asreview",
+      "collections",
+      "flask",
+      "time",
+      "typing"
+    ],
+    "functions": 42,
+    "classes": 0
+  },
+  "asreview/webapp/tests/utils/config_parser.py": {
+    "imports": [
+      "asreview",
+      "configparser",
+      "pathlib"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "asreview/webapp/tests/utils/crud.py": {
+    "imports": [
+      "asreview"
+    ],
+    "functions": 21,
+    "classes": 0
+  },
+  "asreview/webapp/tests/utils/misc.py": {
+    "imports": [
+      "asreview",
+      "flask",
+      "io",
+      "json",
+      "pathlib",
+      "random",
+      "re",
+      "zipfile"
+    ],
+    "functions": 9,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_extensions/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_extensions/test_auth_tool.py": {
+    "imports": [
+      "argparse",
+      "asreview",
+      "json",
+      "pathlib",
+      "pytest",
+      "unittest",
+      "uuid"
+    ],
+    "functions": 28,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_extensions/test_lab.py": {
+    "imports": [
+      "asreview",
+      "pytest"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "asreview/webapp/tests/integration_tests/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/tests/integration_tests/change_profile_test.py": {
+    "imports": [
+      "asreview",
+      "time"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "asreview/webapp/tests/integration_tests/conftest.py": {
+    "imports": [
+      "os",
+      "pytest"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "asreview/webapp/tests/integration_tests/signup_signin_create_project_test.py": {
+    "imports": [
+      "asreview",
+      "pytest",
+      "random"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "asreview/webapp/tests/integration_tests/utils.py": {
+    "imports": [
+      "asreview",
+      "os",
+      "selenium",
+      "sqlalchemy",
+      "time"
+    ],
+    "functions": 17,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_api/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_api/conftest.py": {
+    "imports": [
+      "asreview",
+      "pytest"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_api/test_admin.py": {
+    "imports": [
+      "asreview",
+      "json"
+    ],
+    "functions": 64,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_api/test_auth.py": {
+    "imports": [
+      "asreview",
+      "datetime",
+      "inspect",
+      "json",
+      "pytest",
+      "re",
+      "sqlalchemy"
+    ],
+    "functions": 60,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_api/test_projects.py": {
+    "imports": [
+      "asreview",
+      "base64",
+      "csv",
+      "flask",
+      "hashlib",
+      "hmac",
+      "io",
+      "json",
+      "jsonschema",
+      "pandas",
+      "pathlib",
+      "pytest",
+      "time"
+    ],
+    "functions": 60,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_api/test_remote_auth.py": {
+    "imports": [
+      "asreview",
+      "jinja2",
+      "pytest"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_api/test_teams.py": {
+    "imports": [
+      "asreview"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "asreview/webapp/tests/test_api/test_webapp.py": {
+    "imports": [
+      "asreview",
+      "pytest"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "asreview/webapp/tests/config/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/_api/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/webapp/_api/admin.py": {
+    "imports": [
+      "asreview",
+      "datetime",
+      "flask",
+      "flask_login",
+      "json",
+      "logging",
+      "pathlib",
+      "shutil",
+      "socket",
+      "sqlalchemy"
+    ],
+    "functions": 16,
+    "classes": 0
+  },
+  "asreview/webapp/_api/auth.py": {
+    "imports": [
+      "asreview",
+      "flask",
+      "flask_login",
+      "logging",
+      "shutil",
+      "sqlalchemy"
+    ],
+    "functions": 13,
+    "classes": 0
+  },
+  "asreview/webapp/_api/projects.py": {
+    "imports": [
+      "asreview",
+      "base64",
+      "dataclasses",
+      "datahugger",
+      "flask",
+      "flask_login",
+      "hashlib",
+      "hmac",
+      "importlib",
+      "json",
+      "logging",
+      "math",
+      "numpy",
+      "pandas",
+      "pathlib",
+      "secrets",
+      "shutil",
+      "sklearn",
+      "socket",
+      "sqlalchemy",
+      "tempfile",
+      "threading",
+      "time",
+      "uuid",
+      "werkzeug"
+    ],
+    "functions": 51,
+    "classes": 0
+  },
+  "asreview/webapp/_api/team.py": {
+    "imports": [
+      "asreview",
+      "base64",
+      "flask",
+      "flask_login",
+      "hashlib",
+      "hmac",
+      "sqlalchemy"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "asreview/webapp/_api/utils.py": {
+    "imports": [
+      "asreview",
+      "importlib",
+      "json",
+      "logging",
+      "pathlib"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "asreview/database/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "asreview/database/database.py": {
+    "imports": [
+      "asreview",
+      "functools",
+      "json",
+      "numpy",
+      "pandas",
+      "sqlite3",
+      "time"
+    ],
+    "functions": 32,
+    "classes": 1
+  },
+  "asreview/database/store.py": {
+    "imports": [
+      "asreview",
+      "collections",
+      "functools",
+      "numpy",
+      "pandas",
+      "sqlalchemy",
+      "sqlite3",
+      "uuid"
+    ],
+    "functions": 20,
+    "classes": 1
+  },
+  "tests/conftest.py": {
+    "imports": [
+      "__future__",
+      "asyncio",
+      "collections",
+      "contextlib",
+      "dotenv",
+      "httpx_aiohttp",
+      "importlib",
+      "litellm",
+      "lmi",
+      "os",
+      "paperqa",
+      "pathlib",
+      "pytest",
+      "shutil",
+      "typing",
+      "unittest",
+      "vcr"
+    ],
+    "functions": 20,
+    "classes": 2
+  },
+  "tests/test_balance.py": {
+    "imports": [
+      "asreview",
+      "numpy",
+      "pytest",
+      "sklearn"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "tests/test_classifiers.py": {
+    "imports": [
+      "asreview",
+      "pytest"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "tests/test_data.py": {
+    "imports": [
+      "asreview",
+      "pandas",
+      "pathlib",
+      "pytest",
+      "urllib"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "tests/test_data_store.py": {
+    "imports": [
+      "asreview",
+      "pandas",
+      "pathlib",
+      "pytest",
+      "sqlalchemy",
+      "sqlite3"
+    ],
+    "functions": 36,
+    "classes": 1
+  },
+  "tests/test_database.py": {
+    "imports": [
+      "asreview",
+      "pandas",
+      "pathlib",
+      "pytest",
+      "sqlite3"
+    ],
+    "functions": 32,
+    "classes": 0
+  },
+  "tests/test_datasets.py": {
+    "imports": [
+      "asreview",
+      "pytest"
+    ],
+    "functions": 7,
+    "classes": 2
+  },
+  "tests/test_feature.py": {
+    "imports": [
+      "asreview",
+      "os",
+      "pytest"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "tests/test_learner.py": {
+    "imports": [
+      "asreview",
+      "itertools",
+      "pathlib",
+      "pytest"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "tests/test_metrics.py": {
+    "imports": [
+      "asreview",
+      "numpy",
+      "pytest"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "tests/test_migrate_project.py": {
+    "imports": [
+      "asreview",
+      "jsonschema",
+      "pandas",
+      "pathlib",
+      "pytest",
+      "shutil"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "tests/test_project.py": {
+    "imports": [
+      "asreview",
+      "os",
+      "pathlib",
+      "pytest",
+      "sqlite3"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "tests/test_query.py": {
+    "imports": [
+      "asreview",
+      "numpy",
+      "pytest"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "tests/test_readers.py": {
+    "imports": [
+      "asreview",
+      "pathlib",
+      "pytest",
+      "rispy",
+      "urllib"
+    ],
+    "functions": 11,
+    "classes": 0
+  },
+  "tests/test_simulate.py": {
+    "imports": [
+      "asreview",
+      "pandas",
+      "pytest"
+    ],
+    "functions": 12,
+    "classes": 0
+  },
+  "tests/test_simulate_cli.py": {
+    "imports": [
+      "asreview",
+      "dataclasses",
+      "json",
+      "pandas",
+      "pathlib",
+      "pytest"
+    ],
+    "functions": 17,
+    "classes": 0
+  },
+  "tests/test_state.py": {
+    "imports": [
+      "asreview",
+      "pandas",
+      "pathlib",
+      "pytest",
+      "scipy"
+    ],
+    "functions": 27,
+    "classes": 0
+  },
+  "tests/test_writers.py": {
+    "imports": [
+      "asreview",
+      "pandas",
+      "pathlib",
+      "pytest"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "docs/source/conf.py": {
+    "imports": [
+      "asreview",
+      "datetime",
+      "os",
+      "sys"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "docs/_extension/gallery_directive.py": {
+    "imports": [
+      "docutils",
+      "pathlib",
+      "sphinx",
+      "typing",
+      "yaml"
+    ],
+    "functions": 2,
+    "classes": 1
+  },
+  "conftest.py": {
+    "imports": [
+      "datetime",
+      "logging",
+      "pathlib",
+      "pytest",
+      "requests_cache"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "manubot/__init__.py": {
+    "imports": [],
+    "functions": 0,
+    "classes": 0
+  },
+  "manubot/command.py": {
+    "imports": [
+      "argparse",
+      "errorhandler",
+      "logging",
+      "manubot",
+      "pathlib",
+      "sys",
+      "warnings"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "manubot/util.py": {
+    "imports": [
+      "importlib",
+      "json",
+      "logging",
+      "manubot",
+      "os",
+      "pathlib",
+      "platform",
+      "requests",
+      "shlex",
+      "shutil",
+      "subprocess",
+      "sys",
+      "time",
+      "tomli",
+      "tomllib",
+      "types",
+      "typing",
+      "urllib",
+      "yaml"
+    ],
+    "functions": 11,
+    "classes": 0
+  },
+  "manubot/ai_revision/ai_revision_command.py": {
+    "imports": [
+      "logging",
+      "manubot_ai_editor",
+      "pathlib",
+      "shutil",
+      "tempfile"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "manubot/cite/__init__.py": {
+    "imports": [
+      "manubot"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "manubot/cite/arxiv.py": {
+    "imports": [
+      "csl_item",
+      "handlers",
+      "logging",
+      "manubot",
+      "re",
+      "xml"
+    ],
+    "functions": 12,
+    "classes": 2
+  },
+  "manubot/cite/citations.py": {
+    "imports": [
+      "csv",
+      "dataclasses",
+      "io",
+      "json",
+      "logging",
+      "manubot",
+      "os",
+      "pathlib",
+      "typing"
+    ],
+    "functions": 16,
+    "classes": 1
+  },
+  "manubot/cite/cite_command.py": {
+    "imports": [
+      "argparse",
+      "json",
+      "logging",
+      "manubot",
+      "pathlib",
+      "subprocess",
+      "sys"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "manubot/cite/citekey.py": {
+    "imports": [
+      "backports",
+      "base62",
+      "csl_item",
+      "dataclasses",
+      "functools",
+      "handlers",
+      "hashlib",
+      "logging",
+      "manubot",
+      "re",
+      "typing",
+      "urllib"
+    ],
+    "functions": 26,
+    "classes": 1
+  },
+  "manubot/cite/citeproc.py": {
+    "imports": [
+      "copy",
+      "functools",
+      "jsonschema",
+      "logging",
+      "manubot"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "manubot/cite/csl_item.py": {
+    "imports": [
+      "citeproc",
+      "copy",
+      "datetime",
+      "logging",
+      "manubot",
+      "re",
+      "typing"
+    ],
+    "functions": 19,
+    "classes": 1
+  },
+  "manubot/cite/doi.py": {
+    "imports": [
+      "handlers",
+      "json",
+      "logging",
+      "manubot",
+      "pubmed",
+      "requests",
+      "typing",
+      "urllib"
+    ],
+    "functions": 13,
+    "classes": 1
+  },
+  "manubot/cite/handlers.py": {
+    "imports": [
+      "abc",
+      "citekey",
+      "curie",
+      "dataclasses",
+      "functools",
+      "inspect",
+      "manubot",
+      "re",
+      "typing"
+    ],
+    "functions": 7,
+    "classes": 1
+  },
+  "manubot/cite/isbn.py": {
+    "imports": [
+      "handlers",
+      "isbnlib",
+      "json",
+      "logging",
+      "manubot",
+      "re",
+      "requests"
+    ],
+    "functions": 8,
+    "classes": 1
+  },
+  "manubot/cite/pubmed.py": {
+    "imports": [
+      "citekey",
+      "functools",
+      "handlers",
+      "json",
+      "logging",
+      "manubot",
+      "os",
+      "pyrate_limiter",
+      "requests",
+      "typing",
+      "xml"
+    ],
+    "functions": 13,
+    "classes": 2
+  },
+  "manubot/cite/unpaywall.py": {
+    "imports": [
+      "abc",
+      "arxiv",
+      "citekey",
+      "csl_item",
+      "datetime",
+      "manubot",
+      "requests",
+      "urllib"
+    ],
+    "functions": 15,
+    "classes": 4
+  },
+  "manubot/cite/url.py": {
+    "imports": [
+      "handlers",
+      "json",
+      "logging",
+      "manubot",
+      "re",
+      "requests",
+      "typing"
+    ],
+    "functions": 6,
+    "classes": 1
+  },
+  "manubot/cite/wikidata.py": {
+    "imports": [
+      "handlers",
+      "manubot",
+      "typing"
+    ],
+    "functions": 3,
+    "classes": 1
+  },
+  "manubot/cite/zotero.py": {
+    "imports": [
+      "json",
+      "logging",
+      "manubot",
+      "requests",
+      "typing"
+    ],
+    "functions": 6,
+    "classes": 0
+  },
+  "manubot/cite/curie/__init__.py": {
+    "imports": [
+      "dataclasses",
+      "functools",
+      "json",
+      "manubot",
+      "pathlib",
+      "re",
+      "requests",
+      "typing",
+      "url"
+    ],
+    "functions": 10,
+    "classes": 1
+  },
+  "manubot/cite/tests/test_arxiv.py": {
+    "imports": [
+      "arxiv"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_citations.py": {
+    "imports": [
+      "manubot",
+      "pathlib",
+      "pytest"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_cite_command.py": {
+    "imports": [
+      "json",
+      "manubot",
+      "pathlib",
+      "pytest",
+      "shutil",
+      "subprocess",
+      "time"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_citekey.py": {
+    "imports": [
+      "manubot",
+      "pytest"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_citekey_api.py": {
+    "imports": [
+      "manubot",
+      "pytest"
+    ],
+    "functions": 12,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_citeproc.py": {
+    "imports": [
+      "json",
+      "manubot",
+      "pathlib",
+      "pytest"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_csl_item.py": {
+    "imports": [
+      "copy",
+      "csl_item",
+      "datetime",
+      "pytest"
+    ],
+    "functions": 20,
+    "classes": 1
+  },
+  "manubot/cite/tests/test_curie.py": {
+    "imports": [
+      "citekey",
+      "curie",
+      "pytest"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_doi.py": {
+    "imports": [
+      "manubot",
+      "pytest"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_handlers.py": {
+    "imports": [
+      "handlers",
+      "pytest"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_isbn.py": {
+    "imports": [
+      "manubot",
+      "pytest"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_pubmed.py": {
+    "imports": [
+      "manubot",
+      "pytest"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_unpaywall.py": {
+    "imports": [
+      "unpaywall"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_url.py": {
+    "imports": [
+      "manubot",
+      "pytest"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_wikidata.py": {
+    "imports": [
+      "manubot"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "manubot/cite/tests/test_zotero.py": {
+    "imports": [
+      "manubot",
+      "pytest"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "manubot/process/bibliography.py": {
+    "imports": [
+      "json",
+      "logging",
+      "manubot",
+      "os",
+      "pathlib"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "manubot/process/ci.py": {
+    "imports": [
+      "logging",
+      "os"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "manubot/process/manuscript.py": {
+    "imports": [
+      "datetime",
+      "json",
+      "logging",
+      "pathlib"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "manubot/process/metadata.py": {
+    "imports": [
+      "ci",
+      "functools",
+      "logging",
+      "manubot",
+      "pathlib",
+      "requests",
+      "subprocess",
+      "typing",
+      "urllib",
+      "util"
+    ],
+    "functions": 9,
+    "classes": 0
+  },
+  "manubot/process/process_command.py": {
+    "imports": [
+      "logging",
+      "manubot"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "manubot/process/requests_cache.py": {
+    "imports": [
+      "logging",
+      "os",
+      "pathlib",
+      "requests",
+      "requests_cache"
+    ],
+    "functions": 5,
+    "classes": 1
+  },
+  "manubot/process/util.py": {
+    "imports": [
+      "datetime",
+      "jinja2",
+      "json",
+      "logging",
+      "manubot",
+      "os",
+      "random",
+      "re",
+      "typing",
+      "warnings"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "manubot/process/tests/test_bibliography.py": {
+    "imports": [
+      "manubot"
+    ],
+    "functions": 4,
+    "classes": 1
+  },
+  "manubot/process/tests/test_ci.py": {
+    "imports": [
+      "ci",
+      "os",
+      "pytest",
+      "re"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "manubot/process/tests/test_metadata.py": {
+    "imports": [
+      "ci",
+      "copy",
+      "metadata",
+      "pytest"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "manubot/process/tests/test_process_command.py": {
+    "imports": [
+      "manubot",
+      "pathlib",
+      "pytest",
+      "subprocess"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "manubot/process/tests/test_util.py": {
+    "imports": [
+      "pathlib",
+      "pytest",
+      "util"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "manubot/process/tests/manuscripts/citation-rendering/content/generate-csl-json-combinations.py": {
+    "imports": [
+      "itertools",
+      "json",
+      "pathlib"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "manubot/webpage/webpage_command.py": {
+    "imports": [
+      "logging",
+      "manubot",
+      "pathlib",
+      "shutil",
+      "subprocess"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "manubot/webpage/tests/test_webpage_command.py": {
+    "imports": [
+      "filecmp",
+      "os",
+      "pathlib",
+      "platform",
+      "pytest",
+      "shutil",
+      "subprocess"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "manubot/tests/test_command.py": {
+    "imports": [
+      "manubot",
+      "subprocess"
+    ],
+    "functions": 2,
+    "classes": 0
+  },
+  "manubot/tests/test_imports.py": {
+    "imports": [
+      "manubot"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "manubot/tests/test_readme.py": {
+    "imports": [
+      "pathlib",
+      "pytest",
+      "re",
+      "shlex",
+      "subprocess",
+      "sys"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "manubot/tests/test_util.py": {
+    "imports": [
+      "manubot",
+      "pathlib",
+      "pytest"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "manubot/pandoc/bibliography.py": {
+    "imports": [
+      "json",
+      "logging",
+      "manubot",
+      "os",
+      "subprocess",
+      "typing"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "manubot/pandoc/cite_filter.py": {
+    "imports": [
+      "argparse",
+      "logging",
+      "manubot",
+      "os",
+      "panflute",
+      "typing"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "manubot/pandoc/util.py": {
+    "imports": [
+      "functools",
+      "logging",
+      "packaging",
+      "shutil",
+      "subprocess",
+      "typing"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "manubot/pandoc/tests/test_bibliography.py": {
+    "imports": [
+      "manubot",
+      "pathlib",
+      "pytest",
+      "shutil"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "manubot/pandoc/tests/test_cite_filter.py": {
+    "imports": [
+      "manubot",
+      "pathlib",
+      "pytest",
+      "shutil",
+      "subprocess"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "manubot/pandoc/tests/test_util.py": {
+    "imports": [
+      "manubot"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "src/paperqa/__init__.py": {
+    "imports": [
+      "lmi",
+      "paperqa"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "src/paperqa/_ldp_shims.py": {
+    "imports": [
+      "ldp"
+    ],
+    "functions": 0,
+    "classes": 2
+  },
+  "src/paperqa/core.py": {
+    "imports": [
+      "aviary",
+      "collections",
+      "json",
+      "litellm",
+      "lmi",
+      "logging",
+      "paperqa",
+      "pydantic",
+      "re",
+      "typing"
+    ],
+    "functions": 6,
+    "classes": 4
+  },
+  "src/paperqa/docs.py": {
+    "imports": [
+      "__future__",
+      "asyncio",
+      "aviary",
+      "collections",
+      "datetime",
+      "io",
+      "json",
+      "lmi",
+      "logging",
+      "os",
+      "paperqa",
+      "pathlib",
+      "pydantic",
+      "re",
+      "tempfile",
+      "typing",
+      "urllib",
+      "uuid",
+      "warnings"
+    ],
+    "functions": 12,
+    "classes": 1
+  },
+  "src/paperqa/llms.py": {
+    "imports": [
+      "abc",
+      "asyncio",
+      "collections",
+      "itertools",
+      "lmi",
+      "logging",
+      "numpy",
+      "paperqa",
+      "pydantic",
+      "qdrant_client",
+      "threading",
+      "typing",
+      "typing_extensions",
+      "uuid"
+    ],
+    "functions": 26,
+    "classes": 3
+  },
+  "src/paperqa/paths.py": {
+    "imports": [
+      "pathlib"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "src/paperqa/prompts.py": {
+    "imports": [
+      "datetime"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "src/paperqa/readers.py": {
+    "imports": [
+      "__future__",
+      "anyio",
+      "asyncio",
+      "aviary",
+      "collections",
+      "html2text",
+      "importlib",
+      "math",
+      "os",
+      "paperqa",
+      "pathlib",
+      "tiktoken",
+      "typing",
+      "unstructured"
+    ],
+    "functions": 16,
+    "classes": 2
+  },
+  "src/paperqa/settings.py": {
+    "imports": [
+      "anyio",
+      "asyncio",
+      "aviary",
+      "collections",
+      "contextlib",
+      "enum",
+      "importlib",
+      "itertools",
+      "litellm",
+      "lmi",
+      "logging",
+      "os",
+      "paperqa",
+      "paperqa_pymupdf",
+      "paperqa_pypdf",
+      "pathlib",
+      "pydantic",
+      "pydantic_core",
+      "pydantic_settings",
+      "pydoc",
+      "re",
+      "typing"
+    ],
+    "functions": 37,
+    "classes": 10
+  },
+  "src/paperqa/types.py": {
+    "imports": [
+      "__future__",
+      "ast",
+      "aviary",
+      "collections",
+      "contextlib",
+      "copy",
+      "csv",
+      "datetime",
+      "enum",
+      "hashlib",
+      "json",
+      "lmi",
+      "logging",
+      "os",
+      "paperqa",
+      "pathlib",
+      "pybtex",
+      "pydantic",
+      "random",
+      "re",
+      "tiktoken",
+      "typing",
+      "uuid"
+    ],
+    "functions": 51,
+    "classes": 10
+  },
+  "src/paperqa/utils.py": {
+    "imports": [
+      "asyncio",
+      "collections",
+      "contextlib",
+      "datetime",
+      "functools",
+      "hashlib",
+      "http",
+      "httpx",
+      "lmi",
+      "logging",
+      "math",
+      "os",
+      "pathlib",
+      "pybtex",
+      "re",
+      "tenacity",
+      "typing",
+      "unicodedata",
+      "uuid"
+    ],
+    "functions": 38,
+    "classes": 2
+  },
+  "src/paperqa/clients/__init__.py": {
+    "imports": [
+      "__future__",
+      "client_models",
+      "collections",
+      "copy",
+      "crossref",
+      "httpx",
+      "httpx_aiohttp",
+      "journal_quality",
+      "lmi",
+      "logging",
+      "openalex",
+      "paperqa",
+      "pydantic",
+      "retractions",
+      "semantic_scholar",
+      "typing",
+      "unpaywall"
+    ],
+    "functions": 7,
+    "classes": 2
+  },
+  "src/paperqa/clients/client_models.py": {
+    "imports": [
+      "__future__",
+      "abc",
+      "collections",
+      "exceptions",
+      "httpx",
+      "logging",
+      "paperqa",
+      "pydantic",
+      "tenacity",
+      "typing"
+    ],
+    "functions": 12,
+    "classes": 7
+  },
+  "src/paperqa/clients/crossref.py": {
+    "imports": [
+      "__future__",
+      "anyio",
+      "client_models",
+      "collections",
+      "contextlib",
+      "copy",
+      "datetime",
+      "exceptions",
+      "httpx",
+      "httpx_aiohttp",
+      "json",
+      "lmi",
+      "logging",
+      "os",
+      "paperqa",
+      "tenacity",
+      "typing",
+      "urllib"
+    ],
+    "functions": 7,
+    "classes": 1
+  },
+  "src/paperqa/clients/exceptions.py": {
+    "imports": [
+      "collections",
+      "httpx"
+    ],
+    "functions": 3,
+    "classes": 1
+  },
+  "src/paperqa/clients/journal_quality.py": {
+    "imports": [
+      "__future__",
+      "anyio",
+      "asyncio",
+      "client_models",
+      "collections",
+      "csv",
+      "httpx",
+      "httpx_aiohttp",
+      "logging",
+      "os",
+      "paperqa",
+      "pathlib",
+      "pydantic",
+      "rich",
+      "tempfile",
+      "typing"
+    ],
+    "functions": 8,
+    "classes": 1
+  },
+  "src/paperqa/clients/openalex.py": {
+    "imports": [
+      "__future__",
+      "client_models",
+      "collections",
+      "datetime",
+      "exceptions",
+      "functools",
+      "httpx",
+      "logging",
+      "os",
+      "paperqa",
+      "tenacity",
+      "typing",
+      "urllib"
+    ],
+    "functions": 8,
+    "classes": 1
+  },
+  "src/paperqa/clients/retractions.py": {
+    "imports": [
+      "__future__",
+      "client_models",
+      "crossref",
+      "csv",
+      "datetime",
+      "logging",
+      "os",
+      "paperqa",
+      "pydantic"
+    ],
+    "functions": 7,
+    "classes": 1
+  },
+  "src/paperqa/clients/semantic_scholar.py": {
+    "imports": [
+      "__future__",
+      "client_models",
+      "collections",
+      "crossref",
+      "datetime",
+      "enum",
+      "exceptions",
+      "functools",
+      "http",
+      "httpx",
+      "itertools",
+      "lmi",
+      "logging",
+      "os",
+      "paperqa",
+      "tenacity",
+      "typing"
+    ],
+    "functions": 9,
+    "classes": 2
+  },
+  "src/paperqa/clients/unpaywall.py": {
+    "imports": [
+      "__future__",
+      "client_models",
+      "datetime",
+      "exceptions",
+      "http",
+      "httpx",
+      "os",
+      "paperqa",
+      "pydantic",
+      "typing",
+      "urllib"
+    ],
+    "functions": 4,
+    "classes": 6
+  },
+  "src/paperqa/sources/clinical_trials.py": {
+    "imports": [
+      "contextlib",
+      "datetime",
+      "httpx",
+      "httpx_aiohttp",
+      "json",
+      "lmi",
+      "logging",
+      "paperqa",
+      "ssl",
+      "tenacity",
+      "typing"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "src/paperqa/agents/__init__.py": {
+    "imports": [
+      "__future__",
+      "argparse",
+      "asyncio",
+      "aviary",
+      "logging",
+      "main",
+      "models",
+      "os",
+      "paperqa",
+      "pathlib",
+      "pydantic_settings",
+      "rich",
+      "search",
+      "typing"
+    ],
+    "functions": 9,
+    "classes": 0
+  },
+  "src/paperqa/agents/env.py": {
+    "imports": [
+      "aviary",
+      "collections",
+      "copy",
+      "lmi",
+      "logging",
+      "paperqa",
+      "tools",
+      "typing",
+      "uuid"
+    ],
+    "functions": 15,
+    "classes": 1
+  },
+  "src/paperqa/agents/helpers.py": {
+    "imports": [
+      "__future__",
+      "aviary",
+      "datetime",
+      "lmi",
+      "logging",
+      "models",
+      "paperqa",
+      "re",
+      "rich",
+      "typing"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "src/paperqa/agents/main.py": {
+    "imports": [
+      "asyncio",
+      "aviary",
+      "collections",
+      "env",
+      "helpers",
+      "ldp",
+      "logging",
+      "models",
+      "paperqa",
+      "pydantic",
+      "rich",
+      "search",
+      "tenacity",
+      "tools",
+      "typing"
+    ],
+    "functions": 17,
+    "classes": 2
+  },
+  "src/paperqa/agents/models.py": {
+    "imports": [
+      "__future__",
+      "asyncio",
+      "aviary",
+      "contextlib",
+      "enum",
+      "lmi",
+      "logging",
+      "paperqa",
+      "pydantic",
+      "time",
+      "typing",
+      "uuid"
+    ],
+    "functions": 9,
+    "classes": 6
+  },
+  "src/paperqa/agents/search.py": {
+    "imports": [
+      "__future__",
+      "anyio",
+      "collections",
+      "contextlib",
+      "csv",
+      "enum",
+      "json",
+      "logging",
+      "models",
+      "os",
+      "paperqa",
+      "pathlib",
+      "pickle",
+      "pydantic",
+      "re",
+      "rich",
+      "sys",
+      "tantivy",
+      "tenacity",
+      "typing",
+      "zlib"
+    ],
+    "functions": 32,
+    "classes": 3
+  },
+  "src/paperqa/agents/tools.py": {
+    "imports": [
+      "asyncio",
+      "aviary",
+      "collections",
+      "inspect",
+      "itertools",
+      "lmi",
+      "logging",
+      "os",
+      "paperqa",
+      "pydantic",
+      "re",
+      "search",
+      "sys",
+      "typing"
+    ],
+    "functions": 14,
+    "classes": 9
+  },
+  "src/paperqa/contrib/__init__.py": {
+    "imports": [
+      "zotero"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "src/paperqa/contrib/openreview_paper_helper.py": {
+    "imports": [
+      "anyio",
+      "aviary",
+      "httpx",
+      "httpx_aiohttp",
+      "json",
+      "lmi",
+      "logging",
+      "openreview",
+      "os",
+      "paperqa",
+      "pathlib",
+      "pydantic",
+      "typing"
+    ],
+    "functions": 9,
+    "classes": 3
+  },
+  "src/paperqa/contrib/zotero.py": {
+    "imports": [
+      "asyncio",
+      "collections",
+      "logging",
+      "os",
+      "paperqa",
+      "paperqa_pymupdf",
+      "pathlib",
+      "pydantic",
+      "pyzotero",
+      "typing"
+    ],
+    "functions": 8,
+    "classes": 2
+  },
+  "packages/paper-qa-pymupdf/src/paperqa_pymupdf/__init__.py": {
+    "imports": [
+      "reader"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "packages/paper-qa-pymupdf/src/paperqa_pymupdf/reader.py": {
+    "imports": [
+      "itertools",
+      "json",
+      "multiprocessing",
+      "os",
+      "paperqa",
+      "pydantic",
+      "pymupdf"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "packages/paper-qa-pymupdf/tests/test_paperqa_pymupdf.py": {
+    "imports": [
+      "base64",
+      "json",
+      "lmi",
+      "paperqa",
+      "paperqa_pymupdf",
+      "pathlib",
+      "pymupdf",
+      "pytest",
+      "re",
+      "typing",
+      "unittest"
+    ],
+    "functions": 9,
+    "classes": 0
+  },
+  "packages/paper-qa-pypdf/src/paperqa_pypdf/__init__.py": {
+    "imports": [
+      "reader"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "packages/paper-qa-pypdf/src/paperqa_pypdf/reader.py": {
+    "imports": [
+      "PIL",
+      "contextlib",
+      "enum",
+      "io",
+      "json",
+      "os",
+      "paperqa",
+      "pdfplumber",
+      "pypdf",
+      "pypdfium2",
+      "typing",
+      "utils"
+    ],
+    "functions": 3,
+    "classes": 1
+  },
+  "packages/paper-qa-pypdf/src/paperqa_pypdf/utils.py": {
+    "imports": [
+      "collections"
+    ],
+    "functions": 3,
+    "classes": 0
+  },
+  "packages/paper-qa-pypdf/tests/test_paperqa_pypdf.py": {
+    "imports": [
+      "PIL",
+      "base64",
+      "collections",
+      "io",
+      "json",
+      "lmi",
+      "paperqa",
+      "paperqa_pypdf",
+      "pathlib",
+      "pytest",
+      "re",
+      "types",
+      "typing",
+      "unittest"
+    ],
+    "functions": 14,
+    "classes": 1
+  },
+  "packages/paper-qa-pypdf/tests/test_utils.py": {
+    "imports": [
+      "operator",
+      "paperqa_pypdf",
+      "pytest"
+    ],
+    "functions": 12,
+    "classes": 0
+  },
+  "packages/paper-qa-nemotron/src/paperqa_nemotron/__init__.py": {
+    "imports": [
+      "reader"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "packages/paper-qa-nemotron/src/paperqa_nemotron/api.py": {
+    "imports": [
+      "aiobotocore",
+      "aviary",
+      "contextlib",
+      "enum",
+      "http",
+      "json",
+      "limits",
+      "litellm",
+      "lmi",
+      "logging",
+      "numpy",
+      "os",
+      "pydantic",
+      "tenacity",
+      "typing",
+      "unittest"
+    ],
+    "functions": 17,
+    "classes": 7
+  },
+  "packages/paper-qa-nemotron/src/paperqa_nemotron/reader.py": {
+    "imports": [
+      "PIL",
+      "asyncio",
+      "aviary",
+      "collections",
+      "concurrent",
+      "contextlib",
+      "io",
+      "json",
+      "litellm",
+      "lmi",
+      "logging",
+      "numpy",
+      "os",
+      "paperqa",
+      "paperqa_nemotron",
+      "pypdfium2",
+      "tenacity",
+      "typing"
+    ],
+    "functions": 7,
+    "classes": 0
+  },
+  "packages/paper-qa-nemotron/tests/conftest.py": {
+    "imports": [
+      "collections",
+      "httpx_aiohttp",
+      "litellm",
+      "lmi",
+      "os",
+      "pathlib",
+      "pytest",
+      "typing"
+    ],
+    "functions": 2,
+    "classes": 1
+  },
+  "packages/paper-qa-nemotron/tests/test_api.py": {
+    "imports": [
+      "http",
+      "litellm",
+      "numpy",
+      "paperqa_nemotron",
+      "pathlib",
+      "pydantic",
+      "pypdfium2",
+      "pytest",
+      "tenacity"
+    ],
+    "functions": 18,
+    "classes": 4
+  },
+  "packages/paper-qa-nemotron/tests/test_paperqa_nemotron.py": {
+    "imports": [
+      "PIL",
+      "base64",
+      "json",
+      "litellm",
+      "lmi",
+      "paperqa",
+      "paperqa_nemotron",
+      "pathlib",
+      "pytest",
+      "re",
+      "tenacity",
+      "typing",
+      "unittest"
+    ],
+    "functions": 13,
+    "classes": 0
+  },
+  "packages/paper-qa-docling/src/paperqa_docling/__init__.py": {
+    "imports": [
+      "reader"
+    ],
+    "functions": 0,
+    "classes": 0
+  },
+  "packages/paper-qa-docling/src/paperqa_docling/reader.py": {
+    "imports": [
+      "collections",
+      "docling",
+      "docling_core",
+      "importlib",
+      "io",
+      "json",
+      "os",
+      "paperqa",
+      "pathlib",
+      "typing"
+    ],
+    "functions": 1,
+    "classes": 0
+  },
+  "packages/paper-qa-docling/tests/test_paperqa_docling.py": {
+    "imports": [
+      "base64",
+      "json",
+      "lmi",
+      "os",
+      "paperqa",
+      "paperqa_docling",
+      "pathlib",
+      "pytest",
+      "re",
+      "time",
+      "typing"
+    ],
+    "functions": 9,
+    "classes": 0
+  },
+  "tests/test_agents.py": {
+    "imports": [
+      "__future__",
+      "aviary",
+      "functools",
+      "importlib",
+      "itertools",
+      "json",
+      "ldp",
+      "logging",
+      "paperqa",
+      "pathlib",
+      "pytest",
+      "pytest_subtests",
+      "re",
+      "shutil",
+      "tantivy",
+      "tempfile",
+      "tenacity",
+      "time",
+      "typing",
+      "unittest",
+      "uuid",
+      "zlib"
+    ],
+    "functions": 24,
+    "classes": 1
+  },
+  "tests/test_cli.py": {
+    "imports": [
+      "os",
+      "paperqa",
+      "pathlib",
+      "pytest",
+      "sys",
+      "tenacity",
+      "unittest",
+      "zlib"
+    ],
+    "functions": 4,
+    "classes": 0
+  },
+  "tests/test_clients.py": {
+    "imports": [
+      "__future__",
+      "collections",
+      "csv",
+      "datetime",
+      "httpx",
+      "httpx_aiohttp",
+      "logging",
+      "os",
+      "paperqa",
+      "pathlib",
+      "pytest",
+      "re",
+      "typing",
+      "unittest"
+    ],
+    "functions": 24,
+    "classes": 0
+  },
+  "tests/test_clinical_trials.py": {
+    "imports": [
+      "httpx",
+      "httpx_aiohttp",
+      "json",
+      "paperqa",
+      "pytest",
+      "unittest"
+    ],
+    "functions": 8,
+    "classes": 0
+  },
+  "tests/test_configs.py": {
+    "imports": [
+      "importlib",
+      "os",
+      "paperqa",
+      "pathlib",
+      "pydantic",
+      "pytest",
+      "pytest_subtests",
+      "re",
+      "tests",
+      "unittest"
+    ],
+    "functions": 12,
+    "classes": 0
+  },
+  "tests/test_model_config.py": {
+    "imports": [
+      "ldp",
+      "litellm",
+      "lmi",
+      "paperqa",
+      "pytest"
+    ],
+    "functions": 5,
+    "classes": 0
+  },
+  "tests/test_paperqa.py": {
+    "imports": [
+      "anyio",
+      "asyncio",
+      "aviary",
+      "collections",
+      "contextlib",
+      "copy",
+      "csv",
+      "datetime",
+      "functools",
+      "io",
+      "json",
+      "litellm",
+      "lmi",
+      "numpy",
+      "paperqa",
+      "paperqa_docling",
+      "paperqa_nemotron",
+      "paperqa_pymupdf",
+      "paperqa_pypdf",
+      "pathlib",
+      "pickle",
+      "pydantic",
+      "pytest",
+      "pytest_asyncio",
+      "pytest_subtests"
+    ],
+    "functions": 113,
+    "classes": 4
+  },
+  "tests/test_utils.py": {
+    "imports": [
+      "paperqa",
+      "pytest"
+    ],
+    "functions": 2,
+    "classes": 0
+  }
+}

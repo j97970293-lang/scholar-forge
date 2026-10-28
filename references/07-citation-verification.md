@@ -52,3 +52,8 @@ check means metadata consistency, not claim validity.
 - Treating Semantic Scholar's fuzzy search hit as confirmation of a citation.
 - Removing an inconvenient reference instead of investigating it.
 - Claiming "all citations verified" after an offline-only run.
+
+**Complément 1.1.0** : la résolution d'un DOI ne protège pas contre une
+rétractation. Exécutez `integrity --online` avant l'audit final et consultez le playbook 24
+pour les limites des registres. Les citations par identifiant de Manubot sont évoquées
+dans le playbook 28.

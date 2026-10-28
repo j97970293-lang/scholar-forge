@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from . import bib, claims, lint, pipeline, prisma, verify
+from . import bib, claims, integrity, lint, pipeline, prisma, verify
 from .util import ROOT, find_project, now, read_csv, read_json, read_text, write_json, write_text
 
 
@@ -52,6 +52,27 @@ def run(root: Optional[Path | str] = None, online: bool = False) -> Dict[str, An
         write_text(project / "output/verify.md", verify.to_markdown(rep))
     else:
         out.append(_gate("G-references", None, "references.bib not found"))
+
+    # G-integrity — retraction / correction / expression-of-concern screening.
+    # Uses the cached online report when `integrity` has been run; otherwise it
+    # performs the offline title-marker pass so the gate is deterministic.
+    cached = read_json(project / "output/integrity.json", None)
+    if isinstance(cached, dict) and cached.get("summary"):
+        irep = cached
+        idetail = "cached " + ("online" if irep["summary"].get("online") else "offline") + " screening"
+    else:
+        # Never fan out to the network from inside an audit: `integrity --online`
+        # writes the cached report that this branch consumes. Deterministic CI.
+        irep = integrity.check(recs if refspath else [], online=False)
+        idetail = "offline title scan; run `integrity --online` for registry notices"
+        write_json(project / "output/integrity.json", irep)
+        write_text(project / "output/integrity.md", integrity.to_markdown(irep))
+    isum = irep["summary"]
+    notices = sum(1 for r in irep["results"] if r["verdict"] in ("notice-found", "retracted-confirmed",
+                                                                  "retracted-suspected"))
+    out.append(_gate("G-integrity", isum["pass"],
+                     f"{isum['records']} refs, {notices} notices/suspicions, "
+                     f"{isum['blocking']} blocking ({idetail})"))
 
     claimsp = _first(project, "evidence/claims.csv", "claims.csv")
     evidencep = _first(project, "evidence/evidence.csv", "evidence.csv")
@@ -121,7 +142,7 @@ def run(root: Optional[Path | str] = None, online: bool = False) -> Dict[str, An
         L.append(f"| `{g['gate']}` | {g['status']} | {'oui' if g['blocking'] else 'non'} | {g['detail']} |")
     L += ["", "## Limites", "", report["limits"], "",
           "Rapports détaillés : `output/lint.md`, `output/verify.md`, `output/claims.md`, "
-          "`screening/PRISMA.md`, `output/audit.json`.", ""]
+          "`output/integrity.md`, `screening/PRISMA.md`, `output/audit.json`.", ""]
     write_text(project / "output/AUDIT.md", "\n".join(L) + "\n")
     report["details"] = details
     return report

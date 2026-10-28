@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 # Install ScholarForge into any Agent Skills host.
+#
+# Copy mode produces a LEAN skill folder: only the files an agent needs at
+# runtime. Build tools, tests, reports and the 60 MB of upstream archives stay
+# in the repository. `--link` links the whole repository for development.
 set -euo pipefail
 TARGET="${HOME}/.claude/skills/scholar-forge"
 MODE="copy"
@@ -10,7 +14,9 @@ while [ $# -gt 0 ]; do
     --target) TARGET="$2"; shift 2 ;;
     --link)   MODE="link"; shift ;;
     --help|-h)
-      echo "Usage: install.sh [--target DIR] [--link]"; exit 0 ;;
+      echo "Usage: install.sh [--target DIR] [--link]"
+      echo "The target directory name must be exactly 'scholar-forge' (Agent Skills spec)."
+      exit 0 ;;
     *) echo "Unknown option: $1" >&2; exit 2 ;;
   esac
 done
@@ -18,18 +24,27 @@ done
 mkdir -p "$(dirname "$TARGET")"
 if [ "$MODE" = "link" ]; then
   ln -sfn "$SRC" "$TARGET"
-  echo "[ok] linked $SRC -> $TARGET"
+  echo "[ok] linked $SRC -> $TARGET (development mode, full repository)"
 else
-  if command -v rsync >/dev/null 2>&1; then
-    rsync -a --exclude '.git/' --exclude '__pycache__/' "$SRC/" "$TARGET/"
-  else
-    mkdir -p "$TARGET"
-    (cd "$SRC" && tar --exclude=.git --exclude=__pycache__ -cf - .) | (cd "$TARGET" && tar -xf -)
-  fi
-  echo "[ok] copied ScholarForge to $TARGET"
+  mkdir -p "$TARGET"
+  for item in SKILL.md LICENSE NOTICE.md references scripts templates config data tests evals; do
+    if [ -d "$SRC/$item" ]; then
+      mkdir -p "$TARGET/$item"
+      if command -v rsync >/dev/null 2>&1; then
+        rsync -a --exclude '__pycache__/' --exclude '*.pyc' "$SRC/$item/" "$TARGET/$item/"
+      else
+        (cd "$SRC" && tar --exclude=__pycache__ --exclude='*.pyc' -cf - "$item") \
+          | (cd "$TARGET" && tar -xf -)
+      fi
+    elif [ -f "$SRC/$item" ]; then
+      cp -f "$SRC/$item" "$TARGET/$item"
+    fi
+  done
+  echo "[ok] copied lean skill to $TARGET"
 fi
 
 python3 "$TARGET/scripts/scholarforge.py" doctor || true
+python3 "$TARGET/scripts/scholarforge.py" validate || true
 echo
 echo "Skill ready: $TARGET/SKILL.md"
 echo "Quick check: python3 $TARGET/scripts/scholarforge.py selftest"
