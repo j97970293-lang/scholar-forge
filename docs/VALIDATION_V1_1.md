@@ -56,3 +56,11 @@ de build sont explicitement ignorés : les 98 autres doivent réussir.
   bornées ; les comptes ne sont pas les totaux des bases.
 - Pas de verdict définitif de rétractation : les API peuvent partager des sources
   et les notices doivent être lues sur le site de l'éditeur.
+
+## Stabilisation de la CI distante
+
+Le premier run distant a échoué avant les tests Python 3.9 : `ubuntu-latest` avait migré
+vers Ubuntu 26.04, sans binaire 3.9 proposé par `setup-python`. La configuration finale
+fixe **Ubuntu 22.04**, utilise `checkout` v5 et `setup-python` v6 (Node 24), épinglés par
+SHA, et désactive le fail-fast de la matrice pour conserver les diagnostics de chaque
+interpréteur. L'état courant des exécutions est visible dans l'onglet Actions du dépôt.

@@ -106,7 +106,7 @@ python3 scripts/scholarforge.py registry stats
 | Dépôt | Licence | Étoiles | Rôle |
 |---|---|---:|---|
 | `https://github.com/agentskills/agentskills` | Apache-2.0 | 26,703 | official Agent Skills open specification + skills-ref validation library |
-| `https://github.com/anthropics/skills` | unlicensed (THIRD_PARTY_NOTICES.md | 184,227 | official skill library: 20 SKILL.md examples of progressive disclosure |
+| `https://github.com/anthropics/skills` | mixte (licences par skill) | 184,227 | official skill library: 20 SKILL.md examples of progressive disclosure |
 | `https://github.com/chrisyangsong/citegate` | MIT | 102 | citation-integrity CI gate: Crossref/OpenAlex verification + retraction verdicts |
 | `https://github.com/asreview/asreview` | Apache-2.0 | 1,053 | active learning for systematic-review screening; dual-screening workflow patterns |
 | `https://github.com/manubot/manubot` | BSD-2-Clause-Patent | 477 | open automated manuscripts; citation-by-identifier and reproducible reference handling |

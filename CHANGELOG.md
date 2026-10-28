@@ -28,6 +28,8 @@ Recherche documentaire 2026, six dépôts complémentaires et mise en conformit�
   18 cas d'évaluation, CI à 11 étapes (dont validation de spec et smoke test des nouveaux
   modules), démonstration FAIL→PASS avec les 8 portes.
 - **Publication** : dépôt GitHub privé mis à jour, dossier Drive synchronisé.
+- **CI stabilisée** : Ubuntu 22.04 fixé pour conserver Python 3.9 ; actions Node 24
+  épinglées par SHA, matrice sans fail-fast.
 
 ### Durcissement avant livraison finale
 
