@@ -5,8 +5,8 @@
 - Dépôt GitHub privé : https://github.com/j97970293-lang/scholar-forge
 - Dossier Drive : https://drive.google.com/drive/folders/1Rx4AZEyIdm_3EGegllAhNm4nJ1tmQdRt
 - Version : **1.1.0** — 28 octobre 2026
-- État : **70/70 tests**, spec Agent Skills **PASS**, audit propre **PASS (7/8 portes)**,
-  aucun secret dans les fichiers, dépôt privé,Drive synchronisé.
+- État : **100/100 tests**, spec Agent Skills **PASS**, audit propre **PASS (7/8 portes)**,
+  aucun secret dans les fichiers, dépôt privé, Drive synchronisé.
 
 ---
 
@@ -40,21 +40,22 @@ complet reste disponible pour la traçabilité. Le dossier cible doit s'appeler 
 ## 3. Premier projet
 
 ```bash
-python3 scripts/scholarforge.py init --path ~/papers/mon-etude --name "Mon étude"
+SF="$(pwd)/scripts/scholarforge.py"  # chemin absolu depuis le clone
+python3 "$SF" init --path ~/papers/mon-etude --name "Mon étude"
 cd ~/papers/mon-etude
-python3 scripts/scholarforge.py search "RNA velocity benchmarking" \
+python3 "$SF" search "RNA velocity benchmarking" \
     --sources openalex,crossref,pubmed --limit 30 --from-year 2020 --log-path .
-python3 scripts/scholarforge.py searchlog                 # journal PRISMA-S
-python3 scripts/scholarforge.py integrity references.bib --online
-python3 scripts/scholarforge.py guideline --recommend "diagnostic accuracy of an AI test"
-python3 scripts/scholarforge.py disclosure --tool "…" --tool-version "…" --purpose writing
-python3 scripts/scholarforge.py audit
+python3 "$SF" searchlog                 # journal PRISMA-S
+python3 "$SF" integrity references.bib --online
+python3 "$SF" guideline --recommend "diagnostic accuracy of an AI test"
+python3 "$SF" disclosure --tool "…" --tool-version "…" --purpose writing
+python3 "$SF" audit
 ```
 
 Démo complète et reproductible (échec volontaire puis version corrigée) :
 
 ```bash
-bash examples/end-to-end/run-demo.sh          # FAIL (4/8 portes)
+bash examples/end-to-end/run-demo.sh          # FAIL (3/8 portes)
 bash examples/end-to-end/run-demo.sh --fixed  # PASS (7/8 portes)
 ```
 
@@ -62,7 +63,7 @@ bash examples/end-to-end/run-demo.sh --fixed  # PASS (7/8 portes)
 
 | Nouveauté | Pourquoi | Commande |
 |---|---|---|
-| **Intégrité des références** | Un DOI qui résout peut être celui d'un article rétracté. OpenAlex et Crossref ne sont pas d'accord entre eux. Trois signaux sont croisés ; deux signaux concordants sont nécessaires pour un blocage. | `integrity --online` |
+| **Intégrité des références** | Un DOI qui résout peut être celui d'un article rétracté. OpenAlex et Crossref ne sont pas d'accord entre eux. Trois familles sont croisées. Un titre RETRACTED/WITHDRAWN bloque aussi par précaution ; les registres peuvent partager une même source. | `integrity --online` |
 | **Journal PRISMA-S** | La porte G2 promettait « every query logged » sans jamais écrire le journal. Chaque recherche ajoute maintenant une ligne par base, avec filtres appliqués/ignorés et URL d'API. | `search`, `searchlog` |
 | **Directives 2024–2026** | TRIPOD+AI remplace TRIPOD 2015 ; STARD-AI (2025) a été corrigé en juillet 2026. 18 directives datées avec URL officielle. | `guideline` |
 | **Déclaration IA** | COPE/ICMJE exigent outil + version + finalité + supervision humaine ; une IA n'est jamais auteur. 9 catégories de délégation, lint déterministe. | `disclosure`, `disclosure --check` |
@@ -95,8 +96,13 @@ bash examples/end-to-end/run-demo.sh --fixed  # PASS (7/8 portes)
 - `--oa-only` signifie « quand l'information est connue » : une source dont le statut OA est
   inconnu n'est pas exclue.
 - Licence : code original MIT, mais compilation réservée à un **usage non commercial**
-  (une source est CC BY-NC 4.0, trois n'ont pas de licence explicite).
+  (une source est CC BY-NC 4.0, deux sources v1 n'ont pas de licence explicite ; les licences v2 sont précisées par composant).
 
 ---
 
 *Généré le 2026-10-28 · aucune clé ni jeton n'est stocké dans cette archive.*
+
+Les comptes du journal correspondent aux notices récupérées dans une fenêtre bornée,
+pas aux totaux des bases. Les 9 catégories de délégation sont une adaptation locale,
+non une reproduction de GAIDeT. Le contrôle d'intégrité invalide son cache après 24 h ou
+modification des références ; les déclarations IA encore à compléter font échouer l'audit.

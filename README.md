@@ -10,7 +10,7 @@
 [![files scanned](https://img.shields.io/badge/files%20scanned-16%2C694-1f6feb)](#provenance)
 [![registry](https://img.shields.io/badge/registry-5%2C460%20entries-1f6feb)](#)
 [![references](https://img.shields.io/badge/playbooks-28-1f6feb)](#)
-[![tests](https://img.shields.io/badge/tests-70%2F70%20passing-2ea043)](#)
+[![tests](https://img.shields.io/badge/tests-100%2F100%20passing-2ea043)](#)
 [![spec](https://img.shields.io/badge/Agent%20Skills%20spec-PASS-2ea043)](#)
 [![python](https://img.shields.io/badge/python-3.9%2B%20stdlib--only-2ea043)](#)
 
@@ -30,12 +30,12 @@ de rapport et déclaration structurée d'usage de l'IA.
 |---|---|
 | 8 dépôts, 8 installations, 8 formats | **14 dépôts**, 1 `SKILL.md` + **28** références progressives |
 | Description de 1 041 caractères (hors spec) | **889 caractères**, spec Agent Skills validée |
-| 1 046 scripts Python éparpillés | 1 CLI stdlib, **21 commandes**, **70 tests** |
+| 1 046 scripts Python éparpillés | 1 CLI stdlib, **21 commandes**, **100 tests** |
 | 4 catalogues incompatibles | 1 registre de **5 460** entrées dédupliquées |
 | DOI résolu = référence « sûre » | **3 signaux de rétractation** + verdict non définitif |
 | « Every query logged » promis mais non écrit | `sources/search-log.{md,json}` conforme **PRISMA-S** |
 | 12 directives de rapport génériques | **18** directives dont TRIPOD+AI, STARD-AI, CONSORT-AI |
-| Disclosure IA en texte libre | **9 catégories de délégation** + `--check` déterministe |
+| Disclosure IA en texte libre | **9 catégories locales de délégation** + `--check` déterministe |
 
 ## Installation
 
@@ -49,8 +49,9 @@ bash install.sh --link --target ~/.claude/skills/scholar-forge
 ```
 
 `install.sh` copie un dossier de skill **allégé** (`SKILL.md`, licences, `references/`,
-`scripts/`, `templates/`, `config/`, `data/`) : ni archives `upstream/`, ni outils de
-build, ni tests. Aucune dépendance, aucune clé API, aucun build.
+`scripts/`, `templates/`, `config/`, `data/`, `tests/`, `evals/`) : ni archives
+`upstream/`, ni outils de build. Les tests restent inclus pour vérifier l'installation.
+Aucune dépendance, aucune clé API, aucun build.
 
 ```bash
 python3 scripts/scholarforge.py doctor
@@ -64,32 +65,33 @@ python3 scripts/scholarforge.py validate      # conformité Agent Skills
 ## Démarrage rapide
 
 ```bash
-python3 scripts/scholarforge.py selftest                  # 70 tests hors ligne
-python3 scripts/scholarforge.py validate                  # spec Agent Skills
-python3 scripts/scholarforge.py init --path ~/papers/mon-etude --name "Mon étude"
+SF="$(pwd)/scripts/scholarforge.py"  # depuis le clone ; chemin absolu conservé après cd
+python3 "$SF" selftest                  # 100 tests hors ligne
+python3 "$SF" validate                  # spec Agent Skills
+python3 "$SF" init --path ~/papers/mon-etude --name "Mon étude"
 cd ~/papers/mon-etude
 
-python3 scripts/scholarforge.py search "RNA velocity benchmarking" \
+python3 "$SF" search "RNA velocity benchmarking" \
     --sources openalex,crossref,arxiv,pubmed --limit 30 \
     --from-year 2020 --to-year 2026 --oa-only \
     --out sources/hits.json --bib sources/hits.bib --csv sources/hits.csv --log-path .
-python3 scripts/scholarforge.py searchlog                 # journal PRISMA-S
-python3 scripts/scholarforge.py dedupe sources/hits.bib --out references.bib
-python3 scripts/scholarforge.py verify references.bib --online
-python3 scripts/scholarforge.py integrity references.bib --online   # rétractations
-python3 scripts/scholarforge.py lint draft/manuscript.md
-python3 scripts/scholarforge.py claims --claims evidence/claims.csv \
+python3 "$SF" searchlog                 # journal PRISMA-S
+python3 "$SF" dedupe sources/hits.bib --out references.bib
+python3 "$SF" verify references.bib --online
+python3 "$SF" integrity references.bib --online   # rétractations
+python3 "$SF" lint draft/manuscript.md
+python3 "$SF" claims --claims evidence/claims.csv \
     --evidence evidence/evidence.csv --manuscript draft/manuscript.md
-python3 scripts/scholarforge.py prisma screening/screening.csv
-python3 scripts/scholarforge.py guideline --recommend "diagnostic accuracy of an AI test"
-python3 scripts/scholarforge.py disclosure --tool "…" --tool-version "…" --purpose search,writing
-python3 scripts/scholarforge.py audit
+python3 "$SF" prisma screening/screening.csv
+python3 "$SF" guideline --recommend "diagnostic accuracy of an AI test"
+python3 "$SF" disclosure --tool "…" --tool-version "…" --purpose search,writing
+python3 "$SF" audit
 ```
 
 Démo complète (volontairement avec des erreurs, puis corrigée) :
 
 ```bash
-bash examples/end-to-end/run-demo.sh          # audit FAIL (4/8 portes)
+bash examples/end-to-end/run-demo.sh          # audit FAIL (3/8 portes)
 bash examples/end-to-end/run-demo.sh --fixed  # audit PASS (7/8 portes)
 ```
 
@@ -97,7 +99,7 @@ bash examples/end-to-end/run-demo.sh --fixed  # audit PASS (7/8 portes)
 
 | Nouveauté | Commande | Ce qui est vérifié |
 |---|---|---|
-| **Intégrité des références** | `integrity --online` | OpenAlex `is_retracted` + Crossref `updated-by` + marqueur de titre. ≥ 2 signaux → bloquant ; 1 signal → « suspecté ». Porte `G-integrity`. |
+| **Intégrité des références** | `integrity --online` | OpenAlex `is_retracted` + Crossref `updated-by` + marqueur de titre. Signaux corroborés → bloquant ; un drapeau isolé → « suspecté ». Un titre RETRACTED/WITHDRAWN bloque par précaution. Cache SHA-256 / 24 h. Porte `G-integrity`. |
 | **Recherche reproductible** | `search` (filtres + `--csv/--ris`), `searchlog` | Une ligne par base et par requête : chaîne, date UTC, filtres demandés/appliqués/ignorés, URL d'API, hits, version du CLI. |
 | **Directives de rapport** | `guideline --list / --recommend / --key` | 18 directives datées avec URL officielle, `supersedes` et checklist de travail (TRIPOD+AI 2024, STARD-AI 2025 corrigé 2026, CONSORT-AI, PRISMA-S…). |
 | **Déclaration IA** | `disclosure`, `disclosure --check` | Outil + version + 9 catégories de délégation + supervision humaine + CRediT humain. |
@@ -138,11 +140,11 @@ templates/   (15)        ← manuscrit, protocole, revue, réponses, déclaratio
 data/                    ← registre 5 460 entrées, inventaires v1/v2, sécurité
 docs/                    ← SCAN_REPORT (+V2), SECURITY_SCAN, REGISTRY, SOURCE_MAP,
                             USAGE, RESEARCH_NOTES, ARCHITECTURE, FAQ
-tests/ + evals/          ← 70 tests unitaires + 18 cas de conformité
+tests/ + evals/          ← 100 tests unitaires + 18 cas de conformité
 examples/end-to-end/     ← projet de démonstration exécutable
 upstream/    (8 ZIP)     ← code INTÉGRAL des 8 dépôts v1 + manifeste SHA-256
 upstream/v2/ (6 ZIP)     ← instantanés CURÉS des 6 dépôts v2 + manifeste
-tools/       (8)         ← scan / fusion / packaging / v2 / spec / secret-check
+tools/       (9)         ← scan / fusion / packaging / v2 / spec / secret-check
 ```
 
 ## Provenance
@@ -185,9 +187,30 @@ pas les items officiels. La responsabilité finale reste celle des auteurs.
 
 Code original : MIT. La compilation est réservée à un **usage non commercial** car l'une
 des sources (`Imbad0202/academic-research-skills`) est sous **CC BY-NC 4.0** et deux
-sources v1 + une source v2 n'ont pas de licence explicite. Voir `LICENSE`,
+sources v1 n'ont pas de licence explicite ; la bibliothèque v2 a des licences par skill. Voir `LICENSE`,
 `NOTICE.md` et `upstream/LICENSES.md`.
 
 ---
 
 *Version 1.1.0 · 2026-10-28 · [Notes de recherche](docs/RESEARCH_NOTES.md) · [Guide complet](docs/USAGE.md)*
+
+### Portée des vérifications et des comptes
+
+Le journal enregistre les notices **récupérées**, pas les totaux des bases : chaque client
+travaille sur une fenêtre bornée sans pagination exhaustive. Les filtres retiennent les
+notices à métadonnées inconnues et le signalent. La concordance OpenAlex/Crossref ne
+constitue pas deux preuves indépendantes (sources amont potentiellement communes).
+Les 100 tests sont des tests logiciels, pas une validation scientifique ou un benchmark LLM.
+
+### Refaire les archives
+
+```bash
+python3 tools/package_release.py --output /chemin/hors-du-depot
+```
+
+Le paquet complet et la skill seule contiennent un manifeste SHA-256 fichier par fichier.
+`SHA256SUMS.txt` et `release-manifest.json` décrivent les deux ZIP. Le packaging vérifie
+les empreintes des 14 archives amont et ne lit ni `.git`, ni fichiers de credentials.
+Les horodatages ZIP sont normalisés pour produire des archives reproductibles.
+
+[Validation de livraison](docs/VALIDATION_V1_1.md) : commandes, résultats observés et limites des tests.

@@ -52,7 +52,7 @@ sécurité, incidents et évitements de justesse, changements de flux de travail
 
 **PRISMA-S** exige la chaîne de recherche complète par base, l'interface exacte,
 la date, les limites et les comptages avant/après déduplication. C'est exactement
-ce que `search --log` / `sources/search-log.md` produit (playbook 27).
+ce que `search --log-path .` / `sources/search-log.md` produit (playbook 27).
 
 ## 3. Utiliser le CLI
 

@@ -5,7 +5,7 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from . import bib, claims, integrity, lint, pipeline, prisma, verify
+from . import bib, claims, disclosure, integrity, lint, pipeline, prisma, verify
 from .util import ROOT, find_project, now, read_csv, read_json, read_text, write_json, write_text
 
 
@@ -42,6 +42,7 @@ def run(root: Optional[Path | str] = None, online: bool = False) -> Dict[str, An
     else:
         out.append(_gate("G-style", None, "manuscript not found"))
 
+    recs = []
     refspath = _first(project, "references.bib", "draft/references.bib", "refs.bib", "draft/refs.bib")
     if refspath:
         recs = bib.parse_any(read_text(refspath), "auto")
@@ -57,9 +58,9 @@ def run(root: Optional[Path | str] = None, online: bool = False) -> Dict[str, An
     # Uses the cached online report when `integrity` has been run; otherwise it
     # performs the offline title-marker pass so the gate is deterministic.
     cached = read_json(project / "output/integrity.json", None)
-    if isinstance(cached, dict) and cached.get("summary"):
+    if integrity.cache_matches(cached, recs):
         irep = cached
-        idetail = "cached " + ("online" if irep["summary"].get("online") else "offline") + " screening"
+        idetail = "cached " + ("online" if irep["summary"].get("online") else "offline") + " screening (input SHA-256 + age <24h checked)"
     else:
         # Never fan out to the network from inside an audit: `integrity --online`
         # writes the cached report that this branch consumes. Deterministic CI.
@@ -67,10 +68,13 @@ def run(root: Optional[Path | str] = None, online: bool = False) -> Dict[str, An
         idetail = "offline title scan; run `integrity --online` for registry notices"
         write_json(project / "output/integrity.json", irep)
         write_text(project / "output/integrity.md", integrity.to_markdown(irep))
+    # Always regenerate the human report, including when a valid JSON cache is reused.
+    write_text(project / "output/integrity.md", integrity.to_markdown(irep))
+    details["integrity"] = irep
     isum = irep["summary"]
     notices = sum(1 for r in irep["results"] if r["verdict"] in ("notice-found", "retracted-confirmed",
                                                                   "retracted-suspected"))
-    out.append(_gate("G-integrity", isum["pass"],
+    out.append(_gate("G-integrity", isum["pass"] if refspath else None,
                      f"{isum['records']} refs, {notices} notices/suspicions, "
                      f"{isum['blocking']} blocking ({idetail})"))
 
@@ -102,8 +106,16 @@ def run(root: Optional[Path | str] = None, online: bool = False) -> Dict[str, An
     disclosures = ["submission/data-availability.md", "submission/credit-statement.md",
                    "submission/ai-disclosure.md", "submission/cover-letter.md"]
     present = [d for d in disclosures if (project / d).is_file()]
-    out.append(_gate("G-disclosures", len(present) == len(disclosures),
-                     f"{len(present)}/{len(disclosures)} statements present"))
+    aipath = project / "submission/ai-disclosure.md"
+    ai_ok = False
+    if aipath.is_file():
+        aitext = read_text(aipath)
+        airep = disclosure.lint(aitext)
+        ai_ok = airep["summary"]["pass"]
+        details["ai_disclosure"] = airep
+    out.append(_gate("G-disclosures", len(present) == len(disclosures) and ai_ok,
+                     f"{len(present)}/{len(disclosures)} statements present; AI disclosure "
+                     f"{'complete' if ai_ok else 'incomplete'}"))
 
     rebut = _first(project, "review/rebuttal-matrix.md")
     if rebut:

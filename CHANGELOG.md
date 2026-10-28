@@ -24,10 +24,23 @@ Recherche documentaire 2026, six dépôts complémentaires et mise en conformit�
   +26 entrées de registre (5 460 au total), playbook 28, `docs/SCAN_REPORT_V2.md`.
 - **Recherche consignée** : `docs/RESEARCH_NOTES.md` — sources primaires datées, décisions
   d'implémentation, une affirmation non confirmée explicitement écartée.
-- **Qualité** : 28 playbooks, 21 commandes, 7 fichiers de config JSON, 70 tests unitaires,
+- **Qualité** : 28 playbooks, 21 commandes, 7 fichiers de config JSON, 100 tests unitaires,
   18 cas d'évaluation, CI à 11 étapes (dont validation de spec et smoke test des nouveaux
   modules), démonstration FAIL→PASS avec les 8 portes.
 - **Publication** : dépôt GitHub privé mis à jour, dossier Drive synchronisé.
+
+### Durcissement avant livraison finale
+
+- Historique Markdown réellement conservé ; requêtes/URL non tronquées, historique
+  corrompu jamais effacé, filtres natifs et champs inconnus consignés.
+- Cache d'intégrité lié à la bibliographie par SHA-256, durée <24 h ; relations Crossref
+  entrantes/sortantes distinguées et références sans DOI non assimilées à un contrôle réussi.
+- Sorties `--json` dépourvues de messages parasites ; un auteur par champ RIS `AU`.
+- Déclarations vierges refusées, contrôle de contenu intégré à `G-disclosures` ; déclaration
+  de non-usage acceptée. Licence de chaque skill v2 distinguée de la licence de la bibliothèque.
+- URL primaire CLAIM 2024 corrigée ; notes de recherche restreintes aux constats sourcés.
+- **100 tests** dont 30 tests de non-régression supplémentaires ; démo négative FAIL (3/8),
+  démo corrigée PASS (7/8). Packaging et empreintes reproduisibles par un outil dédié.
 
 ## 1.0.0 — 2026-10-27
 

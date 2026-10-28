@@ -47,7 +47,7 @@ NeurIPS, Nature…) appartiennent à leurs propriétaires respectifs. ScholarFor
 | # | Upstream | Licence | Rôle dans la version 1.1.0 |
 |---|---|---|---|
 | 9 | [agentskills/agentskills](https://github.com/agentskills/agentskills) | Apache-2.0 | Spécification ouverte Agent Skills et bibliothèque de validation `skills-ref` → `sf/spec.py`, `tools/validate_skill.py`, mise en conformité du frontmatter |
-| 10 | [anthropics/skills](https://github.com/anthropics/skills) | **aucune** (THIRD_PARTY_NOTICES.md conservé) | 20 `SKILL.md` officiels étudiés comme motifs de divulgation progressive ; **aucun code copié**, 20 entrées ajoutées au registre |
+| 10 | [anthropics/skills](https://github.com/anthropics/skills) | mixte : licences propres à chaque skill | 20 `SKILL.md` officiels étudiés comme motifs de divulgation progressive ; **aucun code copié**, 20 entrées ajoutées au registre |
 | 11 | [chrisyangsong/citegate](https://github.com/chrisyangsong/citegate) | MIT | CI de vérification de citations et verdict de rétractation → conception multi-signaux de `sf/integrity.py` |
 | 12 | [asreview/asreview](https://github.com/asreview/asreview) | Apache-2.0 | Apprentissage actif pour le criblage de revues systématiques → documentation du double criblage (playbooks 05, 28) |
 | 13 | [manubot/manubot](https://github.com/manubot/manubot) | BSD-2-Clause-Patent | Manuscrits ouverts et citation par identifiant → traçabilité des références (playbooks 07, 28) |

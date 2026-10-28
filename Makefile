@@ -3,10 +3,10 @@ SF := python3 scripts/scholarforge.py
 SOURCES ?= ../_scan
 SOURCES_V2 ?= ../_scan2
 
-.PHONY: help doctor test validate demo demo-fixed scan v2 package compile clean
+.PHONY: help doctor test validate demo demo-fixed scan v2 package release compile clean
 
 help:
-	@echo "doctor | test | validate | demo | demo-fixed | scan | v2 | package | compile | clean"
+	@echo "doctor | test | validate | demo | demo-fixed | scan | v2 | package | release | compile | clean"
 
 doctor:
 	$(SF) doctor
@@ -41,3 +41,6 @@ package:
 clean:
 	find . -name '__pycache__' -type d -prune -exec rm -rf {} +
 	find . -name '*.pyc' -delete
+
+release:
+	python3 tools/package_release.py --output $(CURDIR)/..

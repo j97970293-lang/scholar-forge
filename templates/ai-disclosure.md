@@ -1,22 +1,38 @@
 # AI-assistance disclosure — {{TITLE}}
 
-**Venue policy checked on (date):** <!-- Re-read the official author guidelines on submission day. -->
+- Target venue: {{VENUE}}
+- Venue policy checked on: [DATE]
+- Tool / model: [TOOL]
+- Version / access date: [VERSION]
+- Specific purpose: [SPECIFIC PURPOSE]
 
-| Stage | Tool / model | What it did | Human verification | Retained in output |
-|---|---|---|---|---|
-| Literature search | | | | |
-| Screening | | | | |
-| Data analysis | | | | |
-| Drafting / editing | | | | |
-| Figures | | | | |
+| Delegated task | Actual use / inputs | Named human verifier | Verification / locator |
+|---|---|---|---|
+| Ideation / study design | | | |
+| Literature search | | | |
+| Screening | | | |
+| Extraction | | | |
+| Statistical analysis / code | | | |
+| Manuscript drafting | | | |
+| Editing / formatting | | | |
+| Translation | | | |
+| Figures / tables | | | |
 
-**Statement to paste into the manuscript:**
-> During the preparation of this work the author(s) used [tool, version] in order to [specific
-> purpose]. After using this tool, the author(s) reviewed and edited the content as needed and
-> take(s) full responsibility for the content of the publication.
+## Statement for the manuscript
 
-**Rules**
-- AI tools are not authors and cannot be accountable.
-- Each in-text claim remains the responsibility of a named human author.
-- Confidential manuscripts are never sent to services that train on inputs.
-- If the venue forbids AI use in writing, state that explicitly and adjust the workflow.
+During the preparation of this work, the authors used [TOOL] (version [VERSION])
+for the purpose of [SPECIFIC PURPOSE]. Named human authors reviewed and verified the
+content and take full responsibility for it. AI tools are not authors.
+
+## Verification and transparency
+
+- Accountable author(s): À COMPLÉTER
+- Verification steps and source locators: À COMPLÉTER
+- Prompts / code availability, or reason for restriction: À COMPLÉTER
+
+Generate a filled draft with `disclosure --tool … --tool-version … --purpose …`;
+`disclosure --check` must FAIL while placeholders remain. If no AI was used, replace this
+scaffold with an accurate no-use statement and follow the venue's requirements.
+
+CRediT roles belong to people, not to tools. Never upload a confidential manuscript to a
+service without author approval and appropriate confidentiality safeguards.

@@ -86,7 +86,16 @@ def normalise_filters(filters: Optional[Dict[str, Any]] = None) -> Dict[str, Any
                 raise ValueError(f"filter {k} must be an integer, got {f[k]!r}")
     if "from_year" in f and "to_year" in f and f["from_year"] > f["to_year"]:
         raise ValueError("from_year cannot exceed to_year")
-    f["oa_only"] = bool(f.get("oa_only"))
+    oa = f.get("oa_only", False)
+    if isinstance(oa, str):
+        if oa.lower() not in ("true", "false", "1", "0", "yes", "no"):
+            raise ValueError("oa_only must be a boolean")
+        oa = oa.lower() in ("true", "1", "yes")
+    f["oa_only"] = bool(oa)
+    if any(f.get(k, 1) < 1 or f.get(k, 1) > 9999 for k in ("from_year", "to_year")):
+        raise ValueError("publication years must be between 1 and 9999")
+    if f.get("min_citations", 0) < 0:
+        raise ValueError("min_citations cannot be negative")
     f["type"] = str(f.get("type") or "").strip().lower()
     if not f["type"]:
         f.pop("type", None)
@@ -226,7 +235,7 @@ def _openalex(q: str, limit: int, timeout: int,
             "doi": norm_doi((w.get("doi") or "").replace("https://doi.org/", "")),
             "url": w.get("primary_location", {}).get("landing_page_url") if isinstance(w.get("primary_location"), dict) else ids.get("doi", ""),
             "abstract": abstract, "cited_by": w.get("cited_by_count", 0),
-            "type": w.get("type", ""), "is_oa": bool(((w.get("open_access") or {}).get("is_oa"))),
+            "type": w.get("type", ""), "is_oa": (w.get("open_access") or {}).get("is_oa"),
         }))
     return url, out, ""
 
@@ -404,13 +413,25 @@ def search(source: str, query: str, limit: int = 10, timeout: int = DEFAULT_TIME
                 "url": "", "query": query, "filters": f,
                 "filters_applied": {"applied": [], "ignored": [], "native": []}}
     url, results, error = _CLIENT[source](query, limit, timeout, f)
+    retrieved_before_filters = len(results)
+    field_for = {"from_year": "year", "to_year": "year", "min_citations": "cited_by",
+                 "oa_only": "is_oa", "type": "type"}
+    requested = [k for k, v in f.items() if v not in (None, "", False)]
+    unknown = {k: sum(1 for r in results if r.get(field_for[k]) in (None, ""))
+               for k in requested}
     results, applied = apply_filters(results, f)
     _, native = server_filters(source, f)
-    unsupported = [k for k in f if k not in ("from_year", "to_year", "min_citations", "oa_only", "type")]
+    supported = {"openalex": set(FILTER_KEYS), "crossref": {"from_year", "to_year"},
+                 "semanticscholar": {"from_year", "to_year", "min_citations"},
+                 "pubmed": {"from_year", "to_year"}, "europepmc": {"from_year", "to_year"}}
+    unsupported = [k for k in requested if k not in supported.get(source, set())]
     return {"source": source, "ok": not error, "error": error, "url": url,
             "query": query, "count": len(results), "results": results, "filters": f,
+            "requested_limit": limit, "retrieved_before_filters": retrieved_before_filters,
+            "count_scope": "retrieved-window-after-filters",
             "filters_applied": {"applied": applied, "native": native,
-                                "ignored": ["server-side unsupported for this source"] if not native and f else unsupported},
+                                "ignored": unsupported, "unknown_metadata": unknown,
+                                "policy": "Unknown metadata is retained; restrictions are best-effort."},
             "retrieved_at": datetime.now(timezone.utc).isoformat(timespec="seconds")}
 
 

@@ -18,7 +18,7 @@
     },
     "anthropics_skills": {
       "url": "https://github.com/anthropics/skills",
-      "license": "unlicensed (THIRD_PARTY_NOTICES.md retained)",
+      "license": "Mixed: per-skill LICENSE.txt; no blanket licence assumed",
       "role": "official skill library: 20 SKILL.md examples of progressive disclosure",
       "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
       "archive": "anthropics_skills.zip",

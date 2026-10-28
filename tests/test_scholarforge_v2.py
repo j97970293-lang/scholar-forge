@@ -235,7 +235,7 @@ class DisclosureTests(unittest.TestCase):
         d = disclosure.generate(tool="Claude", version="2026-10-28",
                                 purposes=["search", "writing", "editing"],
                                 oversight="Named author", verification="Crossref",
-                                prompts="Annex B")
+                                prompts="Annex B", authors="Named author", policy_date="2026-10-28")
         self.assertEqual(len(d["categories"]), 3)
         md = disclosure.to_markdown(d)
         self.assertIn("Delegation table", md)

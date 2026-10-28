@@ -4,176 +4,571 @@
   "currency_rule": "Journal, funder and conference rules change. Re-read the official author guidelines on the day of submission. Everything below is a routing aid and a working checklist, NOT a substitute for the official statement.",
   "honesty_note": "The 'checklist' arrays are abridged working prompts grouped by reporting domain. They are NOT verbatim reproductions of the official items and must be checked against the linked primary source before being used in a submission.",
   "primary_sources": [
-    {"name": "EQUATOR Network", "url": "https://www.equator-network.org/reporting-guidelines/"},
-    {"name": "TRIPOD+AI statement (BMJ 2024)", "url": "https://www.equator-network.org/reporting-guidelines/tripod-statement/"},
-    {"name": "TRIPOD+AI full text (PMC11019967)", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11019967/"},
-    {"name": "STARD-AI (Nature Medicine, 15 Sep 2025; corrected 13 Jul 2026)", "url": "https://www.nature.com/articles/s41591-025-03953-8"},
-    {"name": "CONSORT-AI extension (Nature Medicine 2020)", "url": "https://www.nature.com/articles/s41591-020-1034-x"},
-    {"name": "CONSORT-AI / EQUATOR entry", "url": "https://www.equator-network.org/reporting-guidelines/consort-artificial-intelligence/"},
-    {"name": "TRIPOD-LLM (Nature Medicine 2025, PMID 39779929)", "url": "https://pubmed.ncbi.nlm.nih.gov/39779929/"},
-    {"name": "DECIDE-AI (Nature Medicine / BMJ 2022)", "url": "https://www.nature.com/articles/s41591-022-01772-9"},
-    {"name": "PRISMA 2020", "url": "http://www.prisma-statement.org/"},
-    {"name": "PRISMA-S (search reporting)", "url": "https://www.equator-network.org/reporting-guidelines/prisma-s/"},
-    {"name": "CONSORT 2025 / SPIRIT 2025", "url": "https://www.equator-network.org/reporting-guidelines/consort/"},
-    {"name": "AI reporting guideline selection overview", "url": "https://casrai.org/guides/ai-reporting-guidelines-consort-ai-tripod-ai-decide-ai"}
+    {
+      "name": "EQUATOR Network",
+      "url": "https://www.equator-network.org/reporting-guidelines/"
+    },
+    {
+      "name": "TRIPOD+AI statement (BMJ 2024)",
+      "url": "https://www.equator-network.org/reporting-guidelines/tripod-statement/"
+    },
+    {
+      "name": "TRIPOD+AI full text (PMC11019967)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11019967/"
+    },
+    {
+      "name": "STARD-AI (Nature Medicine, 15 Sep 2025; corrected 13 Jul 2026)",
+      "url": "https://www.nature.com/articles/s41591-025-03953-8"
+    },
+    {
+      "name": "CONSORT-AI extension (Nature Medicine 2020)",
+      "url": "https://www.nature.com/articles/s41591-020-1034-x"
+    },
+    {
+      "name": "CONSORT-AI / EQUATOR entry",
+      "url": "https://www.equator-network.org/reporting-guidelines/consort-artificial-intelligence/"
+    },
+    {
+      "name": "TRIPOD-LLM (Nature Medicine 2025, PMID 39779929)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/39779929/"
+    },
+    {
+      "name": "DECIDE-AI (Nature Medicine / BMJ 2022)",
+      "url": "https://www.nature.com/articles/s41591-022-01772-9"
+    },
+    {
+      "name": "PRISMA 2020",
+      "url": "http://www.prisma-statement.org/"
+    },
+    {
+      "name": "PRISMA-S (search reporting)",
+      "url": "https://www.equator-network.org/reporting-guidelines/prisma-s/"
+    },
+    {
+      "name": "CONSORT 2025 / SPIRIT 2025",
+      "url": "https://www.equator-network.org/reporting-guidelines/consort/"
+    },
+    {
+      "name": "AI reporting guideline selection overview",
+      "url": "https://casrai.org/guides/ai-reporting-guidelines-consort-ai-tripod-ai-decide-ai"
+    }
   ],
   "guidelines": {
     "RCT": {
-      "name": "CONSORT 2025 (with CONSORT 2010 items)", "year": 2025,
-      "use_for": "randomised controlled trials", "ai_specific": false,
-      "supersedes": "CONSORT 2010", "url": "https://www.equator-network.org/reporting-guidelines/consort/",
+      "name": "CONSORT 2025 (with CONSORT 2010 items)",
+      "year": 2025,
+      "use_for": "randomised controlled trials",
+      "ai_specific": false,
+      "supersedes": "CONSORT 2010",
+      "url": "https://www.equator-network.org/reporting-guidelines/consort/",
       "note": "CONSORT 2025 and SPIRIT 2025 integrate open-science items but do not add AI-specific items; use CONSORT-AI in addition when the intervention uses AI.",
-      "extras": ["trial registration", "CONSORT flow diagram", "allocation concealment"],
-      "checklist": ["Registration number and date", "Full trial protocol and statistical analysis plan accessible", "Randomisation and allocation concealment", "Blinding of participants, providers and outcome assessors", "Primary and secondary outcomes with time points", "Sample-size justification", "Intention-to-treat population and attrition", "Harms", "Data/code/protocol sharing statement", "Funding and conflicts of interest"]
+      "extras": [
+        "trial registration",
+        "CONSORT flow diagram",
+        "allocation concealment"
+      ],
+      "checklist": [
+        "Registration number and date",
+        "Full trial protocol and statistical analysis plan accessible",
+        "Randomisation and allocation concealment",
+        "Blinding of participants, providers and outcome assessors",
+        "Primary and secondary outcomes with time points",
+        "Sample-size justification",
+        "Intention-to-treat population and attrition",
+        "Harms",
+        "Data/code/protocol sharing statement",
+        "Funding and conflicts of interest"
+      ]
     },
     "observational": {
-      "name": "STROBE", "year": 2007,
-      "use_for": "cohort, case-control, cross-sectional", "ai_specific": false,
+      "name": "STROBE",
+      "year": 2007,
+      "use_for": "cohort, case-control, cross-sectional",
+      "ai_specific": false,
       "url": "https://www.equator-network.org/reporting-guidelines/strobe/",
-      "extras": ["confounder handling", "missing data", "sensitivity analyses"],
-      "checklist": ["Study design and setting", "Participants and eligibility", "Variables, definitions and measurement", "Bias sources", "Sample size", "Quantitative variables and grouping", "Statistical methods incl. missing data", "Sensitivity analyses", "Descriptive and outcome data", "Limitations and generalisability"]
+      "extras": [
+        "confounder handling",
+        "missing data",
+        "sensitivity analyses"
+      ],
+      "checklist": [
+        "Study design and setting",
+        "Participants and eligibility",
+        "Variables, definitions and measurement",
+        "Bias sources",
+        "Sample size",
+        "Quantitative variables and grouping",
+        "Statistical methods incl. missing data",
+        "Sensitivity analyses",
+        "Descriptive and outcome data",
+        "Limitations and generalisability"
+      ]
     },
     "systematic-review": {
-      "name": "PRISMA 2020", "year": 2020,
-      "use_for": "systematic reviews and meta-analyses", "ai_specific": false,
+      "name": "PRISMA 2020",
+      "year": 2020,
+      "use_for": "systematic reviews and meta-analyses",
+      "ai_specific": false,
       "url": "http://www.prisma-statement.org/",
-      "extras": ["PROSPERO registration", "full search strings", "risk-of-bias tool", "flow diagram"],
-      "checklist": ["Protocol and registration", "Eligibility criteria", "All information sources and last search date", "Full electronic search strategy for each database", "Selection process (dual screening, adjudication)", "Data extraction and data items", "Risk-of-bias assessment tool", "Effect measures and synthesis methods", "Reporting bias and certainty assessment", "PRISMA flow counts", "Discussion of limitations at review level"]
+      "extras": [
+        "PROSPERO registration",
+        "full search strings",
+        "risk-of-bias tool",
+        "flow diagram"
+      ],
+      "checklist": [
+        "Protocol and registration",
+        "Eligibility criteria",
+        "All information sources and last search date",
+        "Full electronic search strategy for each database",
+        "Selection process (dual screening, adjudication)",
+        "Data extraction and data items",
+        "Risk-of-bias assessment tool",
+        "Effect measures and synthesis methods",
+        "Reporting bias and certainty assessment",
+        "PRISMA flow counts",
+        "Discussion of limitations at review level"
+      ]
     },
     "search-reporting": {
-      "name": "PRISMA-S", "year": 2021,
-      "use_for": "reporting the literature search itself", "ai_specific": false,
+      "name": "PRISMA-S",
+      "year": 2021,
+      "use_for": "reporting the literature search itself",
+      "ai_specific": false,
       "url": "https://www.equator-network.org/reporting-guidelines/prisma-s/",
       "note": "This is the guideline that `search --log` / `sources/search-log.md` implements.",
-      "extras": ["query translation", "limits", "deduplication"],
-      "checklist": ["Database and platform/interface for every source", "Date of each search", "Full search string including operators and fields", "Limits and filters with justification", "Search peer review (PRESS) if done", "Deduplication method", "Total and de-duplicated record counts", "Search update before submission"]
+      "extras": [
+        "query translation",
+        "limits",
+        "deduplication"
+      ],
+      "checklist": [
+        "Database and platform/interface for every source",
+        "Date of each search",
+        "Full search string including operators and fields",
+        "Limits and filters with justification",
+        "Search peer review (PRESS) if done",
+        "Deduplication method",
+        "Total and de-duplicated record counts",
+        "Search update before submission"
+      ]
     },
     "diagnostic-accuracy": {
-      "name": "STARD 2015 / STARD-AI 2025", "year": 2025,
-      "use_for": "diagnostic accuracy studies, including AI-based tests", "ai_specific": true,
+      "name": "STARD 2015 / STARD-AI 2025",
+      "year": 2025,
+      "use_for": "diagnostic accuracy studies, including AI-based tests",
+      "ai_specific": true,
       "url": "https://www.nature.com/articles/s41591-025-03953-8",
       "note": "STARD-AI was published 15 Sep 2025 and received an author correction on 13 Jul 2026. Use the corrected version.",
       "supersedes": "STARD 2015 for AI-based index tests",
-      "extras": ["2x2 table", "reference standard", "threshold pre-specification", "failed/indeterminate outputs"],
-      "checklist": ["Study design and prospective/retrospective status", "Participants and recruitment", "Reference standard definition and rationale", "Index test version and how to access it", "Data partitioning (train/validation/test) and leakage control", "Threshold selection and whether pre-specified", "Indeterminate, missing and failed model outputs: how counted", "2x2 table with confidence intervals", "Subgroup and fairness analyses", "Intended-use statement and limitations"]
+      "extras": [
+        "2x2 table",
+        "reference standard",
+        "threshold pre-specification",
+        "failed/indeterminate outputs"
+      ],
+      "checklist": [
+        "Study design and prospective/retrospective status",
+        "Participants and recruitment",
+        "Reference standard definition and rationale",
+        "Index test version and how to access it",
+        "Data partitioning (train/validation/test) and leakage control",
+        "Threshold selection and whether pre-specified",
+        "Indeterminate, missing and failed model outputs: how counted",
+        "2x2 table with confidence intervals",
+        "Subgroup and fairness analyses",
+        "Intended-use statement and limitations"
+      ]
     },
     "prediction-model": {
-      "name": "TRIPOD+AI", "year": 2024,
-      "use_for": "development or validation of diagnostic/prognostic prediction models, regression or ML", "ai_specific": true,
+      "name": "TRIPOD+AI",
+      "year": 2024,
+      "use_for": "development or validation of diagnostic/prognostic prediction models, regression or ML",
+      "ai_specific": true,
       "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11019967/",
       "supersedes": "TRIPOD 2015 (should no longer be used)",
       "note": "27 main items plus subitems and a separate TRIPOD+AI for Abstracts checklist.",
-      "extras": ["calibration", "external validation", "data leakage checks", "model card"],
-      "checklist": ["Title/abstract identify development vs evaluation and the outcome", "Data sources, dates and setting per dataset", "Eligibility and treatments/predictors with definitions and timing", "Sample size justification per dataset", "Missing data and pre-processing", "Outcome definition and blinding", "Predictor selection and model-building procedure", "Internal validation and optimism correction", "External validation dataset(s)", "Performance: discrimination, calibration, clinical utility", "Model availability, versioning and intended use", "Fairness / health-inequality considerations", "Data and code availability"]
+      "extras": [
+        "calibration",
+        "external validation",
+        "data leakage checks",
+        "model card"
+      ],
+      "checklist": [
+        "Title/abstract identify development vs evaluation and the outcome",
+        "Data sources, dates and setting per dataset",
+        "Eligibility and treatments/predictors with definitions and timing",
+        "Sample size justification per dataset",
+        "Missing data and pre-processing",
+        "Outcome definition and blinding",
+        "Predictor selection and model-building procedure",
+        "Internal validation and optimism correction",
+        "External validation dataset(s)",
+        "Performance: discrimination, calibration, clinical utility",
+        "Model availability, versioning and intended use",
+        "Fairness / health-inequality considerations",
+        "Data and code availability"
+      ]
     },
     "llm-evaluation": {
-      "name": "TRIPOD-LLM", "year": 2025,
-      "use_for": "studies developing or evaluating large language models for clinical tasks", "ai_specific": true,
+      "name": "TRIPOD-LLM",
+      "year": 2025,
+      "use_for": "studies developing or evaluating large language models for clinical tasks",
+      "ai_specific": true,
       "url": "https://pubmed.ncbi.nlm.nih.gov/39779929/",
       "note": "PMID 39779929. Complement, not a replacement, for TRIPOD+AI when the model is an LLM.",
-      "extras": ["prompt/version disclosure", "temperature and decoding", "human baseline"],
-      "checklist": ["Exact model name, version and access date", "Prompt text, system message and decoding parameters", "Task definition and target users", "Dataset provenance and contamination check", "Human comparator and adjudication", "Failure modes and hallucination audit", "Reproducibility: code, prompts, seeds", "Ethics, privacy and deployment limits"]
+      "extras": [
+        "prompt/version disclosure",
+        "temperature and decoding",
+        "human baseline"
+      ],
+      "checklist": [
+        "Exact model name, version and access date",
+        "Prompt text, system message and decoding parameters",
+        "Task definition and target users",
+        "Dataset provenance and contamination check",
+        "Human comparator and adjudication",
+        "Failure modes and hallucination audit",
+        "Reproducibility: code, prompts, seeds",
+        "Ethics, privacy and deployment limits"
+      ]
     },
     "ai-trial-report": {
-      "name": "CONSORT-AI", "year": 2020,
-      "use_for": "reports of clinical trials evaluating an intervention with an AI component", "ai_specific": true,
+      "name": "CONSORT-AI",
+      "year": 2020,
+      "use_for": "reports of clinical trials evaluating an intervention with an AI component",
+      "ai_specific": true,
       "url": "https://www.nature.com/articles/s41591-020-1034-x",
       "note": "14 additional items on top of core CONSORT; use alongside CONSORT 2025.",
-      "extras": ["human-AI interaction", "input/output handling", "error analysis"],
-      "checklist": ["AI intervention described with instructions and required skills", "Version of the AI model actually evaluated vs protocol version", "Input data requirements and handling of poor-quality/missing inputs", "Output of the AI intervention and how it reached the clinician", "Human-AI interaction protocol", "Analysis of error cases", "Integration into clinical workflow and setting", "Harms related to the AI component"]
+      "extras": [
+        "human-AI interaction",
+        "input/output handling",
+        "error analysis"
+      ],
+      "checklist": [
+        "AI intervention described with instructions and required skills",
+        "Version of the AI model actually evaluated vs protocol version",
+        "Input data requirements and handling of poor-quality/missing inputs",
+        "Output of the AI intervention and how it reached the clinician",
+        "Human-AI interaction protocol",
+        "Analysis of error cases",
+        "Integration into clinical workflow and setting",
+        "Harms related to the AI component"
+      ]
     },
     "ai-trial-protocol": {
-      "name": "SPIRIT-AI", "year": 2020,
-      "use_for": "trial protocols for interventions with an AI component", "ai_specific": true,
+      "name": "SPIRIT-AI",
+      "year": 2020,
+      "use_for": "trial protocols for interventions with an AI component",
+      "ai_specific": true,
       "url": "https://www.equator-network.org/reporting-guidelines/spirit-ai/",
-      "extras": ["model freeze plan", "data acquisition plan", "human oversight"],
-      "checklist": ["AI intervention specification and intended users", "Planned input data acquisition and quality control", "Model versioning and freeze before enrolment", "Human oversight and escalation", "Sample size accounting for AI performance", "Safety monitoring and error analysis plan", "Data sharing and reproducibility plan"]
+      "extras": [
+        "model freeze plan",
+        "data acquisition plan",
+        "human oversight"
+      ],
+      "checklist": [
+        "AI intervention specification and intended users",
+        "Planned input data acquisition and quality control",
+        "Model versioning and freeze before enrolment",
+        "Human oversight and escalation",
+        "Sample size accounting for AI performance",
+        "Safety monitoring and error analysis plan",
+        "Data sharing and reproducibility plan"
+      ]
     },
     "early-clinical-ai": {
-      "name": "DECIDE-AI", "year": 2022,
-      "use_for": "early-stage live clinical evaluation of AI decision-support systems", "ai_specific": true,
+      "name": "DECIDE-AI",
+      "year": 2022,
+      "use_for": "early-stage live clinical evaluation of AI decision-support systems",
+      "ai_specific": true,
       "url": "https://www.nature.com/articles/s41591-022-01772-9",
-      "extras": ["safety", "human factors", "workflow"],
-      "checklist": ["Stage of evaluation and intended use", "Real-world setting and participants", "Human factors and usability evaluation", "Safety incidents and near misses", "Model performance in live use", "Changes to workflow", "Stakeholder feedback", "Limitations before a full-scale trial"]
+      "extras": [
+        "safety",
+        "human factors",
+        "workflow"
+      ],
+      "checklist": [
+        "Stage of evaluation and intended use",
+        "Real-world setting and participants",
+        "Human factors and usability evaluation",
+        "Safety incidents and near misses",
+        "Model performance in live use",
+        "Changes to workflow",
+        "Stakeholder feedback",
+        "Limitations before a full-scale trial"
+      ]
     },
     "imaging-ai": {
-      "name": "CLAIM (2024 update)", "year": 2024,
-      "use_for": "AI studies in medical imaging", "ai_specific": true,
-      "url": "https://pubmed.ncbi.nlm.nih.gov/30574066/",
-      "extras": ["data partitioning", "preprocessing", "generalisation"],
-      "checklist": ["Imaging data source and de-identification", "Annotation protocol and inter-reader agreement", "Data split at patient level", "Preprocessing pipeline", "Model architecture and training details", "Evaluation metrics with CIs", "External / multi-centre validation", "Failure analysis and code availability"]
+      "name": "CLAIM (2024 update)",
+      "year": 2024,
+      "use_for": "AI studies in medical imaging",
+      "ai_specific": true,
+      "url": "https://pubs.rsna.org/doi/full/10.1148/ryai.240300",
+      "extras": [
+        "data partitioning",
+        "preprocessing",
+        "generalisation"
+      ],
+      "checklist": [
+        "Imaging data source and de-identification",
+        "Annotation protocol and inter-reader agreement",
+        "Data split at patient level",
+        "Preprocessing pipeline",
+        "Model architecture and training details",
+        "Evaluation metrics with CIs",
+        "External / multi-centre validation",
+        "Failure analysis and code availability"
+      ]
     },
     "qualitative": {
-      "name": "COREQ / SRQR", "year": 2007,
-      "use_for": "interviews, focus groups", "ai_specific": false,
+      "name": "COREQ / SRQR",
+      "year": 2007,
+      "use_for": "interviews, focus groups",
+      "ai_specific": false,
       "url": "https://www.equator-network.org/reporting-guidelines/coreq/",
-      "extras": ["researcher reflexivity", "quotation traceability"],
-      "checklist": ["Researcher characteristics and reflexivity", "Participant selection", "Setting and data collection method", "Interview guide / topic guide availability", "Coding and theme development", "Participant checking", "Quotations traceable to participants", "Conflicts of interest"]
+      "extras": [
+        "researcher reflexivity",
+        "quotation traceability"
+      ],
+      "checklist": [
+        "Researcher characteristics and reflexivity",
+        "Participant selection",
+        "Setting and data collection method",
+        "Interview guide / topic guide availability",
+        "Coding and theme development",
+        "Participant checking",
+        "Quotations traceable to participants",
+        "Conflicts of interest"
+      ]
     },
     "animal": {
-      "name": "ARRIVE 2.0", "year": 2020,
-      "use_for": "animal research", "ai_specific": false,
+      "name": "ARRIVE 2.0",
+      "year": 2020,
+      "use_for": "animal research",
+      "ai_specific": false,
       "url": "https://arriveguidelines.org/",
-      "extras": ["randomisation", "blinding", "sample-size rationale"],
-      "checklist": ["Study design and experimental unit", "Sample-size calculation", "Inclusion/exclusion criteria", "Randomisation and blinding", "Outcome measures", "Statistical methods", "Animal characteristics and husbandry", "Adverse events", "Ethics statement and protocol registration"]
+      "extras": [
+        "randomisation",
+        "blinding",
+        "sample-size rationale"
+      ],
+      "checklist": [
+        "Study design and experimental unit",
+        "Sample-size calculation",
+        "Inclusion/exclusion criteria",
+        "Randomisation and blinding",
+        "Outcome measures",
+        "Statistical methods",
+        "Animal characteristics and husbandry",
+        "Adverse events",
+        "Ethics statement and protocol registration"
+      ]
     },
     "protocol": {
-      "name": "SPIRIT 2025", "year": 2025,
-      "use_for": "trial protocols", "ai_specific": false,
-      "supersedes": "SPIRIT 2013", "url": "https://www.equator-network.org/reporting-guidelines/spirit/",
-      "extras": ["schedule of enrolment", "open science plan"],
-      "checklist": ["Registration and funding", "Objectives and hypotheses", "Trial design and setting", "Eligibility and recruitment", "Interventions and adherence", "Outcomes and measurement schedule", "Sample size", "Data management and sharing", "Ethics, consent and dissemination"]
+      "name": "SPIRIT 2025",
+      "year": 2025,
+      "use_for": "trial protocols",
+      "ai_specific": false,
+      "supersedes": "SPIRIT 2013",
+      "url": "https://www.equator-network.org/reporting-guidelines/spirit/",
+      "extras": [
+        "schedule of enrolment",
+        "open science plan"
+      ],
+      "checklist": [
+        "Registration and funding",
+        "Objectives and hypotheses",
+        "Trial design and setting",
+        "Eligibility and recruitment",
+        "Interventions and adherence",
+        "Outcomes and measurement schedule",
+        "Sample size",
+        "Data management and sharing",
+        "Ethics, consent and dissemination"
+      ]
     },
     "case-report": {
-      "name": "CARE", "year": 2013,
-      "use_for": "case reports", "ai_specific": false,
+      "name": "CARE",
+      "year": 2013,
+      "use_for": "case reports",
+      "ai_specific": false,
       "url": "https://www.equator-network.org/reporting-guidelines/care/",
-      "extras": ["timeline", "patient perspective", "consent"],
-      "checklist": ["Patient information and de-identification", "Chief complaint and history", "Clinical findings", "Timeline", "Diagnostic assessment", "Intervention and follow-up", "Patient perspective", "Informed consent"]
+      "extras": [
+        "timeline",
+        "patient perspective",
+        "consent"
+      ],
+      "checklist": [
+        "Patient information and de-identification",
+        "Chief complaint and history",
+        "Clinical findings",
+        "Timeline",
+        "Diagnostic assessment",
+        "Intervention and follow-up",
+        "Patient perspective",
+        "Informed consent"
+      ]
     },
     "ml-paper": {
-      "name": "NeurIPS/ICLR/ACL reproducibility checklist", "year": 2025,
-      "use_for": "ML conference papers", "ai_specific": false,
+      "name": "NeurIPS/ICLR/ACL reproducibility checklist",
+      "year": 2025,
+      "use_for": "ML conference papers",
+      "ai_specific": false,
       "url": "https://neurips.cc/Conferences/2025/PaperInformation/ReproducibilityChecklist",
-      "extras": ["compute budget", "seeds and variance", "license of assets", "data documentation"],
-      "checklist": ["All claims supported by experiments or citations", "Code and data availability", "Licensing of assets and attribution", "Data documentation / datasheet", "Number of runs, seeds and error bars", "Compute budget and hardware", "Hyperparameter search procedure", "Limitations and societal impact", "Human subjects / IRB where applicable"]
+      "extras": [
+        "compute budget",
+        "seeds and variance",
+        "license of assets",
+        "data documentation"
+      ],
+      "checklist": [
+        "All claims supported by experiments or citations",
+        "Code and data availability",
+        "Licensing of assets and attribution",
+        "Data documentation / datasheet",
+        "Number of runs, seeds and error bars",
+        "Compute budget and hardware",
+        "Hyperparameter search procedure",
+        "Limitations and societal impact",
+        "Human subjects / IRB where applicable"
+      ]
     },
     "qualitative-synthesis": {
-      "name": "ENTREQ", "year": 2012,
-      "use_for": "qualitative evidence synthesis", "ai_specific": false,
+      "name": "ENTREQ",
+      "year": 2012,
+      "use_for": "qualitative evidence synthesis",
+      "ai_specific": false,
       "url": "https://www.equator-network.org/reporting-guidelines/entreq/",
-      "extras": ["search and screening transparency"],
-      "checklist": ["Synthesis method and rationale", "Search strategy", "Screening and appraisal", "Data extraction", "Synthesis process", "Reflexivity", "Findings with supporting quotations"]
+      "extras": [
+        "search and screening transparency"
+      ],
+      "checklist": [
+        "Synthesis method and rationale",
+        "Search strategy",
+        "Screening and appraisal",
+        "Data extraction",
+        "Synthesis process",
+        "Reflexivity",
+        "Findings with supporting quotations"
+      ]
     },
     "economic-evaluation": {
-      "name": "CHEERS 2022", "year": 2022,
-      "use_for": "health economic evaluations", "ai_specific": false,
+      "name": "CHEERS 2022",
+      "year": 2022,
+      "use_for": "health economic evaluations",
+      "ai_specific": false,
       "url": "https://www.equator-network.org/reporting-guidelines/cheers/",
-      "extras": ["discount rate", "perspective", "uncertainty"],
-      "checklist": ["Perspective and time horizon", "Comparator", "Costs and resource use", "Outcome measurement and valuation", "Discount rate", "Model and assumptions", "Uncertainty analysis", "Conflicts of interest and funding"]
+      "extras": [
+        "discount rate",
+        "perspective",
+        "uncertainty"
+      ],
+      "checklist": [
+        "Perspective and time horizon",
+        "Comparator",
+        "Costs and resource use",
+        "Outcome measurement and valuation",
+        "Discount rate",
+        "Model and assumptions",
+        "Uncertainty analysis",
+        "Conflicts of interest and funding"
+      ]
     }
   },
   "selection_hints": [
-    {"when": "trial of an AI intervention, results", "use": ["RCT", "ai-trial-report"]},
-    {"when": "trial of an AI intervention, protocol", "use": ["protocol", "ai-trial-protocol"]},
-    {"when": "diagnostic accuracy of an AI test", "use": ["diagnostic-accuracy"]},
-    {"when": "developing or validating a prediction model (regression or ML)", "use": ["prediction-model"]},
-    {"when": "LLM used for a clinical task", "use": ["llm-evaluation", "prediction-model"]},
-    {"when": "early live clinical evaluation of decision support", "use": ["early-clinical-ai"]},
-    {"when": "medical imaging AI", "use": ["imaging-ai"]},
-    {"when": "systematic review or meta-analysis", "use": ["systematic-review", "search-reporting"]},
-    {"when": "reporting a literature search", "use": ["search-reporting"]},
-    {"when": "any manuscript that used generative AI", "use": ["__ai-disclosure__"]}
+    {
+      "when": "trial of an AI intervention, results",
+      "use": [
+        "RCT",
+        "ai-trial-report"
+      ]
+    },
+    {
+      "when": "trial of an AI intervention, protocol",
+      "use": [
+        "protocol",
+        "ai-trial-protocol"
+      ]
+    },
+    {
+      "when": "diagnostic accuracy of an AI test",
+      "use": [
+        "diagnostic-accuracy"
+      ]
+    },
+    {
+      "when": "developing or validating a prediction model (regression or ML)",
+      "use": [
+        "prediction-model"
+      ]
+    },
+    {
+      "when": "LLM used for a clinical task",
+      "use": [
+        "llm-evaluation",
+        "prediction-model"
+      ]
+    },
+    {
+      "when": "early live clinical evaluation of decision support",
+      "use": [
+        "early-clinical-ai"
+      ]
+    },
+    {
+      "when": "medical imaging AI",
+      "use": [
+        "imaging-ai"
+      ]
+    },
+    {
+      "when": "systematic review or meta-analysis",
+      "use": [
+        "systematic-review",
+        "search-reporting"
+      ]
+    },
+    {
+      "when": "reporting a literature search",
+      "use": [
+        "search-reporting"
+      ]
+    },
+    {
+      "when": "any manuscript that used generative AI",
+      "use": [
+        "__ai-disclosure__"
+      ]
+    }
   ],
   "ai_disclosure_note": "Any manuscript that used generative AI also needs a structured AI-use disclosure (COPE / ICMJE / publisher policy). Run `scholarforge disclosure`; see references/26-ai-disclosure-taxonomy.md.",
   "risk_of_bias_tools": {
-    "RCT": "RoB 2", "non-randomised": "ROBINS-I", "diagnostic": "QUADAS-2 / QUADAS-AI",
-    "observational": "Newcastle-Ottawa Scale (use with caution)", "reviews": "AMSTAR 2",
+    "RCT": "RoB 2",
+    "non-randomised": "ROBINS-I",
+    "diagnostic": "QUADAS-2 / QUADAS-AI",
+    "observational": "Newcastle-Ottawa Scale (use with caution)",
+    "reviews": "AMSTAR 2",
     "prediction-model": "PROBAST / PROBAST+AI"
   },
   "evidence_grading": {
-    "GRADE": ["high", "moderate", "low", "very low"],
-    "downgrade_for": ["risk of bias", "inconsistency", "indirectness", "imprecision", "publication bias"],
-    "upgrade_for": ["large effect", "dose-response", "plausible confounding reduces effect"]
+    "GRADE": [
+      "high",
+      "moderate",
+      "low",
+      "very low"
+    ],
+    "downgrade_for": [
+      "risk of bias",
+      "inconsistency",
+      "indirectness",
+      "imprecision",
+      "publication bias"
+    ],
+    "upgrade_for": [
+      "large effect",
+      "dose-response",
+      "plausible confounding reduces effect"
+    ]
   }
 }

@@ -8,7 +8,7 @@ envisager quand la tâche dépasse ce qu'un script local peut faire.
 | Outil | Licence | Apport | Limite à connaître |
 |---|---|---|---|
 | `agentskills/agentskills` | Apache-2.0 | Spécification officielle + bibliothèque `skills-ref` de validation | Cible mouvante : relire la spec avant de publier une skill |
-| `anthropics/skills` | pas de LICENSE (notices tiers conservées) | 20 `SKILL.md` officiels illustrant la divulgation progressive | Pas de licence explicite → ne pas réutiliser le code ; s'inspirer des motifs seulement |
+| `anthropics/skills` | licences par skill (voir les fichiers LICENSE.txt) | 20 `SKILL.md` officiels illustrant la divulgation progressive | Lire la licence de chaque skill avant toute réutilisation |
 | `chrisyangsong/citegate` | MIT | Vérification de références en CI (Crossref + OpenAlex), verdicts `retracted` | Un verdict binaire unique ne suffit pas : les registres divergent (playbook 24) |
 | `asreview/asreview` | Apache-2.0 | Apprentissage actif pour le criblage de revues systématiques | L'outil accélère le tri ; il ne remplace pas le double criblage humain, l'arbitrage ni κ |
 | `manubot/manubot` | BSD-2-Clause-Patent | Manuscrits ouverts, citation par identifiant, références reproductibles | Suppose un flux de publication Manubot |
@@ -34,10 +34,11 @@ envisager quand la tâche dépasse ce qu'un script local peut faire.
 - Les modèles d'apprentissage actif d'ASReview et le RAG de PaperQA2 ne sont pas
   embarqués : ils exigeraient des dépendances et des ressources externes, ce qui
   casserait la promesse « stdlib uniquement, zéro installation ».
-- Aucun code de `anthropics/skills` n'est copié : l'absence de licence explicite
-  interdit la réutilisation. Seuls les **principes** de structuration sont repris.
-- Les checklists officielles ne sont pas reproduites mot à mot : ce serait une
-  contrefaçon de la source et une source d'erreur. Le CLI génère des aides de
+- Aucun module de `anthropics/skills` n'est incorporé au runtime. Chaque skill
+  peut avoir sa propre licence : les fichiers LICENSE.txt sont conservés et le registre
+  distingue ces périmètres. L'absence de licence globale n'efface pas les licences locales.
+- Les checklists officielles ne sont pas reproduites mot à mot : les droits et les versions
+  applicables doivent être respectés, et une copie partielle pourrait induire en erreur. Le CLI génère des aides de
   travail abrégées avec un lien vers l'énoncé officiel.
 
 ## 3. Deux niveaux d'archives — à ne pas confondre

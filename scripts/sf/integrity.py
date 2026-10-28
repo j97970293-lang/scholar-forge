@@ -13,13 +13,14 @@ Design constraint (2025--2026 evidence, see docs/RESEARCH_NOTES.md):
   also works completely offline.
 
 Therefore this module NEVER claims a paper is retracted. It reports how many
-independent signals agree, where they came from, and what a human must still
+signal families agree, where they came from, and what a human must still
 check on the publisher's page. Registers disagree materially; a single flag is
 labelled ``suspected`` and is non-blocking by default.
 """
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import urllib.error
@@ -28,10 +29,43 @@ import urllib.request
 from datetime import datetime, timezone
 from typing import Any, Dict, List, Optional, Tuple
 
-from .util import norm_doi, read_json
+from .util import norm_doi
 
 UA = "ScholarForge/1.1 (retraction-signal check; stdlib urllib)"
 DEFAULT_TIMEOUT = 10
+SCREENING_SCHEMA = "scholarforge-integrity-v2"
+CACHE_MAX_AGE_SECONDS = 24 * 60 * 60
+
+
+def fingerprint(records: List[Dict[str, Any]]) -> str:
+    payload = json.dumps(records, ensure_ascii=False, sort_keys=True, separators=(",", ":"), default=str)
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def cache_matches(report: Any, records: List[Dict[str, Any]],
+                  max_age: int = CACHE_MAX_AGE_SECONDS) -> bool:
+    if not isinstance(report, dict) or report.get("schema") != SCREENING_SCHEMA:
+        return False
+    if report.get("input_sha256") != fingerprint(records):
+        return False
+    summary = report.get("summary")
+    results = report.get("results")
+    if not isinstance(summary, dict) or not isinstance(results, list):
+        return False
+    if summary.get("records") != len(records) or len(results) != len(records):
+        return False
+    if not all(isinstance(r, dict) and "verdict" in r and "blocking" in r for r in results):
+        return False
+    if summary.get("blocking") != sum(bool(r["blocking"]) for r in results):
+        return False
+    if summary.get("pass") is not (not any(r["blocking"] for r in results)):
+        return False
+    try:
+        stamp = datetime.fromisoformat(summary["generated_at"].replace("Z", "+00:00"))
+        age = (datetime.now(timezone.utc) - stamp).total_seconds()
+        return 0 <= age <= max_age
+    except (ValueError, TypeError, KeyError):
+        return False
 
 TITLE_MARKERS = [
     (re.compile(r"^\s*\[?\s*retracted\b", re.I), "title:retracted"),
@@ -50,6 +84,8 @@ CAVEATS = [
     "cover the same notices. Absence of a signal is not proof of integrity.",
     "OpenAlex is_retracted is a single boolean derived from Retraction Watch; it has "
     "mislabelled corrections/expressions of concern as retractions and can lag.",
+    "OpenAlex and Crossref may share the same Retraction Watch source. Agreement between "
+    "APIs is corroboration, not two fully independent investigations.",
     "Only DOIs present in the bibliography can be checked; cited reprints, preprints and "
     "versions without DOIs are invisible here.",
     "A notice attached to a DOI does not tell you whether the manuscript relies on the "
@@ -102,14 +138,16 @@ def crossref_signal(doi: str, timeout: int = DEFAULT_TIMEOUT) -> Dict[str, Any]:
             notice["date"] = "-".join(f"{int(p):02d}" if i == 0 else f"{int(p):02d}"
                                       for i, p in enumerate(parts[:3])) if parts[0] else ""
         notices.append(notice)
-    for rel in ("update-to", "is-retracted-by", "has-retraction"):
+    for rel in ("is-retracted-by", "has-retraction"):
         for n in (msg.get("relation") or {}).get(rel, []) if isinstance(msg.get("relation"), dict) else []:
             if isinstance(n, dict) and n.get("id"):
-                notices.append({"type": rel.replace("-", " "), "label": "", "source": "crossref-relation",
+                notices.append({"type": "retraction", "label": rel, "source": "crossref-relation",
                                 "notice_doi": str(n["id"]), "date": ""})
     for n in (msg.get("update-to") or []) if isinstance(msg.get("update-to"), list) else []:
         if isinstance(n, dict):
-            notices.append({"type": str(n.get("type") or "update").lower(), "label": n.get("label") or "",
+            # update-to points FROM a notice TO another work: it does not mean this DOI is retracted.
+            notices.append({"type": "outgoing-update", "update_type": str(n.get("type") or "update").lower(),
+                            "label": n.get("label") or "",
                             "source": "crossref-update-to", "notice_doi": n.get("DOI") or "", "date": ""})
     titles = msg.get("title") or [""]
     return {"source": "crossref", "ok": True, "error": "", "url": url,
@@ -121,16 +159,19 @@ def classify(signals: List[str], notices: List[Dict[str, Any]], online: bool) ->
     retraction_signals = [s for s in signals if s in ("openalex:is_retracted",
                                                       "crossref:retraction", "title:retracted",
                                                       "title:withdrawn", "title:retraction-note")]
+    # Multiple markers on one title are one family, not independent corroboration.
+    retraction_signals = list(dict.fromkeys(retraction_signals))
+    families = {s.split(":", 1)[0] for s in retraction_signals}
     concern_notices = [n for n in notices if n.get("type") in CONCERN_TYPES
                        or n.get("type") in ("expression of concern",)]
     title_only = any(s.startswith("title:") for s in signals)
-    if len(retraction_signals) >= 2:
+    if len(families) >= 2:
         verdict, blocking = "retracted-confirmed", True
-    elif len(retraction_signals) == 1:
+    elif retraction_signals:
         # A publisher-authored "RETRACTED:" title is strong even offline.
         verdict = "retracted-suspected"
         blocking = any(s in ("title:retracted", "title:withdrawn") for s in retraction_signals)
-    elif concern_notices or any(s.startswith("title:") for s in signals):
+    elif notices or any(s.startswith("title:") for s in signals):
         verdict, blocking = "notice-found", False
     elif not online:
         verdict, blocking = "not-checked", False
@@ -174,8 +215,11 @@ def check_record(rec: Dict[str, str], online: bool = False,
             signals.append("crossref:retraction")
         for n in notices:
             signals.append("notice:" + (n.get("type") or "unknown"))
-        if cr["ok"] and cr.get("title") and not title:
-            title = cr["title"]
+        if cr["ok"] and cr.get("title"):
+            # Check registry titles even when the supplied BibTeX title is out of date.
+            signals.extend(title_signals(cr["title"]))
+            if not title:
+                title = cr["title"]
     elif online and doi:
         signals.append("invalid-doi")
         lookup_failed = 1
@@ -185,7 +229,10 @@ def check_record(rec: Dict[str, str], online: bool = False,
     if online and lookup_failed >= 2 and not any(s.startswith(("openalex:", "crossref:", "title:")) for s in signals):
         cls["verdict"] = "lookup-failed"
         cls["blocking"] = False
-    return {"id": rid, "doi": doi, "title": title, "checked_online": online and bool(doi),
+    if online and not sources and not title_signals(title):
+        cls["verdict"] = "invalid-doi" if doi else "not-checked"
+    signals = list(dict.fromkeys(signals))
+    return {"id": rid, "doi": doi, "title": title, "checked_online": bool(sources),
             **cls, "signals": signals, "notices": notices, "sources_checked": sources,
             "lookups_ok": lookup_ok, "lookups_failed": lookup_failed}
 
@@ -198,6 +245,7 @@ def check(records: List[Dict[str, str]], online: bool = False,
         counts[r["verdict"]] = counts.get(r["verdict"], 0) + 1
     blocking = [r for r in results if r["blocking"]]
     return {
+        "schema": SCREENING_SCHEMA, "input_sha256": fingerprint(records),
         "summary": {
             "records": len(results), "online": online, "counts": counts,
             "blocking": len(blocking), "pass": not blocking,

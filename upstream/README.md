@@ -46,7 +46,7 @@ prétendre à l'exhaustivité.
 | Archive v2 | Fichiers inclus | Exclus | Taille | Licence |
 |---|---:|---:|---:|---|
 | agentskills_agentskills.zip | 127 | 11 | 426 Kio | Apache-2.0 |
-| anthropics_skills.zip | 389 | 56 | 1.5 Mio | aucune |
+| anthropics_skills.zip | 389 | 56 | 1.5 Mio | mixte, par skill |
 | chrisyangsong_citegate.zip | 15 | 4 | 20 Kio | MIT |
 | asreview_asreview.zip | 337 | 142 | 1.4 Mio | Apache-2.0 |
 | manubot_manubot.zip | 72 | 103 | 209 Kio | BSD-2-Clause-Patent |

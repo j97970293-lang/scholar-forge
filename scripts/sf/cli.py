@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import unittest
 from pathlib import Path
@@ -184,7 +185,8 @@ def cmd_search(a: argparse.Namespace) -> int:
     rep = sources.search_all(a.query, srcs, a.limit, a.timeout, filters)
     if a.out:
         write_json(a.out, rep)
-        print(f"[ok] wrote {a.out} ({rep['unique_hits']} unique hits)")
+        if not a.json:
+            print(f"[ok] wrote {a.out} ({rep['unique_hits']} unique hits)")
     if a.bib:
         lines = []
         for r in rep["merged"]:
@@ -192,10 +194,12 @@ def cmd_search(a: argparse.Namespace) -> int:
                    if k in ("title", "author", "year", "journal", "doi", "url", "abstract", "volume", "number", "pages")}}
             lines.append(bib.to_bibtex(rec))
         write_text(a.bib, "\n\n".join(lines) + "\n")
-        print(f"[ok] wrote {a.bib}")
+        if not a.json:
+            print(f"[ok] wrote {a.bib}")
     if a.csv:
         write_csv(a.csv, rep["merged"])
-        print(f"[ok] wrote {a.csv}")
+        if not a.json:
+            print(f"[ok] wrote {a.csv}")
     if a.ris:
         ris = []
         ris_fields = (("TI", "title"), ("AU", "author"), ("PY", "year"), ("JO", "journal"),
@@ -204,18 +208,23 @@ def cmd_search(a: argparse.Namespace) -> int:
             lines = ["TY  - JOUR"]
             for tag, key in ris_fields:
                 if r.get(key):
-                    lines.append(f"{tag}  - {str(r[key]).replace(chr(10), ' ')}")
+                    values = re.split(r";|\s+and\s+", str(r[key])) if tag == "AU" else [str(r[key])]
+                    for value in values:
+                        lines.append(f"{tag}  - {value.strip().replace(chr(10), ' ')}")
             lines.append("ER  - ")
             ris.append("\n".join(lines) + "\n\n")
         write_text(a.ris, "".join(ris))
-        print(f"[ok] wrote {a.ris}")
+        if not a.json:
+            print(f"[ok] wrote {a.ris}")
     if not a.no_log:
         project = find_project(a.log_path or None)
         try:
             log = searchlog.append(project, rep, rep.get("filters"), __version__)
-            print(f"[ok] search log +{log['rows_added']} rows -> {log['markdown']}")
+            if not a.json:
+                print(f"[ok] search log +{log['rows_added']} rows -> {log['markdown']}")
         except (OSError, ValueError) as exc:
-            print(f"[warn] search log not written: {exc}", file=sys.stderr)
+            print(f"[error] search log not written: {exc}", file=sys.stderr)
+            return 2
     if a.json or not a.out:
         if a.json:
             out(rep, True)
@@ -396,7 +405,8 @@ def cmd_integrity(a: argparse.Namespace) -> int:
     write_text(project / "output/integrity.md", integrity.to_markdown(rep))
     if a.out:
         write_text(a.out, integrity.to_markdown(rep))
-        print(f"[ok] wrote {a.out}")
+        if not a.json:
+            print(f"[ok] wrote {a.out}")
     if a.json:
         out(rep, True)
     else:
@@ -433,7 +443,8 @@ def cmd_guideline(a: argparse.Namespace) -> int:
     text = guidelines.to_markdown(c)
     if a.out:
         write_text(a.out, text)
-        print(f"[ok] wrote {a.out} ({len(c['items'])} items)")
+        if not a.json:
+            print(f"[ok] wrote {a.out} ({len(c['items'])} items)")
     if a.json:
         out(c, True)
     elif not a.out:

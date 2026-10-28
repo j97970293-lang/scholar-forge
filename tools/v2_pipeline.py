@@ -48,7 +48,7 @@ V2_SOURCES: Dict[str, Dict[str, Any]] = {
         "stars": 26703, "stage": "meta",
     },
     "anthropics_skills": {
-        "url": "https://github.com/anthropics/skills", "license": "unlicensed (THIRD_PARTY_NOTICES.md retained)",
+        "url": "https://github.com/anthropics/skills", "license": "Mixed: per-skill LICENSE.txt; no blanket licence assumed",
         "role": "official skill library: 20 SKILL.md examples of progressive disclosure",
         "stars": 184227, "stage": "meta",
     },
@@ -204,7 +204,7 @@ def scan(sources_root: Path) -> Dict[str, Any]:
                 for m in GH_RE.finditer(text):
                     repos[m.group(1)] += 1
             if p.suffix == ".py" and text:
-                py_meta[rel] = python_meta(text)
+                py_meta[slug + "/" + rel] = python_meta(text)
             if p.name == "SKILL.md" and text:
                 fm = skill_frontmatter(text)
                 skills.append({"repo": slug, "path": rel,
@@ -368,9 +368,12 @@ def extend_registry(summary: Dict[str, Any]) -> Dict[str, Any]:
     data["count"] = len(entries)
     data["generated_utc"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
     data["schema_version"] = "scholarforge-registry-v2"
-    data["description"] = data.get("description", "") + " Extended 2026-10-28 with six v2 sources."
+    suffix = " Extended 2026-10-28 with six v2 sources."
+    if not data.get("description", "").endswith(suffix):
+        data["description"] = data.get("description", "") + suffix
+    v2_total = sum(1 for e in entries if e.get("id", "").startswith("v2-"))
     src_counts = data.get("source_counts") or {}
-    src_counts["v2-sources"] = added
+    src_counts["v2-sources"] = v2_total
     data["source_counts"] = src_counts
     (ROOT / "data/registry.json").write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n")
 
@@ -391,12 +394,16 @@ def extend_registry(summary: Dict[str, Any]) -> Dict[str, Any]:
              "by_source_list": dict(by_source),
              "academic_entries": sum(1 for e in entries if (e.get("academic_relevance") or 0) >= 0.4),
              "verified_entries": sum(1 for e in entries if e.get("verified")),
-             "v2_entries_added": added}
+             "v2_entries_added": v2_total}
     (ROOT / "data/registry-stats.json").write_text(json.dumps(stats, ensure_ascii=False, indent=2) + "\n")
 
-    with (ROOT / "docs/REGISTRY.md").open("a", encoding="utf-8") as fh:
+    doc = ROOT / "docs/REGISTRY.md"
+    marker = "## v2 — 2026-10-28 : six sources supplémentaires"
+    if marker in doc.read_text(encoding="utf-8"):
+        doc.write_text(doc.read_text(encoding="utf-8").split(marker, 1)[0].rstrip() + "\n", encoding="utf-8")
+    with doc.open("a", encoding="utf-8") as fh:
         fh.write("\n\n## v2 — 2026-10-28 : six sources supplémentaires\n\n")
-        fh.write(f"**{added}** entrées ajoutées (officielles + outils vérifiés), pour un total de "
+        fh.write(f"**{v2_total}** entrées ajoutées (officielles + outils vérifiés), pour un total de "
                  f"**{len(entries):,}** entrées. Les 5 434 entrées v1 sont conservées à l'identique.\n\n")
         fh.write("| Dépôt | Licence | Étoiles | Rôle |\n|---|---|---:|---|\n")
         for slug, m in V2_SOURCES.items():

@@ -2,7 +2,7 @@
 # Install ScholarForge into any Agent Skills host.
 #
 # Copy mode produces a LEAN skill folder: only the files an agent needs at
-# runtime. Build tools, tests, reports and the 60 MB of upstream archives stay
+# runtime. Build tools, reports and the upstream archives stay
 # in the repository. `--link` links the whole repository for development.
 set -euo pipefail
 TARGET="${HOME}/.claude/skills/scholar-forge"
@@ -21,6 +21,9 @@ while [ $# -gt 0 ]; do
   esac
 done
 
+if [ "$(basename "$TARGET")" != "scholar-forge" ]; then
+  echo "Target directory must be named scholar-forge (Agent Skills spec)." >&2; exit 2
+fi
 mkdir -p "$(dirname "$TARGET")"
 if [ "$MODE" = "link" ]; then
   ln -sfn "$SRC" "$TARGET"
@@ -43,8 +46,8 @@ else
   echo "[ok] copied lean skill to $TARGET"
 fi
 
-python3 "$TARGET/scripts/scholarforge.py" doctor || true
-python3 "$TARGET/scripts/scholarforge.py" validate || true
+python3 "$TARGET/scripts/scholarforge.py" doctor
+python3 "$TARGET/scripts/scholarforge.py" validate
 echo
 echo "Skill ready: $TARGET/SKILL.md"
 echo "Quick check: python3 $TARGET/scripts/scholarforge.py selftest"

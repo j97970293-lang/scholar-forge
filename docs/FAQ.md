@@ -21,8 +21,11 @@ Voir le playbook 23.
 **Pourquoi faut-il 2 signaux pour déclarer une rétractation ?**
 Parce que les registres divergent. OpenAlex expose un booléen `is_retracted` unique qui a déjà
 étiqueté à tort des corrections comme rétractations et qui en manque d'autres ; Crossref expose
-les notices `updated-by` issues de Retraction Watch. Le titre de l'éditeur est un troisième
-signal. Un signal isolé est « suspecté » et non bloquant ; deux signaux convergents déclenchent
+les notices `updated-by` issues de Retraction Watch. Un marqueur de titre est une troisième
+famille, mais le titre local peut être ancien. Un drapeau isolé de registre reste « suspecté »
+et non bloquant ; un titre RETRACTED/WITHDRAWN bloque par précaution. Les API peuvent
+partager Retraction Watch : elles ne sont pas entièrement indépendantes. Deux familles
+convergentes déclenchent
 `retracted-confirmed`. Aucun verdict n'est définitif : il faut lire l'avis sur la page de
 l'éditeur. Voir le playbook 24 et `docs/RESEARCH_NOTES.md`.
 
@@ -48,8 +51,8 @@ n'est jamais auteur (positions COPE/ICMJE). La politique de la revue doit être 
 de la soumission. Voir le playbook 26.
 
 **Puis-je utiliser ce dépôt commercialement ?**
-Non, pas en l'état : `Imbad0202/academic-research-skills` est sous CC BY-NC 4.0 et trois
-sources n'ont pas de licence explicite. Voir `LICENSE`, `NOTICE.md` et
+Non, pas en l'état : `Imbad0202/academic-research-skills` est sous CC BY-NC 4.0 et deux
+sources v1 n'ont pas de licence explicite ; la bibliothèque v2 applique des licences par skill. Voir `LICENSE`, `NOTICE.md` et
 `upstream/LICENSES.md`.
 
 **Faut-il des clés API ?**
@@ -58,10 +61,11 @@ Non. Les six API savantes fonctionnent sans clé. Des variables optionnelles
 
 **Que se passe-t-il sans Internet ?**
 Tout fonctionne sauf `search`, `verify --online` et `integrity --online`. Les rapports
-indiquent explicitement le mode hors ligne ; aucune métadonnée n'inventée pour combler le vide.
+indiquent explicitement le mode hors ligne ; aucune métadonnée n'est inventée pour combler le vide.
 `integrity` continue de détecter les marqueurs de titre (`RETRACTED:`, `WITHDRAWN:`),
-et `audit` ne déclenche jamais de rafale réseau : il lit le rapport mis en cache par
-`integrity --online`.
+et la porte d'intégrité de `audit` utilise le cache de `integrity --online` seulement
+s'il correspond à la bibliographie et date de moins de 24 h. `audit --online` peut interroger
+Crossref pour la vérification bibliographique, indépendamment de cette porte.
 
 **Est-ce que l'outil vérifie que mes expériences sont vraies ?**
 Non. Il vérifie la cohérence interne du manuscrit et du processus déclaré. Un travail fabriqué
@@ -78,5 +82,10 @@ guide de rapport dans `config/reporting-guidelines.json`, vos catégories de dé
 `NOTICE.md`.
 
 **Où sont les résultats des tests ?**
-`python3 scripts/scholarforge.py selftest` (70 tests). `validate` vérifie la spec. Les rapports
+`python3 scripts/scholarforge.py selftest` (100 tests). `validate` vérifie la spec. Les rapports
 d'un projet sont dans `output/`. La démo : `bash examples/end-to-end/run-demo.sh --fixed`.
+
+**Portée des comptes de recherche :** les clients récupèrent une fenêtre bornée par API
+(souvent au plus 50 notices), pas l'ensemble paginé d'une base. Les comptes du journal sont
+des notices récupérées, pas les totaux de résultats. Les métadonnées inconnues sont
+conservées par les filtres locaux. Le journal facilite PRISMA-S sans certifier l'exhaustivité.

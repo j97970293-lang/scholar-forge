@@ -84,22 +84,29 @@ def to_markdown(d: Dict[str, Any]) -> str:
     L += ["", "## Primary sources to re-check on submission day", ""]
     L += ["- " + s["name"] + " — " + s["url"] for s in d["sources"]]
     L += ["", "---", "",
-          "This document is a complete *draft*. A human author must fill every `À COMPLÉTER`, "
+          "This document is a *draft*. A human author must complete all empty fields, "
           "confirm the venue's current policy, and approve the final wording."]
     return "\n".join(L) + "\n"
 
 
+PLACEHOLDER_RE = re.compile(
+    r"(?i)à compléter|not yet checked|\{\{[^}]+\}\}|"
+    r"\[(?:tool[^\]]*|version[^\]]*|specific\s+purpose|date)\]")
+NO_USE_RE = re.compile(
+    r"(?im)^\s*(?:[-*>]\s*)?(?:No (?:generative )?AI (?:tools? )?(?:was|were) used\b|"
+    r"Aucun (?:outil d.IA n.a été utilisé|usage (?:de l.IA|d.IA))\b)")
+
+
 def lint(text: str) -> Dict[str, Any]:
     from . import guidelines
+    if NO_USE_RE.search(text) and not PLACEHOLDER_RE.search(text):
+        return {"summary": {"required": 0, "missing": 0, "warnings": 0, "pass": True},
+                "findings": [], "note": "Explicit no-use statement; the human author must confirm its truth."}
     rep = guidelines.lint_disclosure(text)
-    cfg = load()
-    extra = []
-    for field in (cfg.get("required_fields") or []):
-        if field == "tool" and re.search(r"(?i)\b(?:tool|model)[:\s]+\S+", text):
-            continue
-    if "À COMPLÉTER" in text or "[TOOL]" in text or "[VERSION" in text:
-        extra.append({"severity": "warning", "issue": "unfilled placeholder remains in the draft"})
-    rep["findings"].extend(extra)
+    if PLACEHOLDER_RE.search(text):
+        rep["findings"].append({"severity": "error",
+                                "issue": "unfilled placeholder or unchecked venue policy remains in the draft"})
     rep["summary"]["warnings"] = sum(1 for f in rep["findings"] if f["severity"] == "warning")
+    rep["summary"]["missing"] = sum(1 for f in rep["findings"] if f["severity"] == "error")
     rep["summary"]["pass"] = not any(f["severity"] == "error" for f in rep["findings"])
     return rep

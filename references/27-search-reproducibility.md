@@ -12,8 +12,8 @@ date, les limites, les filtres, les doublons et les comptages. C'est la porte G2
 | Base + interface | colonne Database + `REST API` dans `search-log.json` |
 | Date UTC | colonne UTC date |
 | Filtres demandés | colonne Requested filters |
-| Filtres réellement appliqués | `filters_applied.native` et `filters_applied.applied` |
-| Filtres ignorés par une source | `filters_applied.ignored` |
+| Filtres réellement appliqués | `filters_native` et `filters_applied` (ou `filters_details`) |
+| Filtres ignorés par une source | `filters_ignored` |
 | URL exacte de l'API | colonne Endpoint |
 | Nombre de résultats | colonnes Hits et Unique |
 | Version de l'outil | colonne CLI |
@@ -79,3 +79,9 @@ la méthode utilisée : exportez le JSON de déduplication en annexe.
 - PRISMA 2020 : `http://www.prisma-statement.org/`
 - OpenAlex filters : `https://docs.openalex.org/how-to-use-the-api/get-lists-of-entities/filter-entity-lists`
 - Crossref REST API : `https://api.crossref.org/`
+
+**Pas de pagination exhaustive.** Les comptes sont les notices récupérées après filtrage,
+non les totaux de la base. `retrieved_before_filters`, `requested_limit` et `count_scope`
+précisent cette portée dans le JSON. Les plafonds de chaque client restent applicables
+(même si `--limit` est supérieur). Les filtres natifs, locaux, non supportés nativement et
+les nombres de métadonnées inconnues sont conservés. Le journal ne certifie pas PRISMA-S.

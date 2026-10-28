@@ -16,7 +16,7 @@
 | Dépôt | Licence | Fichier dans l'archive | Remarque |
 |---|---|---|---|
 | agentskills/agentskills | Apache-2.0 | `LICENSE` | Attribution requise |
-| anthropics/skills | **aucune** | `THIRD_PARTY_NOTICES.md` | Aucun code copié ; principes de structuration seulement |
+| anthropics/skills | mixte, par skill | `skills/*/LICENSE.txt` + notices tiers | Aucune licence globale présumée ; aucun module incorporé au runtime |
 | chrisyangsong/citegate | MIT | `LICENSE` | Copyright 2026 Yang Song |
 | asreview/asreview | Apache-2.0 | `LICENSE` | Copyright The ASReview Authors |
 | manubot/manubot | BSD-2-Clause Plus Patent | `LICENSE.md` | Copyright Greene Lab / contributeurs |

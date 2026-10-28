@@ -5,13 +5,13 @@ hit count". This module is the machine that honours that promise: each ``search`
 invocation appends one row per database to ``sources/search-log.md`` and a
 machine-readable twin ``sources/search-log.json``.
 
-No network access, no dependencies. Offline-friendly and idempotent in the sense
-that it never rewrites history: it only appends.
+No network access, no dependencies. Offline-friendly: each invocation adds rows (repeating a search is a new event).
+Malformed history is never silently overwritten. Use a single writer per project.
 """
 
 from __future__ import annotations
 
-import re
+import json
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -27,7 +27,7 @@ HEADER = [
     "PRISMA-S asks for the full search string, the database/platform, the date, the limits",
     "applied and the number of records returned. All of those are recorded here.",
     "",
-    "| UTC date | Database | Query | Requested filters | Hits | Unique | Endpoint | CLI | Status |",
+    "| UTC date | Database | Query | Requested filters | Retrieved | Unique (run) | Endpoint | CLI | Status |",
     "|---|---|---|---|---:|---:|---|---|---|",
 ]
 FOOTER = [
@@ -38,7 +38,9 @@ FOOTER = [
     "- Record the exact interface searched (API vs web UI): they return different counts.",
     "- Note the retrieval date in the manuscript; counts drift as indexes update.",
     "- A requested filter is not always supported by every API. `search-log.json` records "
-    "`filters_applied` (native) and `filters_ignored` per database; say so in the methods.",
+    "`filters_native`, `filters_applied` (local) and `filters_ignored` per database; say so in the methods.",
+    "- Counts are retrieved records after filtering, NOT the total database hit count. "
+    "The clients retrieve a bounded window, not every matching record.",
     "- Client-side filters act on the retrieved window only: raise `--limit` when filtering.",
     "- Re-run the search immediately before submission and log the new row too.",
     "",
@@ -57,8 +59,8 @@ def _filters_text(filters: Optional[Dict[str, Any]]) -> str:
 
 
 def _cell(value: Any, limit: int = 150) -> str:
-    s = str(value or "").replace("|", "/").replace("\n", " ")
-    return (s[:limit] + "…") if len(s) > limit else s
+    # Do not truncate query strings or endpoints: reproducibility needs the full value.
+    return str(value if value is not None else "").replace("|", "&#124;").replace("\n", "<br>")
 
 
 def entries_from_report(rep: Dict[str, Any], filters: Optional[Dict[str, Any]] = None,
@@ -75,7 +77,12 @@ def entries_from_report(rep: Dict[str, Any], filters: Optional[Dict[str, Any]] =
             "query": rep.get("query", ""),
             "filters": _filters_text(filters),
             "filters_applied": applied.get("applied", []),
+            "filters_native": applied.get("native", []),
             "filters_ignored": applied.get("ignored", []),
+            "filters_details": applied,
+            "count_scope": "retrieved-window-after-filters",
+            "retrieved_before_filters": r.get("retrieved_before_filters", r.get("count", 0)),
+            "requested_limit": r.get("requested_limit"),
             "hits": r.get("count", 0),
             "unique": rep.get("unique_hits", 0),
             "endpoint": r.get("url", ""),
@@ -92,9 +99,14 @@ def append(root: Path | str, report: Dict[str, Any],
     src = root / "sources"
     src.mkdir(parents=True, exist_ok=True)
     json_path, md_path = src / JSON_NAME, src / MD_NAME
-    history: List[Dict[str, Any]] = read_json(json_path, []) or []
-    if not isinstance(history, list):
-        history = []
+    history: List[Dict[str, Any]] = []
+    if json_path.exists():
+        try:
+            history = json.loads(read_text(json_path))
+        except ValueError as exc:
+            raise ValueError(f"search history is invalid; preserved unchanged: {json_path}") from exc
+        if not isinstance(history, list) or not all(isinstance(r, dict) for r in history):
+            raise ValueError(f"search history must be a list of rows; preserved unchanged: {json_path}")
     new = entries_from_report(report, filters, cli_version)
     history.extend(new)
     write_json(json_path, history)
@@ -103,8 +115,7 @@ def append(root: Path | str, report: Dict[str, Any],
     if md_path.exists():
         existing = read_text(md_path).splitlines()
         # Keep everything above the footer; append new rows at the end of the table.
-        lines = [ln for ln in existing if not ln.startswith("| ") or ln.startswith("|---")
-                 or ln.startswith("| UTC")]
+        lines = list(existing)  # retain ALL old data rows and manual annotations
         # Strip old footer if present.
         try:
             cut = next(i for i, ln in enumerate(lines) if ln.strip() == "## How to report this")
@@ -147,9 +158,9 @@ def summary(root: Path | str) -> Dict[str, Any]:
 def to_markdown(root: Path | str) -> str:
     s = summary(root)
     L = ["# Search-log summary", "",
-         f"- Rows: **{s['queries']}** | total hits: **{s['hits']}**",
+         f"- Rows: **{s['queries']}** | retrieved records: **{s['hits']}**",
          f"- Period: {s['first'] or '—'} → {s['last'] or '—'}",
-         f"- G2 provenance complete: **{'yes' if s['complete'] else 'no'}**", "",
+         f"- Recorded API provenance complete: **{'yes' if s['complete'] else 'no'}**", "",
          "| Database | Hits |", "|---|---:|"]
     for k, v in sorted(s["by_database"].items()):
         L.append(f"| {k} | {v} |")

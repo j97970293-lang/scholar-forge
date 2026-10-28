@@ -2,8 +2,7 @@
 
 **Statut :** vérifié le 2026-10-28 contre `https://agentskills.io/specification` et
 `https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices`.
-La spec a été ouverte en décembre 2025 et transférée à l'Agentic AI Foundation en
-octobre 2026 ; le format `SKILL.md` n'a pas changé pour autant.
+Ce document ne présume pas de la gouvernance future du standard.
 
 ## 1. Le contrat formel
 
@@ -71,9 +70,8 @@ les scripts sont exécutés. Pour rester portable :
   de détails, les grands de moins).
 
 `install.sh` produit un dossier de skill allégé : `SKILL.md`, `LICENSE`, `NOTICE.md`,
-`references/`, `scripts/`, `templates/`, `config/`, `data/`. Les rapports, les outils
-de build, les tests et les archives `upstream/` restent dans le dépôt, pas dans le
-dossier installé.
+`references/`, `scripts/`, `templates/`, `config/`, `data/`. Les tests et les scénarios d'évaluation sont inclus pour valider l'installation.
+Les rapports de build, les outils de build et les archives `upstream/` restent dans le dépôt.
 
 ## 6. Échecs connus
 
@@ -84,3 +82,7 @@ dossier installé.
 | Champ `metadata` ignoré | valeurs numériques non quotées |
 | `allowed-tools` sans effet | champ expérimental, non pris en charge par l'hôte |
 | Liens morts | référence à un fichier déplacé ; `validate` les détecte |
+
+Le validateur stdlib couvre le sous-ensemble de YAML utilisé ici. Il refuse les scalaires
+multilignes non pris en charge ; il ne remplace pas `skills-ref` pour un document YAML
+général. Une limite de taille du corps est une recommandation éditoriale locale.

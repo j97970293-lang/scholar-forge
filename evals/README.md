@@ -7,4 +7,4 @@ reproductibilité, rétractations, PRISMA-S, directives 2026, disclosure IA, con
 Ce sont des **cas de conformité**, pas un benchmark de performance. Les règles de déclaration
 honnête d'un benchmark sont dans `references/22-evals-benchmarks.md`.
 
-Pour les tests déterministes : `python3 scripts/scholarforge.py selftest` (70 tests).
+Pour les tests déterministes : `python3 scripts/scholarforge.py selftest` (100 tests).

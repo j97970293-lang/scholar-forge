@@ -3,8 +3,8 @@
 
 The detection patterns are assembled at runtime so that this file, the CI workflow,
 SECURITY.md and tools/security_scan.py (which legitimately *define* the patterns) do not
-match themselves. Archives in upstream/ are binary data and are scanned via the manifest
-hashes, not by regex.
+match themselves. Archives in upstream/ are NOT secret-scanned by this tool. Their
+manifest hashes verify byte integrity, not the absence of secrets.
 """
 
 from __future__ import annotations
@@ -24,6 +24,7 @@ TEXT_EXT = {".md", ".py", ".json", ".jsonl", ".yml", ".yaml", ".sh", ".ps1", ".t
 
 PATTERNS = [
     "gh" + "[pousr]_[A-Za-z0-9]{20,}",
+    "github" + "_pat_[A-Za-z0-9_]{30,}",
     "AKIA" + "[0-9A-Z]{16}",
     "sk-" + "[A-Za-z0-9]{32,}",
     "-----BEGIN " + "(RSA |EC |OPENSSH )?PRIVATE KEY-----",
@@ -55,7 +56,7 @@ def main() -> int:
         print(f"{len(hits)} match(es) over {scanned} files", file=sys.stderr)
         return 1
     print(f"[ok] no credential-like pattern found in {scanned} text files "
-          f"(archives verified separately by upstream/manifest.json)")
+          f"(upstream archives excluded; hashes check integrity, not secrets)")
     return 0
 
 

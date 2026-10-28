@@ -16,5 +16,5 @@ The 1.1.0 script also runs `integrity` (offline title scan), `guideline --recomm
 empty here because the demo is fully offline; run `search --log-path <project>` against the
 real APIs to populate it.
 
-Expected results: dirty run → `Verdict: FAIL (4/8 gates pass)`; `--fixed` →
+Expected results: dirty run → `Verdict: FAIL (3/8 gates pass)`; `--fixed` →
 `Verdict: PASS (7/8 gates pass)` (`G-pipeline` stays advisory at S0).

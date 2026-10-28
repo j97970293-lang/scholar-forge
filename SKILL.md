@@ -68,8 +68,8 @@ fabricate. A short honest answer beats a long confident one.
 ### 1.1 Obligations added in v1.1 (2026 research)
 
 - **Screen for retractions, not just existence.** A resolved DOI can belong to a retracted
-  paper. Run `integrity --online` before the final audit; treat a single signal as
-  `suspected`, never as a verdict. See `24-research-integrity-retractions.md`.
+  paper. Run `integrity --online` before the final audit; treat a lone registry flag as `suspected`. An explicit `RETRACTED`/`WITHDRAWN`
+  title blocks as a precaution. API agreement is not independent proof. See `24-research-integrity-retractions.md`.
 - **Log every search.** Query string, database, interface, date, filters, endpoint and hit
   count are appended to `sources/search-log.md` (PRISMA-S, gate G2). See
   `27-search-reproducibility.md`.
@@ -192,8 +192,8 @@ one unreachable API never destroys the results from the others, and every record
 
 `audit` aggregates **eight** gates: style/placeholder lint (`G-style`), reference verification
 (`G-references`), retraction/correction screening (`G-integrity`, from the cached report written
-by `integrity --online`), claim–evidence binding (`G-claims`), PRISMA screening (`G-prisma`),
-disclosure statements (`G-disclosures`), reviewer-response closure (`G-rebuttal`) and pipeline
+by `integrity --online`, bound to current references by SHA-256 and valid for 24 h), claim–evidence binding (`G-claims`), PRISMA screening (`G-prisma`),
+disclosure presence + AI-disclosure completeness (`G-disclosures`), reviewer-response closure (`G-rebuttal`) and pipeline
 stage (`G-pipeline`, advisory/non-blocking). It writes `output/AUDIT.md` with a **PASS/FAIL** verdict. A FAIL names the gate and the
 missing artefact. Thresholds live in `config/gates.json` and `config/rules.json` — editable
 without touching code.

@@ -24,7 +24,7 @@ résume le déplacement : on passe de la « détection de texte IA » à la vér
 du respect des règles de déclaration, avec une supervision humaine sur les données,
 les citations, la méthode et l'analyse critique.
 
-## 2. Neuf catégories de délégation (config `ai-disclosure.json`)
+## 2. Neuf catégories locales de délégation (config `ai-disclosure.json`)
 
 | Clé | Délégué | Vérification humaine minimale |
 |---|---|---|
@@ -57,7 +57,7 @@ scholarforge disclosure --check submission/ai-disclosure.md
 ```
 
 `--check` vérifie cinq champs structurels : outil, version/date d'accès, finalité,
-supervision humaine, absence de statut d'auteur pour l'IA. Il détecte aussi les
+supervision humaine, absence de statut d'auteur pour l'IA. Il refuse aussi les
 placeholders non remplis et les formulations qui créditeraient l'IA comme auteur.
 Il ne vérifie **pas** la politique de votre revue : c'est une tâche humaine.
 
@@ -92,3 +92,7 @@ code, et la politique de la revue consultée le jour de la soumission.
 - COPE forum (Scholarly Kitchen, 2025) : `https://scholarlykitchen.sspnet.org/2025/08/25/from-detection-to-disclosure-key-takeaways-on-ai-ethics-from-copes-forum/`
 - CASRAI, « Can AI be listed as an author? » : `https://casrai.org/guides/can-ai-be-listed-as-an-author`
 - Wolters Kluwer, author AI policy : `https://www.wolterskluwer.com/en/solutions/lippincott-journals/lippincott-journals-ethical-best-practices-in-scholarly-publishing`
+
+Les 9 catégories sont une adaptation locale inspirée de la délégation, pas les items
+GAIDeT reproduits. La déclaration de non-usage explicite est acceptée. Le template vierge
+est volontairement incomplet et doit échouer à `--check`.

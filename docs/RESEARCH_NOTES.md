@@ -1,207 +1,156 @@
 # Notes de recherche — 28 octobre 2026
 
-Ce document consigne la recherche documentaire qui a motivé la version 1.1.0.
-Il est **daté** : chaque affirmation renvoie à sa source primaire, et la règle de
-péremption du projet s'applique (relire les pages officielles avant soumission).
-Aucune de ces sources n'a été copiée dans le code ; elles ont servi à orienter des
-choix d'implémentation.
+Journal des sources et décisions ayant conduit à **ScholarForge 1.1.0**. Les liens
+sont des références documentaires, pas des instructions à exécuter. La recherche
+ne garantit ni une couverture exhaustive, ni la pérennité des politiques citées.
 
----
+## 1. Agent Skills : conformité vérifiable
 
-## 1. Spécification Agent Skills — conformité
+Source primaire relue : `https://agentskills.io/specification`.
+Guide d'écriture : `https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices`.
 
-**Consulté le 2026-10-28.**
+| Exigence / recommandation | Défaut trouvé ou décision |
+|---|---|
+| `description` : 1–1024 caractères | La v1 faisait 1041 caractères ; réécrite à **889** |
+| `metadata` : chaînes vers chaînes | Compteurs désormais quotés ; le validateur refuse les nombres et booléens YAML non quotés |
+| `name` : 1–64 caractères, kebab-case, identique au dossier | `scholar-forge` ; contrôle automatique |
+| Corps recommandé <500 lignes / ~5000 tokens | Instructions détaillées déportées dans 28 playbooks |
+| Références directes, éviter les chaînes imbriquées | Index des playbooks dans `SKILL.md` |
+| `allowed-tools` expérimental | Jamais indispensable au fonctionnement du CLI |
 
-| Point | Constat | Ce que cela a changé |
+**Livré :** `sf/spec.py`, `tools/validate_skill.py`, `validate`, CI, playbook 23.
+Le parseur stdlib accepte un **sous-ensemble explicite** du YAML ; les scalaires
+multilignes non pris en charge sont refusés, pas validés à tort. Pour un frontmatter
+YAML général, la bibliothèque officielle `skills-ref` reste la référence. Les
+contrôles de taille du corps et d'organisation sont des recommandations de qualité,
+pas une extension des champs obligatoires de la spécification.
+
+## 2. Intégrité : corroborer les signaux, lire les notices
+
+Sources primaires :
+- OpenAlex work object : `https://docs.openalex.org/api-entities/works/work-object`
+- Crossref REST : `https://api.crossref.org/works/{doi}`
+- Hauschke et Nazarovets, préprint 2024, article 2025 :
+  `https://arxiv.org/abs/2403.13339`, DOI `10.1177/01655515251322478`.
+  L'étude documente des erreurs de classement dans OpenAlex pour une période
+  **historique** précise ; elle ne mesure pas le taux d'erreur de la base actuelle.
+
+Contrôle empirique effectué sur `10.1016/S0140-6736(97)11096-0` : OpenAlex
+signalait une rétractation, Crossref exposait des notices `updated-by` de correction
+et de rétractation, et le titre portait un marqueur explicite. Le module ne déduit
+jamais de l'absence de notice qu'une publication est intègre.
+
+**Livré :** `sf/integrity.py`, `integrity`, `G-integrity`, playbook 24. Trois familles
+(titre, OpenAlex, Crossref), dédoublonnées. **Elles ne sont pas totalement
+indépendantes** : les registres peuvent partager Retraction Watch. Un signal isolé
+reste suspecté ; un préfixe `RETRACTED`/`WITHDRAWN` provoque toutefois un arrêt de
+précaution. Le verdict `retracted-confirmed` signifie « signaux corroborés », pas
+confirmation éditoriale définitive.
+
+Durcissement final : distinction des relations entrantes et `update-to` sortantes,
+références sans DOI affichées « non contrôlées », cache lié à la bibliographie par
+SHA-256 et limité à 24 h. `audit --online` conserve sa résolution Crossref ; la
+porte d'intégrité elle-même consomme un cache ou refait uniquement le scan des titres.
+
+Les statistiques de comparaison entre registres trouvées uniquement dans des
+sources secondaires n'ont pas été retenues comme seuils ou faits dans le moteur.
+
+## 3. Directives de rapport : versionner et relier à l'original
+
+| Directive | Source vérifiable | Utilisation locale |
 |---|---|---|
-| `description` ≤ 1024 caractères | Notre v1.0.0 faisait 1 041 caractères : **non conforme** | Description réécrite à 889 caractères |
-| `metadata` = map chaîne → chaîne | Nos compteurs étaient des entiers YAML non quotés | Valeurs quotées (`"16694"`, `"5460"`, …) |
-| `name` = nom du dossier, kebab-case, ≤ 64 | `scholar-forge` conforme | Contrôle automatique ajouté |
-| Corps < 500 lignes, ~< 5 000 tokens | 271 lignes, ~4 258 tokens | Marge conservée ; tout nouveau détail va dans `references/` |
-| Références à un seul niveau | Les références imbriquées peuvent être lues partiellement (`head -100`) | Les playbooks se citent par numéro, jamais par chemin |
-| `compatibility` ≤ 500 caractères | 112 caractères | Conforme |
-| `allowed-tools` expérimental | Prise en charge variable selon l'hôte | Documenté, jamais requis pour fonctionner |
+| TRIPOD+AI, 2024 | `https://pmc.ncbi.nlm.nih.gov/articles/PMC11019967/` ; DOI `10.1136/bmj-2023-078378` | Modèles de prédiction ; remplace TRIPOD 2015 |
+| STARD-AI, 2025 | `https://www.nature.com/articles/s41591-025-03953-8` | Exactitude diagnostique IA ; la page signale une correction du **13 juillet 2026**, DOI `10.1038/s41591-026-04570-9` |
+| TRIPOD-LLM, 2025 | [1](https://www.nature.com/articles/s41591-024-03425-5) ; PMID 39779929 | Études de LLM en biomédecine |
+| CLAIM, mise à jour 2024 | [1](https://pubs.rsna.org/doi/full/10.1148/ryai.240300) ; PMID 38809149 | Imagerie médicale ; ancien lien PubMed incorrect remplacé |
+| CONSORT-AI, 2020 | `https://www.nature.com/articles/s41591-020-1034-x` | Extension pour les essais d'interventions IA |
+| Autres directives | `https://www.equator-network.org/reporting-guidelines/` | PRISMA, PRISMA-S, STROBE, SPIRIT, CARE, COREQ, etc. |
+
+**Livré :** `config/reporting-guidelines.json` (18 entrées), `sf/guidelines.py`,
+`guideline --list/--recommend/--key`, playbook 25. Les listes produites sont des
+**aides de travail originales et abrégées**, jamais une copie revendiquée des
+checklists officielles. Le routeur utilise des mots-clés : il aide au choix sans
+remplacer le protocole, les consignes du journal ou le jugement méthodologique.
+
+## 4. Déclaration IA : tâches déléguées et responsabilité humaine
 
 Sources :
-- Specification — Agent Skills, `https://agentskills.io/specification`
-- Skill authoring best practices — Claude Platform Docs,
-  `https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices`
-- « Agent Skills for Large Language Models: Architecture, Acquisition, Security, and the
-  Path Forward », arXiv:2602.12430, `https://arxiv.org/html/2602.12430v3`
-- « What Keeps Agent Skills from Being Reusable? Evidence from 138K SKILL.md Files »,
-  arXiv:2608.08453, `https://arxiv.org/html/2608.08453v1`
-- Repo officiel `https://github.com/agentskills/agentskills` (Apache-2.0) et
-  `https://github.com/anthropics/skills` (pas de LICENSE explicite).
+- COPE : `https://publicationethics.org/guidance/cope-position/authorship-and-ai-tools`.
+  La position indique qu'une IA ne peut être auteur, que l'outil et son usage doivent
+  être déclarés en Materials and Methods ou équivalent, et que les humains restent
+  responsables du manuscrit.
+- ICMJE : `https://www.icmje.org/icmje-recommendations.pdf`.
+- Nature : `https://www.nature.com/nature-portfolio/editorial-policies/ai-policy`.
+- GAIDeT : `https://doi.org/10.1080/08989621.2025.2544331`.
+  Métadonnées Crossref contrôlées : titre « GAIDeT (Generative AI Delegation Taxonomy):
+  A taxonomy for humans to delegate tasks to generative artificial intelligence in
+  scientific research and publishing » ; publication en ligne le 8 août 2025,
+  volume imprimé 2026.
 
-**Résultat livré :** `sf/spec.py`, `tools/validate_skill.py`, commande `validate`,
-playbook `references/23-agent-skills-spec.md`, étape CI dédiée.
+**Livré :** neuf **catégories locales** inspirées de la notion de délégation,
+non reproduction de la taxonomie GAIDeT ; `disclosure`, template, `--check`,
+playbook 26. Le linter refuse les placeholders et les champs non remplis ; il
+n'atteste pas que la déclaration est vraie ni conforme à chaque politique éditoriale.
+Une déclaration explicite de non-usage est une alternative valide. CRediT est
+réservé aux personnes. La porte `G-disclosures` contrôle maintenant aussi la
+complétude de la déclaration IA, et non sa seule existence.
 
----
+Une affirmation secondaire concernant un ajout supposé aux motifs de rétractation
+COPE en août 2025 n'a pas été confirmée sur une source primaire et est **écartée**.
 
-## 2. Rétractations : plusieurs registres, aucun verdict unique
+## 5. Recherche documentaire : traçabilité ≠ exhaustivité
 
-**Consulté le 2026-10-28.** Vérification empirique faite sur un DOI réel
-(`10.1016/S0140-6736(97)11096-0`, article Wakefield 1998 rétracté en 2010) :
+PRISMA-S : `https://www.equator-network.org/reporting-guidelines/prisma-s/`.
 
-- OpenAlex renvoie `is_retracted: true` et un titre préfixé `RETRACTED:`.
-- Crossref renvoie `updated-by[]` avec deux notices : une `correction` (2004) et
-  une `retraction` (2010), `source: retraction-watch`, dates et DOI d'avis.
-- Le titre de l'éditeur fournit un troisième signal indépendant, utilisable hors ligne.
+La v1 promettait un journal de recherche mais n'en écrivait pas. `searchlog` et
+`sf/searchlog.py` enregistrent maintenant une ligne par base et par requête : chaîne
+complète, interface, date UTC, restrictions, URL exacte et nombre de notices
+**récupérées**. Le JSON conserve les filtres natifs, locaux, non pris en charge
+nativement et les métadonnées inconnues. Le Markdown conserve toutes les lignes
+antérieures ; un historique JSON corrompu n'est jamais réinitialisé silencieusement.
 
-Littérature sur les limites :
-- Hauschke & Nazarovets (2025), « (Non-)retracted academic papers in OpenAlex » —
-  `is_retracted` est un booléen unique qui a étiqueté à tort des corrections et
-  expressions d'inquiétude comme rétractations (fenêtre déc. 2023–mars 2024,
-  ~2 300 œuvres). `https://journals.sagepub.com/doi/10.1177/01655515251322478`
-  (préprint `https://arxiv.org/abs/2403.13339`).
-- Fletcher & Stevenson (2025) — environ 7,5 % des articles signalés par Retraction
-  Watch ne sont pas marqués comme rétractés dans OpenAlex.
-  `https://link.springer.com/article/10.1186/s41073-025-00168-w`
-- OpenAlex work object — `is_retracted` dérivé de la base Retraction Watch.
-  `https://docs.openalex.org/api-entities/works/work-object`
-- Ontologie des registres (2026) — accord d'environ 72 % entre Crossref et
-  Retraction Watch sur les DOI rétractés ; faible intersection entre quatre
-  registres. `https://gov.tesseract.academy/research/scholarly-record-ontology`
-- Persistance des citations : arXiv:2509.18403 — 1 181 paires page Wikipédia ↔
-  article rétracté, 71,6 % de citations problématiques.
-  `https://arxiv.org/abs/2509.18403`
-- `chrisyangsong/citegate` (MIT) — exemple d'outil de CI avec verdict `retracted`.
-  `https://github.com/chrisyangsong/citegate`
+Limite essentielle : les clients interrogent une **fenêtre bornée** (plafond propre
+à chaque API, souvent 50 notices), sans pagination exhaustive. Les comptes ne sont
+**pas** les totaux de résultats des bases. Le journal facilite PRISMA-S mais ne
+suffit pas à déclarer une revue systématique exhaustive ou conforme. Les filtres
+locaux retiennent les notices dont les métadonnées nécessaires sont inconnues,
+y compris le statut OA. Ces limites sont documentées dans le playbook 27.
 
-**Décision d'implémentation :** ne jamais dire « cet article est rétracté ».
-`sf/integrity.py` collecte trois familles de signaux, exige **≥ 2 signaux
-concordants** pour un verdict bloquant, étiquette un signal isolé `suspected`, et
-imprime quatre limites explicites dans chaque rapport. Porte `G-integrity`
-ajoutée à `audit` (8 portes au total). Playbook `references/24`.
+## 6. Six dépôts complémentaires : provenance, licences, intégration
 
----
+Clones consultés en lecture seule ; commits exacts et SHA-256 des archives dans
+`upstream/v2/manifest.json`. Aucun code de ces dépôts n'est exécuté par le moteur.
 
-## 3. Directives de rapport 2024–2026
-
-**Consulté le 2026-10-28.**
-
-| Directive | Année | Point retenu |
+| Dépôt | Rôle retenu | Licence constatée / portée |
 |---|---|---|
-| TRIPOD+AI | 2024 (BMJ) | 27 items + checklist abstract ; **remplace TRIPOD 2015**, qui ne doit plus être utilisé |
-| STARD-AI | 15 sept. 2025 (Nature Medicine) | Correction d'auteur publiée le 13 juillet 2026 ; points critiques : standard de référence, partitionnement, seuil, sorties indéterminées/en échec |
-| TRIPOD-LLM | 2025 (Nature Medicine, PMID 39779929) | Études utilisant des LLM pour des tâches cliniques |
-| CONSORT-AI / SPIRIT-AI | 2020 | 14 items additionnels ; modèle réellement évalué vs version du protocole, interaction humain–IA, analyse des cas d'erreur |
-| DECIDE-AI | 2022 | Évaluation clinique précoce en conditions réelles, facteurs humains, sécurité |
-| CLAIM | mise à jour 2024 | IA en imagerie médicale |
-| CONSORT 2025 / SPIRIT 2025 | avril 2025 | Science ouverte intégrée, **mais pas d'items IA** : ils complètent CONSORT-AI/SPIRIT-AI |
-| PRISMA-S | 2021 | Chaînes complètes, interface, date, limites, déduplication |
+| `https://github.com/agentskills/agentskills` | Spec et `skills-ref` | Apache-2.0 à la racine ; documents avec licence propre conservée |
+| `https://github.com/anthropics/skills` | Exemples de skills et structuration progressive | **Licences par skill** ; pas de licence globale unique présumée |
+| `https://github.com/chrisyangsong/citegate` | Modèle de contrôle de citations en CI | MIT |
+| `https://github.com/asreview/asreview` | Priorisation du criblage par apprentissage actif | Apache-2.0 |
+| `https://github.com/manubot/manubot` | Manuscrits et citations par identifiant | BSD-2-Clause-Patent |
+| `https://github.com/Future-House/paper-qa` | QA sur preuves documentaires | Apache-2.0 à la racine ; sous-paquets avec licences conservées |
 
-Sources :
-- EQUATOR Network — `https://www.equator-network.org/reporting-guidelines/`
-- TRIPOD+AI — `https://pmc.ncbi.nlm.nih.gov/articles/PMC11019967/` et
-  `https://www.equator-network.org/reporting-guidelines/tripod-statement/`
-- STARD-AI — `https://www.nature.com/articles/s41591-025-03953-8`
-- CONSORT-AI — `https://www.nature.com/articles/s41591-020-1034-x` et
-  `https://www.equator-network.org/reporting-guidelines/consort-artificial-intelligence/`
-- TRIPOD-LLM — `https://pubmed.ncbi.nlm.nih.gov/39779929/`
-- Vue de sélection — `https://casrai.org/guides/ai-reporting-guidelines-consort-ai-tripod-ai-decide-ai`
-- Autres — `https://ramkumarmd.com/medical-ai/evaluation-safety/reporting-guidelines`,
-  `https://www.editage.com/blog/ai-reporting-guidelines-for-research-what-authors-need-to-disclose-and-report/`
+**Résultat :** 1440 fichiers inventoriés, 6 archives **curées** (1034 fichiers
+conservés, exclusions décrites), 26 entrées supplémentaires de registre. Les 8
+archives v1 restent intégrales selon leur politique initiale. Le statut « vérifié »
+du registre signifie ici présence et provenance relevées, **pas** audit de sécurité,
+validation scientifique ou garantie de droits pour tous les usages.
 
-**Décision :** `config/reporting-guidelines.json` passe de 12 à 18 directives avec
-année, URL officielle, `supersedes`, `ai_specific` et checklist abrégée. Le
-générateur indique explicitement que ces listes ne sont **pas** la reproduction
-officielle des items. Routeur `guideline --recommend`. Playbook `references/25`.
+Aucun module ASReview, Manubot ou PaperQA n'est embarqué dans le runtime : les
+méthodes sont documentées et les outils référencés sans imposer leurs dépendances.
+Le code des modules ScholarForge est original. Les termes de chaque source restent
+applicables ; la compilation conserve sa restriction non commerciale liée à une
+source v1 sous CC BY-NC 4.0.
 
----
+## 7. Vérification et limites de cette passe
 
-## 4. Déclaration d'usage de l'IA
-
-**Consulté le 2026-10-28.**
-
-Positions convergentes de COPE (position statement 2023, toujours en vigueur),
-ICMJE (recommandations mises à jour janvier 2026), Nature, Wiley, Wolters Kluwer,
-WAME et du réseau JAMA :
-- pas d'auteur IA (absence de responsabilité, de personnalité juridique, de
-  gestion des conflits d'intérêts et du copyright) ;
-- divulgation de l'outil **et de sa version**, de la finalité précise, et de la
-  supervision humaine, en Methods/Remerciements et souvent dans la cover letter ;
-- responsabilité humaine entière sur le contenu ;
-- interdiction pour les éditeurs/relecteurs de téléverser des manuscrits
-  confidentiels dans des services qui s'entraînent sur les entrées.
-
-Apport 2025 : **GAIDeT** (Generative AI Delegation Taxonomy,
-DOI `10.1080/08989621.2025.2544331`) structure la déclaration par tâche déléguée
-plutôt que par simple mention « AI was used ». Le forum COPE 2025 (couvert par le
-Scholarly Kitchen) décrit le passage de la détection de texte IA au contrôle du
-respect des règles de déclaration, avec supervision humaine sur données,
-citations, méthode et analyse critique.
-
-Sources :
-- `https://publicationethics.org/guidance/cope-position/authorship-and-ai-tools`
-- `https://www.icmje.org/icmje-recommendations.pdf`
-- `https://www.nature.com/nature-portfolio/editorial-policies/ai-policy`
-- `https://doi.org/10.1080/08989621.2025.2544331`
-- `https://scholarlykitchen.sspnet.org/2025/08/25/from-detection-to-disclosure-key-takeaways-on-ai-ethics-from-copes-forum/`
-- `https://casrai.org/guides/can-ai-be-listed-as-an-author`
-- `https://www.wolterskluwer.com/en/solutions/lippincott-journals/lippincott-journals-ethical-best-practices-in-scholarly-publishing`
-
-**Décision :** `config/ai-disclosure.json` (9 catégories de délégation),
-`sf/disclosure.py` (génération + `--check` déterministe), commande `disclosure`,
-playbook `references/26`, template existant conservé et enrichi par la commande.
-
-⚠️ Une source secondaire affirme que COPE aurait ajouté en août 2025 « l'implication
-non divulguée de l'IA » aux motifs de rétractation. Cette affirmation n'a **pas**
-pu être confirmée sur une page COPE primaire pendant cette session ; elle est
-donc **volontairement absente** du code et des playbooks. La consigne donnée est
-« vérifier la politique courante de la revue », pas une affirmation datée.
-
----
-
-## 5. Reproductibilité de la recherche documentaire (PRISMA-S)
-
-PRISMA-S exige chaîne complète, interface, date, limites et comptages. Le dépôt
-v1.0.0 promettait « every query logged » (`config/gates.json`, G2) mais le CLI
-n'écrivait aucun journal. C'était une dette de conformité interne.
-
-**Décision :** `sf/searchlog.py` journalise une ligne par base et par requête dans
-`sources/search-log.md` + `sources/search-log.json` ; ajout de filtres
-`--from-year/--to-year/--min-citations/--oa-only/--type` appliqués côté serveur
-quand l'API le permet et réappliqués localement ; exports CSV et RIS. Les filtres
-ignorés par une source sont consignés, pas tus. Playbook `references/27`.
-
-Sources : `https://www.equator-network.org/reporting-guidelines/prisma-s/`,
-`https://docs.openalex.org/how-to-use-the-api/get-lists-of-entities/filter-entity-lists`,
-`https://api.crossref.org/`.
-
----
-
-## 6. Six dépôts complémentaires
-
-Recherche via l'API GitHub le 2026-10-28 (mots-clés + vérification individuelle
-des licences et de la taille). Clones `--depth 1`, lecture seule.
-
-| Dépôt | Licence | Étoiles | Apport |
-|---|---|---:|---|
-| `agentskills/agentskills` | Apache-2.0 | 26 703 | spec + `skills-ref` |
-| `anthropics/skills` | aucune (notices tiers) | 184 227 | 20 `SKILL.md` officiels |
-| `chrisyangsong/citegate` | MIT | 102 | CI d'intégrité des citations |
-| `asreview/asreview` | Apache-2.0 | 1 053 | apprentissage actif pour le criblage |
-| `manubot/manubot` | BSD-2-Clause-Patent | 477 | manuscrits ouverts, citations par identifiant |
-| `Future-House/paper-qa` | Apache-2.0 | 9 477 | QA ancrée sur preuves |
-
-**Décision :** archives **curées** (tests/caches/binaires >2 Mio exclus, exclusions
-comptabilisées) pour ne pas alourdir le dépôt — 4,6 Mio au lieu de ~64 Mio.
-Les 8 archives v1 restent intégrales. Playbook `references/28`,
-`docs/SCAN_REPORT_V2.md`, `upstream/v2/manifest.json`, +26 entrées de registre.
-
-⚠️ `anthropics/skills` n'a pas de fichier LICENSE : aucun code n'en est copié,
-seuls des motifs de structuration sont repris, et l'attribution est conservée.
-La compilation reste **non commerciale** (CC BY-NC 4.0 d'une source v1).
-
----
-
-## 7. Ce que cette recherche n'a PAS fait
-
-- Elle n'a pas relu les conditions d'utilisation de chaque API au-delà de la
-  documentation publique citée.
-- Elle n'a pas vérifié les policies de chaque éditeur individuellement — la
-  consigne « vérifier le jour de la soumission » reste une obligation humaine.
-- Elle n'a pas exécuté le code des six dépôts.
-- Elle n'a pas transformé des résultats de recherche web en vérités figées :
-  ce document est un journal daté, pas une base de connaissances permanente.
+- **100 tests déterministes** : historique, cache périmé/modifié, sens des relations,
+  pureté des sorties JSON, filtres, déclarations, métadonnées YAML et grammaire Python 3.9.
+- Démonstration négative : FAIL attendu ; démonstration corrigée : PASS (7/8 portes,
+  `G-pipeline` restant consultative à S0).
+- Recherche en ligne et DOI de rétractation exercés séparément ; la CI hors ligne
+  ne transforme pas une panne réseau en preuve de validité.
+- Pas de benchmark LLM exécuté : les 18 scénarios de `evals/` sont des cas de
+  conformité documentés, pas des scores de performance mesurés.
+- Pas d'audit juridique ni de vérification des politiques de chaque éditeur.
+  La validation des expériences, des données et de la soumission reste humaine.

@@ -37,7 +37,10 @@ echo "== 9c. guideline =="; $SF guideline --recommend "diagnostic accuracy of an
 $SF guideline --key prediction-model --title "Demo study" --venue "BMJ" --out "$P/submission/checklist.md"
 echo "== 9d. disclosure =="; $SF disclosure --tool "Claude Sonnet" --tool-version "2026-10-28" \
      --purpose search,writing,editing --oversight "Named author verified every claim" \
-     --verification "Crossref + claim ledger" --title "Demo study" --out "$P/output/ai-disclosure-draft.md"
+     --verification "Crossref + claim ledger" --authors "Demo author (synthetic example)" \
+     --prompts "Demo script, illustrative only" --policy-date "2026-10-28" \
+     --title "Demo study" --out "$P/output/ai-disclosure-draft.md"
+[ "$FIXED" = "1" ] && cp "$P/output/ai-disclosure-draft.md" "$P/submission/ai-disclosure.md"
 $SF disclosure --check "$P/output/ai-disclosure-draft.md" || true
 echo "== 9e. searchlog =="; $SF searchlog --path "$P" | head -8
 echo "== 9f. spec validation =="; $SF validate | head -6

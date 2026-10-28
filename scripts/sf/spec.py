@@ -43,6 +43,8 @@ def frontmatter(text: str) -> Dict[str, Any]:
             continue
         key, _, val = line.strip().partition(":")
         val = val.strip()
+        if val in ("|", ">", "|-", ">-", "|+", ">+"):
+            raise ValueError("Block-scalar YAML is not supported by this stdlib subset validator; use quoted single-line values or skills-ref")
         if indented and current:
             out[current][key] = _scalar(val)
         elif not val and line.endswith(":"):
@@ -66,6 +68,14 @@ def _scalar(value: str) -> Any:
     value = value.strip()
     if len(value) >= 2 and value[0] == value[-1] and value[0] in ("'", '"'):
         return value[1:-1]
+    if value in ("true", "false", "True", "False", "TRUE", "FALSE"):
+        return value.lower() == "true"
+    if value.lower() in ("null", "~"):
+        return None
+    if re.fullmatch(r"[-+]?\d+", value):
+        return int(value)
+    if re.fullmatch(r"[-+]?(?:\d+\.\d*|\.\d+)(?:[eE][-+]?\d+)?", value):
+        return float(value)
     if value.startswith("[") and value.endswith("]"):
         return [x.strip().strip("'\"") for x in value[1:-1].split(",") if x.strip()]
     return value
@@ -90,7 +100,7 @@ def validate(root: Optional[Path | str] = None) -> Dict[str, Any]:
                 "errors": 1, "warnings": 0}
 
     name = str(fm.get("name", ""))
-    checks.append(_check("name present", bool(name), repr(name)))
+    checks.append(_check("name present", bool(name) and isinstance(fm.get("name"), str), repr(name)))
     checks.append(_check("name <= 64 chars", len(name) <= 64, f"{len(name)} chars"))
     checks.append(_check("name lowercase kebab-case", bool(NAME_RE.match(name)) and "--" not in name,
                          "a-z, 0-9, single hyphens only"))
@@ -98,7 +108,7 @@ def validate(root: Optional[Path | str] = None) -> Dict[str, Any]:
                          f"name={name!r}, dir={root.name!r}"))
 
     desc = str(fm.get("description", ""))
-    checks.append(_check("description non-empty", bool(desc.strip()), f"{len(desc)} chars"))
+    checks.append(_check("description non-empty", isinstance(fm.get("description"), str) and bool(desc.strip()), f"{len(desc)} chars"))
     checks.append(_check("description <= 1024 chars", 1 <= len(desc) <= 1024,
                          f"{len(desc)} chars (spec max 1024)"))
     checks.append(_check("description has no XML tags", not XML_RE.search(desc), "no XML markup"))
@@ -156,5 +166,5 @@ def to_markdown(report: Dict[str, Any]) -> str:
     for c in report["checks"]:
         mark = "ok" if c["ok"] else ("WARN" if c["severity"] == "warning" else "FAIL")
         L.append(f"| {c['name']} | {mark} | {c['detail']} |")
-    L += ["", "Spec: " + report["spec"]]
+    L += ["", "Spec: " + report.get("spec", "https://agentskills.io/specification")]
     return "\n".join(L) + "\n"

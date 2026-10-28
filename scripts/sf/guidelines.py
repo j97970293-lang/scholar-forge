@@ -99,7 +99,7 @@ REQUIRED_DISCLOSURE = [
     (re.compile(r"(?i)\b(v?\d+\.\d+|version|versioned|snapshot|accessed on|date of use)\b"), "states version or access date"),
     (re.compile(r"(?i)(\bpurpose\b|used (?:it|the tool) (?:to|for)|in order to|for (?:drafting|editing|translation|search|analysis|screening))"), "states the purpose"),
     (re.compile(r"(?i)\b(review(?:ed)?|verif(?:ied|ication)|checked|human|responsib(?:le|ility)|oversight)\b"), "affirms human verification/responsibility"),
-    (re.compile(r"(?i)\bnot (?:an? )?authors?\b|\bcannot be (?:an? )?authors?\b|\bno ai authorship\b"), "states AI is not an author"),
+    (re.compile(r"(?i)\bnot (?:an? )?authors?\b|\bcannot be (?:an? )?authors?\b|\bno ai authorship\b|\bno ai tool is listed as an author\b"), "states AI is not an author"),
 ]
 
 
@@ -109,8 +109,7 @@ def lint_disclosure(text: str) -> Dict[str, Any]:
     for pattern, label in REQUIRED_DISCLOSURE:
         if not pattern.search(text or ""):
             findings.append({"severity": "error", "issue": "missing: " + label})
-    if re.search(r"(?i)\bwe (?:acknowledge|thank) (?:chatgpt|claude|an? ai)\b", text or "") or \
-       re.search(r"(?i)\b(?:chatgpt|claude|gemini) (?:is|was) (?:an? )?(?:co-)?author\b", text or ""):
+    if re.search(r"(?i)\b(?:chatgpt|claude|gemini|ai(?: tool)?|llm) (?:is|was) (?:an? )?(?:co-)?author\b", text or ""):
         findings.append({"severity": "error", "issue": "AI appears to be credited as an author"})
     if re.search(r"\[(?:tool|version|specific purpose|date)\]", text or "", re.I):
         findings.append({"severity": "warning", "issue": "unresolved placeholder in disclosure"})

@@ -44,8 +44,13 @@ jobs:
           python3 scripts/scholarforge.py guideline --list | head -8
           python3 scripts/scholarforge.py guideline --recommend "diagnostic accuracy of an AI test"
           python3 scripts/scholarforge.py integrity templates/references.bib
-          python3 scripts/scholarforge.py validate --json | head -8
-          python3 scripts/scholarforge.py disclosure --check templates/ai-disclosure.md
+          python3 scripts/scholarforge.py validate --json > /tmp/sf-validation.json
+          python3 -c "import json; assert json.load(open('/tmp/sf-validation.json'))['ok']"
+          python3 scripts/scholarforge.py disclosure --tool "Example tool" --tool-version "1.0" --purpose editing --authors "Demo author" --oversight "Human review" --verification "All edits compared" --prompts "Appendix B" --policy-date "2026-10-28" --out /tmp/sf-disclosure.md
+          python3 scripts/scholarforge.py disclosure --check /tmp/sf-disclosure.md
+          if python3 scripts/scholarforge.py disclosure --check templates/ai-disclosure.md; then
+            echo "Blank disclosure template must fail" >&2; exit 1
+          fi
       - name: End-to-end demo (expected FAIL)
         run: bash examples/end-to-end/run-demo.sh | tail -25
       - name: End-to-end demo (clean variant)

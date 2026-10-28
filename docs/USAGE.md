@@ -52,13 +52,16 @@ Chicago. Pour une soumission finale, utilisez le CSL officiel avec Pandoc ou `bi
 
 **Nouveau :** `integrity --online` croise trois familles de signaux (marqueur de titre,
 `is_retracted` d'OpenAlex, notices `updated-by` de Crossref). Deux signaux concordants
-donnent `retracted-confirmed` (bloquant) ; un seul donne `retracted-suspected` (non
-bloquant). Le rapport `output/integrity.md` liste les notices avec leur date et leur DOI.
+donnent `retracted-confirmed` (bloquant) ; une seule famille donne `retracted-suspected`
+(non bloquant, sauf préfixe RETRACTED/WITHDRAWN dans le titre : arrêt de précaution).
+Les registres peuvent partager une même source ; ce n'est pas une preuve indépendante. Le rapport `output/integrity.md` liste les notices avec leur date et leur DOI.
 ```bash
 sf integrity references.bib --online --out output/integrity.md
 ```
 Exécutez cette commande **avant** `audit` : l'audit lit le rapport mis en cache
-(`output/integrity.json`) et ne fait jamais d'appel réseau lui-même. Voir le playbook 24.
+(`output/integrity.json`) si son SHA-256 correspond aux références et s'il date de moins de
+24 h. Sinon il refait le scan des titres. La porte d'intégrité ne fait pas d'appel réseau ;
+`audit --online` conserve séparément la résolution Crossref de `G-references`. Voir le playbook 24.
 
 ## 6. Criblage
 Remplissez `screening/screening.csv` avec deux décisions indépendantes et une colonne
@@ -108,6 +111,8 @@ sf disclosure --check submission/ai-disclosure.md
 Catégories : `ideation`, `search`, `screening`, `extraction`, `analysis`, `writing`,
 `editing`, `translation`, `figures`. Cinq champs structurels sont vérifiés par `--check` :
 outil, version/date, finalité, supervision humaine, absence de statut d'auteur pour l'IA.
+Les placeholders et une politique marquée « NOT YET CHECKED » font échouer le contrôle.
+Une déclaration explicite de non-usage est acceptée.
 L'IA n'est jamais auteur (COPE/ICMJE). Voir le playbook 26.
 
 ## 12. Portes et audit
@@ -144,3 +149,8 @@ cas d'évaluation — puis `selftest`, `doctor` et `validate`.
 | `prisma` = FAIL | décision manquante / désaccord non arbitré | compléter `r2` ou `adjudicated` |
 | `disclosure --check` = FAIL | champ structurel absent | compléter l'outil, la version, la finalité, la supervision |
 | `audit` = FAIL | une porte bloquante | lire `output/AUDIT.md`, corriger l'artefact nommé |
+
+**Portée des comptes de recherche :** les clients récupèrent une fenêtre bornée par API
+(souvent au plus 50 notices), pas l'ensemble paginé d'une base. Les comptes du journal sont
+des notices récupérées, pas les totaux de résultats. Les métadonnées inconnues sont
+conservées par les filtres locaux. Le journal facilite PRISMA-S sans certifier l'exhaustivité.

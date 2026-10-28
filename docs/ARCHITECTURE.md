@@ -30,7 +30,7 @@ demande                    toucher au code
    inventaires v1/v2,              upstream/v2/ 6 ZIP curés
    sécurité, classements)          + manifestes SHA-256
                    ▲                        ▲
-                   └────── tools/ (8) ─────┘
+                   └────── tools/ (9) ─────┘
         scan · security · merge · package · v2_pipeline
         · validate_skill · check_secrets
 ```
@@ -44,8 +44,9 @@ demande                    toucher au code
    complétude d'une déclaration IA.
 3. **Échec fermé.** Une porte échoue → arrêt. Huit portes dans `audit` ; `G-pipeline` reste
    consultative (non bloquante).
-4. **Dégradation gracieuse.** Réseau optionnel, panne par source, aucune clé requise. `audit`
-   ne fait jamais d'appel réseau par lui-même : il consomme `output/integrity.json`.
+4. **Dégradation gracieuse.** Réseau optionnel, panne par source, aucune clé requise.
+   La porte d'intégrité consomme un cache lié aux références par SHA-256 (<24 h), ou refait
+   le scan des titres. `audit --online` active séparément la résolution Crossref des DOI.
 5. **Provenance partout.** Chaque résultat d'API, chaque ligne de `search-log.md`, chaque
    entrée de registre, chaque archive porte son origine et son horodatage.
 6. **Données ≠ code.** Les ZIP amont ne sont jamais exécutés ; le moteur est original.
@@ -88,3 +89,8 @@ requêtes réseau sortantes ciblent les API savantes listées dans `config/sourc
 deux endpoints d'intégrité (OpenAlex, Crossref) avec un timeout borné. `check_secrets.py`
 vérifie l'absence de jetons dans les fichiers texte ; les archives sont couvertes par les
 manifestes SHA-256.
+
+**Portée des comptes de recherche :** les clients récupèrent une fenêtre bornée par API
+(souvent au plus 50 notices), pas l'ensemble paginé d'une base. Les comptes du journal sont
+des notices récupérées, pas les totaux de résultats. Les métadonnées inconnues sont
+conservées par les filtres locaux. Le journal facilite PRISMA-S sans certifier l'exhaustivité.
